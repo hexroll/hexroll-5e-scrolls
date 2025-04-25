@@ -1,0 +1,459 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024-2025 Ithai Levi ithai@pendicepaper.com
+#
+# This document contains Open Game Content, subject to the Open Game License,
+# released un the Open Game License, Version 1.0a (enclosed in the LICENSE
+# file), as described in Section 1(d) of the License.
+PitTrapMonster {
+  ^ [
+      *(x3) SwarmofInsects
+      *(x2) SwarmofSpiders
+      *(x2) SwarmofBeetles
+      *(x2) SwarmofCentipedes
+      *(x2) SwarmofWasps
+      *(x1) GiantPoisonousSnake
+  ]
+}
+
+MonstersVerminTier1 {
+  ^ [
+      *(x1) GiantSpider
+      *(x1) GiantToad
+      *(x2) SwarmofBeetles
+      *(x2) SwarmofCentipedes
+      *(x2) SwarmofInsects
+      *(x2) SwarmofSpiders
+      *(x2) SwarmofWasps
+      *(x3) GiantBat
+      *(x3) GiantCentipede
+      *(x3) GiantLizard
+      *(x3) GiantPoisonousSnake
+      *(x3) SwarmofBats
+      *(x3) GiantRat
+      *(x3) GiantFireBeetle
+      *(x3) Shrieker
+    ]
+}
+
+MonstersVerminTier2 {
+  ^ [
+    *(x3) GiantSpider
+    *(x3) GiantToad
+    *(x2) SwarmofBeetles
+    *(x2) SwarmofCentipedes
+    *(x2) SwarmofInsects
+    *(x1) GiantConstrictorSnake
+    *(x1) OchreJelly
+    *(x1) PhaseSpider
+    *(x1) BlackPudding
+    *(x1) Otyugh
+    *(x1) Salamander
+  ]
+}
+
+MonstersVerminTier3 {
+^ [
+    *(x1) GiantConstrictorSnake
+    *(x1) OchreJelly
+    *(x1) PhaseSpider
+    *(x1) BlackPudding
+    *(x1) Otyugh
+    *(x1) Salamander
+  ]
+}
+
+MonstersAberrationTier1 {
+  ^ [
+      *(x2) GibberingMouther
+      *(x2) Cockatrice
+      *(x2) Mimic
+      *(x1) Darkmantle
+      *(x1) RustMonster
+      *(x1) Worg
+      *(x1) DeathDog
+      *(x1) Harpy
+      *(x1) Hippogriff
+      *(x1) Ankheg
+      *(x1) Ettercap
+      *(x1) Grick
+      *(x1) Merrow
+    ]
+}
+
+MonstersAberrationTier2 {
+  ^ [
+      *(x1) GibberingMouther
+      *(x1) Chuul
+      *(x1) Otyugh
+      *(x1) Basilisk
+      *(x1) PhaseSpider
+      *(x1) Lamia
+    ]
+}
+
+MonstersAberrationTier3 {
+  ^ [
+      *(x1) Otyugh
+      *(x1) Bulette
+      *(x1) Gorgon
+      *(x1) Roper
+      *(x1) Chimera
+      *(x1) Drider
+      *(x1) Medusa
+      *(x1) Hydra
+      *(x1) SpiritNaga
+      *(x1) Cloaker
+    ]
+}
+
+MonstersAberrationTier4 {
+  ^ [
+      *(x1) Hydra
+      *(x1) Cloaker
+      *(x1) Aboleth
+      *(x1) GuardianNaga
+      *(x1) Behir
+      *(x1) Gynosphinx
+      *(x1) Remorhaz
+      *(x1) Roc
+      *(x1) PurpleWorm
+      *(x1) Androsphinx
+  ]
+}
+
+MonstersDragonsTier3 {
+  ^ [
+      *(x5) Wyvern
+      *(x4) YoungBrassDragon
+      *(x4) YoungWhiteDragon
+      *(x4) YoungBlackDragon
+      *(x4) YoungCopperDragon
+      *(x4) YoungBronzeDragon
+      *(x4) YoungGreenDragon
+      *(x4) YoungBlueDragon
+      *(x4) YoungSilverDragon
+      *(x4) YoungGoldDragon
+      *(x4) YoungRedDragon
+      *(x1) BrassDragonWyrmling
+      *(x1) CopperDragonWyrmling
+      *(x1) BlackDragonWyrmling
+      *(x1) BronzeDragonWyrmling
+      *(x1) GreenDragonWyrmling
+      *(x1) SilverDragonWyrmling
+      *(x1) WhiteDragonWyrmling
+      *(x1) BlueDragonWyrmling
+      *(x1) GoldDragonWyrmling
+      *(x1) RedDragonWyrmling
+    ]
+}
+
+MonstersDragonsTier4 {
+  ^ [
+      *(x4) AdultBrassDragon
+      *(x4) AdultWhiteDragon
+      *(x4) AdultBlackDragon
+      *(x4) AdultCopperDragon
+      *(x4) AdultBronzeDragon
+      *(x4) AdultGreenDragon
+      *(x4) AdultBlueDragon
+      *(x4) AdultSilverDragon
+      *(x4) AdultGoldDragon
+      *(x4) AdultRedDragon
+      *(x1) AncientBrassDragon
+      *(x1) AncientWhiteDragon
+      *(x1) AncientBlackDragon
+      *(x1) AncientCopperDragon
+      *(x1) AncientBronzeDragon
+      *(x1) AncientGreenDragon
+      *(x1) AncientBlueDragon
+      *(x1) AncientSilverDragon
+      *(x1) AncientGoldDragon
+      *(x1) AncientRedDragon
+  ]
+}
+
+MonstersFiendsTier1 {
+  ^ [
+    *(x3) Lemure
+    *(x3) Dretch
+    *(x2) Imp
+    *(x2) Quasit
+    *(x2) BeardedDevil
+    *(x1) HellHound
+    *(x1) Nightmare
+]}
+
+MonstersFiendsTier2 {
+  ^ [
+    *(x3) Incubus
+    *(x3) Succubus
+    *(x3) BarbedDevil
+    *(x2) NightHag
+    *(x2) Vrock
+    *(x1) ChainDevil
+    *(x1) Hezrou
+]}
+
+MonstersFiendsTier3 {
+  ^ [
+    *(x3) BoneDevil
+    *(x3) Glabrezu
+    *(x2) HornedDevil
+    *(x2) Erinyes
+    *(x2) Nalfeshnee
+    *(x1) Rakshasa
+    *(x1) IceDevil
+]}
+
+MonstersFiendsTier4 {
+  ^ [
+    *(x3) Marilith
+    *(x2) Balor
+    *(x1) PitFiend
+]}
+
+MonstersMonstrositiesTier1 {
+  ^ [
+      *(x3) Cockatrice
+      *(x3) Darkmantle
+      *(x2) RustMonster
+      *(x2) Worg
+      *(x1) DeathDog
+      *(x1) Harpy
+      *(x1) Hippogriff
+]}
+
+MonstersMonstrositiesTier2 {
+  ^ [
+      *(x3) Ankheg
+      *(x3) Centaur
+      *(x3) Ettercap
+      *(x3) Grick
+      *(x2) Griffon
+      *(x2) Merrow
+      *(x2) Mimic
+      *(x2) Basilisk
+      *(x2) Doppelganger
+      *(x1) Manticore
+      *(x1) Minotaur
+      *(x1) Owlbear
+      *(x1) PhaseSpider
+      *(x1) WinterWolf
+]}
+
+MonstersMonstrositiesTier3 {
+  ^ [
+      *(x3) Lamia
+      *(x3) Bulette
+      *(x3) Gorgon
+      *(x2) Roper
+      *(x2) Chimera
+      *(x2) Drider
+      *(x2) Medusa
+      *(x1) Hydra
+      *(x1) SpiritNaga
+      *(x1) GuardianNaga
+]}
+
+MonstersMonstrositiesTier4 {
+  ^ [
+      *(x3) Behir
+      *(x3) Gynosphinx
+      *(x2) Remorhaz
+      *(x2) Roc
+      *(x1) PurpleWorm
+      *(x1) Androsphinx
+      *(x0) Kraken
+      *(x0) Tarrasque
+]}
+
+MonstersHumanoidTier1 {
+  ^ [
+     *(x1) Commoner
+     *(x1) Bandit
+     *(x1) Cultist
+     *(x1) Guard
+     *(x1) Kobold
+     *(x1) Merfolk
+     *(x1) Noble
+     *(x1) TribalWarrior
+     *(x1) Acolyte
+     *(x1) Drow
+     *(x1) Goblin
+     *(x1) Grimlock
+     *(x1) DeepGnomeSvirfneblin
+     *(x1) Gnoll
+     *(x1) Hobgoblin
+     *(x1) Lizardfolk
+     *(x1) Orc
+     *(x1) Sahuagin
+     *(x1) Scout
+     *(x1) Thug
+     *(x1) Bugbear
+     *(x1) Duergar
+     *(x1) Spy
+     *(x1) BanditCaptain
+     *(x1) Berserker
+     *(x1) CultFanatic
+     *(x1) Druid
+     *(x1) Priest
+     *(x1) Wererat
+     *(x1) Knight
+     *(x1) Veteran
+     *(x1) Werewolf
+     *(x1) Wereboar
+     *(x1) Weretiger
+     *(x1) Gladiator
+     *(x1) HalfRedDragonVeteran
+     *(x1) Werebear
+     *(x1) Mage
+     *(x1) Assassin
+     *(x1) Archmage
+  ]
+}
+
+MonstersMagicalTier1 {
+  ^ [
+      *(x2) Homunculus
+      *(x2) FlyingSword
+      *(x2) AnimatedArmor
+      *(x1) Pegasus
+      *(x1) RugofSmothering
+    ]
+}
+
+MonstersMagicalTier2 {
+  ^ [
+      *(x2) Couatl
+      *(x2) Unicorn
+      *(x2) FleshGolem
+      *(x1) ShieldGuardian
+      *(x1) ClayGolem
+    ]
+}
+
+MonstersMagicalTier3 {
+  ^ [
+      *(x2) Deva
+      *(x2) StoneGolem
+      *(x1) Planetar
+      *(x1) IronGolem
+    ]
+}
+
+MonstersMagicalTier4 {
+  ^ [
+      *(x1) Solar
+    ]
+}
+
+MonstersOozeTier1 {
+  ^ [
+      *(x4) GrayOoze
+      *(x2) GelatinousCube
+      *(x1) OchreJelly
+    ]
+}
+
+MonstersOozeTier2 {
+  ^ [
+      *(x1) GelatinousCube
+      *(x1) OchreJelly
+    ]
+}
+
+MonstersOozeTier3 {
+  ^ [
+      *(x1) BlackPudding
+    ]
+}
+
+MonsterUndeadTier1 {
+  ^ [
+     *(x3) Zombie
+     *(x3) Skeleton
+     *(x2) Shadow
+     *(x2) WarhorseSkeleton
+     *(x2) Ghoul
+     *(x2) Specter
+     *(x1) Ghast
+     *(x1) MinotaurSkeleton
+     *(x1) OgreZombie
+     *(x1) WilloWisp
+  ]
+}
+
+MonsterUndeadTier2 {
+  ^ [
+     *(x3) Ghoul
+     *(x3) Specter
+     *(x2) Ghast
+     *(x2) MinotaurSkeleton
+     *(x2) OgreZombie
+     *(x1) WilloWisp
+     *(x1) Mummy
+     *(x1) Wight
+  ]
+}
+
+MonsterUndeadTier3 {
+  ^ [
+     *(x1) Mummy
+     *(x2) Wight
+     *(x3) Ghost
+     *(x2) VampireSpawn
+     *(x1) Wraith
+  ]
+}
+
+MonsterUndeadTier4 {
+  ^ [
+     *(x3) Vampire
+     *(x2) MummyLord
+     *(x1) Lich
+  ]
+}
+
+MonsterCavernsTier1 {
+  ^ [
+    *(x1) MonstersMonstrositiesTier1
+  ]
+}
+
+MonsterCavernsTier2 {
+  ^ [
+    *(x1) MonstersMonstrositiesTier2
+  ]
+}
+
+MonsterCavernsTier3 {
+  ^ [
+    *(x1) MonstersMonstrositiesTier3
+  ]
+}
+
+MonsterCavernsTier4 {
+  ^ [
+    *(x1) MonstersMonstrositiesTier4
+  ]
+}
+
+MonsterCultistsTier1 {
+  ^ [
+    *(x1) Cultist
+   ]
+}
+
+MonsterTempleAnimalsTier1 {
+  ^ [
+    *(x1) Ape
+    *(x1) BlackBear
+    *(x1) PolarBear
+    *(x1) Boar
+    *(x1) Lion
+    *(x1) Panther
+    *(x1) Tiger
+   ]
+}
