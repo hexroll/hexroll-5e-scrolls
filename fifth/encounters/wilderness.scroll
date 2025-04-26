@@ -139,7 +139,7 @@ SwampsRandomEncounter {
     *(x1) Bugbear
     *(x1) DireWolf
     *(x1) Lizardfolk
-    *(x1) Guard
+    *(x1) GuardAsMonster
     *(x1) Scout
     *(x1) Elk
     *(x1) Deer
@@ -210,7 +210,7 @@ PlainsRandomEncounter {
     *(x1) Druid
     *(x1) Scout
     *(x1) Cultist
-    *(x1) Guard
+    *(x1) GuardAsMonster
     *(x1) TribalWarrior
     *(x1) Veteran
     *(x1) Thug
@@ -364,7 +364,7 @@ MountainsRandomEncounter {
     *(x1) Quipper
     *(x1) BloodHawk
     *(x1) Acolyte
-    *(x1) Guard
+    *(x1) GuardAsMonster
     *(x1) Bandit
     *(x1) Commoner
     *(x1) Scout
