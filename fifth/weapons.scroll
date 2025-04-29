@@ -1,0 +1,257 @@
+ExWeapon {
+  ^ [
+    * 5E_Javelin
+  ]
+
+  Stats! ~ <% <strong>{{WeaponName}}</strong> {%set AttackRoll="+0"%}{%if ActualBonus>=0%}{%set AttackRoll="+"+ActualBonus%}{%else%}{%set AttackRoll=""+ActualBonus%}{%endif%} {{dice_roller("1d20"+AttackRoll, AttackRoll)}} to hit {{WeaponRange}} one target. Inflicts {{stable_dice(DamageRoll,uuid,1)}} ({{dice_roller(DamageRoll,DamageRoll)}}) {{DamageType}} damage %>
+}
+
+MeleeWeapon(ExWeapon) {
+  ClassWeaponProficiencies = ""
+  ProficiencyBonus = 0
+  BaseStrength = 0
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName) %}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10) / 2,0) + WeaponProficiencyBonus}} %>
+  | ExWeapon
+}
+
+RangedWeapon(ExWeapon) {
+  ClassWeaponProficiencies = ""
+  ProficiencyBonus = 0
+  BaseDexterity = 0
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName)%}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10) / 2,0) + WeaponProficiencyBonus}} %>
+  | ExWeapon
+}
+
+5E_Scimitar(MeleeWeapon) {
+  WeaponName = "Scimitar"
+  WeaponType = "Finesse, light"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Club(MeleeWeapon) {
+  WeaponName = "Club"
+  WeaponType = "Simple, melee"
+  WeaponRange = ""
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d4"
+  | MeleeWeapon
+}
+
+5E_Dagger(MeleeWeapon) {
+  WeaponName = "Dagger"
+  WeaponType = "Finesse, light, thrown"
+  WeaponRange = "range 20/60"
+  DamageType ~ "piercing"
+  DamageRoll = "1d4"
+  | MeleeWeapon
+}
+
+5E_Greatclub(MeleeWeapon) {
+  WeaponName = "Greatclub"
+  WeaponType = "Simple, two-handed"
+  WeaponRange = ""
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Handaxe(MeleeWeapon) {
+  WeaponName = "Handaxe"
+  WeaponType = "Simple, thrown"
+  WeaponRange = "range 20/60"
+  DamageType ~ "slashing"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Javelin(MeleeWeapon) {
+  WeaponName = "Javelin"
+  WeaponType = "Simple, thrown"
+  WeaponRange = "range 30/120"
+  DamageType ~ "piercing"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_LightHammer(MeleeWeapon) {
+  WeaponName = "Light Hammer"
+  WeaponType = "Simple, thrown"
+  WeaponRange = "range 20/60"
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d4"
+  | MeleeWeapon
+}
+
+5E_Mace(MeleeWeapon) {
+  WeaponName = "Mace"
+  WeaponType = "Simple, melee"
+  WeaponRange = ""
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Quarterstaff(MeleeWeapon) {
+  WeaponName = "Quarterstaff"
+  WeaponType = "Simple, versatile"
+  WeaponRange = ""
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Sickle(MeleeWeapon) {
+  WeaponName = "Sickle"
+  WeaponType = "Simple, light"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d4"
+  | MeleeWeapon
+}
+
+5E_Spear(RangedWeapon) {
+  WeaponName = "Spear"
+  WeaponType = "Simple, versatile, thrown"
+  WeaponRange = "range 20/60"
+  DamageType ~ "piercing"
+  DamageRoll = "1d6"
+  | RangedWeapon
+}
+
+5E_LightCrossbow(RangedWeapon) {
+  WeaponName = "Light Crossbow"
+  WeaponType = "Simple, ranged"
+  WeaponRange = "range 80/320"
+  DamageType ~ "piercing"
+  DamageRoll = "1d8"
+  | RangedWeapon
+}
+
+5E_Dart(RangedWeapon) {
+  WeaponName = "Dart"
+  WeaponType = "Simple, thrown"
+  WeaponRange = "range 20/60"
+  DamageType ~ "piercing"
+  DamageRoll = "1d4"
+  | RangedWeapon
+}
+
+5E_Shortbow(RangedWeapon) {
+  WeaponName = "Shortbow"
+  WeaponType = "Simple, ranged"
+  WeaponRange = "range 80/320"
+  DamageType ~ "piercing"
+  DamageRoll = "1d6"
+  | RangedWeapon
+}
+
+5E_Sling(RangedWeapon) {
+  WeaponName = "Sling"
+  WeaponType = "Simple, ranged"
+  WeaponRange = "range 30/120"
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d4"
+  | RangedWeapon
+}
+
+5E_Battleaxe(MeleeWeapon) {
+  WeaponName = "Battleaxe"
+  WeaponType = "Martial, versatile"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Flail(MeleeWeapon) {
+  WeaponName = "Flail"
+  WeaponType = "Martial, melee"
+  WeaponRange = ""
+  DamageType ~ "bludgeoning"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Glaive(MeleeWeapon) {
+  WeaponName = "Glaive"
+  WeaponType = "Martial, heavy, reach"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d10"
+  | MeleeWeapon
+}
+
+5E_Longsword(MeleeWeapon) {
+  WeaponName = "Longsword"
+  WeaponType = "Martial, versatile"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Pike(MeleeWeapon) {
+  WeaponName = "Pike"
+  WeaponType = "Martial, heavy, reach"
+  WeaponRange = ""
+  DamageType ~ "piercing"
+  DamageRoll = "1d10"
+  | MeleeWeapon
+}
+
+5E_Rapier(MeleeWeapon) {
+  WeaponName = "Rapier"
+  WeaponType = "Martial, finesse"
+  WeaponRange = ""
+  DamageType ~ "piercing"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Shortsword(MeleeWeapon) {
+  WeaponName = "Shortsword"
+  WeaponType = "Martial, finesse, light"
+  WeaponRange = ""
+  DamageType ~ "piercing"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Trident(MeleeWeapon) {
+  WeaponName = "Trident"
+  WeaponType = "Martial, thrown, versatile"
+  WeaponRange = "range 20/60"
+  DamageType ~ "piercing"
+  DamageRoll = "1d6"
+  | MeleeWeapon
+}
+
+5E_Warpick(MeleeWeapon) {
+  WeaponName = "Warpick"
+  WeaponType = "Martial, melee"
+  WeaponRange = ""
+  DamageType ~ "piercing"
+  DamageRoll = "1d8"
+  | MeleeWeapon
+}
+
+5E_Whip(MeleeWeapon) {
+  WeaponName = "Whip"
+  WeaponType = "Martial, finesse"
+  WeaponRange = ""
+  DamageType ~ "slashing"
+  DamageRoll = "1d4"
+  | MeleeWeapon
+}
+
+Net(MeleeWeapon) {
+  WeaponName = "Net"
+  WeaponType = "Martial, ranged, special"
+  WeaponRange = "range 5/15"
+  DamageType ~ ""
+  DamageRoll = ""
+  | MeleeWeapon
+}
