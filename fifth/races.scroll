@@ -1,0 +1,183 @@
+RaceHuman {
+  Title! = "Human"
+  StrengthBonus! = 1
+  DexterityBonus! = 1
+  ConstitutionBonus! = 1
+  IntelligenceBonus! = 1
+  WisdomBonus! = 1
+  CharismaBonus! = 1
+  BaseWalkingSpeed! = 30
+  Darkvision = False
+  RacialTraits! = ""
+  WeaponProficiencies! = ""
+  BaseLanguages! = "Common"
+}
+
+RaceHalfOrc {
+  Title! = "Half-Orc"
+  StrengthBonus! = 2
+  DexterityBonus! = 0
+  ConstitutionBonus! = 1
+  IntelligenceBonus! = 0
+  WisdomBonus! = 0
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 30
+  Darkvision = True
+  RacialTraits! = "Darkvision, Menacing, Relentless Endurance, Savage Attacks"
+  WeaponProficiencies! = ""
+  BaseLanguages! = "Common, Orc"
+}
+
+RaceDwarf {
+  Title! = "Dwarf"
+  StrengthBonus! = 0
+  DexterityBonus! = 0
+  ConstitutionBonus! = 2
+  IntelligenceBonus! = 0
+  WisdomBonus! = 1
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 25
+  Darkvision = True
+  RacialTraits! = "Darkvision, Dwarven Resilience, Dwarven Combat Training, Tool Proficiency, Stonecunning"
+  WeaponProficiencies! = "Battleaxe, Handaxe, Light Hammer, Warhammer"
+  BaseLanguages! = "Common, Dwarvish"
+}
+
+RaceElf {
+  Title! = "Elf"
+  StrengthBonus! = 0
+  DexterityBonus! = 2
+  ConstitutionBonus! = 0
+  IntelligenceBonus! = 0
+  WisdomBonus! = 0
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 30
+  Darkvision = True
+  RacialTraits! = "Darkvision, Keen Senses, Fey Ancestry, Trance"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Elvish"
+}
+
+RaceHalfling {
+  Title! = "Halfling"
+  StrengthBonus! = 0
+  DexterityBonus! = 2
+  ConstitutionBonus! = 0
+  IntelligenceBonus! = 0
+  WisdomBonus! = 0
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 25
+  Darkvision = False
+  RacialTraits! = "Lucky, Brave, Halfling Nimbleness"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Halfling"
+}
+
+RaceDragonborn {
+  Title! = "Dragonborn"
+  StrengthBonus! = 2
+  DexterityBonus! = 0
+  ConstitutionBonus! = 0
+  IntelligenceBonus! = 0
+  WisdomBonus! = 0
+  CharismaBonus! = 1
+  BaseWalkingSpeed! = 30
+  Darkvision = False
+  DraconicAncestry @ [
+    * Draconic Ancestry / Black Dragon (Breath Weapon: Acid, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Blue Dragon (Breath Weapon: Lightning, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Brass Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Bronze Dragon (Breath Weapon: Lightning, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Copper Dragon (Breath Weapon: Acid, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Gold Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Green Dragon (Breath Weapon: Poison, 5 by 30 ft, Con save)
+    * Draconic Ancestry / Red Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
+    * Draconic Ancestry / Silver Dragon (Breath Weapon: Cold, 5 by 30 ft, Con save)
+    * Draconic Ancestry / White Dragon (Breath Weapon: Cold, 5 by 30 ft, Con save)
+  ]
+  RacialTraits! ~ "{{DraconicAncestry}}, Damage Resistance"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Draconic"
+}
+
+RaceGnome {
+  Title! = "Gnome"
+  StrengthBonus! = 0
+  DexterityBonus! = 0
+  ConstitutionBonus! = 1
+  IntelligenceBonus! = 2
+  WisdomBonus! = 0
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 25
+  Darkvision = True
+  RacialTraits! = "Darkvision, Gnome Cunning, Artificer's Lore, Speak with Small Beasts"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Gnomish"
+}
+
+RaceHalfElf {
+  Title! = "Half-Elf"
+  StrengthBonus! = 0
+  DexterityBonus! = 2
+  ConstitutionBonus! = 0
+  IntelligenceBonus! = 0
+  WisdomBonus! = 0
+  CharismaBonus! = 2
+  BaseWalkingSpeed! = 30
+  Darkvision = True
+  Skill1 @ [
+    * Acrobatics
+    * Animal Handling
+    * Arcana
+    * Athletics
+    * Deception
+    * History
+    * Insight
+    * Intimidation
+  ]
+  Skill2 @ [
+    * Investigation
+    * Medicine
+    * Nature
+    * Perception
+    * Performance
+    * Persuasion
+    * Religion
+    * Sleight of Hand
+    * Stealth
+    * Survival
+  ]
+  RacialTraits! = "Fey Ancestry, Skill Versatility ({{Skill1}}, {{Skill2}})"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Elvish, One additional language"
+}
+
+RaceTiefling {
+  Title! = "Tiefling"
+  StrengthBonus! = 0
+  DexterityBonus! = 0
+  ConstitutionBonus! = 1
+  IntelligenceBonus! = 2
+  WisdomBonus! = 0
+  CharismaBonus! = 0
+  BaseWalkingSpeed! = 30
+  Darkvision = True
+  RacialTraits! = "Darkvision, Hellish Resistance, Infernal Legacy"
+  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  BaseLanguages! = "Common, Infernal"
+}
+
+
+Race {
+  ^ [
+    * RaceHuman
+    * RaceHalfOrc
+    * RaceDwarf
+    * RaceElf
+    * RaceHalfling
+    * RaceTiefling
+    * RaceDragonborn
+    * RaceHalfElf
+    * RaceGnome
+  ]
+}
