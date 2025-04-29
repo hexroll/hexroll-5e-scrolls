@@ -1,0 +1,464 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024 Ithai Levi ithai@pendicepaper.com
+#
+# This document contains Open Game Content, subject to the Open Game License,
+# released un the Open Game License, Version 1.0a (enclosed in the LICENSE
+# file), as described in Section 1(d) of the License.
+#
+
+NPC5E(Character) {
+  | Character
+  Languages ~ <% {{Race.BaseLanguages}} %>
+  Profession! = none
+  $IndexRef @ IndexedEntity {
+    Render = "Name"
+    Details = <%A level {{Level}} {{Class}}{{maybe2(", the ", Profession)}} {{maybe2("from ",capitalize(SettlementName))}}%>
+    Anchor = &uuid
+    Link = &HostingEntity
+    Type = "location"
+    Full = ""
+    Search = "{{Full}}"
+    Icon = "user"
+  }
+
+  Spells = ""
+
+  CalculatedHitPoints! = <%{{max(HitPoints+round((BaseConstitution + Race.ConstitutionBonus - 10)/2,0)*Level, 1)}}
+    %>
+  <entity-did-roll%
+    -- We use some lua magic to setup the spells stats text
+    local spells = {self.Spell1, self.Spell2, self.Spell3, self.Spell4,
+      self.Spell5, self.Spell6, self.Spell7, self.Spell8, self.Spell9,
+      self.Spell10, self.Spell11, self.Spell12, self.Spell13, self.Spell14,
+      self.Spell15, self.Spell16, self.Spell17, self.Spell18, self.Spell19,
+      self.Spell20, self.Spell21, self.Spell22, self.Spell23, self.Spell24,
+      self.Spell25
+    }
+    local spell_count = {}
+    for i=1, #spells do
+      local spell = spells[i]
+      if spell ~= nil then
+        spell_count[spell] = (spell_count[spell] or 0) + 1
+      end
+    end
+    local spells_text = ''
+    for  k,v in pairs(spell_count) do
+     spells_text = spells_text .. '&#10022; ' .. v .. ' &times; ' ..  k
+    end
+    if spells_text ~= '' then
+      spells_text = '<strong>Spellcasting:</strong> ' .. spells_text
+    end
+    set(self, "Spells", spells_text)
+    -- There is no need to call save(self)
+  %entity-did-roll>
+
+
+  Description! ~ <%
+    <strong>{{Name.Full}}</strong>, a level {{Level}} {{Class}}.
+    {{DescriptionInscript}}
+    {{capitalize(Gender.PronounSubject)}} {{Gender.Possession}} {{Appearance}}
+    (<em>{{State}}</em>). {{InThePocket.Details}}
+    {{DescriptionPostscript}}
+  %>
+  Alignment = Neutral
+  Senses ~ <% Race.Senses %>
+
+  Stats! ~ <%
+    {% set Strength = 0 %}
+    {% set Dexterity = 0 %}
+    {% set Constitution = 0 %}
+    {% set Wisdom = 0 %}
+    {% set Intelligence = 0 %}
+    {% set Charisma = 0 %}
+    {% set Strength = BaseStrength + Race.StrengthBonus%}
+    {% set Dexterity = BaseDexterity + Race.DexterityBonus %}
+    {% set Constitution = BaseConstitution + Race.ConstitutionBonus %}
+    {% set Intelligence = BaseIntelligence + Race.IntelligenceBonus %}
+    {% set Wisdom = BaseWisdom + Race.WisdomBonus %}
+    {% set Charisma = BaseCharisma + Race.CharismaBonus %}
+
+    {% set StrengthModifier = round((Strength - 10) / 2,0) %}
+    {% set DexterityModifier = round((Dexterity - 10) / 2,0) %}
+    {% set ConstitutionModifier = round((Constitution - 10) / 2,0) %}
+    {% set WisdomModifier = round((Wisdom - 10) / 2,0) %}
+    {% set CharismaModifier = round((Charisma - 10) / 2,0) %}
+    {% set IntelligenceModifier = round((Intelligence - 10) / 2,0) %}
+
+    <div id="block-{{uuid}}" class="monster-block">
+        <div class="statblock">
+            <hr/>
+            <div class="statblock-top-row">
+                <div><span class="section-label">Level:</span> {{Level}} </div>
+                <div><span class="section-label">Proficiency:</span> +{{ProficiencyBonus}}</div>
+                <div><span class="section-label">AC:</span> {{Armor}}</div>
+                <div><span class="section-label">HP:</span> {{CalculatedHitPoints}} </div>
+                <div><span class="section-label">Speed:</span> {{Race.BaseWalkingSpeed}}</div>
+            </div>
+            <table class="statblock-table">
+                <tr><th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th></tr>
+                <tr>
+                <td>{{Strength}} <small> {{StrengthModifier}} </small> </td>
+                <td>{{Dexterity}} <small> {{DexterityModifier}} </small> </td>
+                <td>{{Constitution}} <small> {{ConstitutionModifier}} </small> </td>
+                <td>{{Intelligence}} <small> {{IntelligenceModifier}} </small> </td>
+                <td>{{Wisdom}} <small> {{WisdomModifier}} </small> </td>
+                <td>{{Charisma}} <small> {{CharismaModifier}} </small> </td>
+                </tr>
+            </table>
+            <div>
+            <input class="monster-block-toggle" name="toggle-{{uuid}}" id="toggle-{{uuid}}" type="checkbox" onclick="javascript:document.getElementById('block-{{uuid}}').scrollIntoView();"/>
+            <div id="block-toggle-{{uuid}}" class="statblock-container">
+                <ul>
+                {% if exists("ClassSpecificStats") %} {{ClassSpecificStats}} {% endif %}
+                {% if Race.RacialTraits != "" %}
+                <li><strong>{{Race.Title}}: </strong> {{Race.RacialTraits}}</li>
+                {% endif %}
+                {% if SavingThrows != "" %}
+                <li><strong>Saving Throws: </strong> {{SavingThrows}}</li>
+                {% endif %}
+                {% if DamageImmunities != "" %}
+                <li><strong>Immunities: </strong> {{DamageImmunities}}</li>
+                {% endif %}
+                {% if Senses != "" %}
+                <li><strong>Senses: </strong> {{Senses}}</li>
+                {% endif %}
+                {% if Languages != "" %}
+                <li><strong>Languages: </strong> {{Languages}}</li>
+                {% endif %}
+                </ul>
+                {% if exists("Traits") %}
+                <hr/>
+                <div>{{Traits}}</div>
+                {% endif %}
+                {% if exists("Actions") or exists("Spells") %}
+                <hr/>
+                <h6>Actions</h6>
+                <ul>
+                <li>{{Spells}}</li>
+                <li>{{WeaponAsAction.Stats}}</li>
+                </ul>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+
+  %>
+}
+
+TavernVisitor (NPC5E) { ^ [
+    * DruidLevel1
+    * DruidLevel2
+    * DruidLevel3
+    * DruidLevel4
+    * DruidLevel5
+    * DruidLevel6
+    * DruidLevel7
+    * DruidLevel8
+  ]
+}
+
+
+FighterLevel1 {^ [
+* DruidLevel6
+] }
+FighterLevel2 {^ [
+* DruidLevel6
+] }
+FighterLevel3 {^ [
+* DruidLevel6
+] }
+FighterLevel4 {^ [
+* DruidLevel6
+] }
+FighterLevel5 {^ [
+* DruidLevel6
+] }
+FighterLevel6 {^ [
+* DruidLevel6
+] }
+FighterLevel7 {^ [
+* DruidLevel6
+] }
+FighterLevel8 {^ [
+* DruidLevel6
+] }
+FighterLevel9 {^ [
+* DruidLevel6
+] }
+FighterLevel10 {^ [
+* DruidLevel6
+] }
+FighterLevel11 {^ [
+* DruidLevel6
+] }
+FighterLevel12 {^ [
+* DruidLevel6
+] }
+FighterLevel13 {^ [
+* DruidLevel6
+] }
+FighterLevel14 {^ [
+* DruidLevel6
+] }
+
+MagicuserLevel1 {^ [
+* DruidLevel6
+] }
+MagicuserLevel2 {^ [
+* DruidLevel6
+] }
+MagicuserLevel3 {^ [
+* DruidLevel6
+] }
+MagicuserLevel4 {^ [
+* DruidLevel6
+] }
+MagicuserLevel5 {^ [
+* DruidLevel6
+] }
+MagicuserLevel6 {^ [
+* DruidLevel6
+] }
+MagicuserLevel7 {^ [
+* DruidLevel6
+] }
+MagicuserLevel8 {^ [
+* DruidLevel6
+] }
+MagicuserLevel9 {^ [
+* DruidLevel6
+] }
+MagicuserLevel10 {^ [
+* DruidLevel6
+] }
+MagicuserLevel11 {^ [
+* DruidLevel6
+] }
+MagicuserLevel12 {^ [
+* DruidLevel6
+] }
+MagicuserLevel13 {^ [
+* DruidLevel6
+] }
+MagicuserLevel14 {^ [
+* DruidLevel6
+] }
+
+ElfLevel1 {^ [
+* DruidLevel6
+] }
+ElfLevel2 {^ [
+* DruidLevel6
+] }
+ElfLevel3 {^ [
+* DruidLevel6
+] }
+ElfLevel4 {^ [
+* DruidLevel6
+] }
+ElfLevel5 {^ [
+* DruidLevel6
+] }
+ElfLevel6 {^ [
+* DruidLevel6
+] }
+ElfLevel7 {^ [
+* DruidLevel6
+] }
+ElfLevel8 {^ [
+* DruidLevel6
+] }
+ElfLevel9 {^ [
+* DruidLevel6
+] }
+ElfLevel10 {^ [
+* DruidLevel6
+] }
+ElfLevel11 {^ [
+* DruidLevel6
+] }
+ElfLevel12 {^ [
+* DruidLevel6
+] }
+ElfLevel13 {^ [
+* DruidLevel6
+] }
+ElfLevel14 {^ [
+* DruidLevel6
+] }
+
+DwarfLevel1 {^ [
+* DruidLevel6
+] }
+DwarfLevel2 {^ [
+* DruidLevel6
+] }
+DwarfLevel3 {^ [
+* DruidLevel6
+] }
+DwarfLevel4 {^ [
+* DruidLevel6
+] }
+DwarfLevel5 {^ [
+* DruidLevel6
+] }
+DwarfLevel6 {^ [
+* DruidLevel6
+] }
+DwarfLevel7 {^ [
+* DruidLevel6
+] }
+DwarfLevel8 {^ [
+* DruidLevel6
+] }
+DwarfLevel9 {^ [
+* DruidLevel6
+] }
+DwarfLevel10 {^ [
+* DruidLevel6
+] }
+DwarfLevel11 {^ [
+* DruidLevel6
+] }
+DwarfLevel12 {^ [
+* DruidLevel6
+] }
+DwarfLevel13 {^ [
+* DruidLevel6
+] }
+DwarfLevel14 {^ [
+* DruidLevel6
+] }
+
+ClericLevel1 {^ [
+* DruidLevel6
+] }
+ClericLevel2 {^ [
+* DruidLevel6
+] }
+ClericLevel3 {^ [
+* DruidLevel6
+] }
+ClericLevel4 {^ [
+* DruidLevel6
+] }
+ClericLevel5 {^ [
+* DruidLevel6
+] }
+ClericLevel6 {^ [
+* DruidLevel6
+] }
+ClericLevel7 {^ [
+* DruidLevel6
+] }
+ClericLevel8 {^ [
+* DruidLevel6
+] }
+ClericLevel9 {^ [
+* DruidLevel6
+] }
+ClericLevel10 {^ [
+* DruidLevel6
+] }
+ClericLevel11 {^ [
+* DruidLevel6
+] }
+ClericLevel12 {^ [
+* DruidLevel6
+] }
+ClericLevel13 {^ [
+* DruidLevel6
+] }
+ClericLevel14 {^ [
+* DruidLevel6
+] }
+
+HalflingLevel1 {^ [
+* DruidLevel6
+] }
+HalflingLevel2 {^ [
+* DruidLevel6
+] }
+HalflingLevel3 {^ [
+* DruidLevel6
+] }
+HalflingLevel4 {^ [
+* DruidLevel6
+] }
+HalflingLevel5 {^ [
+* DruidLevel6
+] }
+HalflingLevel6 {^ [
+* DruidLevel6
+] }
+HalflingLevel7 {^ [
+* DruidLevel6
+] }
+HalflingLevel8 {^ [
+* DruidLevel6
+] }
+HalflingLevel9 {^ [
+* DruidLevel6
+] }
+HalflingLevel10 {^ [
+* DruidLevel6
+] }
+HalflingLevel11 {^ [
+* DruidLevel6
+] }
+HalflingLevel12 {^ [
+* DruidLevel6
+] }
+HalflingLevel13 {^ [
+* DruidLevel6
+] }
+HalflingLevel14 {^ [
+* DruidLevel6
+] }
+
+
+ThiefLevel1 {^ [
+* DruidLevel6
+] }
+ThiefLevel2 {^ [
+* DruidLevel6
+] }
+ThiefLevel3 {^ [
+* DruidLevel6
+] }
+ThiefLevel4 {^ [
+* DruidLevel6
+] }
+ThiefLevel5 {^ [
+* DruidLevel6
+] }
+ThiefLevel6 {^ [
+* DruidLevel6
+] }
+ThiefLevel7 {^ [
+* DruidLevel6
+] }
+ThiefLevel8 {^ [
+* DruidLevel6
+] }
+ThiefLevel9 {^ [
+* DruidLevel6
+] }
+ThiefLevel10 {^ [
+* DruidLevel6
+] }
+ThiefLevel11 {^ [
+* DruidLevel6
+] }
+ThiefLevel12 {^ [
+* DruidLevel6
+] }
+ThiefLevel13 {^ [
+* DruidLevel6
+] }
+ThiefLevel14 {^ [
+* DruidLevel6
+] }

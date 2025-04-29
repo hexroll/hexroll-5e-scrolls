@@ -1,0 +1,488 @@
+DruidCantrip = [
+    * Druidcraft
+    * Guidance
+    * Mending
+    * Poison Spray
+    * Produce Flame
+    * Resistance
+    * Shillelagh
+]
+
+DruidSpellLevel1 = [
+    * Animal Friendship
+    * Charm Person
+    * Create or Destroy Water
+    * Cure Wounds
+    * Detect Magic
+    * Detect Poison and Disease
+    * Entangle
+    * Faerie Fire
+    * Fog Cloud
+    * Goodberry
+    * Healing Word
+    * Jump
+    * Longstrider
+    * Purify Food and Drink
+    * Speak with Animals
+    * Thunderwave
+]
+
+
+DruidSpellLevel2 = [
+    * Animal Messenger
+    * Barkskin
+    * Darkvision
+    * Enhance Ability
+    * Find Traps
+    * Flame Blade
+    * Flaming Sphere
+    * Gust of Wind
+    * Heat Metal
+    * Hold Person
+    * Lesser Restoration
+    * Locate Animals or Plants
+    * Locate Object
+    * Moonbeam
+    * Pass without Trace
+    * Protection from Poison
+    * Spike Growth
+]
+
+DruidSpellLevel3 = [
+    * Call Lightning
+    * Conjure Animals
+    * Daylight
+    * Dispel Magic
+    * Meld into Stone
+    * Plant Growth
+    * Protection from Energy
+    * Sleet Storm
+    * Speak with Plants
+    * Water Breathing
+    * Water Walk
+    * Wind Wall
+]
+
+DruidSpellLevel4 = [
+    * Blight
+    * Confusion
+    * Conjure Minor Elementals
+    * Conjure Woodland Beings
+    * Control Water
+    * Dominate Beast
+    * Freedom of Movement
+    * Giant Insect
+    * Hallucinatory Terrain
+    * Ice Storm
+    * Locate Creature
+    * Polymorph
+    * Stone Shape
+    * Stoneskin
+    * Wall of Fire
+]
+
+DruidSpellLevel5 = [
+    * Antilife Shell
+    * Awaken
+    * Commune with Nature
+    * Conjure Elemental
+    * Contagion
+    * Geas
+    * Greater Restoration
+    * Insect Plague
+    * Mass Cure Wounds
+    * Planar Binding
+    * Reincarnate
+    * Scrying
+    * Tree Stride
+    * Wall of Stone
+]
+
+DruidSpellLevel6 = [
+    * Conjure Fey
+    * Find the Path
+    * Heal
+    * Heroes' Feast
+    * Move Earth
+    * Sunbeam
+    * Transport via Plants
+    * Wall of Thorns
+    * Wind Walk
+]
+
+DruidSpellLevel7 = [
+    * Fire Storm
+    * Mirage Arcane
+    * Plane Shift
+    * Regenerate
+    * Reverse Gravity
+]
+
+DruidSpellLevel8 = [
+    * Animal Shapes
+    * Antipathy/Sympathy
+    * Control Weather
+    * Earthquake
+    * Feeblemind
+    * Sunburst
+]
+
+DruidSpellLevel9 = [
+    * Foresight
+    * Shapechange
+    * Storm of Vengeance
+    * True Resurrection
+]
+
+Druid(NPC5E) {
+  Race @ Race
+  Class! = "Druid"
+  ExtraLanguages = "Druidic"
+  RaceStrengthBonus = TBD
+  BaseStrength = TBD
+  RaceDexterityBonus = TBD
+  BaseDexterity = TBD
+  WeaponAsAction @ ExWeapon {
+    ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
+    ProficiencyBonus = &ProficiencyBonus
+    BaseStrength = &BaseStrength
+    BaseDexterity = &BaseDexterity
+    Race := *Race
+  }
+  Weapon @ [
+    * Scimitar ({{dice_roller("1d6","1d6 slashing")}})
+    * Club ({{dice_roller("1d4","1d4 bludgeoning")}})
+    * Dagger ({{dice_roller("1d4","1d4 piercing")}})
+    * Greatclub ({{dice_roller("1d8","1d8 bludgeoning")}})
+    * Handaxe ({{dice_roller("1d6","1d6 slashing")}})
+    * Javelin ({{dice_roller("1d6","1d6 piercing")}})
+    * Light Hammer ({{dice_roller("1d4","1d4 bludgeoning")}})
+    * Mace ({{dice_roller("1d6","1d6 bludgeoning")}})
+    * Quarterstaff ({{dice_roller("1d6","1d6 bludgeoning")}})
+    * Sickle ({{dice_roller("1d4","1d4 slashing")}})
+    * Spear ({{dice_roller("1d6","1d6 piercing")}})
+    * Light Crossbow ({{dice_roller("1d8","1d8 piercing")}})
+    * Dart ({{dice_roller("1d4","1d4 piercing")}})
+    * Shortbow ({{dice_roller("1d6","1d6 piercing")}})
+    * Sling ({{dice_roller("1d4","1d4 bludgeoning")}})
+    * Battleaxe ({{dice_roller("1d8","1d8 slashing")}})
+    * Flail ({{dice_roller("1d8","1d8 bludgeoning")}})
+    * Glaive ({{dice_roller("1d10","1d10 slashing")}})
+    * Longsword ({{dice_roller("1d8","1d8 slashing")}})
+    * Pike ({{dice_roller("1d10","1d10 piercing")}})
+    * Rapier ({{dice_roller("1d8","1d8 piercing")}})
+    * Shortsword ({{dice_roller("1d6","1d6 piercing")}})
+    * Trident ({{dice_roller("1d6","1d6 piercing")}})
+    * Warpick ({{dice_roller("1d8","1d8 piercing")}})
+    * Whip ({{dice_roller("1d4","1d4 slashing")}})
+    * Net
+  ]
+  Armor @ [
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Padded)
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Leather)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Studded Leather)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Hide)
+    * {{13+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Chain shirt)
+    * {{14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Scale mail)
+    * {{14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Breastplate)
+    * {{15+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Half plate)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Padded, Wooden shield)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Leather, Wooden shield)
+    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Studded Leather, Wooden shield)
+    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Hide, Wooden shield)
+    * {{1+13+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Chain shirt, Wooden shield)
+    * {{1+14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Scale mail, Wooden shield)
+    * {{1+14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Breastplate, Wooden shield)
+    * {{1+15+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Half plate, Wooden shield)
+  ]
+  SavingThrows = ""
+  DamageImmunities = ""
+  Senses = ""
+  Skill1 @ [
+    * Arcana
+    * Animal Handling
+    * Insight
+    * Medicine
+  ]
+  Skill2 @ [
+    * Nature
+    * Perception
+    * Religion
+    * Survival
+  ]
+
+  ClassSpecificStats ~ <%
+    {{DruidCircle.Stats}}
+  %>
+  | NPC5E
+}
+
+DruidCircleMoonLevel6 {
+}
+
+DruidCircleArcticSpellForLevel3 = [
+  * Hold Person
+  * Spike Growth
+]
+
+DruidCircleArcticSpellForLevel5 = [
+  * Sleet Storm
+  * Slow
+]
+
+DruidCircle {
+  Stats! ~ <%
+    <li><strong>Extra Cantrip:</strong> {{ExtraCantrip}}</li>
+    <li><strong>Natural Recovery:</strong> {{NaturalRecovery}}</li>
+  %>
+}
+
+DruidCircleLevel6(DruidCircle) {
+  ^ [
+    * DruidCircleLandLevel6
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLandLevel6(DruidCircleLevel6) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  | DruidCircleLevel6
+}
+
+DruidCircleLevel10 {
+}
+
+DruidCircleLevel14 {
+}
+
+DruidLevel1(Druid) {
+    Level! = 1
+    ProficiencyBonus = 2
+    HitPoints = 8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel2(Druid) {
+    Level! = 2
+    ProficiencyBonus = 2
+    HitPoints @ 1d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6+1
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+
+    WildShape @ [
+      * Beast Shape: Wolf
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel3(Druid) {
+    Level! = 3
+    ProficiencyBonus = 2
+    HitPoints @ 2d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6+1
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+
+    WildShape @ [
+      * Beast Shape: Wolf
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel4(Druid) {
+    Level! = 4
+    ProficiencyBonus = 2
+    HitPoints @ 3d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6+1
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel2
+
+    WildShape @ [
+      * Beast Shape: (Crocodile)
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel5(Druid) {
+    Level! = 5
+    ProficiencyBonus = 3
+    HitPoints @ 4d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel2
+    Spell5 @ $DruidSpellLevel2
+
+    WildShape @ [
+      * Beast Shape: (Crocodile)
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel6(Druid) {
+    Level! = 6
+    ProficiencyBonus = 3
+    # HitPoints is calculated with 8 for level 1 and then 1d8 per additional level
+    HitPoints @ 5d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    # We will choose to improve Constitution with a +2 at level 8
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    # We chose to improve Wisdom in level 4
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+
+    # We get beast with CR 1/2 but this will get an upgrade at a higher level
+    WildShape @ [
+      * Beast Shape: (Crocodile)
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel7(Druid) {
+    Level! = 7
+    ProficiencyBonus = 3
+    HitPoints @ 6d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel3
+
+    WildShape @ [
+      * Beast Shape: (Crocodile)
+      * Beast Shape: (Wolf)
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel8(Druid) {
+    Level! = 8
+    ProficiencyBonus = 3
+    HitPoints @ 7d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel3
+    Spell12 @ $DruidSpellLevel4
+
+    WildShape @ [
+      * Beast Shape: (Crocodile)
+      * Beast Shape: (Wolf)
+      * Beast Shape: (Giant Eagle)
+    ]
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
