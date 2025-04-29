@@ -1,0 +1,101 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024-2025 Ithai Levi ithai@pendicepaper.com
+#
+# This document contains Open Game Content, subject to the Open Game License,
+# released un the Open Game License, Version 1.0a (enclosed in the LICENSE
+# file), as described in Section 1(d) of the License.
+5eMonster (Monster) {
+  Title! :: STRING
+  Size! :: STRING
+  CreatureType! :: STRING
+  Alignment! :: STRING
+  Armor! :: STRING
+  Initiative! :: STRING
+  HitDiceText! :: STRING
+  HitDiceRoll! :: STRING
+  HitDice! :: INTEGER
+  Movement! :: STRING
+  Strength! :: STRING
+  Dexterity! :: STRING
+  Constitution! :: STRING
+  Intelligence! :: STRING
+  Wisdom! :: STRING
+  Charisma! :: STRING
+  SavingThrows! :: STRING
+  Skills :: STRING
+  Vulnerabilities :: STRING
+  Resistances :: STRING
+  Immunities :: STRING
+  Gear :: STRING
+  Senses! :: STRING
+  Languages! :: STRING
+  XP! :: NUMBER
+  CR! :: STRING
+  Traits :: STRING
+  Actions :: STRING
+  NumberAppearingRoaming! :: DICE
+  NumberAppearingLair! :: DICE
+  TreasureType! :: TYPE(TreasureType)
+
+  StrengthModifier ~ <%{%if round((Strength - 10) / 2,0)!=0%}{%if round((Strength - 10) / 2,0)>0%}+{%endif%}{{round((Strength - 10) / 2,0)}}{%endif%}%>
+  DexterityModifier ~ <%{%if round((Dexterity - 10) / 2,0)!=0%}{%if round((Dexterity - 10) / 2,0)>0%}+{%endif%}{{round((Dexterity - 10) / 2,0)}}{%endif%}%>
+  ConstitutionModifier ~ <%{%if round((Constitution - 10) / 2,0)!=0%}{%if round((Constitution - 10) / 2,0)>0%}+{%endif%}{{round((Constitution - 10) / 2,0)}}{%endif%}%>
+  IntelligenceModifier ~ <%{%if round((Intelligence - 10) / 2,0)!=0%}{%if round((Intelligence - 10) / 2,0)>0%}+{%endif%}{{round((Intelligence - 10) / 2,0)}}{%endif%}%>
+  WisdomModifier ~ <%{%if round((Wisdom - 10) / 2,0)!=0%}{%if round((Wisdom - 10) / 2,0)>0%}+{%endif%}{{round((Wisdom - 10) / 2,0)}}{%endif%}%>
+  CharismaModifier ~ <%{%if round((Charisma - 10) / 2,0)!=0%}{%if round((Charisma - 10) / 2,0)>0%}+{%endif%}{{round((Charisma - 10) / 2,0)}}{%endif%}%>
+
+  Stats! ~ <%
+    <div id="block-{{uuid}}" class="monster-block">
+        <div class="statblock">
+            <div class="statblock-top-row">
+                <div><span class="section-label">CR:</span> {{CR}} ({{XP}} XP)</div>
+                <div><span class="section-label">AC:</span> {{Armor}}</div>
+                <div><span class="section-label">HP:</span> {{HitDiceText}} ({{HitDiceRoll}})</div>
+                <div><span class="section-label">Speed:</span> {{Movement}}</div>
+            </div>
+            <table class="statblock-table">
+                <tr><th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th></tr>
+                <tr>
+                <td>{{Strength}} <small> {{StrengthModifier}} </small> </td>
+                <td>{{Dexterity}} <small> {{DexterityModifier}} </small> </td>
+                <td>{{Constitution}} <small> {{ConstitutionModifier}} </small> </td>
+                <td>{{Intelligence}} <small> {{IntelligenceModifier}} </small> </td>
+                <td>{{Wisdom}} <small> {{WisdomModifier}} </small> </td>
+                <td>{{Charisma}} <small> {{CharismaModifier}} </small> </td>
+                </tr>
+            </table>
+            <div>
+            <input class="monster-block-toggle" name="toggle-{{uuid}}" id="toggle-{{uuid}}" type="checkbox" onclick="javascript:document.getElementById('block-{{uuid}}').scrollIntoView();"/>
+            <div id="block-toggle-{{uuid}}" class="statblock-container">
+                <ul>
+                {% if SavingThrows != "" %}
+                <li><strong>Saving Throws: </strong> {{SavingThrows}}</li>
+                {% endif %}
+                {% if DamageImmunities != "" %}
+                <li><strong>Immunities: </strong> {{DamageImmunities}}</li>
+                {% endif %}
+                {% if Senses != "" %}
+                <li><strong>Senses: </strong> {{Senses}}</li>
+                {% endif %}
+                {% if Languages != "" %}
+                <li><strong>Languages: </strong> {{Languages}}</li>
+                {% endif %}
+                </ul>
+                {% if exists("Traits") %}
+                <hr/>
+                <div>{{Traits}}</div>
+                {% endif %}
+                {% if exists("Actions") %}
+                <hr/>
+                <h6>Actions</h6>
+                <div>{{Actions}}</div>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+    %>
+  | Monster
+}
