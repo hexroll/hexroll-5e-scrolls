@@ -24,6 +24,7 @@ RaceHalfOrc {
   BaseWalkingSpeed! = 30
   Darkvision = True
   RacialTraits! = "Darkvision, Menacing, Relentless Endurance, Savage Attacks"
+  Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = ""
   BaseLanguages! = "Common, Orc"
 }
@@ -39,6 +40,7 @@ RaceDwarf {
   BaseWalkingSpeed! = 25
   Darkvision = True
   RacialTraits! = "Darkvision, Dwarven Resilience, Dwarven Combat Training, Tool Proficiency, Stonecunning"
+  Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = "Battleaxe, Handaxe, Light Hammer, Warhammer"
   BaseLanguages! = "Common, Dwarvish"
 }
@@ -54,7 +56,8 @@ RaceElf {
   BaseWalkingSpeed! = 30
   Darkvision = True
   RacialTraits! = "Darkvision, Keen Senses, Fey Ancestry, Trance"
-  WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
+  Senses! = "Darkvision 60 ft."
+  WeaponProficiencies! = ""
   BaseLanguages! = "Common, Elvish"
 }
 
@@ -73,6 +76,77 @@ RaceHalfling {
   BaseLanguages! = "Common, Halfling"
 }
 
+
+DragonbornAncestry {
+  ^ [
+    * DragonbornSilverAncestry
+    * DragonbornBlackAncestry
+    * DragonbornBlueAncestry
+    * DragonbornBrassAncestry
+    * DragonbornBronzeAncestry
+    * DragonbornCopperAncestry
+    * DragonbornGoldAncestry
+    * DragonbornGreenAncestry
+    * DragonbornRedAncestry
+    * DragonbornSilverAncestry
+    * DragonbornWhiteAncestry
+]}
+
+DragonbornSilverAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Silver Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Cold, 5 by 30 ft, Con save </li> %>
+}
+
+DragonbornBlackAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Black Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Acid, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornBlueAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Blue Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Lightning, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornBrassAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Brass Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Fire, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornBronzeAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Bronze Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Lightning, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornCopperAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Copper Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Acid, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornGoldAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Gold Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Fire, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornGreenAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Green Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Poison, 5 by 30 ft, Con save </li> %>
+}
+
+DragonbornRedAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Red Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Fire, 5 by 30 ft, Dex save </li> %>
+}
+
+DragonbornSilverAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (Silver Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Cold, 5 by 30 ft, Con save </li> %>
+}
+
+DragonbornWhiteAncestry(DragonbornAncestry) {
+  Ancestry! ~ <% Draconic Ancestry (White Dragon) %>
+  Action! ~ <% <li> <strong>Breath Weapon</strong>: Cold, 5 by 30 ft, Con save </li> %>
+}
+
 RaceDragonborn {
   Title! = "Dragonborn"
   StrengthBonus! = 2
@@ -83,19 +157,9 @@ RaceDragonborn {
   CharismaBonus! = 1
   BaseWalkingSpeed! = 30
   Darkvision = False
-  DraconicAncestry @ [
-    * Draconic Ancestry / Black Dragon (Breath Weapon: Acid, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Blue Dragon (Breath Weapon: Lightning, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Brass Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Bronze Dragon (Breath Weapon: Lightning, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Copper Dragon (Breath Weapon: Acid, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Gold Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Green Dragon (Breath Weapon: Poison, 5 by 30 ft, Con save)
-    * Draconic Ancestry / Red Dragon (Breath Weapon: Fire, 5 by 30 ft, Dex save)
-    * Draconic Ancestry / Silver Dragon (Breath Weapon: Cold, 5 by 30 ft, Con save)
-    * Draconic Ancestry / White Dragon (Breath Weapon: Cold, 5 by 30 ft, Con save)
-  ]
-  RacialTraits! ~ "{{DraconicAncestry}}, Damage Resistance"
+  DraconicAncestry @ DragonbornAncestry
+  RacialTraits! ~ "{{DraconicAncestry.Ancestry}}, Damage Resistance"
+  Actions! ~ "{{DraconicAncestry.Action}}"
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Draconic"
 }
@@ -111,6 +175,7 @@ RaceGnome {
   BaseWalkingSpeed! = 25
   Darkvision = True
   RacialTraits! = "Darkvision, Gnome Cunning, Artificer's Lore, Speak with Small Beasts"
+  Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Gnomish"
 }
@@ -125,29 +190,7 @@ RaceHalfElf {
   CharismaBonus! = 2
   BaseWalkingSpeed! = 30
   Darkvision = True
-  Skill1 @ [
-    * Acrobatics
-    * Animal Handling
-    * Arcana
-    * Athletics
-    * Deception
-    * History
-    * Insight
-    * Intimidation
-  ]
-  Skill2 @ [
-    * Investigation
-    * Medicine
-    * Nature
-    * Perception
-    * Performance
-    * Persuasion
-    * Religion
-    * Sleight of Hand
-    * Stealth
-    * Survival
-  ]
-  RacialTraits! = "Fey Ancestry, Skill Versatility ({{Skill1}}, {{Skill2}})"
+  RacialTraits! = "Fey Ancestry, Skill Versatility"
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Elvish, One additional language"
 }
