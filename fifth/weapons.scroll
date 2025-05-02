@@ -1,16 +1,43 @@
 ExWeapon {
   ^ [
-    * 5E_Javelin
+    * NpcWeaponScimitar
+    * NpcWeaponClub
+    * NpcWeaponDagger
+    * NpcWeaponGreatclub
+    * NpcWeaponHandaxe
+    * NpcWeaponJavelin
+    * NpcWeaponLightHammer
+    * NpcWeaponMace
+    * NpcWeaponQuarterstaff
+    * NpcWeaponSickle
+    * NpcWeaponSpear
+    * NpcWeaponLightCrossbow
+    * NpcWeaponDart
+    * NpcWeaponShortbow
+    * NpcWeaponSling
+    * NpcWeaponBattleaxe
+    * NpcWeaponFlail
+    * NpcWeaponGlaive
+    * NpcWeaponLongsword
+    * NpcWeaponPike
+    * NpcWeaponRapier
+    * NpcWeaponShortsword
+    * NpcWeaponTrident
+    * NpcWeaponWarpick
+    * NpcWeaponWhip
+    * NpcWeaponNet
   ]
 
-  Stats! ~ <% <strong>{{WeaponName}}</strong> {%set AttackRoll="+0"%}{%if ActualBonus>=0%}{%set AttackRoll="+"+ActualBonus%}{%else%}{%set AttackRoll=""+ActualBonus%}{%endif%} {{dice_roller("1d20"+AttackRoll, AttackRoll)}} to hit {{WeaponRange}} one target. Inflicts {{stable_dice(DamageRoll,uuid,1)}} ({{dice_roller(DamageRoll,DamageRoll)}}) {{DamageType}} damage %>
+  Stats! ~ <% <strong>{{WeaponName}}</strong> {%set AttackRoll="+0"%}{%if ActualBonus>=0%}{%set AttackRoll="+"+ActualBonus%}{%else%}{%set AttackRoll=""+ActualBonus%}{%endif%} {{dice_roller("1d20"+AttackRoll, AttackRoll)}} to hit {{WeaponRange}} one target. Inflicts {{dice_roller(CalcedDamage,CalcedDamage)}} {{DamageType}} damage %>
 }
 
 MeleeWeapon(ExWeapon) {
   ClassWeaponProficiencies = ""
   ProficiencyBonus = 0
   BaseStrength = 0
-  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName) %}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10) / 2,0) + WeaponProficiencyBonus}} %>
+  MeleeBonus = 0
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName) %}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0) + WeaponProficiencyBonus + MeleeBonus}} %>
+  CalcedDamage ~ <%{{DamageRoll}}+{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0)}}%>
   | ExWeapon
 }
 
@@ -18,11 +45,13 @@ RangedWeapon(ExWeapon) {
   ClassWeaponProficiencies = ""
   ProficiencyBonus = 0
   BaseDexterity = 0
-  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName)%}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10) / 2,0) + WeaponProficiencyBonus}} %>
+  RangedBonus = 0
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName)%}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10.5) / 2,0) + WeaponProficiencyBonus + RangedBonus}} %>
+  CalcedDamage ~ <%{{DamageRoll}}+{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10.5) / 2,0)}}%>
   | ExWeapon
 }
 
-5E_Scimitar(MeleeWeapon) {
+NpcWeaponScimitar(MeleeWeapon) {
   WeaponName = "Scimitar"
   WeaponType = "Finesse, light"
   WeaponRange = ""
@@ -31,7 +60,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Club(MeleeWeapon) {
+NpcWeaponClub(MeleeWeapon) {
   WeaponName = "Club"
   WeaponType = "Simple, melee"
   WeaponRange = ""
@@ -40,7 +69,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Dagger(MeleeWeapon) {
+NpcWeaponDagger(MeleeWeapon) {
   WeaponName = "Dagger"
   WeaponType = "Finesse, light, thrown"
   WeaponRange = "range 20/60"
@@ -49,7 +78,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Greatclub(MeleeWeapon) {
+NpcWeaponGreatclub(MeleeWeapon) {
   WeaponName = "Greatclub"
   WeaponType = "Simple, two-handed"
   WeaponRange = ""
@@ -58,7 +87,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Handaxe(MeleeWeapon) {
+NpcWeaponHandaxe(MeleeWeapon) {
   WeaponName = "Handaxe"
   WeaponType = "Simple, thrown"
   WeaponRange = "range 20/60"
@@ -67,16 +96,16 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Javelin(MeleeWeapon) {
+NpcWeaponJavelin(RangedWeapon) {
   WeaponName = "Javelin"
   WeaponType = "Simple, thrown"
   WeaponRange = "range 30/120"
   DamageType ~ "piercing"
   DamageRoll = "1d6"
-  | MeleeWeapon
+  | RangedWeapon
 }
 
-5E_LightHammer(MeleeWeapon) {
+NpcWeaponLightHammer(MeleeWeapon) {
   WeaponName = "Light Hammer"
   WeaponType = "Simple, thrown"
   WeaponRange = "range 20/60"
@@ -85,7 +114,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Mace(MeleeWeapon) {
+NpcWeaponMace(MeleeWeapon) {
   WeaponName = "Mace"
   WeaponType = "Simple, melee"
   WeaponRange = ""
@@ -94,7 +123,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Quarterstaff(MeleeWeapon) {
+NpcWeaponQuarterstaff(MeleeWeapon) {
   WeaponName = "Quarterstaff"
   WeaponType = "Simple, versatile"
   WeaponRange = ""
@@ -103,7 +132,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Sickle(MeleeWeapon) {
+NpcWeaponSickle(MeleeWeapon) {
   WeaponName = "Sickle"
   WeaponType = "Simple, light"
   WeaponRange = ""
@@ -112,7 +141,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Spear(RangedWeapon) {
+NpcWeaponSpear(RangedWeapon) {
   WeaponName = "Spear"
   WeaponType = "Simple, versatile, thrown"
   WeaponRange = "range 20/60"
@@ -121,7 +150,7 @@ RangedWeapon(ExWeapon) {
   | RangedWeapon
 }
 
-5E_LightCrossbow(RangedWeapon) {
+NpcWeaponLightCrossbow(RangedWeapon) {
   WeaponName = "Light Crossbow"
   WeaponType = "Simple, ranged"
   WeaponRange = "range 80/320"
@@ -130,7 +159,7 @@ RangedWeapon(ExWeapon) {
   | RangedWeapon
 }
 
-5E_Dart(RangedWeapon) {
+NpcWeaponDart(RangedWeapon) {
   WeaponName = "Dart"
   WeaponType = "Simple, thrown"
   WeaponRange = "range 20/60"
@@ -139,7 +168,7 @@ RangedWeapon(ExWeapon) {
   | RangedWeapon
 }
 
-5E_Shortbow(RangedWeapon) {
+NpcWeaponShortbow(RangedWeapon) {
   WeaponName = "Shortbow"
   WeaponType = "Simple, ranged"
   WeaponRange = "range 80/320"
@@ -148,7 +177,7 @@ RangedWeapon(ExWeapon) {
   | RangedWeapon
 }
 
-5E_Sling(RangedWeapon) {
+NpcWeaponSling(RangedWeapon) {
   WeaponName = "Sling"
   WeaponType = "Simple, ranged"
   WeaponRange = "range 30/120"
@@ -157,7 +186,7 @@ RangedWeapon(ExWeapon) {
   | RangedWeapon
 }
 
-5E_Battleaxe(MeleeWeapon) {
+NpcWeaponBattleaxe(MeleeWeapon) {
   WeaponName = "Battleaxe"
   WeaponType = "Martial, versatile"
   WeaponRange = ""
@@ -166,7 +195,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Flail(MeleeWeapon) {
+NpcWeaponFlail(MeleeWeapon) {
   WeaponName = "Flail"
   WeaponType = "Martial, melee"
   WeaponRange = ""
@@ -175,7 +204,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Glaive(MeleeWeapon) {
+NpcWeaponGlaive(MeleeWeapon) {
   WeaponName = "Glaive"
   WeaponType = "Martial, heavy, reach"
   WeaponRange = ""
@@ -184,7 +213,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Longsword(MeleeWeapon) {
+NpcWeaponLongsword(MeleeWeapon) {
   WeaponName = "Longsword"
   WeaponType = "Martial, versatile"
   WeaponRange = ""
@@ -193,7 +222,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Pike(MeleeWeapon) {
+NpcWeaponPike(MeleeWeapon) {
   WeaponName = "Pike"
   WeaponType = "Martial, heavy, reach"
   WeaponRange = ""
@@ -202,7 +231,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Rapier(MeleeWeapon) {
+NpcWeaponRapier(MeleeWeapon) {
   WeaponName = "Rapier"
   WeaponType = "Martial, finesse"
   WeaponRange = ""
@@ -211,7 +240,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Shortsword(MeleeWeapon) {
+NpcWeaponShortsword(MeleeWeapon) {
   WeaponName = "Shortsword"
   WeaponType = "Martial, finesse, light"
   WeaponRange = ""
@@ -220,7 +249,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Trident(MeleeWeapon) {
+NpcWeaponTrident(MeleeWeapon) {
   WeaponName = "Trident"
   WeaponType = "Martial, thrown, versatile"
   WeaponRange = "range 20/60"
@@ -229,7 +258,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Warpick(MeleeWeapon) {
+NpcWeaponWarpick(MeleeWeapon) {
   WeaponName = "Warpick"
   WeaponType = "Martial, melee"
   WeaponRange = ""
@@ -238,7 +267,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-5E_Whip(MeleeWeapon) {
+NpcWeaponWhip(MeleeWeapon) {
   WeaponName = "Whip"
   WeaponType = "Martial, finesse"
   WeaponRange = ""
@@ -247,7 +276,7 @@ RangedWeapon(ExWeapon) {
   | MeleeWeapon
 }
 
-Net(MeleeWeapon) {
+NpcWeaponNet(MeleeWeapon) {
   WeaponName = "Net"
   WeaponType = "Martial, ranged, special"
   WeaponRange = "range 5/15"
