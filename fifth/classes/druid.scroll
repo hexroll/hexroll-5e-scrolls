@@ -1,3 +1,72 @@
+Druid(NPC5E) {
+  Race @ Race
+  Class! = "Druid"
+  ExtraLanguages = "Druidic"
+
+  Weapon @ ExWeapon {
+    ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
+    ProficiencyBonus = &ProficiencyBonus
+    BaseStrength = &BaseStrength
+    BaseDexterity = &BaseDexterity
+    Race := *Race
+  }
+
+  Armor @ $DruidArmors
+
+  ClassSavingThrows = "Intelligence, Wisdom"
+
+  Skill1 @ [
+    * Arcana
+    * Animal Handling
+    * Insight
+    * Medicine
+  ]
+  Skill2 @ [
+    * Nature
+    * Perception
+    * Religion
+    * Survival
+  ]
+  # Extra skills are used when the NPC is awarded with additional skill proficiencies
+  # from race or level.
+  ExtraSkill1 @ [
+    * Acrobatics
+    * Sleight of Hand
+    * Investigation
+    * Deception
+  ]
+  ExtraSkill2 @ [
+    * Intimidation
+    * Performance
+    * Persuasion
+  ]
+  DamageImmunities = ""
+
+  ClassSpecificStats ~ <%
+    {{DruidCircle.Stats}}
+  %>
+
+  OtherClassActions ~ <%
+    {% if exists("WildShape") %}
+    <li><strong>Wild Shape:</strong> {{WildShape}}</li>
+    {% endif %}
+    {{DruidCircle.Actions}}
+  %>
+
+  | NPC5E
+}
+
+ DruidArmors = [
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded)
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded, Wooden shield)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather, Wooden shield)
+    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather, Wooden shield)
+    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide, Wooden shield)
+]
+
 DruidCantrip = [
     * Druidcraft
     * Guidance
@@ -134,90 +203,671 @@ DruidSpellLevel9 = [
     * True Resurrection
 ]
 
-Druid(NPC5E) {
-  Race @ Race
-  Class! = "Druid"
-  ExtraLanguages = "Druidic"
-  RaceStrengthBonus = TBD
-  BaseStrength = TBD
-  RaceDexterityBonus = TBD
-  BaseDexterity = TBD
-  WeaponAsAction @ ExWeapon {
-    ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
-    ProficiencyBonus = &ProficiencyBonus
-    BaseStrength = &BaseStrength
-    BaseDexterity = &BaseDexterity
-    Race := *Race
-  }
-  Weapon @ [
-    * Scimitar ({{dice_roller("1d6","1d6 slashing")}})
-    * Club ({{dice_roller("1d4","1d4 bludgeoning")}})
-    * Dagger ({{dice_roller("1d4","1d4 piercing")}})
-    * Greatclub ({{dice_roller("1d8","1d8 bludgeoning")}})
-    * Handaxe ({{dice_roller("1d6","1d6 slashing")}})
-    * Javelin ({{dice_roller("1d6","1d6 piercing")}})
-    * Light Hammer ({{dice_roller("1d4","1d4 bludgeoning")}})
-    * Mace ({{dice_roller("1d6","1d6 bludgeoning")}})
-    * Quarterstaff ({{dice_roller("1d6","1d6 bludgeoning")}})
-    * Sickle ({{dice_roller("1d4","1d4 slashing")}})
-    * Spear ({{dice_roller("1d6","1d6 piercing")}})
-    * Light Crossbow ({{dice_roller("1d8","1d8 piercing")}})
-    * Dart ({{dice_roller("1d4","1d4 piercing")}})
-    * Shortbow ({{dice_roller("1d6","1d6 piercing")}})
-    * Sling ({{dice_roller("1d4","1d4 bludgeoning")}})
-    * Battleaxe ({{dice_roller("1d8","1d8 slashing")}})
-    * Flail ({{dice_roller("1d8","1d8 bludgeoning")}})
-    * Glaive ({{dice_roller("1d10","1d10 slashing")}})
-    * Longsword ({{dice_roller("1d8","1d8 slashing")}})
-    * Pike ({{dice_roller("1d10","1d10 piercing")}})
-    * Rapier ({{dice_roller("1d8","1d8 piercing")}})
-    * Shortsword ({{dice_roller("1d6","1d6 piercing")}})
-    * Trident ({{dice_roller("1d6","1d6 piercing")}})
-    * Warpick ({{dice_roller("1d8","1d8 piercing")}})
-    * Whip ({{dice_roller("1d4","1d4 slashing")}})
-    * Net
-  ]
-  Armor @ [
-    * {{11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Padded)
-    * {{11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Leather)
-    * {{12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Studded Leather)
-    * {{12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Hide)
-    * {{13+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Chain shirt)
-    * {{14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Scale mail)
-    * {{14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Breastplate)
-    * {{15+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Half plate)
-    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Padded, Wooden shield)
-    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Leather, Wooden shield)
-    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Studded Leather, Wooden shield)
-    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Hide, Wooden shield)
-    * {{1+13+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Chain shirt, Wooden shield)
-    * {{1+14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Scale mail, Wooden shield)
-    * {{1+14+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Breastplate, Wooden shield)
-    * {{1+15+round((BaseDexterity + Race.DexterityBonus - 10) / 2,0)}} (Half plate, Wooden shield)
-  ]
-  SavingThrows = ""
-  DamageImmunities = ""
-  Senses = ""
-  Skill1 @ [
-    * Arcana
-    * Animal Handling
-    * Insight
-    * Medicine
-  ]
-  Skill2 @ [
-    * Nature
-    * Perception
-    * Religion
-    * Survival
-  ]
 
-  ClassSpecificStats ~ <%
-    {{DruidCircle.Stats}}
-  %>
-  | NPC5E
+DruidLevel1(Druid) {
+    Level! = 1
+    ProficiencyBonus = 2
+    HitPoints = 8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+
+    DruidCircle @ DruidCircleLevel1
+    | Druid
 }
 
-DruidCircleMoonLevel6 {
+DruidLevel2(Druid) {
+    Level! = 2
+    ProficiencyBonus = 2
+    HitPoints @ 1d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel2
+    Spell2 @ $DruidSpellLevel2
+    Spell3 @ $DruidSpellLevel2
+
+    WildShape @ [
+        * Beast Shape - Baboon
+        * Beast Shape - Badger
+        * Beast Shape - Bat
+        * Beast Shape - Crab
+        * Beast Shape - Deer
+        * Beast Shape - Frog
+        * Beast Shape - Giant Fire Beetle
+        * Beast Shape - Goat
+        * Beast Shape - Hyena
+        * Beast Shape - Jackal
+        * Beast Shape - Lizard
+        * Beast Shape - Octopus
+        * Beast Shape - Owl
+        * Beast Shape - Quipper
+        * Beast Shape - Rat
+        * Beast Shape - Raven
+        * Beast Shape - Scorpion
+        * Beast Shape - Spider
+        * Beast Shape - Vulture
+        * Beast Shape - Blood Hawk
+        * Beast Shape - Camel
+        * Beast Shape - Giant Crab
+        * Beast Shape - Giant Rat
+        * Beast Shape - Giant Weasel
+        * Beast Shape - Mastiff
+        * Beast Shape - Mule
+        * Beast Shape - Pony
+        * Beast Shape - Poisonous Snake
+        * Beast Shape - Boar
+        * Beast Shape - Draft Horse
+        * Beast Shape - Elk
+        * Beast Shape - Giant Badger
+        * Beast Shape - Giant Bat
+        * Beast Shape - Giant Centipede
+        * Beast Shape - Giant Lizard
+        * Beast Shape - Giant Frog
+        * Beast Shape - Giant Owl
+        * Beast Shape - Giant Poisonous Snake
+        * Beast Shape - Giant Wolf Spider
+        * Beast Shape - Riding Horse
+    ]
+    DruidCircle @ DruidCircleLevel2
+    | Druid
+}
+
+DruidLevel3(Druid) {
+    Level! = 3
+    ProficiencyBonus = 2
+    HitPoints @ 2d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+
+    WildShape @ [
+        * Beast Shape - Baboon
+        * Beast Shape - Badger
+        * Beast Shape - Bat
+        * Beast Shape - Crab
+        * Beast Shape - Deer
+        * Beast Shape - Frog
+        * Beast Shape - Giant Fire Beetle
+        * Beast Shape - Goat
+        * Beast Shape - Hyena
+        * Beast Shape - Jackal
+        * Beast Shape - Lizard
+        * Beast Shape - Octopus
+        * Beast Shape - Owl
+        * Beast Shape - Quipper
+        * Beast Shape - Rat
+        * Beast Shape - Raven
+        * Beast Shape - Scorpion
+        * Beast Shape - Spider
+        * Beast Shape - Vulture
+        * Beast Shape - Blood Hawk
+        * Beast Shape - Camel
+        * Beast Shape - Giant Crab
+        * Beast Shape - Giant Rat
+        * Beast Shape - Giant Weasel
+        * Beast Shape - Mastiff
+        * Beast Shape - Mule
+        * Beast Shape - Pony
+        * Beast Shape - Poisonous Snake
+        * Beast Shape - Boar
+        * Beast Shape - Draft Horse
+        * Beast Shape - Elk
+        * Beast Shape - Giant Badger
+        * Beast Shape - Giant Bat
+        * Beast Shape - Giant Centipede
+        * Beast Shape - Giant Lizard
+        * Beast Shape - Giant Frog
+        * Beast Shape - Giant Owl
+        * Beast Shape - Giant Poisonous Snake
+        * Beast Shape - Giant Wolf Spider
+        * Beast Shape - Riding Horse
+    ]
+    DruidCircle @ DruidCircleLevel3
+    | Druid
+}
+
+DruidLevel4(Druid) {
+    Level! = 4
+    ProficiencyBonus = 2
+    HitPoints @ 3d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+
+    WildShape @ [
+        * Beast Shape - Ape
+        * Beast Shape - Black Bear
+        * Beast Shape - Crocodile
+        * Beast Shape - Giant Goat
+        * Beast Shape - Giant Wasp
+        * Beast Shape - Reef Shark
+    ]
+    DruidCircle @ DruidCircleLevel4
+    | Druid
+}
+
+DruidLevel5(Druid) {
+    Level! = 5
+    ProficiencyBonus = 3
+    HitPoints @ 4d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+
+    WildShape @ [
+        * Beast Shape - Ape
+        * Beast Shape - Black Bear
+        * Beast Shape - Crocodile
+        * Beast Shape - Giant Goat
+        * Beast Shape - Giant Wasp
+        * Beast Shape - Reef Shark
+    ]
+    DruidCircle @ DruidCircleLevel5
+    | Druid
+}
+
+DruidLevel6(Druid) {
+    Level! = 6
+    ProficiencyBonus = 3
+    HitPoints @ 5d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+
+    WildShape @ [
+        * Beast Shape - Ape
+        * Beast Shape - Black Bear
+        * Beast Shape - Crocodile
+        * Beast Shape - Giant Goat
+        * Beast Shape - Giant Wasp
+        * Beast Shape - Reef Shark
+    ]
+
+    DruidCircle @ DruidCircleLevel6
+    | Druid
+}
+
+DruidLevel7(Druid) {
+    Level! = 7
+    ProficiencyBonus = 3
+    HitPoints @ 6d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+
+    WildShape @ [
+        * Beast Shape - Ape
+        * Beast Shape - Black Bear
+        * Beast Shape - Crocodile
+        * Beast Shape - Giant Goat
+        * Beast Shape - Giant Wasp
+        * Beast Shape - Reef Shark
+    ]
+    DruidCircle @ DruidCircleLevel7
+    | Druid
+}
+
+DruidLevel8(Druid) {
+    Level! = 8
+    ProficiencyBonus = 3
+    HitPoints @ 7d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octapus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+
+    DruidCircle @ DruidCircleLevel8
+    | Druid
+}
+
+
+DruidLevel9(Druid) {
+    Level! = 9
+    ProficiencyBonus = 4
+    HitPoints @ 8d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel9
+    | Druid
+}
+
+DruidLevel10(Druid) {
+    Level! = 10
+    ProficiencyBonus = 4
+    HitPoints @ 9d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Cantrip4 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+    Spell15 @ $DruidSpellLevel5
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel10
+    | Druid
+}
+
+DruidLevel11(Druid) {
+    Level! = 11
+    ProficiencyBonus = 4
+    HitPoints @ 10d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Cantrip4 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+    Spell15 @ $DruidSpellLevel5
+    Spell16 @ $DruidSpellLevel6
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel11
+    | Druid
+}
+
+DruidLevel12(Druid) {
+    Level! = 12
+    ProficiencyBonus = 4
+    HitPoints @ 11d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Cantrip4 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+    Spell15 @ $DruidSpellLevel5
+    Spell16 @ $DruidSpellLevel6
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel12
+    | Druid
+}
+
+DruidLevel13(Druid) {
+    Level! = 13
+    ProficiencyBonus = 5
+    HitPoints @ 12d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Cantrip4 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+    Spell15 @ $DruidSpellLevel5
+    Spell16 @ $DruidSpellLevel6
+    Spell17 @ $DruidSpellLevel7
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel13
+    | Druid
+}
+
+DruidLevel14(Druid) {
+    Level! = 14
+    ProficiencyBonus = 5
+    HitPoints @ 13d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $DruidCantrip
+    Cantrip2 @ $DruidCantrip
+    Cantrip3 @ $DruidCantrip
+    Cantrip4 @ $DruidCantrip
+    Spell1 @ $DruidSpellLevel1
+    Spell2 @ $DruidSpellLevel1
+    Spell3 @ $DruidSpellLevel1
+    Spell4 @ $DruidSpellLevel1
+    Spell5 @ $DruidSpellLevel2
+    Spell6 @ $DruidSpellLevel2
+    Spell7 @ $DruidSpellLevel2
+    Spell8 @ $DruidSpellLevel3
+    Spell9 @ $DruidSpellLevel3
+    Spell10 @ $DruidSpellLevel3
+    Spell11 @ $DruidSpellLevel4
+    Spell12 @ $DruidSpellLevel4
+    Spell13 @ $DruidSpellLevel4
+    Spell14 @ $DruidSpellLevel5
+    Spell15 @ $DruidSpellLevel5
+    Spell16 @ $DruidSpellLevel6
+    Spell17 @ $DruidSpellLevel7
+
+    WildShape @ [
+        * Beast Shape - Brown Bear
+        * Beast Shape - Dire Wolf
+        * Beast Shape - Eagle
+        * Beast Shape - Giant Eagle
+        * Beast Shape - Flying Snake
+        * Beast Shape - Giant Octopus
+        * Beast Shape - Giant Hyena
+        * Beast Shape - Giant Spider
+        * Beast Shape - Giant Toad
+        * Beast Shape - Giant Vulture
+        * Beast Shape - Hawk
+        * Beast Shape - Lion
+        * Beast Shape - Panther
+        * Beast Shape - Tiger
+        * Beast Shape - Wolf
+    ]
+    DruidCircle @ DruidCircleLevel14
+    | Druid
 }
 
 DruidCircleArcticSpellForLevel3 = [
@@ -230,259 +880,1111 @@ DruidCircleArcticSpellForLevel5 = [
   * Slow
 ]
 
+DruidCircleArcticSpellForLevel7 = [
+  * Freedom of Movement
+  * Ice Storm
+]
+
+DruidCircleArcticSpellForLevel9 = [
+  * Commune with Nature
+  * Cone of Cold
+]
+
+DruidCircleCoastSpellForLevel3 = [
+  * Mirror Image
+  * Misty Step
+]
+
+DruidCircleCoastSpellForLevel5 = [
+  * Water Breathing
+  * Water Walk
+]
+
+DruidCircleCoastSpellForLevel7 = [
+  * Control Water
+  * Freedom of Movement
+]
+
+DruidCircleCoastSpellForLevel9 = [
+  * Conjure Elemental
+  * Scrying
+]
+
+DruidCircleDesertSpellForLevel3 = [
+  * Blur
+  * Silence
+]
+
+DruidCircleDesertSpellForLevel5 = [
+  * Create Food and Water
+  * Protection from Energy
+]
+
+DruidCircleDesertSpellForLevel7 = [
+  * Blight
+  * Hallucinatory Terrain
+]
+
+DruidCircleDesertSpellForLevel9 = [
+  * Insect Plague
+  * Wall of Stone
+]
+
+DruidCircleForestSpellForLevel3 = [
+  * Barkskin
+  * Spider Climb
+]
+
+DruidCircleForestSpellForLevel5 = [
+  * Call Lightning
+  * Plant Growth
+]
+
+DruidCircleForestSpellForLevel7 = [
+  * Divination
+  * Freedom of Movement
+]
+
+DruidCircleForestSpellForLevel9 = [
+  * Commune with Nature
+  * Tree Stride
+]
+
+DruidCircleGrasslandSpellForLevel3 = [
+  * Invisibility
+  * Pass Without Trace
+]
+
+DruidCircleGrasslandSpellForLevel5 = [
+  * Daylight
+  * Haste
+]
+
+DruidCircleGrasslandSpellForLevel7 = [
+  * Divination
+  * Freedom of Movement
+]
+
+DruidCircleGrasslandSpellForLevel9 = [
+  * Dream
+  * Insect Plague
+]
+
+DruidCircleMountainSpellForLevel3 = [
+  * Spider Climb
+  * Spike Growth
+]
+
+DruidCircleMountainSpellForLevel5 = [
+  * Lightning Bolt
+  * Meld into Stone
+]
+
+DruidCircleMountainSpellForLevel7 = [
+  * Stone Shape
+  * Stoneskin
+]
+
+DruidCircleMountainSpellForLevel9 = [
+  * Passwall
+  * Wall of Stone
+]
+
+DruidCircleSwampSpellForLevel3 = [
+  * Acid Arrow
+  * Darkness
+]
+
+DruidCircleSwampSpellForLevel5 = [
+  * Water Walk
+  * Stinking Cloud
+]
+
+DruidCircleSwampSpellForLevel7 = [
+  * Freedom of Movement
+  * Locate Creature
+]
+
+DruidCircleSwampSpellForLevel9 = [
+  * Insect Plague
+  * Scrying
+]
+
+
 DruidCircle {
   Stats! ~ <%
     <li><strong>Extra Cantrip:</strong> {{ExtraCantrip}}</li>
     <li><strong>Natural Recovery:</strong> {{NaturalRecovery}}</li>
   %>
+  Actions! ~ <%
+
+    {% if exists("ExtraCircleSpellForLevel3") %}
+    <li><strong>Circle Spells:</strong>
+      {{ExtraCircleSpellForLevel3}}
+      {% if exists("ExtraCircleSpellForLevel5") %}
+      , {{ExtraCircleSpellForLevel5}}
+      {% endif %}
+      {% if exists("ExtraCircleSpellForLevel7") %}
+      , {{ExtraCircleSpellForLevel7}}
+      {% endif %}
+      {% if exists("ExtraCircleSpellForLevel9") %}
+      , {{ExtraCircleSpellForLevel9}}
+      {% endif %}
+    </li>
+    {% endif %}
+  %>
+
 }
 
-DruidCircleLevel6(DruidCircle) {
+DruidCircleLevel1(DruidCircle) {
   ^ [
-    * DruidCircleLandLevel6
+    * DruidCircleLandArcticLevel1
+    * DruidCircleLandForestLevel1
+    * DruidCircleLandMountainLevel1
+    * DruidCircleLandSwampLevel1
+    * DruidCircleLandDesertLevel1
+    * DruidCircleLandCoastLevel1
+    * DruidCircleLandGrasslandLevel1
   ]
   ExtraCantrip @ $DruidCantrip
   NaturalRecovery ~ <% 3 spell slots %>
   | DruidCircle
 }
 
+DruidCircleLevel2(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel2
+    * DruidCircleLandForestLevel2
+    * DruidCircleLandMountainLevel2
+    * DruidCircleLandSwampLevel2
+    * DruidCircleLandDesertLevel2
+    * DruidCircleLandCoastLevel2
+    * DruidCircleLandGrasslandLevel2
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel3(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel3
+    * DruidCircleLandForestLevel3
+    * DruidCircleLandMountainLevel3
+    * DruidCircleLandSwampLevel3
+    * DruidCircleLandDesertLevel3
+    * DruidCircleLandCoastLevel3
+    * DruidCircleLandGrasslandLevel3
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel4(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel4
+    * DruidCircleLandForestLevel4
+    * DruidCircleLandMountainLevel4
+    * DruidCircleLandSwampLevel4
+    * DruidCircleLandDesertLevel4
+    * DruidCircleLandCoastLevel4
+    * DruidCircleLandGrasslandLevel4
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel5(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel5
+    * DruidCircleLandForestLevel5
+    * DruidCircleLandMountainLevel5
+    * DruidCircleLandSwampLevel5
+    * DruidCircleLandDesertLevel5
+    * DruidCircleLandCoastLevel5
+    * DruidCircleLandGrasslandLevel5
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel6(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel6
+    * DruidCircleLandForestLevel6
+    * DruidCircleLandMountainLevel6
+    * DruidCircleLandSwampLevel6
+    * DruidCircleLandDesertLevel6
+    * DruidCircleLandCoastLevel6
+    * DruidCircleLandGrasslandLevel6
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel7(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel7
+    * DruidCircleLandForestLevel7
+    * DruidCircleLandMountainLevel7
+    * DruidCircleLandSwampLevel7
+    * DruidCircleLandDesertLevel7
+    * DruidCircleLandCoastLevel7
+    * DruidCircleLandGrasslandLevel7
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel8(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel8
+    * DruidCircleLandForestLevel8
+    * DruidCircleLandMountainLevel8
+    * DruidCircleLandSwampLevel8
+    * DruidCircleLandDesertLevel8
+    * DruidCircleLandCoastLevel8
+    * DruidCircleLandGrasslandLevel8
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel9(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel9
+    * DruidCircleLandForestLevel9
+    * DruidCircleLandMountainLevel9
+    * DruidCircleLandSwampLevel9
+    * DruidCircleLandDesertLevel9
+    * DruidCircleLandCoastLevel9
+    * DruidCircleLandGrasslandLevel9
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel10(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel10
+    * DruidCircleLandForestLevel10
+    * DruidCircleLandMountainLevel10
+    * DruidCircleLandSwampLevel10
+    * DruidCircleLandDesertLevel10
+    * DruidCircleLandCoastLevel10
+    * DruidCircleLandGrasslandLevel10
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel11(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel11
+    * DruidCircleLandForestLevel11
+    * DruidCircleLandMountainLevel11
+    * DruidCircleLandSwampLevel11
+    * DruidCircleLandDesertLevel11
+    * DruidCircleLandCoastLevel11
+    * DruidCircleLandGrasslandLevel11
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel12(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel12
+    * DruidCircleLandForestLevel12
+    * DruidCircleLandMountainLevel12
+    * DruidCircleLandSwampLevel12
+    * DruidCircleLandDesertLevel12
+    * DruidCircleLandCoastLevel12
+    * DruidCircleLandGrasslandLevel12
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel13(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel13
+    * DruidCircleLandForestLevel13
+    * DruidCircleLandMountainLevel13
+    * DruidCircleLandSwampLevel13
+    * DruidCircleLandDesertLevel13
+    * DruidCircleLandCoastLevel13
+    * DruidCircleLandGrasslandLevel13
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLevel14(DruidCircle) {
+  ^ [
+    * DruidCircleLandArcticLevel14
+    * DruidCircleLandForestLevel14
+    * DruidCircleLandMountainLevel14
+    * DruidCircleLandSwampLevel14
+    * DruidCircleLandDesertLevel14
+    * DruidCircleLandCoastLevel14
+    * DruidCircleLandGrasslandLevel14
+  ]
+  ExtraCantrip @ $DruidCantrip
+  NaturalRecovery ~ <% 3 spell slots %>
+  | DruidCircle
+}
+
+DruidCircleLandLevel1(DruidCircleLevel1) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel1
+}
+
+DruidCircleLandLevel2(DruidCircleLevel2) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel2
+}
+
+DruidCircleLandLevel3(DruidCircleLevel3) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel3
+}
+
+DruidCircleLandLevel4(DruidCircleLevel4) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel4
+}
+
+DruidCircleLandLevel5(DruidCircleLevel5) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel5
+}
+
 DruidCircleLandLevel6(DruidCircleLevel6) {
   LandStride = True
   NaturesWard = False
   NaturesSanctuary = False
-
-  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
-  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
   | DruidCircleLevel6
 }
 
-DruidCircleLevel10 {
+DruidCircleLandLevel7(DruidCircleLevel7) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel7
 }
 
-DruidCircleLevel14 {
+DruidCircleLandLevel8(DruidCircleLevel8) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel8
 }
 
-DruidLevel1(Druid) {
-    Level! = 1
-    ProficiencyBonus = 2
-    HitPoints = 8
-
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel9(DruidCircleLevel9) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel9
 }
 
-DruidLevel2(Druid) {
-    Level! = 2
-    ProficiencyBonus = 2
-    HitPoints @ 1d8+8
-
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6+1
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-
-    WildShape @ [
-      * Beast Shape: Wolf
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel10(DruidCircleLevel10) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel10
 }
 
-DruidLevel3(Druid) {
-    Level! = 3
-    ProficiencyBonus = 2
-    HitPoints @ 2d8+8
-
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6+1
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-
-    WildShape @ [
-      * Beast Shape: Wolf
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel11(DruidCircleLevel11) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel11
 }
 
-DruidLevel4(Druid) {
-    Level! = 4
-    ProficiencyBonus = 2
-    HitPoints @ 3d8+8
-
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6+1
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6+2
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel2
-
-    WildShape @ [
-      * Beast Shape: (Crocodile)
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel12(DruidCircleLevel12) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel12
 }
 
-DruidLevel5(Druid) {
-    Level! = 5
-    ProficiencyBonus = 3
-    HitPoints @ 4d8+8
-
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6+2
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6+2
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel2
-    Spell5 @ $DruidSpellLevel2
-
-    WildShape @ [
-      * Beast Shape: (Crocodile)
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel13(DruidCircleLevel13) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel13
 }
 
-DruidLevel6(Druid) {
-    Level! = 6
-    ProficiencyBonus = 3
-    # HitPoints is calculated with 8 for level 1 and then 1d8 per additional level
-    HitPoints @ 5d8+8
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    # We will choose to improve Constitution with a +2 at level 8
-    BaseConstitution @ 3d6
-    BaseIntelligence @ 3d6
-    # We chose to improve Wisdom in level 4
-    BaseWisdom @ 3d6+2
-    BaseCharisma @ 3d6
-
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-
-    # We get beast with CR 1/2 but this will get an upgrade at a higher level
-    WildShape @ [
-      * Beast Shape: (Crocodile)
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandLevel14(DruidCircleLevel14) {
+  LandStride = True
+  NaturesWard = False
+  NaturesSanctuary = False
+  | DruidCircleLevel14
 }
 
-DruidLevel7(Druid) {
-    Level! = 7
-    ProficiencyBonus = 3
-    HitPoints @ 6d8+8
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6+2
-    BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel3
-
-    WildShape @ [
-      * Beast Shape: (Crocodile)
-      * Beast Shape: (Wolf)
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandArcticLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
 }
 
-DruidLevel8(Druid) {
-    Level! = 8
-    ProficiencyBonus = 3
-    HitPoints @ 7d8+8
-    BaseStrength @ 3d6
-    BaseDexterity @ 3d6
-    BaseConstitution @ 3d6+2
-    BaseIntelligence @ 3d6
-    BaseWisdom @ 3d6+2
-    BaseCharisma @ 3d6
+DruidCircleLandArcticLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel3
-    Spell12 @ $DruidSpellLevel4
+DruidCircleLandArcticLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  | DruidCircleLandLevel3
+}
 
-    WildShape @ [
-      * Beast Shape: (Crocodile)
-      * Beast Shape: (Wolf)
-      * Beast Shape: (Giant Eagle)
-    ]
-    DruidCircle @ DruidCircleLevel6
-    | Druid
+DruidCircleLandArcticLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandArcticLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandArcticLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandArcticLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandArcticLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandArcticLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandArcticLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandArcticLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandArcticLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandArcticLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandArcticLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleArcticSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleArcticSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleArcticSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleArcticSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandMountainLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandMountainLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandMountainLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandMountainLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandMountainLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandMountainLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandMountainLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandMountainLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandMountainLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandMountainLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandMountainLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandMountainLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandMountainLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandMountainLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleMountainSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleMountainSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleMountainSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleMountainSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandDesertLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandDesertLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandDesertLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandDesertLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandDesertLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandDesertLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandDesertLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandDesertLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandDesertLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandDesertLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandDesertLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandDesertLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandDesertLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandDesertLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleDesertSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleDesertSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleDesertSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleDesertSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandSwampLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandSwampLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandSwampLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandSwampLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandSwampLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandSwampLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandSwampLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandSwampLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandSwampLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandSwampLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandSwampLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandSwampLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandSwampLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandSwampLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleSwampSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleSwampSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleSwampSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleSwampSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandGrasslandLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandGrasslandLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandGrasslandLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandGrasslandLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandGrasslandLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandGrasslandLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandGrasslandLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandGrasslandLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandGrasslandLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandGrasslandLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandGrasslandLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandGrasslandLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandGrasslandLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandGrasslandLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleGrasslandSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleGrasslandSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleGrasslandSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleGrasslandSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandCoastLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandCoastLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandCoastLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandCoastLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandCoastLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandCoastLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandCoastLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandCoastLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandCoastLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandCoastLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandCoastLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandCoastLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandCoastLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandCoastLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleCoastSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleCoastSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleCoastSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleCoastSpellForLevel9
+  | DruidCircleLandLevel14
+}
+
+DruidCircleLandForestLevel1(DruidCircleLandLevel1) {
+  | DruidCircleLandLevel1
+}
+
+DruidCircleLandForestLevel2(DruidCircleLandLevel2) {
+  | DruidCircleLandLevel2
+}
+
+DruidCircleLandForestLevel3(DruidCircleLandLevel3) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  | DruidCircleLandLevel3
+}
+
+DruidCircleLandForestLevel4(DruidCircleLandLevel4) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  | DruidCircleLandLevel4
+}
+
+DruidCircleLandForestLevel5(DruidCircleLandLevel5) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  | DruidCircleLandLevel5
+}
+
+DruidCircleLandForestLevel6(DruidCircleLandLevel6) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  | DruidCircleLandLevel6
+}
+
+DruidCircleLandForestLevel7(DruidCircleLandLevel7) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  | DruidCircleLandLevel7
+}
+
+DruidCircleLandForestLevel8(DruidCircleLandLevel8) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  | DruidCircleLandLevel8
+}
+
+DruidCircleLandForestLevel9(DruidCircleLandLevel9) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel9
+}
+
+DruidCircleLandForestLevel10(DruidCircleLandLevel10) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel10
+}
+
+DruidCircleLandForestLevel11(DruidCircleLandLevel11) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel11
+}
+
+DruidCircleLandForestLevel12(DruidCircleLandLevel12) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel12
+}
+
+DruidCircleLandForestLevel13(DruidCircleLandLevel13) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel13
+}
+
+DruidCircleLandForestLevel14(DruidCircleLandLevel14) {
+  ExtraCircleSpellForLevel3 @ $DruidCircleForestSpellForLevel3
+  ExtraCircleSpellForLevel5 @ $DruidCircleForestSpellForLevel5
+  ExtraCircleSpellForLevel7 @ $DruidCircleForestSpellForLevel7
+  ExtraCircleSpellForLevel9 @ $DruidCircleForestSpellForLevel9
+  | DruidCircleLandLevel14
 }

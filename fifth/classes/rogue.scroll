@@ -1,0 +1,359 @@
+Rogue(NPC5E) {
+  Race @ Race
+  Class! = "Rogue"
+  ExtraLanguages = "Thieves' Cant"
+
+  Weapon @ ExWeapon {
+    ClassWeaponProficiencies = "Club, Dagger, Greatclub, Handaxe, Javelin, Light hammer, Mace, Quarterstaff, Sickle, Spear, Hand Crossbow, Longsword, Rapier, Shortsword"
+    ProficiencyBonus = &ProficiencyBonus
+    BaseStrength = &BaseStrength
+    BaseDexterity = &BaseDexterity
+    Race := *Race
+  }
+
+  Armor @ $RogueArmors
+
+  ClassSavingThrows = "Dexterity, Intelligence"
+
+  Skill1 @ [
+    * Acrobatics
+    * Athletics
+    * Deception
+  ]
+  Skill2 @ [
+    * Insight
+    * Intimidation
+    * Investigation
+  ]
+  Skill3 @ [
+    * Perception
+    * Performance
+    * Persuasion
+  ]
+  Skill4 @ [
+    * Sleight of Hand
+    * Stealth
+  ]
+  # Extra skills are used when the NPC is awarded with additional skill proficiencies
+  # from race or level.
+  ExtraSkill1 @ [
+    * Animal Handling
+    * History
+    * Initiative
+    * Medicine
+  ]
+  ExtraSkill2 @ [
+    * Nature
+    * Religion
+    * Survival
+  ]
+  DamageImmunities = ""
+
+  ClassSpecificStats ~ <%
+  <li> <strong>Sneak attack:</strong> 1/turn, extra {{dice_roller(SneakAttack, SneakAttack)}} damage to one creature when attacking with an advantage using finesse or a ranged weapon </li>
+  <li> <strong>Tools:</strong> {{dice_roller("1d20+"+join(ProficiencyBonus*ThievesToolMultiplier,""),"Thieves' tools +"+join(ProficiencyBonus*ThievesToolMultiplier,""))}} </li>
+  {% if Level >= 2 %}
+  <li> <strong>Rogue:</strong> Cunning action
+    {% if Level >= 5 %}, Uncanny dodge {% endif %}
+    {% if Level >= 7 %}, Evasion {% endif %}
+    {% if Level >= 11 %}, Reliable talent {% endif %}
+  {% endif %}
+  {% if Level >= 3 %}
+    <li> <strong>Archetype(Thief):</strong> Fast Hands, Second-story work
+    {% if Level >= 9 %} ,Supreme sneak {% endif %}
+    {% if Level >= 13 %} ,Use magic device {% endif %}
+    </li>
+  {% endif %}
+  %>
+
+  OtherClassActions ~ <%
+  %>
+
+  | NPC5E
+}
+
+RogueArmors = [
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded)
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded, Wooden shield)
+    * {{1+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather, Wooden shield)
+    * {{1+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather, Wooden shield)
+]
+
+
+RogueLevel1(Rogue) {
+    Level! = 1
+    ProficiencyBonus = 2
+    HitPoints = 8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+3
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "1d6"
+    ThievesToolMultiplier = 2
+    Skill1ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+
+RogueLevel2(Rogue) {
+    Level! = 2
+    ProficiencyBonus = 2
+    HitPoints @ 1d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+3
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "1d6"
+    ThievesToolMultiplier = 2
+    Skill1ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel3(Rogue) {
+    Level! = 3
+    ProficiencyBonus = 2
+    HitPoints @ 2d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+3
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "2d6"
+    ThievesToolMultiplier = 2
+    Skill1ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel4(Rogue) {
+    Level! = 4
+    ProficiencyBonus = 2
+    HitPoints @ 3d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+4
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "2d6"
+    ThievesToolMultiplier = 2
+    Skill1ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel5(Rogue) {
+    Level! = 5
+    ProficiencyBonus = 3
+    HitPoints @ 4d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+4
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "3d6"
+    ThievesToolMultiplier = 2
+    Skill1ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel6(Rogue) {
+    Level! = 6
+    ProficiencyBonus = 3
+    HitPoints @ 5d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+4
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "3d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel7(Rogue) {
+    Level! = 7
+    ProficiencyBonus = 3
+    HitPoints @ 6d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+4
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "4d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel8(Rogue) {
+    Level! = 8
+    ProficiencyBonus = 3
+    HitPoints @ 7d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "4d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel9(Rogue) {
+    Level! = 9
+    ProficiencyBonus = 4
+    HitPoints @ 8d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    SneakAttack = "5d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel10(Rogue) {
+    Level! = 10
+    ProficiencyBonus = 4
+    HitPoints @ 9d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6+2
+
+    SneakAttack = "5d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel11(Rogue) {
+    Level! = 11
+    ProficiencyBonus = 4
+    HitPoints @ 10d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6+2
+
+    SneakAttack = "6d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel12(Rogue) {
+    Level! = 12
+    ProficiencyBonus = 4
+    HitPoints @ 11d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6+1
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6+1
+    BaseCharisma @ 3d6+2
+
+    SneakAttack = "6d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel13(Rogue) {
+    Level! = 13
+    ProficiencyBonus = 5
+    HitPoints @ 12d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6+1
+    BaseCharisma @ 3d6+2
+
+    SneakAttack = "7d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}
+
+RogueLevel14(Rogue) {
+    Level! = 14
+    ProficiencyBonus = 5
+    HitPoints @ 13d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 5d3+5
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6+3
+
+    SneakAttack = "7d6"
+    ThievesToolMultiplier = 4
+    Skill1ProficiencyMultiplier = 1
+    Skill2ProficiencyMultiplier = 1
+
+    | Rogue
+}

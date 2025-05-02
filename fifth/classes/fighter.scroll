@@ -1,0 +1,336 @@
+Fighter(NPC5E) {
+  Race @ Race
+  Class! = "Fighter"
+  ExtraLanguages = ""
+
+  FightingStyle @ FightingStyle
+
+  Weapon @ ExWeapon {
+    ClassWeaponProficiencies = "Club, Dagger, Greatclub, Handaxe, Javelin, Light Hammer, Mace, Quarterstaff, Sickle, Spear, Light Crossbow, Dart, Shortbow, Sling, Battleaxe, Flail, Glaive, Greataxe, Greatsword, Halberd, Lance, Longsword, Maul, Morningstar, Pike, Rapier, Scimitar, Shortsword, Trident, Warpick, Warhammer, Whip, Blowgun, Hand Crossbow, Heavy Crossbow, Longbow, Net"
+    ProficiencyBonus = &ProficiencyBonus
+    BaseStrength = &BaseStrength
+    BaseDexterity = &BaseDexterity
+    RangedBonus = &FightingStyle.RangedWeaponBonus
+    Race := *Race
+  }
+
+  Armor @ $FighterArmors
+
+  ClassSavingThrows = "Strength, Constitution"
+
+  Skill1 @ [
+    * Acrobatics
+    * Animal Handling
+    * Athletics
+    * Survival
+  ]
+  Skill2 @ [
+    * History
+    * Insight
+    * Intimidation
+    * Perception
+  ]
+  # Extra skills are used when the NPC is awarded with additional skill proficiencies
+  # from race or level.
+  ExtraSkill1 @ [
+    * Deception
+    * Initiative
+    * Medicine
+    * Sleight of Hand
+    * Stealth
+  ]
+  ExtraSkill2 @ [
+    * Investigation
+    * Nature
+    * Religion
+    * Performance
+    * Persuasion
+  ]
+  DamageImmunities = ""
+
+
+  ClassSpecificStats ~ <%
+  <li> <strong>Fighter:</strong> Fighting Style ({{FightingStyle.Style}})
+    {% if Level >= 2 %}, Action Surge {% endif %}
+    {% if Level >= 3 %}, Martial Archetype(Champion) {% endif %}
+    {% if Level >= 5 %}
+        {% if Level >= 11 %}
+        , 2 Extra Attacks
+        {% else %}
+        , 1 Extra Attack
+        {% endif %}
+    {% endif %}
+    {% if Level >= 9 %}
+    , Indomitable
+    {% endif %}
+  %>
+
+  OtherClassActions ~ <%
+  %>
+
+  | NPC5E
+}
+
+FighterArmors = [
+    * {{FightingStyle.ArmorBonus+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded)
+    * {{FightingStyle.ArmorBonus+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather)
+    * {{FightingStyle.ArmorBonus+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather)
+    * {{FightingStyle.ArmorBonus+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide)
+    * {{FightingStyle.ArmorBonus+13+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Chain shirt)
+    * {{FightingStyle.ArmorBonus+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Scale mail)
+    * {{FightingStyle.ArmorBonus+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Breastplate)
+    * {{FightingStyle.ArmorBonus+15+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Half plate)
+    * {{FightingStyle.ArmorBonus+2+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded, Shield)
+    * {{FightingStyle.ArmorBonus+2+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather, Shield)
+    * {{FightingStyle.ArmorBonus+2+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather, Shield)
+    * {{FightingStyle.ArmorBonus+2+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide, Shield)
+    * {{FightingStyle.ArmorBonus+2+13+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Chain shirt, Shield)
+    * {{FightingStyle.ArmorBonus+2+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Scale mail, Shield)
+    * {{FightingStyle.ArmorBonus+2+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Breastplate, Shield)
+    * {{FightingStyle.ArmorBonus+2+15+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Half plate, Shield)
+]
+
+FightingStyle {
+  ^ [
+      * ArcheryFightingStyle
+      * DefenseFightingStyle
+      * DuelingFightingStyle
+      * GreatWeaponFightingStyle
+  ]
+  ArmorBonus! = 0
+  RangedWeaponBonus!= 0
+  MeleeWeaponDamageBonus!= 0
+}
+
+ArcheryFightingStyle(FightingStyle) {
+  Style! = "Archery"
+  RangedWeaponBonus! = 2
+}
+
+DefenseFightingStyle(FightingStyle) {
+  Style! = "Defense"
+  ArmorBonus! = 1
+}
+
+DuelingFightingStyle(FightingStyle) {
+  Style! = "Dueling"
+  Details! = "When holding just one weapon."
+  MeleeWeaponDamageBonus! = 2
+}
+
+GreatWeaponFightingStyle(FightingStyle) {
+  Style! = "Great Weapon Fighting"
+  Details! = "Retry a damage roll if rolled 1 or 2. Must use the new value."
+  MeleeWeaponDamageBonus! = 2
+}
+
+FighterLevel1(Rogue) {
+    Level! = 1
+    ProficiencyBonus = 2
+    HitPoints = 10
+
+    BaseStrength @ 5d3+3
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+
+FighterLevel2(Rogue) {
+    Level! = 2
+    ProficiencyBonus = 2
+    HitPoints @ 1d10+10
+
+    BaseStrength @ 5d3+3
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel3(Rogue) {
+    Level! = 3
+    ProficiencyBonus = 2
+    HitPoints @ 2d10+10
+
+    BaseStrength @ 5d3+3
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel4(Rogue) {
+    Level! = 4
+    ProficiencyBonus = 2
+    HitPoints @ 3d10+10
+
+    BaseStrength @ 5d3+3
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel5(Rogue) {
+    Level! = 5
+    ProficiencyBonus = 3
+    HitPoints @ 4d10+10
+
+    BaseStrength @ 5d3+3
+    BaseDexterity @ 5d3+3
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel6(Rogue) {
+    Level! = 6
+    ProficiencyBonus = 3
+    HitPoints @ 5d10+10
+
+    BaseStrength @ 5d3+4
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel7(Rogue) {
+    Level! = 7
+    ProficiencyBonus = 3
+    HitPoints @ 6d10+10
+
+    BaseStrength @ 5d3+4
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6+2
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel8(Rogue) {
+    Level! = 8
+    ProficiencyBonus = 3
+    HitPoints @ 7d10+10
+
+    BaseStrength @ 5d3+4
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel9(Rogue) {
+    Level! = 9
+    ProficiencyBonus = 4
+    HitPoints @ 8d10+10
+
+    BaseStrength @ 5d3+4
+    BaseDexterity @ 5d3+4
+    BaseConstitution @ 3d6+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6
+
+    | Fighter
+}
+
+FighterLevel10(Rogue) {
+    Level! = 10
+    ProficiencyBonus = 4
+    HitPoints @ 9d10+10
+
+    BaseStrength @ 5d3+5
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6+2
+
+    | Fighter
+}
+
+FighterLevel11(Rogue) {
+    Level! = 11
+    ProficiencyBonus = 4
+    HitPoints @ 10d10+10
+
+    BaseStrength @ 5d3+5
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6
+    BaseCharisma @ 3d6+2
+
+    | Fighter
+}
+
+FighterLevel12(Rogue) {
+    Level! = 12
+    ProficiencyBonus = 4
+    HitPoints @ 11d10+10
+
+    BaseStrength @ 5d3+5
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+1
+    BaseCharisma @ 3d6+2
+
+    | Fighter
+}
+
+FighterLevel13(Rogue) {
+    Level! = 13
+    ProficiencyBonus = 5
+    HitPoints @ 12d10+10
+
+    BaseStrength @ 5d3+5
+    BaseDexterity @ 5d3+5
+    BaseConstitution @ 3d6+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+1
+    BaseCharisma @ 3d6+2
+
+    | Fighter
+}
+
+FighterLevel14(Rogue) {
+    Level! = 14
+    ProficiencyBonus = 5
+    HitPoints @ 13d10+10
+
+    BaseStrength @ 5d3+6
+    BaseDexterity @ 5d3+6
+    BaseConstitution @ 3d6+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 3d6+2
+    BaseCharisma @ 3d6+3
+
+    | Fighter
+}
