@@ -50,10 +50,9 @@ Rogue(NPC5E) {
   DamageImmunities = ""
 
   ClassSpecificStats ~ <%
-  <li> <strong>Sneak attack:</strong> 1/turn, extra {{dice_roller(SneakAttack, SneakAttack)}} damage to one creature when attacking with an advantage using finesse or a ranged weapon </li>
   <li> <strong>Tools:</strong> {{dice_roller("1d20+"+join(ProficiencyBonus*ThievesToolMultiplier,""),"Thieves' tools +"+join(ProficiencyBonus*ThievesToolMultiplier,""))}} </li>
   {% if Level >= 2 %}
-  <li> <strong>Rogue:</strong> Cunning action
+  <li> <strong>Rogue:</strong> Cunning action, Sneak attack
     {% if Level >= 5 %}, Uncanny dodge {% endif %}
     {% if Level >= 7 %}, Evasion {% endif %}
     {% if Level >= 11 %}, Reliable talent {% endif %}
@@ -64,6 +63,10 @@ Rogue(NPC5E) {
     {% if Level >= 13 %} ,Use magic device {% endif %}
     </li>
   {% endif %}
+  %>
+
+  WeaponActionExtension ~ <%
+    Additional {{dice_roller(SneakAttack, SneakAttack)}} damage when attacking with an advantage (Sneak attack).
   %>
 
   OtherClassActions ~ <%
