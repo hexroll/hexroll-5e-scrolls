@@ -1,0 +1,953 @@
+Cleric(NPC5E) {
+  Race @ Race
+  Class! = "Cleric"
+  ExtraLanguages = ""
+
+  Weapon @ ExWeapon {
+    ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
+    ProficiencyBonus = &ProficiencyBonus
+    BaseStrength = &BaseStrength
+    BaseDexterity = &BaseDexterity
+    Race := *Race
+  }
+
+  Armor @ $ClericArmors
+
+  ClassSavingThrows = "Wisdom, Charisma"
+
+  Skill1 @ [
+   * History
+   * Insight
+  ]
+  Skill2 @ [
+   * Medicine
+   * Persuasion
+   * Religion
+  ]
+  # Extra skills are used when the NPC is awarded with additional skill proficiencies
+  # from race or level.
+  ExtraSkill1 @ [
+   * Acrobatics
+   * Animal Handling
+   * Arcana
+   * Athletics
+   * Deception
+   * Intimidation
+   * Investigation
+  ]
+  ExtraSkill2 @ [
+   * Nature
+   * Perception
+   * Performance
+   * Sleight of Hand
+   * Stealth
+   * Survival
+  ]
+  DamageImmunities = ""
+
+  ClassSpecificStats ~ <%
+    <li><strong>Cleric:</strong> Spellcasting focus - Holy Symbol</li>
+    {{ClericDomain.Stats}}
+  %>
+
+  OtherClassActions ~ <%
+    {% if Level >= 2 %}
+    <li><strong>Turn Undead:</strong> Each undead failing a Wisdom saving throw within 30 ft. is turned for 1 minute or until taking damage.
+    {% if Level >= 17 %}
+    If the undead CR is 3 or lower, it is instantly destroyed.
+    {% else if Level >= 14 %}
+    If the undead CR is 3 or lower, it is instantly destroyed.
+    {% else if Level >= 11 %}
+    If the undead CR is 2 or lower, it is instantly destroyed.
+    {% else if Level >= 8 %}
+    If the undead CR is 1 or lower, it is instantly destroyed.
+    {% else if Level >= 5 %}
+    If the undead CR is 1/2 or lower, it is instantly destroyed.
+    {% endif %}
+    </li>
+    {% endif %}
+    {{ClericDomain.Actions}}
+  %>
+  WeaponActionExtension ~ <%
+    {{ClericDomain.WeaponActionExtension}}
+  %>
+
+  | NPC5E
+}
+
+ ClericArmors = [
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded armor)
+    * {{11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather armor)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather armor)
+    * {{12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide armor)
+    * {{13+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Chain shirt)
+    * {{14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Scale mail armor)
+    * {{14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Breastplate)
+    * {{15+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Half plate armor)
+    * {{2+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Padded armor, Shield)
+    * {{2+11+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Leather armor, Shield)
+    * {{2+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Studded Leather armor, Shield)
+    * {{2+12+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Hide armor, Shield)
+    * {{2+13+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Chain shirt, Shield)
+    * {{2+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Scale mail armor, Shield)
+    * {{2+14+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Breastplate, Shield)
+    * {{2+15+round((BaseDexterity + Race.DexterityBonus - 10.5) / 2,0)}} (Half plate armor, Shield)
+]
+
+ClericCantrip = [
+    * Guidance
+    * Light
+    * Mending
+    * Resistance
+    * Sacred Flame
+    * Spare the Dying
+    * Thaumaturgy
+]
+
+ClericSpellLevel1 = [
+    * Bane
+    * Bless
+    * Command
+    * Create or Destroy Water
+    * Cure Wounds
+    * Detect Evil and Good
+    * Detect Magic
+    * Detect Poison and Disease
+    * Guiding Bolt
+    * Healing Word
+    * Inflict Wounds
+    * Protection from Evil and Good
+    * Purify Food and Drink
+    * Sanctuary
+    * Shield of Faith
+]
+
+ClericSpellLevel2 = [
+    * Aid
+    * Augury
+    * Blindness/Deafness
+    * Calm Emotions
+    * Continual Flame
+    * Enhance Ability
+    * Find Traps
+    * Gentle Repose
+    * Hold Person
+    * Lesser Restoration
+    * Locate Object
+    * Prayer of Healing
+    * Protection from Poison
+    * Silence
+    * Spiritual Weapon
+    * Warding Bond
+    * Zone of Truth
+]
+
+ClericSpellLevel3 = [
+    * Animate Dead
+    * Beacon of Hope
+    * Bestow Curse
+    * Clairvoyance
+    * Create Food and Water
+    * Daylight
+    * Dispel Magic
+    * Glyph of Warding
+    * Magic Circle
+    * Mass Healing Word
+    * Meld into Stone
+    * Protection from Energy
+    * Remove Curse
+    * Revivify
+    * Sending
+    * Speak with Dead
+    * Spirit Guardians
+    * Tongues
+    * Water Walk
+]
+
+ClericSpellLevel4 = [
+    * Banishment
+    * Control Water
+    * Death Ward
+    * Divination
+    * Freedom of Movement
+    * Guardian of Faith
+    * Locate Creature
+    * Stone Shape
+]
+
+ClericSpellLevel5 = [
+    * Commune
+    * Contagion
+    * Dispel Evil and Good
+    * Flame Strike
+    * Geas
+    * Greater Restoration
+    * Hallow
+    * Insect Plague
+    * Legend Lore
+    * Mass Cure Wounds
+    * Planar Binding
+    * Raise Dead
+    * Scrying
+]
+
+ClericSpellLevel6 = [
+    * Blade Barrier
+    * Create Undead
+    * Find the Path
+    * Forbiddance
+    * Harm
+    * Heal
+    * Heroes' Feast
+    * Planar Ally
+    * True Seeing
+    * Word of Recall
+]
+
+ClericSpellLevel7 = [
+    * Conjure Celestial
+    * Divine Word
+    * Etherealness
+    * Fire Storm
+    * Plane Shift
+    * Regenerate
+    * Resurrection
+    * Symbol
+]
+
+ClericSpellLevel8 = [
+    * Antimagic Field
+    * Control Weather
+    * Earthquake
+    * Holy Aura
+]
+
+ClericSpellLevel9 = [
+    * Astral Projection
+    * Gate
+    * Mass Heal
+    * True Resurrection
+]
+
+ClericLevel1(Cleric) {
+    Level! = 1
+    ProficiencyBonus = 2
+    HitPoints = 8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+
+    ClericDomain @ ClericDomainLevel1
+    | Cleric
+}
+
+ClericLevel2(Cleric) {
+    Level! = 2
+    ProficiencyBonus = 2
+    HitPoints @ 1d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel2
+    Spell2 @ $ClericSpellLevel2
+    Spell3 @ $ClericSpellLevel2
+
+    ClericDomain @ ClericDomainLevel2
+    | Cleric
+}
+
+ClericLevel3(Cleric) {
+    Level! = 3
+    ProficiencyBonus = 2
+    HitPoints @ 2d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+3
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+3
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+
+    ClericDomain @ ClericDomainLevel3
+    | Cleric
+}
+
+ClericLevel4(Cleric) {
+    Level! = 4
+    ProficiencyBonus = 2
+    HitPoints @ 3d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+
+    ClericDomain @ ClericDomainLevel4
+    | Cleric
+}
+
+ClericLevel5(Cleric) {
+    Level! = 5
+    ProficiencyBonus = 3
+    HitPoints @ 4d8+8
+
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+
+    ClericDomain @ ClericDomainLevel5
+    | Cleric
+}
+
+ClericLevel6(Cleric) {
+    Level! = 6
+    ProficiencyBonus = 3
+    HitPoints @ 5d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+
+
+    ClericDomain @ ClericDomainLevel6
+    | Cleric
+}
+
+ClericLevel7(Cleric) {
+    Level! = 7
+    ProficiencyBonus = 3
+    HitPoints @ 6d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+4
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+4
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+
+    ClericDomain @ ClericDomainLevel7
+    | Cleric
+}
+
+ClericLevel8(Cleric) {
+    Level! = 8
+    ProficiencyBonus = 3
+    HitPoints @ 7d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+
+
+    ClericDomain @ ClericDomainLevel8
+    | Cleric
+}
+
+
+ClericLevel9(Cleric) {
+    Level! = 9
+    ProficiencyBonus = 4
+    HitPoints @ 8d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+
+    ClericDomain @ ClericDomainLevel9
+    | Cleric
+}
+
+ClericLevel10(Cleric) {
+    Level! = 10
+    ProficiencyBonus = 4
+    HitPoints @ 9d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Cantrip5 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+    Spell15 @ $ClericSpellLevel5
+
+    ClericDomain @ ClericDomainLevel10
+    | Cleric
+}
+
+ClericLevel11(Cleric) {
+    Level! = 11
+    ProficiencyBonus = 4
+    HitPoints @ 10d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+5
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+5
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Cantrip5 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+    Spell15 @ $ClericSpellLevel5
+    Spell16 @ $ClericSpellLevel6
+
+    ClericDomain @ ClericDomainLevel11
+    | Cleric
+}
+
+ClericLevel12(Cleric) {
+    Level! = 12
+    ProficiencyBonus = 4
+    HitPoints @ 11d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Cantrip5 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+    Spell15 @ $ClericSpellLevel5
+    Spell16 @ $ClericSpellLevel6
+
+    ClericDomain @ ClericDomainLevel12
+    | Cleric
+}
+
+ClericLevel13(Cleric) {
+    Level! = 13
+    ProficiencyBonus = 5
+    HitPoints @ 12d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Cantrip5 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+    Spell15 @ $ClericSpellLevel5
+    Spell16 @ $ClericSpellLevel6
+    Spell17 @ $ClericSpellLevel7
+
+    ClericDomain @ ClericDomainLevel13
+    | Cleric
+}
+
+ClericLevel14(Cleric) {
+    Level! = 14
+    ProficiencyBonus = 5
+    HitPoints @ 13d8+8
+    BaseStrength @ 3d6
+    BaseDexterity @ 3d6
+    BaseConstitution @ 5d3+6
+    BaseIntelligence @ 3d6
+    BaseWisdom @ 5d3+6
+    BaseCharisma @ 3d6
+
+    Cantrip1 @ $ClericCantrip
+    Cantrip2 @ $ClericCantrip
+    Cantrip3 @ $ClericCantrip
+    Cantrip4 @ $ClericCantrip
+    Cantrip5 @ $ClericCantrip
+    Spell1 @ $ClericSpellLevel1
+    Spell2 @ $ClericSpellLevel1
+    Spell3 @ $ClericSpellLevel1
+    Spell4 @ $ClericSpellLevel1
+    Spell5 @ $ClericSpellLevel2
+    Spell6 @ $ClericSpellLevel2
+    Spell7 @ $ClericSpellLevel2
+    Spell8 @ $ClericSpellLevel3
+    Spell9 @ $ClericSpellLevel3
+    Spell10 @ $ClericSpellLevel3
+    Spell11 @ $ClericSpellLevel4
+    Spell12 @ $ClericSpellLevel4
+    Spell13 @ $ClericSpellLevel4
+    Spell14 @ $ClericSpellLevel5
+    Spell15 @ $ClericSpellLevel5
+    Spell16 @ $ClericSpellLevel6
+    Spell17 @ $ClericSpellLevel7
+
+    ClericDomain @ ClericDomainLevel14
+    | Cleric
+}
+
+ClericDomainLifeSpellForLevel1 = [
+  * Bless
+  * Cure Wounds
+]
+
+ClericDomainLifeSpellForLevel3 = [
+  * Lesser Restoration
+  * Spiritual Weapon
+]
+
+ClericDomainLifeSpellForLevel5 = [
+  * Beacon of Hope
+  * Revivify
+]
+
+ClericDomainLifeSpellForLevel7 = [
+  * Death Ward
+  * Guardian of Faith
+]
+
+ClericDomainLifeSpellForLevel9 = [
+  * Mass Cure Wounds
+  * Raise Dead
+]
+
+
+ClericDomain {
+  Stats! ~ <%%>
+  Actions! ~ <%
+    {% if exists("ExtraDomainSpellForLevel3") %}
+    <li><strong>Domain Spells:</strong>
+      {{ExtraDomainSpellForLevel3}}
+      {% if exists("ExtraDomainSpellForLevel5") %}
+      , {{ExtraDomainSpellForLevel5}}
+      {% endif %}
+      {% if exists("ExtraDomainSpellForLevel7") %}
+      , {{ExtraDomainSpellForLevel7}}
+      {% endif %}
+      {% if exists("ExtraDomainSpellForLevel9") %}
+      , {{ExtraDomainSpellForLevel9}}
+      {% endif %}
+    </li>
+    {% endif %}
+    {% if Level >= 2 %}
+    <li><strong>Preserve Life:</strong> Chosen creatures with 30 ft. regain {{Level}} hitpoints in total. </li>
+    {% endif %}
+  %>
+  WeaponActionExtension! ~ <%
+    {% if exists("DivineStrikeDamage") %}
+    <strong>Divine strike:</strong> {{dice_roller(DivineStrikeDamage, DivineStrikeDamage)}} additional radiant damage.
+    {% endif %}
+  %>
+
+}
+
+ClericDomainLevel1(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel1
+  ]
+  Level = 1
+  | ClericDomain
+}
+
+ClericDomainLevel2(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel2
+  ]
+  Level = 2
+  | ClericDomain
+}
+
+ClericDomainLevel3(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel3
+  ]
+  Level = 3
+  | ClericDomain
+}
+
+ClericDomainLevel4(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel4
+  ]
+  Level = 4
+  | ClericDomain
+}
+
+ClericDomainLevel5(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel5
+  ]
+  Level = 5
+  | ClericDomain
+}
+
+ClericDomainLevel6(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel6
+  ]
+  Level = 6
+  | ClericDomain
+}
+
+ClericDomainLevel7(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel7
+  ]
+  Level = 7
+  | ClericDomain
+}
+
+ClericDomainLevel8(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel8
+  ]
+  Level = 8
+  | ClericDomain
+}
+
+ClericDomainLevel9(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel9
+  ]
+  Level = 9
+  | ClericDomain
+}
+
+ClericDomainLevel10(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel10
+  ]
+  Level = 10
+  | ClericDomain
+}
+
+ClericDomainLevel11(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel11
+  ]
+  Level = 11
+  | ClericDomain
+}
+
+ClericDomainLevel12(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel12
+  ]
+  Level = 12
+  | ClericDomain
+}
+
+ClericDomainLevel13(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel13
+  ]
+  Level = 13
+  | ClericDomain
+}
+
+ClericDomainLevel14(ClericDomain) {
+  ^ [
+    * ClericDomainLifeLevel14
+  ]
+  Level = 14
+  | ClericDomain
+}
+
+ClericDomainLifeLevel1(ClericDomainLevel1) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  | ClericDomainLevel1
+}
+
+ClericDomainLifeLevel2(ClericDomainLevel2) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  | ClericDomainLevel2
+}
+
+ClericDomainLifeLevel3(ClericDomainLevel3) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  | ClericDomainLevel3
+}
+
+ClericDomainLifeLevel4(ClericDomainLevel4) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  | ClericDomainLevel4
+}
+
+ClericDomainLifeLevel5(ClericDomainLevel5) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  | ClericDomainLevel5
+}
+
+ClericDomainLifeLevel6(ClericDomainLevel6) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  | ClericDomainLevel6
+}
+
+ClericDomainLifeLevel7(ClericDomainLevel7) {
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  | ClericDomainLevel7
+}
+
+ClericDomainLifeLevel8(ClericDomainLevel8) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  | ClericDomainLevel8
+}
+
+ClericDomainLifeLevel9(ClericDomainLevel9) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel9
+}
+
+ClericDomainLifeLevel10(ClericDomainLevel10) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel10
+}
+
+ClericDomainLifeLevel11(ClericDomainLevel11) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel11
+}
+
+ClericDomainLifeLevel12(ClericDomainLevel12) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel12
+}
+
+ClericDomainLifeLevel13(ClericDomainLevel13) {
+  DivineStrikeDamage = "1d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel13
+}
+
+ClericDomainLifeLevel14(ClericDomainLevel14) {
+  DivineStrikeDamage = "2d8"
+  ExtraDomainSpellForLevel1 @ $ClericDomainLifeSpellForLevel1
+  ExtraDomainSpellForLevel3 @ $ClericDomainLifeSpellForLevel3
+  ExtraDomainSpellForLevel5 @ $ClericDomainLifeSpellForLevel5
+  ExtraDomainSpellForLevel7 @ $ClericDomainLifeSpellForLevel7
+  ExtraDomainSpellForLevel9 @ $ClericDomainLifeSpellForLevel9
+  | ClericDomainLevel14
+}
+
