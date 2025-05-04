@@ -21,14 +21,14 @@ MinionActivity {
 }
 
 HumanoidActivity {
-  NumberAppearingRoaming = 1
-  NumberAppearingLair = 1
+  NumberAppearingHex = 1
+  NumberAppearingDungeonArea = 1
   Dungeon! @ [
     * frantically searching for something
     * eating a piece of rotting meat
     * cleaning their weapons
     * alert and ready for combat
-    * roasting a rat using {%if NumberAppearingRoaming>1%}their
+    * roasting a rat using {%if NumberAppearingDungeonArea>1%}their
       torches{%else%}its torch{%endif%}
     * trying to light some torches
     * looking through some rubble
@@ -50,13 +50,13 @@ HumanoidActivity {
 }
 
 OversizedHumanoidActivity {
-  NumberAppearingRoaming = 1
-  NumberAppearingLair = 1
+  NumberAppearingHex = 1
+  NumberAppearingDungeonArea = 1
   Dungeon! @ [
     * frantically searching for something
     * eating a piece of rotting meat
     * !jinja >
-        cleaning {%if NumberAppearingRoaming>1%}their{%else%}its{%endif%} weapons
+        cleaning {%if NumberAppearingDungeonArea>1%}their{%else%}its{%endif%} weapons
     * alert and ready for combat
     ]
 

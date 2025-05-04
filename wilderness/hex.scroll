@@ -122,10 +122,10 @@ Hex {
       {{Residency.0.Details}}
       {%if Residency.0.Encounter == "Yes"%}
         <ul><li>
-          There's a 2 in 6 chance (daily) of encountering
-          {%if first(RandomEncounters.OtherEncounters).NumberAppearingLair >1%}{{first(RandomEncounters.OtherEncounters).TitlePluralizedByLair}}
-          {%else%}{{articlize(first(RandomEncounters.OtherEncounters).TitlePluralizedByLair)}}{%endif%} here.
-
+          There's a {{dice_roller("1d6","2 in 6")}} chance (daily) of encountering
+          {%if first(RandomEncounters.OtherEncounters).NumberAppearingHex >1%}{{first(RandomEncounters.OtherEncounters).TitlePluralizedForHex}}
+          {%else%}{{articlize(first(RandomEncounters.OtherEncounters).TitlePluralizedForHex)}}{%endif%} here.
+              
              <hr/>
 
              {{first(RandomEncounters.OtherEncounters).Stats}}
@@ -167,7 +167,7 @@ Hex {
       <tr> <th> 1d4 </th> <th> Encounter </th> <th> Stats </th> </tr>
       {%for e in RandomEncounters.OtherEncounters %}
       <tr> <td> {{counter.value}} </td>
-           <td> {{e.TitlePluralizedByLair}} </td>
+           <td> {{e.TitlePluralizedForHex}} </td>
            <td> {{e.Stats}} </td>
       </tr>
       {%set counter.value = counter.value+1%}

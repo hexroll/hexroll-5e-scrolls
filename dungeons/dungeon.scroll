@@ -136,7 +136,7 @@ Dungeon { ^ $dungeon_classes
     {%for m in unique(GeneratedMonsters,"Title") %}
     {% if m.HitDice < global("wandering_monsters_max_hd", 4) and counter.value <= monsters_count%}
     <tr> <td> {{counter.value}} </td>
-         <td> {{m.TitlePluralizedByLair}} </td>
+         <td> {{m.TitlePluralizedForDungeonArea}} </td>
          <td> {{m.Stats}} </td>
     </tr>
     {%set counter.value = counter.value+1%}
@@ -240,7 +240,7 @@ DungeonWanderingMonsters {
     {%for m in unique(monsters,"Title") %}
     {% if m.HitDice < global("wandering_monsters_max_hd", 4) %}
     <tr> <td> {{counter.value}} </td>
-         <td> {{m.TitlePluralizedByLair}} </td>
+         <td> {{m.TitlePluralizedForDungeonArea}} </td>
          <td> {{m.Stats}} </td>
     </tr>
     {%set counter.value = counter.value+1%}
@@ -639,16 +639,16 @@ DungeonTreasureRumor (RealmRumor) {
 
 DungeonEncounter {
   Description! ~ <%
-    {%if Monster.NumberAppearingRoaming==1%}There’s {{articlize(Monster.Title)}}{%else%} There are {{Monster.NumberAppearingRoaming}} {{Monster.Title}}s {%endif%} inside{%if existsIn(Monster,"Activity") and Monster.Activity%}, {{Monster.Activity.Dungeon}}{%endif%}.
+    {%if Monster.NumberAppearingDungeonArea==1%}There’s {{articlize(Monster.Title)}}{%else%} There are {{Monster.NumberAppearingDungeonArea}} {{Monster.Title}}s {%endif%} inside{%if existsIn(Monster,"Activity") and Monster.Activity%}, {{Monster.Activity.Dungeon}}{%endif%}.
     {%if Monster.Intelligent %}Roll or decide for reaction.
-    {%else%}{%if Monster.NumberAppearingRoaming==1%}It {%else%} They {%endif%} will attack anyone stepping in. {%endif%}
+    {%else%}{%if Monster.NumberAppearingDungeonArea==1%}It {%else%} They {%endif%} will attack anyone stepping in. {%endif%}
     <p>
     <strong>{{Monster.Title}}</strong> {{note_button(uuid)}}
     {{note_container(uuid)}}
     <hr/>
     {{Monster.Stats}}
-    {%if Monster.NumberAppearingRoaming<10%}
-    <div class="hpmarks">{%for m in range(Monster.NumberAppearingRoaming)%}
+    {%if Monster.NumberAppearingDungeonArea<0%}
+    <div class="hpmarks">{%for m in range(Monster.NumberAppearingDungeonArea)%}
     {% for hp in range(stable_dice(Monster.HitDiceRoll, Monster.uuid, m)) %}<span class="hp-mark">&#x274F</span>{%endfor%}<br/>{%endfor%}</div>
     {%endif%}
     <hr/>

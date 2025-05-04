@@ -9,10 +9,10 @@ TreasureType {
 }
 
 Monster {
-  RandomEncountersNumberAppearingFactor = 3
+  RandomEncountersNumberAppearingFactor = 1
   Title! :: STRING
-  NumberAppearingRoaming! :: DICE
-  NumberAppearingLair! :: DICE
+  NumberAppearingHex! :: DICE
+  NumberAppearingDungeonArea! :: DICE
   Sound! :: STRING
   Activity! :: TYPE(MonsterActivity)
   Intelligent! :: BOOL
@@ -21,11 +21,11 @@ Monster {
   HitDice! :: INTEGER
   HitDiceRoll! :: STRING
   TreasureType! :: TYPE(TreasureType)
-  TitlePluralizedByRoaming! ~ <%{{plural(must_be_int(NumberAppearingRoaming),Title)}}%>
-  TitlePluralizedByLair! ~ <%
-    <strong>{{plural(round(NumberAppearingLair / RandomEncountersNumberAppearingFactor,0),Title)}}
-    {%if round(NumberAppearingLair / RandomEncountersNumberAppearingFactor,0) > 1%}</strong>
-    ({{round(NumberAppearingLair / RandomEncountersNumberAppearingFactor,0)}}){%else%}</strong>{%endif%}
+  TitlePluralizedForDungeonArea! ~ <%{{plural(must_be_int(NumberAppearingDungeonArea),Title)}}%>
+  TitlePluralizedForHex! ~ <%
+    <strong>{{plural(round(NumberAppearingHex / RandomEncountersNumberAppearingFactor,0),Title)}}
+    {%if round(NumberAppearingHex / RandomEncountersNumberAppearingFactor,0) > 1%}</strong>
+    ({{round(NumberAppearingHex / RandomEncountersNumberAppearingFactor,0)}}){%else%}</strong>{%endif%}
     %>
 }
 

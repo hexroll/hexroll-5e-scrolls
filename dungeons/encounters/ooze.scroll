@@ -7,8 +7,8 @@ DungeonEncounterOozes(DungeonEncounter) {
   | DungeonEncounter
   Foreshadow! ~ <%
     There's a good chance players could sense the vile <strong>stench</strong> that the
-    <strong>{{Monster.TitlePluralizedByRoaming}}</strong> {%if
-    Monster.NumberAppearingRoaming>1%}are{%else%}is{%endif%} emitting from
+    <strong>{{Monster.TitlePluralizedForDungeonArea}}</strong> {%if
+    Monster.NumberAppearingDungeonArea>1%}are{%else%}is{%endif%} emitting from
     inside this area
     %>
   Hint! @ [

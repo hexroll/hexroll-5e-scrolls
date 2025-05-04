@@ -129,8 +129,8 @@ PitTrap {
     * <p>There's a <strong>deadly pit</strong> here, 6' deep, {{Cover}}.  If
       undetected, there's a {{dice_roller("1d6","2 in 6")}} chance of falling in when
       stepped on. </p><p> {%if
-      Monster.NumberAppearingRoaming==1%}{{capitalize(articlize(Monster.Title))}}
-      is {%else%}{{Monster.NumberAppearingRoaming}}
+      Monster.NumberAppearingDungeonArea==1%}{{capitalize(articlize(Monster.Title))}}
+      is {%else%}{{Monster.NumberAppearingDungeonArea}}
       {{Monster.Title}}s are {%endif%} waiting at the bottom.
 
       <hr/>
@@ -139,8 +139,8 @@ PitTrap {
 
       <br/>
 
-      {%if Monster.NumberAppearingRoaming<10%}{%for m in
-      range(Monster.NumberAppearingRoaming)%} <sub>{% for hp in
+      {%if Monster.NumberAppearingDungeonArea<10%}{%for m in
+      range(Monster.NumberAppearingDungeonArea)%} <sub>{% for hp in
       range(dice(Monster.HitDiceRoll)) %}❏{%endfor%}</sub><br/>
       {%endfor%}{%endif%}
 

@@ -35,8 +35,8 @@ DungeonEncounterTempleAnimals(DungeonEncounter) {
   Monster! @ DungeonEncounterTempleAnimalsClasses
   Foreshadow! ~ <%
     A successful listening roll could detect the <strong>sounds</strong> that the
-    <strong>{{Monster.TitlePluralizedByRoaming}}</strong> {%if
-    Monster.NumberAppearingRoaming>1%}are{%else%}is{%endif%} making inside this
+    <strong>{{Monster.TitlePluralizedForDungeonArea}}</strong> {%if
+    Monster.NumberAppearingDungeonArea>1%}are{%else%}is{%endif%} making inside this
     area
     %>
   Hint! @ [

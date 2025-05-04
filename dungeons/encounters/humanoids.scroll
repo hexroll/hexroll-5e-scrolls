@@ -7,7 +7,7 @@ DungeonEncounterHumanoids(DungeonEncounter) {
   | DungeonEncounter
   Foreshadow! ~ <%
     When listening from outside,
-    {%if Monster.NumberAppearingRoaming > 1%}<strong>speaking {{Monster.Title}}s</strong>
+    {%if Monster.NumberAppearingDungeonArea > 1%}<strong>speaking {{Monster.Title}}s</strong>
     {%else%}<strong>footsteps</strong>{%endif%}
     can be faintly heard from inside this area
     %>

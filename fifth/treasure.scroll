@@ -12,10 +12,10 @@ TreasureType {
   PiecesFactor = 1
   RoomContext = none
   GoldValue! ~ <%
-    {%if (not RoomContext or not MaxNumberAppearingRoaming)%}
+    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
     {%set factor.value = 1%}
     {%else%}
-    {%set factor.value = MaxNumberAppearingRoaming/NumberAppearingRoaming%}
+    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
     {%endif%}
     {%set gptotal.value = 0 %}
     {%if cp1000.Roll <= cp1000.Odds%} {%set gptotal.value = gptotal.value + 10*cp1000.Amount * PiecesFactor / factor.value%}{%endif%}
@@ -28,10 +28,10 @@ TreasureType {
 
   GemsValue! ~ <%
     {%if Gems.Roll <= Gems.Odds%}
-    {%if (not RoomContext or not MaxNumberAppearingRoaming)%}
+    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
     {%set factor.value = 1%}
     {%else%}
-    {%set factor.value = MaxNumberAppearingRoaming/NumberAppearingRoaming%}
+    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
     {%endif%}
     {%set total.value = 0%}
     {%for g in range(Gems.Amount)%}
@@ -52,10 +52,10 @@ TreasureType {
 
   JewelleryValue! ~ <%
     {%if Jewellery.Roll <= Jewellery.Odds%}
-    {%if (not RoomContext or not MaxNumberAppearingRoaming)%}
+    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
     {%set factor.value = 1%}
     {%else%}
-    {%set factor.value = MaxNumberAppearingRoaming/NumberAppearingRoaming%}
+    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
     {%endif%}
     {%set total.value = 0 %}
     {%for g in range(Jewellery.Amount)%}

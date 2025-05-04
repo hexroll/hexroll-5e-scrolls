@@ -52,20 +52,20 @@ Encounter {
     * the nearest dungeon
   ]
   EncounterName! ~ <%
-    {%if Monster.NumberAppearingLair==1%}{{capitalize(articlize(Monster.Title))}}
+    {%if Monster.NumberAppearingHex==1%}{{capitalize(articlize(Monster.Title))}}
     {%else%}{{Monster.Title}}s{%endif%}
   %>
   EncounterDesc! ~ <%
     <strong>
-    {%if Monster.NumberAppearingLair==1%}{{capitalize(articlize(Monster.Title))}}</strong> is
-    {%else%}{{Monster.NumberAppearingLair}} {{Monster.Title}}s</strong> are{%endif%}
+    {%if Monster.NumberAppearingHex==1%}{{capitalize(articlize(Monster.Title))}}</strong> is
+    {%else%}{{Monster.NumberAppearingHex}} {{Monster.Title}}s</strong> are{%endif%}
     {%if Monster.Alignment=="Chaotic"%}{{ChaoticState}}
     {%else%}{{NeutralState}}{%endif%}
   %>
   EncounterProbability! ~ <%
     <p>
     There’s a {{dice_roller("1d6","2-in-6")}} chance of encountering
-    {%if Monster.NumberAppearingLair==1%}it{%if existsIn(Monster,"Activity") and Monster.Activity%},  {{Monster.Activity.Wilderness}}{%endif%}.
+    {%if Monster.NumberAppearingHex==1%}it{%if existsIn(Monster,"Activity") and Monster.Activity%},  {{Monster.Activity.Wilderness}}{%endif%}.
     {%else%}at least some of them outside{%if existsIn(Monster,"Activity") and Monster.Activity%},  {{Monster.Activity.Wilderness}}{%endif%}
     (the rest will be in their lair inside {{Lair}}).{%endif%}
     </p>
@@ -76,8 +76,8 @@ Encounter {
     {{note_container(uuid)}}
     <hr/>
     {{Monster.Stats}}
-    {%if Monster.NumberAppearingLair<10%}
-    <div class="hpmarks">{%for m in range(Monster.NumberAppearingLair)%}
+    {%if Monster.NumberAppearingHex < 0 %}
+    <div class="hpmarks">{%for m in range(Monster.NumberAppearingHex)%}
     {% for hp in range(stable_dice(Monster.HitDiceRoll, Monster.uuid, m)) %}<span class="hp-mark">&#x274F;</span>{%endfor%}<br/>{%endfor%}</div>
     {%endif%}
     <hr/>
@@ -423,7 +423,7 @@ Graveyard (Feature){
   ]
 
   Supplemental! ~ <%
-    There'a a {{dice_roller("1d6","1-in-6")}} chance that {{reroller(Monster)}}<strong>{{pluralize(Monster.NumberAppearingLair,Monster.Title)}}</strong> will
+    There'a a {{dice_roller("1d6","1-in-6")}} chance that {{reroller(Monster)}}<strong>{{pluralize(Monster.NumberAppearingHex,Monster.Title)}}</strong> will
     rise up from the graves if staying here overnight, or {{dice_roller("1d6","3-in-6")}} chance if digging up the graves:
 
     <p>
@@ -433,8 +433,8 @@ Graveyard (Feature){
 
     {{Monster.Stats}}
 
-    {%if Monster.NumberAppearingLair<10%}
-    <div class="hpmarks">{%for m in range(Monster.NumberAppearingLair)%}
+    {%if Monster.NumberAppearingHex<0%}
+    <div class="hpmarks">{%for m in range(Monster.NumberAppearingHex)%}
     {% for hp in range(stable_dice(Monster.HitDiceRoll, Monster.uuid, m)) %}<span class="hp-mark">&#x274F;</span>{%endfor%}<br/>{%endfor%}</div>
     {%endif%}
 
@@ -470,16 +470,16 @@ CaravansPark (Feature){
 
 BridgeEncounter {
   Desc! ~ <%
-    {{Motive}} {%if Monster.NumberAppearingLair==1%} <strong>{{Monster.Title}}</strong>
+    {{Motive}} {%if Monster.NumberAppearingHex==1%} <strong>{{Monster.Title}}</strong>
     {%else%}<strong>{{Monster.Title}}s</strong>{%endif%}
 
     <hr/>
 
     {{Monster.Stats}}
-    {%if Monster.NumberAppearingLair<10 and Monster.HitDice<6%}
+    {%if Monster.NumberAppearingHex<0 and Monster.HitDice<6%}
 
 
-    <div class="hpmarks">{%for m in range(Monster.NumberAppearingLair)%}
+    <div class="hpmarks">{%for m in range(Monster.NumberAppearingHex)%}
     <sub>{% for hp in range(stable_dice(Monster.HitDiceRoll, Monster.uuid, m)) %}&#x274F;{%endfor%}</sub><br/>{%endfor%}</div>
     {%endif%}
 
@@ -506,7 +506,7 @@ BridgeTroll (BridgeEncounter){
     * a greedy
   ]
   Monster! @ BridgeMonsterTroll {
-      NumberAppearingLair = 1
+      NumberAppearingHex = 1
   }
   | BridgeEncounter
 }
@@ -517,7 +517,7 @@ BridgeOgre (BridgeEncounter){
     * a deranged
   ]
   Monster! @ BridgeMonsterOgre {
-      NumberAppearingLair = 1
+      NumberAppearingHex = 1
   }
   | BridgeEncounter
 }
