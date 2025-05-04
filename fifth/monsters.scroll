@@ -15,8 +15,8 @@ Aboleth (5eMonster) {
     HP = "135 (18d10 + 36)"
     HitDiceRoll! = "18d10 + 36"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR10
     Movement = "Walk 10 ft. Swim 40 ft."
     Initiative = ""
@@ -50,8 +50,8 @@ Acolyte (5eMonster) {
     HP = "9 (2d8)"
     HitDiceRoll! = "2d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 3d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -85,7 +85,7 @@ AdultBlackDragon (5eMonster) {
     HP = "195 (17d12 + 85)"
     HitDiceRoll! = "17d12 + 85"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR14
     Movement = "Walk 40 ft. Fly 80 ft. Swim 40 ft."
@@ -120,7 +120,7 @@ AdultBlueDragon (5eMonster) {
     HP = "225 (18d12 + 108)"
     HitDiceRoll! = "18d12 + 108"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR16
     Movement = "Walk 40 ft. Fly 80 ft."
@@ -155,7 +155,7 @@ AdultBrassDragon (5eMonster) {
     HP = "172 (15d12 + 75)"
     HitDiceRoll! = "15d12 + 75"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR13
     Movement = "Walk 40 ft. Fly 80 ft."
@@ -190,7 +190,7 @@ AdultBronzeDragon (5eMonster) {
     HP = "212 (17d12 + 102)"
     HitDiceRoll! = "17d12 + 102"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR15
     Movement = "Walk 40 ft. Fly 80 ft. Swim 40 ft."
@@ -225,7 +225,7 @@ AdultCopperDragon (5eMonster) {
     HP = "184 (16d12 + 80)"
     HitDiceRoll! = "16d12 + 80"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR14
     Movement = "Walk 40 ft. Fly 80 ft. Climb 40 ft."
@@ -260,7 +260,7 @@ AdultGoldDragon (5eMonster) {
     HP = "256 (19d12 + 133)"
     HitDiceRoll! = "19d12 + 133"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR17
     Movement = "Walk 40 ft. Fly 80 ft. Swim 40 ft."
@@ -295,7 +295,7 @@ AdultGreenDragon (5eMonster) {
     HP = "207 (18d12 + 90)"
     HitDiceRoll! = "18d12 + 90"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR15
     Movement = "Walk 40 ft. Fly 80 ft. Swim 40 ft."
@@ -330,7 +330,7 @@ AdultRedDragon (5eMonster) {
     HP = "256 (19d12 + 133)"
     HitDiceRoll! = "19d12 + 133"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR17
     Movement = "Walk 40 ft. Fly 80 ft. Climb 40 ft."
@@ -365,7 +365,7 @@ AdultSilverDragon (5eMonster) {
     HP = "243 (18d12 + 126)"
     HitDiceRoll! = "18d12 + 126"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR16
     Movement = "Walk 40 ft. Fly 80 ft."
@@ -400,7 +400,7 @@ AdultWhiteDragon (5eMonster) {
     HP = "200 (16d12 + 96)"
     HitDiceRoll! = "16d12 + 96"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d3
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR13
     Movement = "Walk 40 ft. Fly 80 ft. Swim 40 ft."
@@ -435,8 +435,8 @@ AirElemental (5eMonster) {
     HP = "90 (12d10 + 24)"
     HitDiceRoll! = "12d10 + 24"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Fly 90 ft. (hover)"
     Initiative = ""
@@ -820,8 +820,8 @@ Androsphinx (5eMonster) {
     HP = "199 (19d10 + 95)"
     HitDiceRoll! = "19d10 + 95"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR17
     Movement = "Walk 40 ft. Fly 60 ft."
     Initiative = ""
@@ -855,8 +855,8 @@ AnimatedArmor (5eMonster) {
     HP = "33 (6d8 + 6)"
     HitDiceRoll! = "6d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! = 0
+    NumberAppearingLair! @ 3d8
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 25 ft."
     Initiative = ""
@@ -890,8 +890,8 @@ Ankheg (5eMonster) {
     HP = "39 (6d10 + 6)"
     HitDiceRoll! = "6d10 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 2d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -925,8 +925,8 @@ Ape (5eMonster) {
     HP = "19 (3d8 + 6)"
     HitDiceRoll! = "3d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 4d8
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -961,7 +961,7 @@ Archmage (5eMonster) {
     HitDiceRoll! = "18d8 + 18"
     HitDiceText! = ""
     NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR12
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -996,7 +996,7 @@ Assassin (5eMonster) {
     HitDiceRoll! = "12d8 + 24"
     HitDiceText! = ""
     NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR8
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1030,8 +1030,8 @@ AwakenedShrub (5eMonster) {
     HP = "10 (3d6)"
     HitDiceRoll! = "3d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 1d10
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -1065,8 +1065,8 @@ AwakenedTree (5eMonster) {
     HP = "59 (7d12 + 14)"
     HitDiceRoll! = "7d12 + 14"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 1d10
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -1100,8 +1100,8 @@ AxeBeak (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -1135,8 +1135,8 @@ Azer (5eMonster) {
     HP = "39 (6d8 + 12)"
     HitDiceRoll! = "6d8 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1170,8 +1170,8 @@ Baboon (5eMonster) {
     HP = "3 (1d6)"
     HitDiceRoll! = "1d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 6d2
+    NumberAppearingLair! @ 6d2
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -1205,8 +1205,8 @@ Badger (5eMonster) {
     HP = "3 (1d4 + 1)"
     HitDiceRoll! = "1d4 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -1275,8 +1275,8 @@ Bandit (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 4d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1345,8 +1345,8 @@ BarbedDevil (5eMonster) {
     HP = "110 (13d8 + 52)"
     HitDiceRoll! = "13d8 + 52"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 2d3
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1380,8 +1380,8 @@ Basilisk (5eMonster) {
     HP = "52 (8d8 + 16)"
     HitDiceRoll! = "8d8 + 16"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -1415,8 +1415,8 @@ Bat (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 10d3
+    NumberAppearingLair! @ 10d3
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 5 ft. Fly 30 ft."
     Initiative = ""
@@ -1450,8 +1450,8 @@ BeardedDevil (5eMonster) {
     HP = "52 (8d8 + 16)"
     HitDiceRoll! = "8d8 + 16"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1485,8 +1485,8 @@ Behir (5eMonster) {
     HP = "168 (16d12 + 64)"
     HitDiceRoll! = "16d12 + 64"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR11
     Movement = "Walk 50 ft. Climb 40 ft."
     Initiative = ""
@@ -1520,8 +1520,8 @@ Berserker (5eMonster) {
     HP = "67 (9d8 + 27)"
     HitDiceRoll! = "9d8 + 27"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 6d2
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1555,8 +1555,8 @@ BlackBear (5eMonster) {
     HP = "19 (3d8 + 6)"
     HitDiceRoll! = "3d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft. Climb 30 ft."
     Initiative = ""
@@ -1625,7 +1625,7 @@ BlackPudding (5eMonster) {
     HP = "85 (10d10 + 30)"
     HitDiceRoll! = "10d10 + 30"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! = 0
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 20 ft. Climb 20 ft."
@@ -1660,8 +1660,8 @@ BlinkDog (5eMonster) {
     HP = "22 (4d8 + 4)"
     HitDiceRoll! = "4d8 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -1695,8 +1695,8 @@ BloodHawk (5eMonster) {
     HP = "7 (2d6)"
     HitDiceRoll! = "2d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 60 ft."
     Initiative = ""
@@ -1765,8 +1765,8 @@ Boar (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6+2
+    NumberAppearingLair! @ 1d6+2
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -1940,8 +1940,8 @@ Bugbear (5eMonster) {
     HP = "27 (5d8 + 5)"
     HitDiceRoll! = "5d8 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -1975,8 +1975,8 @@ Bulette (5eMonster) {
     HP = "94 (9d10 + 45)"
     HitDiceRoll! = "9d10 + 45"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -2010,8 +2010,8 @@ Camel (5eMonster) {
     HP = "15 (2d10 + 4)"
     HitDiceRoll! = "2d10 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 4d2
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -2045,7 +2045,7 @@ Cat (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d6
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 40 ft. Climb 30 ft."
@@ -2080,8 +2080,8 @@ Centaur (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -2150,8 +2150,8 @@ Chimera (5eMonster) {
     HP = "114 (12d10 + 48)"
     HitDiceRoll! = "12d10 + 48"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR6
     Movement = "Walk 30 ft. Fly 60 ft."
     Initiative = ""
@@ -2185,8 +2185,8 @@ Chuul (5eMonster) {
     HP = "93 (11d10 + 33)"
     HitDiceRoll! = "11d10 + 33"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -2220,8 +2220,8 @@ ClayGolem (5eMonster) {
     HP = "133 (14d10 + 56)"
     HitDiceRoll! = "14d10 + 56"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR9
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -2290,8 +2290,8 @@ CloudGiant (5eMonster) {
     HP = "200 (16d12 + 96)"
     HitDiceRoll! = "16d12 + 96"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR9
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -2325,8 +2325,8 @@ Cockatrice (5eMonster) {
     HP = "27 (6d6 + 6)"
     HitDiceRoll! = "6d6 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft. Fly 40 ft."
     Initiative = ""
@@ -2360,8 +2360,8 @@ Commoner (5eMonster) {
     HP = "4 (1d8)"
     HitDiceRoll! = "1d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 4d3
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -2395,8 +2395,8 @@ ConstrictorSnake (5eMonster) {
     HP = "13 (2d10 + 2)"
     HitDiceRoll! = "2d10 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6+2
+    NumberAppearingLair! @ 1d6+2
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -2465,8 +2465,8 @@ Couatl (5eMonster) {
     HP = "97 (13d8 + 39)"
     HitDiceRoll! = "13d8 + 39"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 30 ft. Fly 90 ft."
     Initiative = ""
@@ -2500,8 +2500,8 @@ Crab (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 6d2
+    NumberAppearingLair! @ 6d2
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft. Swim 20 ft."
     Initiative = ""
@@ -2535,8 +2535,8 @@ Crocodile (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft. Swim 30 ft."
     Initiative = ""
@@ -2570,8 +2570,8 @@ CultFanatic (5eMonster) {
     HP = "33 (6d8 + 6)"
     HitDiceRoll! = "6d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -2605,8 +2605,8 @@ Cultist (5eMonster) {
     HP = "9 (2d8)"
     HitDiceRoll! = "2d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 2d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -2640,8 +2640,8 @@ Darkmantle (5eMonster) {
     HP = "22 (5d6 + 5)"
     HitDiceRoll! = "5d6 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 30 ft."
     Initiative = ""
@@ -2675,8 +2675,8 @@ DeathDog (5eMonster) {
     HP = "39 (6d8 + 12)"
     HitDiceRoll! = "6d8 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -2745,8 +2745,8 @@ Deer (5eMonster) {
     HP = "4 (1d8)"
     HitDiceRoll! = "1d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 2d8
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -2815,8 +2815,8 @@ DireWolf (5eMonster) {
     HP = "37 (5d10 + 10)"
     HitDiceRoll! = "5d10 + 10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -3060,8 +3060,8 @@ Drow (5eMonster) {
     HP = "13 (3d8)"
     HitDiceRoll! = "3d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3095,8 +3095,8 @@ Druid (5eMonster) {
     HP = "27 (5d8 + 5)"
     HitDiceRoll! = "5d8 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3130,8 +3130,8 @@ Dryad (5eMonster) {
     HP = "22 (5d8)"
     HitDiceRoll! = "5d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3235,8 +3235,8 @@ Eagle (5eMonster) {
     HP = "3 (1d6)"
     HitDiceRoll! = "1d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 10 ft. Fly 60 ft."
     Initiative = ""
@@ -3340,8 +3340,8 @@ Elephant (5eMonster) {
     HP = "76 (8d12 + 24)"
     HitDiceRoll! = "8d12 + 24"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -3375,8 +3375,8 @@ Elk (5eMonster) {
     HP = "13 (2d10 + 2)"
     HitDiceRoll! = "2d10 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -3480,8 +3480,8 @@ Ettin (5eMonster) {
     HP = "85 (10d10 + 30)"
     HitDiceRoll! = "10d10 + 30"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -3550,8 +3550,8 @@ FireGiant (5eMonster) {
     HP = "162 (13d12 + 78)"
     HitDiceRoll! = "13d12 + 78"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR9
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3585,8 +3585,8 @@ FleshGolem (5eMonster) {
     HP = "93 (11d8 + 44)"
     HitDiceRoll! = "11d8 + 44"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3620,8 +3620,8 @@ FlyingSnake (5eMonster) {
     HP = "5 (2d4)"
     HitDiceRoll! = "2d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Fly 60 ft. Swim 30 ft."
     Initiative = ""
@@ -3655,8 +3655,8 @@ FlyingSword (5eMonster) {
     HP = "17 (5d6)"
     HitDiceRoll! = "5d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 0 ft. Fly 50 ft. (hover)"
     Initiative = ""
@@ -3690,8 +3690,8 @@ Frog (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d8
+    NumberAppearingLair! @ 3d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft. Swim 20 ft."
     Initiative = ""
@@ -3760,8 +3760,8 @@ Gargoyle (5eMonster) {
     HP = "52 (7d8 + 21)"
     HitDiceRoll! = "7d8 + 21"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft. Fly 60 ft."
     Initiative = ""
@@ -3830,8 +3830,8 @@ Ghast (5eMonster) {
     HP = "36 (8d8)"
     HitDiceRoll! = "8d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3865,8 +3865,8 @@ Ghost (5eMonster) {
     HP = "45 (10d8)"
     HitDiceRoll! = "10d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 0 ft. Fly 40 ft. (hover)"
     Initiative = ""
@@ -3900,8 +3900,8 @@ Ghoul (5eMonster) {
     HP = "22 (5d8)"
     HitDiceRoll! = "5d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -3935,8 +3935,8 @@ GiantApe (5eMonster) {
     HP = "157 (15d12 + 60)"
     HitDiceRoll! = "15d12 + 60"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR7
     Movement = "Walk 40 ft. Climb 40 ft."
     Initiative = ""
@@ -3970,8 +3970,8 @@ GiantBadger (5eMonster) {
     HP = "13 (2d8 + 4)"
     HitDiceRoll! = "2d8 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -4005,8 +4005,8 @@ GiantBat (5eMonster) {
     HP = "22 (4d10)"
     HitDiceRoll! = "4d10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 60 ft."
     Initiative = ""
@@ -4040,8 +4040,8 @@ GiantBoar (5eMonster) {
     HP = "42 (5d10 + 15)"
     HitDiceRoll! = "5d10 + 15"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -4075,8 +4075,8 @@ GiantCentipede (5eMonster) {
     HP = "4 (1d6 + 1)"
     HitDiceRoll! = "1d6 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -4110,8 +4110,8 @@ GiantConstrictorSnake (5eMonster) {
     HP = "60 (8d12 + 8)"
     HitDiceRoll! = "8d12 + 8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -4145,8 +4145,8 @@ GiantCrab (5eMonster) {
     HP = "13 (3d8)"
     HitDiceRoll! = "3d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -4180,8 +4180,8 @@ GiantCrocodile (5eMonster) {
     HP = "85 (9d12 + 27)"
     HitDiceRoll! = "9d12 + 27"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft. Swim 50 ft."
     Initiative = ""
@@ -4215,8 +4215,8 @@ GiantEagle (5eMonster) {
     HP = "26 (4d10 + 4)"
     HitDiceRoll! = "4d10 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 80 ft."
     Initiative = ""
@@ -4250,8 +4250,8 @@ GiantElk (5eMonster) {
     HP = "42 (5d12 + 10)"
     HitDiceRoll! = "5d12 + 10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 60 ft."
     Initiative = ""
@@ -4285,8 +4285,8 @@ GiantFireBeetle (5eMonster) {
     HP = "4 (1d6 + 1)"
     HitDiceRoll! = "1d6 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -4320,8 +4320,8 @@ GiantFrog (5eMonster) {
     HP = "18 (4d8)"
     HitDiceRoll! = "4d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -4355,8 +4355,8 @@ GiantGoat (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -4390,8 +4390,8 @@ GiantHyena (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -4425,8 +4425,8 @@ GiantLizard (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -4460,8 +4460,8 @@ GiantOctopus (5eMonster) {
     HP = "52 (8d10 + 8)"
     HitDiceRoll! = "8d10 + 8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Swim 60 ft."
     Initiative = ""
@@ -4495,8 +4495,8 @@ GiantOwl (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 5 ft. Fly 60 ft."
     Initiative = ""
@@ -4530,8 +4530,8 @@ GiantPoisonousSnake (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -4565,8 +4565,8 @@ GiantRat (5eMonster) {
     HP = "7 (2d6)"
     HitDiceRoll! = "2d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -4600,8 +4600,8 @@ GiantScorpion (5eMonster) {
     HP = "52 (7d10 + 14)"
     HitDiceRoll! = "7d10 + 14"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -4635,8 +4635,8 @@ GiantSeaHorse (5eMonster) {
     HP = "16 (3d10)"
     HitDiceRoll! = "3d10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 0 ft. Swim 40 ft."
     Initiative = ""
@@ -4670,8 +4670,8 @@ GiantShark (5eMonster) {
     HP = "126 (11d12 + 55)"
     HitDiceRoll! = "11d12 + 55"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Swim 50 ft."
     Initiative = ""
@@ -4705,8 +4705,8 @@ GiantSpider (5eMonster) {
     HP = "26 (4d10 + 4)"
     HitDiceRoll! = "4d10 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -4740,8 +4740,8 @@ GiantToad (5eMonster) {
     HP = "39 (6d10 + 6)"
     HitDiceRoll! = "6d10 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft. Swim 40 ft."
     Initiative = ""
@@ -4775,8 +4775,8 @@ GiantVulture (5eMonster) {
     HP = "22 (3d10 + 6)"
     HitDiceRoll! = "3d10 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 60 ft."
     Initiative = ""
@@ -4810,8 +4810,8 @@ GiantWasp (5eMonster) {
     HP = "13 (3d8)"
     HitDiceRoll! = "3d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 50 ft."
     Initiative = ""
@@ -4845,8 +4845,8 @@ GiantWeasel (5eMonster) {
     HP = "9 (2d8)"
     HitDiceRoll! = "2d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -4880,8 +4880,8 @@ GiantWolfSpider (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft. Climb 40 ft."
     Initiative = ""
@@ -4915,8 +4915,8 @@ GibberingMouther (5eMonster) {
     HP = "67 (9d8 + 27)"
     HitDiceRoll! = "9d8 + 27"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 10 ft. Swim 10 ft."
     Initiative = ""
@@ -4985,8 +4985,8 @@ Gladiator (5eMonster) {
     HP = "112 (15d8 + 45)"
     HitDiceRoll! = "15d8 + 45"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5020,8 +5020,8 @@ Gnoll (5eMonster) {
     HP = "22 (5d8)"
     HitDiceRoll! = "5d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5055,8 +5055,8 @@ Goat (5eMonster) {
     HP = "4 (1d8)"
     HitDiceRoll! = "1d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -5090,8 +5090,8 @@ Goblin (5eMonster) {
     HP = "7 (2d6)"
     HitDiceRoll! = "2d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5160,8 +5160,8 @@ Gorgon (5eMonster) {
     HP = "114 (12d10 + 48)"
     HitDiceRoll! = "12d10 + 48"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -5195,8 +5195,8 @@ GrayOoze (5eMonster) {
     HP = "22 (3d8 + 9)"
     HitDiceRoll! = "3d8 + 9"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Climb 10 ft."
     Initiative = ""
@@ -5265,8 +5265,8 @@ GreenHag (5eMonster) {
     HP = "82 (11d8 + 33)"
     HitDiceRoll! = "11d8 + 33"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5300,8 +5300,8 @@ Grick (5eMonster) {
     HP = "27 (6d8)"
     HitDiceRoll! = "6d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -5335,8 +5335,8 @@ Griffon (5eMonster) {
     HP = "59 (7d10 + 21)"
     HitDiceRoll! = "7d10 + 21"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft. Fly 80 ft."
     Initiative = ""
@@ -5370,8 +5370,8 @@ Grimlock (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5405,8 +5405,8 @@ GuardAsMonster (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5475,8 +5475,8 @@ Gynosphinx (5eMonster) {
     HP = "136 (16d10 + 48)"
     HitDiceRoll! = "16d10 + 48"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR11
     Movement = "Walk 40 ft. Fly 60 ft."
     Initiative = ""
@@ -5545,8 +5545,8 @@ Harpy (5eMonster) {
     HP = "38 (7d8 + 7)"
     HitDiceRoll! = "7d8 + 7"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft. Fly 40 ft."
     Initiative = ""
@@ -5580,8 +5580,8 @@ Hawk (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 10 ft. Fly 60 ft."
     Initiative = ""
@@ -5615,8 +5615,8 @@ HellHound (5eMonster) {
     HP = "45 (7d8 + 14)"
     HitDiceRoll! = "7d8 + 14"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -5685,8 +5685,8 @@ HillGiant (5eMonster) {
     HP = "105 (10d12 + 40)"
     HitDiceRoll! = "10d12 + 40"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -5720,8 +5720,8 @@ Hippogriff (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft. Fly 60 ft."
     Initiative = ""
@@ -5755,8 +5755,8 @@ Hobgoblin (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -5790,8 +5790,8 @@ Homunculus (5eMonster) {
     HP = "5 (2d4)"
     HitDiceRoll! = "2d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft. Fly 40 ft."
     Initiative = ""
@@ -5860,8 +5860,8 @@ HunterShark (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Swim 40 ft."
     Initiative = ""
@@ -5930,8 +5930,8 @@ Hyena (5eMonster) {
     HP = "5 (1d8 + 1)"
     HitDiceRoll! = "1d8 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 3d4
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -6035,8 +6035,8 @@ Imp (5eMonster) {
     HP = "10 (3d4 + 3)"
     HitDiceRoll! = "3d4 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft. Fly 40 ft."
     Initiative = ""
@@ -6106,7 +6106,7 @@ InvisibleStalker (5eMonster) {
     HitDiceRoll! = "16d8 + 32"
     HitDiceText! = ""
     NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR6
     Movement = "Walk 50 ft. Fly 50 ft. (hover)"
     Initiative = ""
@@ -6175,8 +6175,8 @@ Jackal (5eMonster) {
     HP = "3 (1d6)"
     HitDiceRoll! = "1d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d8
+    NumberAppearingLair! @ 3d3
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -6210,8 +6210,8 @@ KillerWhale (5eMonster) {
     HP = "90 (12d12 + 12)"
     HitDiceRoll! = "12d12 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Swim 60 ft."
     Initiative = ""
@@ -6245,8 +6245,8 @@ Knight (5eMonster) {
     HP = "52 (8d8 + 16)"
     HitDiceRoll! = "8d8 + 16"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -6280,8 +6280,8 @@ Kobold (5eMonster) {
     HP = "5 (2d6 - 2)"
     HitDiceRoll! = "2d6 - 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 2d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -6350,8 +6350,8 @@ Lamia (5eMonster) {
     HP = "97 (13d10 + 26)"
     HitDiceRoll! = "13d10 + 26"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -6455,8 +6455,8 @@ Lion (5eMonster) {
     HP = "26 (4d10 + 4)"
     HitDiceRoll! = "4d10 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -6490,8 +6490,8 @@ Lizard (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft. Climb 20 ft."
     Initiative = ""
@@ -6525,8 +6525,8 @@ Lizardfolk (5eMonster) {
     HP = "22 (4d8 + 4)"
     HitDiceRoll! = "4d8 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -6630,8 +6630,8 @@ Magmin (5eMonster) {
     HP = "9 (2d6 + 2)"
     HitDiceRoll! = "2d6 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -6665,8 +6665,8 @@ Mammoth (5eMonster) {
     HP = "126 (11d12 + 55)"
     HitDiceRoll! = "11d12 + 55"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR6
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -6700,8 +6700,8 @@ Manticore (5eMonster) {
     HP = "68 (8d10 + 24)"
     HitDiceRoll! = "8d10 + 24"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft. Fly 50 ft."
     Initiative = ""
@@ -6770,8 +6770,8 @@ Mastiff (5eMonster) {
     HP = "5 (1d8 + 1)"
     HitDiceRoll! = "1d8 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -6805,7 +6805,7 @@ Medusa (5eMonster) {
     HP = "127 (17d8 + 51)"
     HitDiceRoll! = "17d8 + 51"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
+    NumberAppearingRoaming! @ 1d4
     NumberAppearingLair! @ 1d1
     TreasureType! @ TreasureTypeCR6
     Movement = "Walk 30 ft."
@@ -6840,8 +6840,8 @@ Merfolk (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Swim 40 ft."
     Initiative = ""
@@ -6875,8 +6875,8 @@ Merrow (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 10 ft. Swim 40 ft."
     Initiative = ""
@@ -6945,8 +6945,8 @@ Minotaur (5eMonster) {
     HP = "76 (9d10 + 27)"
     HitDiceRoll! = "9d10 + 27"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -6980,8 +6980,8 @@ MinotaurSkeleton (5eMonster) {
     HP = "67 (9d10 + 18)"
     HitDiceRoll! = "9d10 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -7015,8 +7015,8 @@ Mule (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -7050,8 +7050,8 @@ Mummy (5eMonster) {
     HP = "58 (9d8 + 18)"
     HitDiceRoll! = "9d8 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -7225,8 +7225,8 @@ Noble (5eMonster) {
     HP = "9 (2d8)"
     HitDiceRoll! = "2d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -7260,8 +7260,8 @@ OchreJelly (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 10 ft. Climb 10 ft."
     Initiative = ""
@@ -7295,8 +7295,8 @@ Octopus (5eMonster) {
     HP = "3 (1d6)"
     HitDiceRoll! = "1d6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 5 ft. Swim 30 ft."
     Initiative = ""
@@ -7330,8 +7330,8 @@ Ogre (5eMonster) {
     HP = "59 (7d10 + 21)"
     HitDiceRoll! = "7d10 + 21"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -7400,8 +7400,8 @@ Oni (5eMonster) {
     HP = "110 (13d10 + 39)"
     HitDiceRoll! = "13d10 + 39"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR7
     Movement = "Walk 30 ft. Fly 30 ft."
     Initiative = ""
@@ -7435,8 +7435,8 @@ Orc (5eMonster) {
     HP = "15 (2d8 + 6)"
     HitDiceRoll! = "2d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d6
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -7470,8 +7470,8 @@ Otyugh (5eMonster) {
     HP = "114 (12d10 + 48)"
     HitDiceRoll! = "12d10 + 48"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -7505,8 +7505,8 @@ Owl (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 5 ft. Fly 60 ft."
     Initiative = ""
@@ -7540,8 +7540,8 @@ Owlbear (5eMonster) {
     HP = "59 (7d10 + 21)"
     HitDiceRoll! = "7d10 + 21"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -7575,8 +7575,8 @@ Panther (5eMonster) {
     HP = "13 (3d8)"
     HitDiceRoll! = "3d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft. Climb 40 ft."
     Initiative = ""
@@ -7610,8 +7610,8 @@ Pegasus (5eMonster) {
     HP = "59 (7d10 + 21)"
     HitDiceRoll! = "7d10 + 21"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 60 ft. Fly 90 ft."
     Initiative = ""
@@ -7645,8 +7645,8 @@ PhaseSpider (5eMonster) {
     HP = "32 (5d10 + 5)"
     HitDiceRoll! = "5d10 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft. Climb 30 ft."
     Initiative = ""
@@ -7785,8 +7785,8 @@ PoisonousSnake (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft. Swim 30 ft."
     Initiative = ""
@@ -7820,8 +7820,8 @@ PolarBear (5eMonster) {
     HP = "42 (5d10 + 15)"
     HitDiceRoll! = "5d10 + 15"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft. Swim 30 ft."
     Initiative = ""
@@ -7855,8 +7855,8 @@ Pony (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -7890,8 +7890,8 @@ Priest (5eMonster) {
     HP = "27 (5d8 + 5)"
     HitDiceRoll! = "5d8 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -7925,8 +7925,8 @@ Pseudodragon (5eMonster) {
     HP = "7 (2d4 + 2)"
     HitDiceRoll! = "2d4 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 15 ft. Fly 60 ft."
     Initiative = ""
@@ -8030,8 +8030,8 @@ Quipper (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d6
+    NumberAppearingLair! @ 1d10
     TreasureType! @ TreasureTypeCR0
     Movement = "Swim 40 ft."
     Initiative = ""
@@ -8100,8 +8100,8 @@ Rat (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d10
+    NumberAppearingLair! @ 1d10
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -8135,8 +8135,8 @@ Raven (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 10 ft. Fly 50 ft."
     Initiative = ""
@@ -8205,8 +8205,8 @@ ReefShark (5eMonster) {
     HP = "22 (4d8 + 4)"
     HitDiceRoll! = "4d8 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Swim 40 ft."
     Initiative = ""
@@ -8275,8 +8275,8 @@ Rhinoceros (5eMonster) {
     HP = "45 (6d10 + 12)"
     HitDiceRoll! = "6d10 + 12"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -8310,8 +8310,8 @@ RidingHorse (5eMonster) {
     HP = "13 (2d10 + 2)"
     HitDiceRoll! = "2d10 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 60 ft."
     Initiative = ""
@@ -8345,8 +8345,8 @@ Roc (5eMonster) {
     HP = "248 (16d20 + 80)"
     HitDiceRoll! = "16d20 + 80"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR11
     Movement = "Walk 20 ft. Fly 120 ft."
     Initiative = ""
@@ -8380,8 +8380,8 @@ Roper (5eMonster) {
     HP = "93 (11d10 + 33)"
     HitDiceRoll! = "11d10 + 33"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 10 ft. Climb 10 ft."
     Initiative = ""
@@ -8450,8 +8450,8 @@ RustMonster (5eMonster) {
     HP = "27 (5d8 + 5)"
     HitDiceRoll! = "5d8 + 5"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -8485,8 +8485,8 @@ SaberToothedTiger (5eMonster) {
     HP = "52 (7d10 + 14)"
     HitDiceRoll! = "7d10 + 14"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -8555,8 +8555,8 @@ Salamander (5eMonster) {
     HP = "90 (12d10 + 24)"
     HitDiceRoll! = "12d10 + 24"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -8590,8 +8590,8 @@ Satyr (5eMonster) {
     HP = "31 (7d8)"
     HitDiceRoll! = "7d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -8625,8 +8625,8 @@ Scorpion (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 10 ft."
     Initiative = ""
@@ -8765,8 +8765,8 @@ Shadow (5eMonster) {
     HP = "16 (3d8 + 3)"
     HitDiceRoll! = "3d8 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -8870,8 +8870,8 @@ Shrieker (5eMonster) {
     HP = "13 (3d8)"
     HitDiceRoll! = "3d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 0 ft."
     Initiative = ""
@@ -8940,8 +8940,8 @@ Skeleton (5eMonster) {
     HP = "13 (2d8 + 4)"
     HitDiceRoll! = "2d8 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -9010,8 +9010,8 @@ Specter (5eMonster) {
     HP = "22 (5d8)"
     HitDiceRoll! = "5d8"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 0 ft. Fly 50 ft. (hover)"
     Initiative = ""
@@ -9045,8 +9045,8 @@ Spider (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 20 ft. Climb 20 ft."
     Initiative = ""
@@ -9115,8 +9115,8 @@ Sprite (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 40 ft."
     Initiative = ""
@@ -9220,8 +9220,8 @@ Stirge (5eMonster) {
     HP = "2 (1d4)"
     HitDiceRoll! = "1d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 10 ft. Fly 40 ft."
     Initiative = ""
@@ -9780,8 +9780,8 @@ Thug (5eMonster) {
     HP = "32 (5d8 + 10)"
     HitDiceRoll! = "5d8 + 10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d4
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -9815,8 +9815,8 @@ Tiger (5eMonster) {
     HP = "37 (5d10 + 10)"
     HitDiceRoll! = "5d10 + 10"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -9850,8 +9850,8 @@ Treant (5eMonster) {
     HP = "138 (12d12 + 60)"
     HitDiceRoll! = "12d12 + 60"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR9
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -9885,8 +9885,8 @@ TribalWarrior (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d6
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -9920,8 +9920,8 @@ Triceratops (5eMonster) {
     HP = "95 (10d12 + 30)"
     HitDiceRoll! = "10d12 + 30"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 2d3
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -9955,8 +9955,8 @@ Troll (5eMonster) {
     HP = "84 (8d10 + 40)"
     HitDiceRoll! = "8d10 + 40"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -9990,8 +9990,8 @@ TyrannosaurusRex (5eMonster) {
     HP = "136 (13d12 + 52)"
     HitDiceRoll! = "13d12 + 52"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR8
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -10025,8 +10025,8 @@ Unicorn (5eMonster) {
     HP = "67 (9d10 + 18)"
     HitDiceRoll! = "9d10 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -10095,8 +10095,8 @@ VampireSpawn (5eMonster) {
     HP = "82 (11d8 + 33)"
     HitDiceRoll! = "11d8 + 33"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -10130,8 +10130,8 @@ Veteran (5eMonster) {
     HP = "58 (9d8 + 18)"
     HitDiceRoll! = "9d8 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -10235,8 +10235,8 @@ Vulture (5eMonster) {
     HP = "5 (1d8 + 1)"
     HitDiceRoll! = "1d8 + 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 10 ft. Fly 50 ft."
     Initiative = ""
@@ -10270,8 +10270,8 @@ Warhorse (5eMonster) {
     HP = "19 (3d10 + 3)"
     HitDiceRoll! = "3d10 + 3"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 60 ft."
     Initiative = ""
@@ -10375,8 +10375,8 @@ Weasel (5eMonster) {
     HP = "1 (1d4 - 1)"
     HitDiceRoll! = "1d4 - 1"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR0
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -10410,8 +10410,8 @@ Werebear (5eMonster) {
     HP = "135 (18d8 + 54)"
     HitDiceRoll! = "18d8 + 54"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 30 ft. (40 ft., climb 30 ft. in bear or hybrid form)"
     Initiative = ""
@@ -10445,8 +10445,8 @@ Wereboar (5eMonster) {
     HP = "78 (12d8 + 24)"
     HitDiceRoll! = "12d8 + 24"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 30 ft. (40 ft. in boar form)"
     Initiative = ""
@@ -10480,8 +10480,8 @@ Wererat (5eMonster) {
     HP = "33 (6d8 + 6)"
     HitDiceRoll! = "6d8 + 6"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -10515,8 +10515,8 @@ Weretiger (5eMonster) {
     HP = "120 (16d8 + 48)"
     HitDiceRoll! = "16d8 + 48"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR4
     Movement = "Walk 30 ft. (40 ft. in tiger form)"
     Initiative = ""
@@ -10550,8 +10550,8 @@ Werewolf (5eMonster) {
     HP = "58 (9d8 + 18)"
     HitDiceRoll! = "9d8 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d3
+    NumberAppearingLair! @ 1d3
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft. (40 ft. in wolf form)"
     Initiative = ""
@@ -10620,8 +10620,8 @@ Wight (5eMonster) {
     HP = "45 (6d8 + 18)"
     HitDiceRoll! = "6d8 + 18"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 30 ft."
     Initiative = ""
@@ -10655,8 +10655,8 @@ WilloWisp (5eMonster) {
     HP = "22 (9d4)"
     HitDiceRoll! = "9d4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d8
+    NumberAppearingLair! @ 1d8
     TreasureType! @ TreasureTypeCR2
     Movement = "Walk 0 ft. Fly 50 ft. (hover)"
     Initiative = ""
@@ -10690,8 +10690,8 @@ WinterWolf (5eMonster) {
     HP = "75 (10d10 + 20)"
     HitDiceRoll! = "10d10 + 20"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR3
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -10725,8 +10725,8 @@ Wolf (5eMonster) {
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 40 ft."
     Initiative = ""
@@ -10760,8 +10760,8 @@ Worg (5eMonster) {
     HP = "26 (4d10 + 4)"
     HitDiceRoll! = "4d10 + 4"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d6
+    NumberAppearingLair! @ 1d6
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 50 ft."
     Initiative = ""
@@ -10795,8 +10795,8 @@ Wraith (5eMonster) {
     HP = "67 (9d8 + 27)"
     HitDiceRoll! = "9d8 + 27"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 0 ft. Fly 60 ft. (hover)"
     Initiative = ""
@@ -10830,8 +10830,8 @@ Wyvern (5eMonster) {
     HP = "110 (13d10 + 39)"
     HitDiceRoll! = "13d10 + 39"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d4
+    NumberAppearingLair! @ 1d4
     TreasureType! @ TreasureTypeCR6
     Movement = "Walk 20 ft. Fly 80 ft."
     Initiative = ""
@@ -10865,8 +10865,8 @@ Xorn (5eMonster) {
     HP = "73 (7d8 + 42)"
     HitDiceRoll! = "7d8 + 42"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 1d2
+    NumberAppearingLair! @ 1d2
     TreasureType! @ TreasureTypeCR5
     Movement = "Walk 20 ft."
     Initiative = ""
@@ -11250,8 +11250,8 @@ Zombie (5eMonster) {
     HP = "22 (3d8 + 9)"
     HitDiceRoll! = "3d8 + 9"
     HitDiceText! = ""
-    NumberAppearingRoaming! @ 1d1
-    NumberAppearingLair! @ 1d1
+    NumberAppearingRoaming! @ 3d4
+    NumberAppearingLair! @ 2d4
     TreasureType! @ TreasureTypeCR1
     Movement = "Walk 20 ft."
     Initiative = ""

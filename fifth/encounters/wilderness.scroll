@@ -8,508 +8,514 @@
 # file), as described in Section 1(d) of the License.
 TundraFeatureEncounter {
   ^ [
-    *(x1) Tarrasque
-    *(x1) Kraken
+    *(x3) Troll
+    *(x3) Werebear
+    *(x3) Mammoth
+    *(x3) FrostGiant
+    *(x3) Manticore
+    *(x3) Veteran
+    *(x3) WinterWolf
+    *(x2) Mammoth
+    *(x2) AdultWhiteDragon
+    *(x2) Remorhaz
+    *(x2) Roc
     *(x1) AncientWhiteDragon
-    *(x1) AncientRedDragon
-    *(x1) AncientGreenDragon
-    *(x1) FrostGiant
-    *(x1) IceDevil
-    *(x1) Balor
-    *(x1) CloudGiant
-    *(x1) Hydra
-    *(x1) Marilith
-    *(x1) Behir
-    *(x1) Manticore
-    *(x1) Glabrezu
-    *(x1) Aboleth
-    *(x1) Vampire
-    *(x1) Wyvern
-    *(x1) Djinni
-    *(x1) Deva
-    *(x1) GiantEagle
-    *(x1) GiantOwl
-    *(x1) FrostGiant
-    *(x1) Roper
-    *(x1) PolarBear
-    *(x1) Troll
-    *(x1) Werewolf
-    *(x1) Werebear
-    *(x1) GiantSpider
-    *(x1) Medusa
-    *(x1) Griffon
-    *(x1) Chimera
-    *(x1) YoungWhiteDragon
-]}
+   ]
+}
 
 TundraRandomEncounter {
   ^ [
-    *(x1) DireWolf
-    *(x1) Wolf
-    *(x1) Hyena
-    *(x1) GiantRat
-    *(x1) Acolyte
-    *(x1) Cultist
-    *(x1) Bandit
-    *(x1) Goblin
-    *(x1) Bugbear
-    *(x1) Scout
-    *(x1) Thug
-    *(x1) Veteran
-    *(x1) Worg
-    *(x1) BloodHawk
-    *(x1) Elk
-    *(x1) GiantFrog
-    *(x1) GiantWeasel
-    *(x1) Owlbear
-    *(x1) Panther
-    *(x1) Jackal
-    *(x1) Deer
-    *(x1) Commoner
-    *(x1) GiantToad
-    *(x1) Mastiff
-    *(x1) BlackBear
-    *(x1) GiantBadger
-    *(x1) SwarmofRats
-    *(x1) SwarmofBats
-    *(x1) SwarmofSpiders
-    *(x1) SwarmofWasps
-    *(x1) PolarBear
-    *(x1) GiantLizard
-    *(x1) DraftHorse
-    *(x1) RidingHorse
-]}
+    *(x5) GiantOwl
+    *(x5) Kobold
+    *(x5) Owl
+    *(x5) BloodHawk
+    *(x5) Bandit
+    *(x5) IceMephit
+    *(x5) BrownBear
+    *(x5) Orc
+    *(x5) PolarBear
+    *(x5) Berserker
+    *(x5) Wolf
+    *(x5) GiantRat
+    *(x5) Mastiff
+    *(x5) TribalWarrior
+    *(x4) SaberToothedTiger
+    *(x4) Scout
+    *(x4) Veteran
+    *(x4) WinterWolf
+    *(x3) Griffon
+    *(x3) Ogre
+    *(x3) Manticore
+    *(x2) Mammoth
+    *(x1) YoungWhiteDragon
+    ]
+}
 
 
 SwampsFeatureEncounter {
   ^ [
-    *(x1) Tarrasque
-    *(x1) Kraken
+    *(x3) FleshGolem
+    *(x3) GiantFrog
+    *(x3) GiantCrocodile
+    *(x3) GiantBoar
+    *(x3) GiantConstrictorSnake
+    *(x3) GiantSpider
+    *(x4) Druid
+    *(x4) Ghast
+    *(x4) GiantConstrictorSnake
+    *(x4) Ogre
+    *(x4) SwarmofPoisonousSnakes
+    *(x4) WilloWisp
+    *(x3) GreenHag
+    *(x3) Wight
+    *(x3) GiantCrocodile
+    *(x3) ShamblingMound
+    *(x2) Troll
+    *(x2) WaterElemental
+    *(x2) YoungBlackDragon
     *(x1) Hydra
-    *(x1) Marilith
-    *(x1) Glabrezu
-    *(x1) PitFiend
-    *(x1) AncientBlackDragon
-    *(x1) AncientGreenDragon
-    *(x1) AncientRedDragon
-    *(x1) Aboleth
     *(x1) AdultBlackDragon
-    *(x1) AdultGreenDragon
-    *(x1) AdultRedDragon
-    *(x1) YoungBlackDragon
-    *(x1) YoungGreenDragon
-    *(x1) YoungRedDragon
-    *(x1) Vampire
-    *(x1) StoneGolem
-    *(x1) FleshGolem
-    *(x1) Manticore
-    *(x1) Chimera
-    *(x1) Minotaur
-    *(x1) Troll
-    *(x1) Werewolf
-    *(x1) ShamblingMound
-    *(x1) Ogre
-    *(x1) Bulette
-    *(x1) GiantCrocodile
-    *(x1) GiantBoar
-    *(x1) GiantConstrictorSnake
-    *(x1) GiantFrog
-    *(x1) GiantSpider
+    *(x1) AncientBlackDragon
 ]}
 
 SwampsRandomEncounter {
   ^ [
-    *(x1) Quipper
-    *(x1) SwarmofRats
-    *(x1) SwarmofInsects
-    *(x1) GiantRat
-    *(x1) Bat
-    *(x1) Spider
-    *(x1) Stirge
-    *(x1) Wolf
-    *(x1) Hyena
-    *(x1) HunterShark
-    *(x1) Frog
-    *(x1) Owl
-    *(x1) Acolyte
-    *(x1) Commoner
-    *(x1) Bandit
-    *(x1) Goblin
-    *(x1) Cultist
-    *(x1) Bugbear
-    *(x1) DireWolf
-    *(x1) Lizardfolk
-    *(x1) GuardAsMonster
-    *(x1) Scout
-    *(x1) Elk
-    *(x1) Deer
-    *(x1) Panther
-    *(x1) Baboon
-    *(x1) BloodHawk
-    *(x1) Raven
-    *(x1) GiantWeasel
-    *(x1) GiantFireBeetle
-    *(x1) Gorgon
-    *(x1) GiantCentipede
-    *(x1) PoisonousSnake
-    *(x1) Crocodile
-    *(x1) Pseudodragon
-    *(x1) AwakenedShrub
-    *(x1) AwakenedTree
-    *(x1) Dryad
+    *(x3) Rat
+    *(x3) Raven
+    *(x3) GiantRat
+    *(x3) Kobold
+    *(x3) PoisonousSnake
+    *(x3) Stirge
+    *(x3) TribalWarrior
+    *(x3) ConstrictorSnake
+    *(x3) GiantFrog
+    *(x3) GiantLizard
+    *(x3) GiantPoisonousSnake
+    *(x3) SwarmofRats
+    *(x3) SwarmofRavens
+    *(x3) Crocodile
+    *(x3) Lizardfolk
+    *(x2) Orc
+    *(x2) Scout
+    *(x2) SwarmofBeetles
+    *(x2) SwarmofCentipedes
+    *(x2) SwarmofInsects
+    *(x2) SwarmofSpiders
+    *(x2) SwarmofWasps
+    *(x1) Ghoul
+    *(x1) GiantSpider
+    *(x1) GiantToad
     *(x1) Druid
-]}
-
+    *(x1) Ghast
+    *(x1) GiantConstrictorSnake
+    *(x1) Ogre
+    *(x1) SwarmofPoisonousSnakes
+    *(x1) WilloWisp
+    *(x1) GiantFrog
+    *(x1) GiantCrocodile
+    *(x1) GiantBoar
+    *(x1) GiantConstrictorSnake
+    *(x1) GiantSpider
+  ]
+}
 
 PlainsFeatureEncounter {
   ^ [
-    *(x1) Tarrasque
-    *(x1) Kraken
-    *(x1) AncientRedDragon
-    *(x1) AncientGoldDragon
-    *(x1) Balor
-    *(x1) Marilith
-    *(x1) Glabrezu
-    *(x1) PitFiend
-    *(x1) FireGiant
-    *(x1) FrostGiant
-    *(x1) StormGiant
-    *(x1) YoungRedDragon
-    *(x1) YoungGoldDragon
-    *(x1) DragonTurtle
-    *(x1) Hydra
-    *(x1) Manticore
-    *(x1) Griffon
-    *(x1) Chimera
-    *(x1) Treant
-    *(x1) GiantApe
     *(x1) Werebear
     *(x1) Werewolf
-    *(x1) Wyvern
-    *(x1) Ogre
+    *(x3) Wyvern
+    *(x2) Treant
     *(x1) Ettin
-    *(x1) Minotaur
-    *(x1) Troll
-    *(x1) GiantSpider
-    *(x1) GiantScorpion
-    *(x1) GiantVulture
-    *(x1) GiantWolfSpider
-    *(x1) GiantToad
-    *(x1) DireWolf
-    *(x1) HellHound
+    *(x2) Minotaur
+    *(x4) Troll
+    *(x3) GiantSpider
+    *(x3) GiantScorpion
+    *(x3) GiantVulture
+    *(x3) GiantWolfSpider
+    *(x3) GiantToad
+    *(x4) DireWolf
+    *(x4) HellHound
+    *(x4) Griffon
+    *(x4) Ogre
+    *(x4) Pegasus
+    *(x4) Manticore
+    *(x3) Couatl
+    *(x3) Wereboar
+    *(x3) Weretiger
+    *(x3) Bulette
+    *(x3) Gorgon
+    *(x3) Triceratops
+    *(x2) Chimera
+    *(x2) TyrannosaurusRex
+    *(x2) YoungGoldDragon
+    *(x2) AdultGoldDragon
+    *(x1) AncientGoldDragon
+    *(x1) Tarrasque
   ]
 }
 
 PlainsRandomEncounter {
   ^ [
     *(x1) Acolyte
-    *(x1) Commoner
     *(x1) Bandit
-    *(x1) Bugbear
-    *(x1) Gnoll
-    *(x1) Druid
-    *(x1) Scout
-    *(x1) Cultist
     *(x1) GuardAsMonster
-    *(x1) TribalWarrior
     *(x1) Veteran
     *(x1) Thug
     *(x1) Assassin
     *(x1) Berserker
-    *(x1) Hobgoblin
     *(x1) Lizardfolk
-    *(x1) Goblin
     *(x1) GiantRat
     *(x1) DeathDog
     *(x1) BlackBear
-    *(x1) Deer
-    *(x1) GiantGoat
-    *(x1) Elk
-    *(x1) Wolf
-    *(x1) Hyena
-    *(x1) Panther
-    *(x1) Baboon
-    *(x1) GiantWeasel
-    *(x1) BloodHawk
     *(x1) Owl
     *(x1) Raven
     *(x1) GiantFrog
-    *(x1) Quipper
-    *(x1) Stirge
     *(x1) GiantCentipede
-    *(x1) PoisonousSnake
     *(x1) ConstrictorSnake
+    *(x2) Cat
+    *(x2) Commoner
+    *(x3) Deer
+    *(x3) Eagle
+    *(x3) Goat
+    *(x4) Hyena
+    *(x4) Jackal
+    *(x4) Vulture
+    *(x4) BloodHawk
+    *(x4) FlyingSnake
+    *(x4) GiantWeasel
+    *(x4) PoisonousSnake
+    *(x4) Stirge
+    *(x4) TribalWarrior
+    *(x4) AxeBeak
+    *(x4) Boar
+    *(x4) Elk
+    *(x4) GiantPoisonousSnake
+    *(x4) GiantWolfSpider
+    *(x4) Goblin
+    *(x4) Panther
+    *(x4) RidingHorse
+    *(x4) Wolf
+    *(x3) Cockatrice
+    *(x3) GiantGoat
+    *(x3) GiantWasp
+    *(x3) Gnoll
+    *(x3) Hobgoblin
+    *(x3) Orc
+    *(x3) Scout
+    *(x3) SwarmofBeetles
+    *(x3) SwarmofCentipedes
+    *(x3) SwarmofInsects
+    *(x3) SwarmofSpiders
+    *(x3) SwarmofWasps
+    *(x3) Worg
+    *(x2) Bugbear
+    *(x2) GiantEagle
+    *(x2) GiantHyena
+    *(x2) GiantVulture
+    *(x2) Hippogriff
+    *(x2) Lion
+    *(x2) Tiger
+    *(x1) Ankheg
+    *(x1) Centaur
+    *(x1) Druid
+    *(x1) GiantBoar
+    *(x1) GiantElk
+    *(x1) Elephant
+    *(x1) Rhinoceros
   ]
 }
 
-
 OceanFeatureEncounter {
   ^ [
+    *(x6) GiantConstrictorSnake
+    *(x6) HunterShark
+    *(x6) Merrow
+    *(x6) Plesiosaurus
+    *(x6) SeaHag
+    *(x6) KillerWhale
+    *(x6) GiantShark
+    *(x5) FrostGiant
+    *(x4) WaterElemental
+    *(x4) StormGiant
+    *(x2) DragonTurtle
     *(x1) Kraken
-    *(x1) Marilith
-    *(x1) Aboleth
-    *(x1) HunterShark
-    *(x1) DragonTurtle
-    *(x1) Sahuagin
-    *(x1) GiantOctopus
-    *(x1) SeaHag
-    *(x1) Merrow
-    *(x1) Hydra
-    *(x1) Behir
-    *(x1) StormGiant
-    *(x1) Djinni
     *(x1) AncientBlueDragon
-    *(x1) AncientGoldDragon
-    *(x1) AncientRedDragon
-    *(x1) AncientSilverDragon
-    *(x1) AncientBronzeDragon
-    *(x1) FrostGiant
-    *(x1) Glabrezu
-    *(x1) Vrock
-    *(x1) PitFiend
-    *(x1) WaterElemental
-    *(x1) IceDevil
 ]}
 
 OceanRandomEncounter {
   ^ [
-    *(x1) SeaHorse
-    *(x1) ReefShark
+    *(x3) SeaHorse
+    *(x3) Crab
+    *(x3) Roc
+    *(x3) GiantCrab
+    *(x3) Octopus
+    *(x3) Plesiosaurus
+    *(x3) HunterShark
+    *(x3) Quipper
+    *(x3) Merfolk
+    *(x2) ConstrictorSnake
+    *(x2) SteamMephit
+    *(x2) GiantSeaHorse
+    *(x2) ReefShark
+    *(x1) Sahuagin
+    *(x1) GiantOctopus
     *(x1) SwarmofQuippers
-    *(x1) Crab
-    *(x1) BloodHawk
-    *(x1) GiantCrab
-    *(x1) GiantFrog
-    *(x1) GiantRat
-    *(x1) DireWolf
-    *(x1) Octopus
-    *(x1) SwarmofRats
-    *(x1) Merfolk
-    *(x1) Plesiosaurus
-    *(x1) Cultist
-    *(x1) Acolyte
-    *(x1) Commoner
-    *(x1) Bandit
-    *(x1) SwarmofSpiders
-    *(x1) GiantSeaHorse
-    *(x1) Lizardfolk
-    *(x1) HunterShark
-    *(x1) Thug
-    *(x1) Harpy
-    *(x1) Kobold
 ]}
 
 MountainsFeatureEncounter {
   ^ [
-    *(x1) Tarrasque
-    *(x1) Kraken
-    *(x1) AncientGoldDragon
+    *(x4) Hydra
+    *(x4) Ettin
+    *(x4) AirElemental
+    *(x4) Bulette
+    *(x4) Troll
+    *(x4) Chimera
+    *(x4) Wyvern
+    *(x3) StoneGiant
+    *(x3) FrostGiant
+    *(x3) CloudGiant
+    *(x3) FireGiant
+    *(x2) YoungSilverDragon
+    *(x2) YoungRedDragon
+    *(x2) Roc
+    *(x2) AdultSilverDragon
+    *(x2) AdultRedDragon
     *(x1) AncientSilverDragon
     *(x1) AncientRedDragon
-    *(x1) AncientGreenDragon
-    *(x1) AncientBlueDragon
-    *(x1) AncientBlackDragon
-    *(x1) Balor
-    *(x1) CloudGiant
-    *(x1) FrostGiant
-    *(x1) FireGiant
-    *(x1) StoneGiant
-    *(x1) Remorhaz
-    *(x1) Manticore
-    *(x1) AdultGoldDragon
-    *(x1) AdultSilverDragon
-    *(x1) AdultRedDragon
-    *(x1) AdultGreenDragon
-    *(x1) AdultBlueDragon
-    *(x1) AdultBlackDragon
-    *(x1) Wyvern
-    *(x1) Bulette
-    *(x1) Chimera
-    *(x1) Owlbear
-    *(x1) GiantSpider
-    *(x1) GiantWasp
-    *(x1) Treant
-    *(x1) Hydra
-    *(x1) Troll
-    *(x1) Ettin
-    *(x1) Grick
-    *(x1) Harpy
-    *(x1) DireWolf
-    *(x1) Gnoll
-    *(x1) Bugbear
-    *(x1) Hobgoblin
+    *(x1) Tarrasque
   ]
 }
 
 MountainsRandomEncounter {
   ^ [
-    *(x1) GiantRat
-    *(x1) GiantWeasel
-    *(x1) Rat
-    *(x1) Baboon
-    *(x1) Hawk
-    *(x1) Deer
-    *(x1) Elk
-    *(x1) Wolf
-    *(x1) DireWolf
-    *(x1) Panther
-    *(x1) GiantFrog
-    *(x1) GiantLizard
-    *(x1) SwarmofRats
-    *(x1) SwarmofBats
-    *(x1) GiantBadger
-    *(x1) ConstrictorSnake
-    *(x1) Warhorse
-    *(x1) Mastiff
-    *(x1) Quipper
-    *(x1) BloodHawk
-    *(x1) Acolyte
+    *(x3) Hawk
+    *(x3) DireWolf
+    *(x3) Berserker
+    *(x3) Gladiator
+    *(x3) Goblin
+    *(x2) Gnoll
+    *(x2) Hobgoblin
+    *(x4) Eagle
+    *(x4) Goat
+    *(x4) BloodHawk
     *(x1) GuardAsMonster
-    *(x1) Bandit
-    *(x1) Commoner
-    *(x1) Scout
-    *(x1) Cultist
-    *(x1) Druid
-    *(x1) HalfRedDragonVeteran
-    *(x1) Berserker
-    *(x1) Gladiator
-    *(x1) Thug
+    *(x4) Kobold
+    *(x4) Stirge
+    *(x4) TribalWarrior
+    *(x4) Pseudodragon
+    *(x4) SwarmofBats
+    *(x4) GiantGoat
+    *(x3) Orc
+    *(x3) Scout
+    *(x3) GiantEagle
+    *(x3) Harpy
+    *(x3) Hippogriff
+    *(x3) Lion
+    *(x2) Berserker
+    *(x2) Druid
+    *(x2) GiantElk
+    *(x2) Griffon
+    *(x2) Ogre
+    *(x2) SaberToothedTiger
+    *(x1) Basilisk
+    *(x1) HellHound
+    *(x1) Manticore
     *(x1) Veteran
-    *(x1) Wererat
-    *(x1) Lizardfolk
-    *(x1) Kobold
-    *(x1) Assassin
-    *(x1) Goblin
-    *(x1) CultFanatic
-    *(x1) Imp
   ]
 }
 
+
+
 ForestFeatureEncounter {
   ^ [
-    *(x1) Tarrasque
-    *(x1) Kraken
-    *(x1) AdultGoldDragon
-    *(x1) AncientGoldDragon
-    *(x1) AdultBrassDragon
-    *(x1) AncientRedDragon
-    *(x1) Balor
-    *(x1) Manticore
-    *(x1) Hydra
-    *(x1) YoungRedDragon
-    *(x1) YoungGoldDragon
+    *(x9) Pegasus
+    *(x9) SwarmofPoisonousSnakes
+    *(x9) Wererat
+    *(x9) WilloWisp
+    *(x9) GreenHag
+    *(x9) Owlbear
+    *(x9) PhaseSpider
+    *(x9) Veteran
+    *(x8) Werewolf
+    *(x8) Couatl
+    *(x8) Wereboar
+    *(x8) Weretiger
+    *(x7) Gorgon
+    *(x7) ShamblingMound
+    *(x7) Troll
+    *(x7) Unicorn
+    *(x7) Werebear
+    *(x7) GiantApe
+    *(x7) Oni
+    *(x5) YoungGreenDragon
+    *(x5) Treant
+    *(x3) GuardianNaga
+    *(x3) YoungGoldDragon
+    *(x2) AdultGreenDragon
+    *(x2) AdultGoldDragon
     *(x1) AncientGreenDragon
-    *(x1) AdultGreenDragon
-    *(x1) Chimera
-    *(x1) AdultBlackDragon
-    *(x1) Glabrezu
-    *(x1) Remorhaz
-    *(x1) DeathDog
-    *(x1) Vrock
-    *(x1) FrostGiant
-    *(x1) FireGiant
-    *(x1) Ogre
-    *(x1) Troll
-    *(x1) Werebear
-    *(x1) Vampire
-    *(x1) VampireSpawn
-    *(x1) YoungBlueDragon
-    *(x1) YoungBlackDragon
-    *(x1) GiantSpider
-    *(x1) Bulette
-    *(x1) Ettin
-    *(x1) MummyLord
-    *(x1) Bulette
-    *(x1) OgreZombie
-    *(x1) StoneGiant
-    *(x1) DireWolf
-    *(x1) Werewolf
-    *(x1) GiantToad
-    *(x1) Aboleth
+    *(x1) AncientGoldDragon
 ]}
 
 ForestRandomEncounter {
   ^ [
-    *(x1) Quasit
-    *(x1) Kobold
-    *(x1) Goblin
-    *(x1) Bandit
-    *(x1) DireWolf
-    *(x1) Acolyte
-    *(x1) Cultist
-    *(x1) Druid
-    *(x1) Bugbear
-    *(x1) Scout
-    *(x1) Gnoll
-    *(x1) Assassin
-    *(x1) Grick
-    *(x1) GiantRat
-    *(x1) GiantWeasel
-    *(x1) Bat
-    *(x1) BloodHawk
-    *(x1) SwarmofInsects
-    *(x1) SwarmofRats
-    *(x1) SwarmofSpiders
-    *(x1) Medusa
-    *(x1) GiantEagle
-    *(x1) Hawk
-    *(x1) Panther
-    *(x1) AwakenedTree
     *(x1) AwakenedShrub
-    *(x1) BlackBear
-    *(x1) BrownBear
-    *(x1) GiantFrog
-    *(x1) Elk
-    *(x1) Deer
-    *(x1) FleshGolem
-    *(x1) GiantScorpion
-    *(x1) GiantCentipede
-    *(x1) Stirge
-    *(x1) SwarmofWasps
-    *(x1) GiantCrocodile
-    *(x1) ConstrictorSnake
+    *(x1) Baboon
+    *(x1) Badger
+    *(x1) Cat
+    *(x1) Commoner
+    *(x5) Deer
+    *(x2) Hyena
+    *(x3) Owl
+    *(x5) Bandit
+    *(x5) BloodHawk
+    *(x5) FlyingSnake
+    *(x5) GiantRat
+    *(x5) GiantWeasel
+    *(x5) GuardAsMonster
+    *(x5) Kobold
+    *(x5) Mastiff
+    *(x5) PoisonousSnake
+    *(x5) Stirge
+    *(x5) TribalWarrior
+    *(x4) BlinkDog
+    *(x4) Boar
+    *(x4) ConstrictorSnake
+    *(x4) Elk
+    *(x4) GiantBadger
+    *(x4) GiantBat
+    *(x4) GiantFrog
+    *(x4) GiantLizard
+    *(x4) GiantOwl
+    *(x4) GiantPoisonousSnake
+    *(x4) GiantWolfSpider
+    *(x4) Goblin
+    *(x4) Panther
+    *(x4) Pseudodragon
+    *(x4) Sprite
+    *(x4) SwarmofRavens
+    *(x4) Wolf
+    *(x3) Ape
+    *(x3) BlackBear
+    *(x3) GiantWasp
+    *(x3) Gnoll
+    *(x3) Hobgoblin
+    *(x3) Lizardfolk
+    *(x3) Orc
+    *(x3) Satyr
+    *(x3) Scout
+    *(x3) SwarmofBeetles
+    *(x3) SwarmofCentipedes
+    *(x3) SwarmofInsects
+    *(x3) SwarmofSpiders
+    *(x3) SwarmofWasps
+    *(x3) Worg
+    *(x2) BrownBear
+    *(x2) Bugbear
+    *(x2) DireWolf
+    *(x2) Dryad
+    *(x2) GiantHyena
+    *(x2) GiantSpider
+    *(x2) GiantToad
+    *(x2) Harpy
+    *(x2) Tiger
+    *(x1) Ankheg
+    *(x1) AwakenedTree
+    *(x1) BanditCaptain
+    *(x1) Berserker
+    *(x1) Centaur
+    *(x1) Druid
+    *(x1) Ettercap
+    *(x1) GiantBoar
+    *(x1) GiantConstrictorSnake
+    *(x1) GiantElk
+    *(x1) Grick
+    *(x1) Ogre
 ]}
 
 DesertFeatureEncounter {
   ^ [
-    *(x3) BeardedDevil
-    *(x3) AdultBlueDragon
-    *(x3) AncientRedDragon
     *(x2) FireElemental
-    *(x2) GiantScorpion
-    *(x2) Manticore
-    *(x2) Remorhaz
-    *(x1) Gargoyle
-    *(x1) Wyvern
-    *(x1) Hydra
-    *(x1) Djinni
     *(x1) StoneGiant
-    *(x1) PitFiend
-    *(x1) Balor
+    *(x1) Gargoyle
+    *(x7) GiantScorpion
+    *(x7) Couatl
+    *(x7) Lamia
+    *(x7) Weretiger
+    *(x6) AirElemental
+    *(x6) FireElemental
+    *(x5) Medusa
+    *(x5) YoungBrassDragon
+    *(x4) YoungBlueDragon
+    *(x4) GuardianNaga
+    *(x4) Efreeti
+    *(x4) Gynosphinx
+    *(x4) Roc
+    *(x3) AdultBrassDragon
+    *(x3) PurpleWorm
+    *(x3) MummyLord
+    *(x2) AdultBlueDragon
+    *(x2) Androsphinx
+    *(x1) Wyvern
+    *(x1) Djinni
+    *(x1) AncientBrassDragon
+    *(x1) AncientBlueDragon
 ]}
 
 DesertRandomEncounter {
   ^ [
-    *(x5) Kobold
-    *(x5) Goblin
-    *(x4) Scorpion
-    *(x4) SwarmofRats
-    *(x4) GiantRat
-    *(x3) Acolyte
-    *(x3) Bandit
-    *(x3) DireWolf
-    *(x3) Assassin
-    *(x2) DustMephit
-    *(x2) Vulture
-    *(x2) Hyena
-    *(x1) Jackal
-    *(x1) GiantVulture
-    *(x1) Harpy
+    *(x1) Cat
+    *(x7) Commoner
+    *(x7) Hyena
+    *(x7) Jackal
+    *(x7) Scorpion
+    *(x7) Vulture
+    *(x6) Bandit
+    *(x6) Camel
+    *(x6) FlyingSnake
+    *(x6) GuardAsMonster
+    *(x6) Kobold
+    *(x6) Mule
+    *(x6) PoisonousSnake
+    *(x6) Stirge
+    *(x6) TribalWarrior
+    *(x5) ConstrictorSnake
+    *(x5) GiantLizard
+    *(x5) GiantPoisonousSnake
+    *(x5) GiantWolfSpider
+    *(x5) Pseudodragon
+    *(x4) DustMephit
+    *(x4) Gnoll
+    *(x4) Hobgoblin
+    *(x4) Scout
+    *(x4) SwarmofBeetles
+    *(x4) SwarmofCentipedes
+    *(x4) SwarmofInsects
+    *(x4) SwarmofSpiders
+    *(x4) SwarmofWasps
+    *(x3) Lion
+    *(x3) DeathDog
+    *(x3) GiantHyena
+    *(x3) GiantSpider
+    *(x3) GiantToad
+    *(x3) GiantVulture
+    *(x2) BanditCaptain
+    *(x2) Berserker
+    *(x2) Druid
+    *(x2) GiantConstrictorSnake
+    *(x2) Ogre
+    *(x1) GiantScorpion
+    *(x1) Mummy
+    *(x1) PhaseSpider
+    *(x1) Wight
 ]}
+
 
 BridgeMonsterThugs {
   ^ [
-    * Orc
+    *(x1) Thug
+    *(x1) Orc
+    *(x1) Bandit
   ]
 }
 
@@ -524,4 +530,3 @@ BridgeMonsterOgre {
     * Ogre
   ]
 }
-
