@@ -388,7 +388,7 @@ NPC5E(Character) {
                 {% if Cantrips != "" %}
                 <li>{{Cantrips}}</li>
                 {% endif %}
-                <li>{{Weapon.Stats}}</li>
+                <li>{{Weapon.Stats}} {%if exists("WeaponActionExtension")%}{{WeaponActionExtension}}{%endif%}</li>
                 {% if existsIn(Race, "Actions") %}
                   {{Race.Actions}}
                 {% endif %}
@@ -430,94 +430,67 @@ TavernVisitor (NPC5E) { ^ [
     * FighterLevel6
     * FighterLevel7
     * FighterLevel8
+    * WizardLevel1
+    * WizardLevel2
+    * WizardLevel3
+    * WizardLevel4
+    * WizardLevel5
+    * WizardLevel6
+    * WizardLevel7
+    * WizardLevel8
+    * ClericLevel1
+    * ClericLevel2
+    * ClericLevel3
+    * ClericLevel4
+    * ClericLevel5
+    * ClericLevel6
+    * ClericLevel7
+    * ClericLevel8
   ]
 }
 
 
-FighterLevel1 {^ [
-* DruidLevel6
-] }
-FighterLevel2 {^ [
-* DruidLevel6
-] }
-FighterLevel3 {^ [
-* DruidLevel6
-] }
-FighterLevel4 {^ [
-* DruidLevel6
-] }
-FighterLevel5 {^ [
-* DruidLevel6
-] }
-FighterLevel6 {^ [
-* DruidLevel6
-] }
-FighterLevel7 {^ [
-* DruidLevel6
-] }
-FighterLevel8 {^ [
-* DruidLevel6
-] }
-FighterLevel9 {^ [
-* DruidLevel6
-] }
-FighterLevel10 {^ [
-* DruidLevel6
-] }
-FighterLevel11 {^ [
-* DruidLevel6
-] }
-FighterLevel12 {^ [
-* DruidLevel6
-] }
-FighterLevel13 {^ [
-* DruidLevel6
-] }
-FighterLevel14 {^ [
-* DruidLevel6
-] }
-
 MagicuserLevel1 {^ [
-* DruidLevel6
+* WizardLevel1
 ] }
 MagicuserLevel2 {^ [
-* DruidLevel6
+* WizardLevel2
 ] }
 MagicuserLevel3 {^ [
-* DruidLevel6
+* WizardLevel3
 ] }
 MagicuserLevel4 {^ [
-* DruidLevel6
+* WizardLevel4
 ] }
 MagicuserLevel5 {^ [
-* DruidLevel6
+* WizardLevel5
 ] }
 MagicuserLevel6 {^ [
-* DruidLevel6
+* WizardLevel6
 ] }
 MagicuserLevel7 {^ [
-* DruidLevel6
+* WizardLevel7
 ] }
 MagicuserLevel8 {^ [
-* DruidLevel6
+* WizardLevel8
 ] }
 MagicuserLevel9 {^ [
-* DruidLevel6
+* WizardLevel9
 ] }
 MagicuserLevel10 {^ [
-* DruidLevel6
+* WizardLevel10
 ] }
 MagicuserLevel11 {^ [
-* DruidLevel6
+* WizardLevel11
 ] }
 MagicuserLevel12 {^ [
-* DruidLevel6
+* WizardLevel12
 ] }
 MagicuserLevel13 {^ [
-* DruidLevel6
+* WizardLevel13
 ] }
 MagicuserLevel14 {^ [
-* DruidLevel6
+* WizardLevel14
 ] }
 
 ElfLevel1 {^ [

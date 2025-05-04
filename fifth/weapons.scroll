@@ -28,7 +28,7 @@ ExWeapon {
     * NpcWeaponNet
   ]
 
-  Stats! ~ <% <strong>{{WeaponName}}</strong> {%set AttackRoll="+0"%}{%if ActualBonus>=0%}{%set AttackRoll="+"+ActualBonus%}{%else%}{%set AttackRoll=""+ActualBonus%}{%endif%} {{dice_roller("1d20"+AttackRoll, AttackRoll)}} to hit {{WeaponRange}} one target. Inflicts {{dice_roller(CalcedDamage,CalcedDamage)}} {{DamageType}} damage %>
+  Stats! ~ <% <strong>{{WeaponName}}</strong> {%set AttackRoll="+0"%}{%if ActualBonus>=0%}{%set AttackRoll="+"+ActualBonus%}{%else%}{%set AttackRoll=""+ActualBonus%}{%endif%} {{dice_roller("1d20"+AttackRoll, AttackRoll)}} to hit {{WeaponRange}} one target. Inflicts {{dice_roller(CalcedDamage,CalcedDamage)}} {{DamageType}} damage. %>
 }
 
 MeleeWeapon(ExWeapon) {
