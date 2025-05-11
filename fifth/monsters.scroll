@@ -990,7 +990,12 @@ Assassin (5eMonster) {
     Title! ~ "Assassin"
     Size = "Medium"
     CreatureType = "humanoid (any race)"
-    Alignment = "Lawful Neutral Chaotic Neutral Evil"
+    Alignment @ [
+      * Lawful Neutral
+      * Chaotic Neutral
+      * Lawful Evil
+      * Chaotic Evil
+    ]
     Armor = "15 (studded leather armor)"
     HP = "78 (12d8 + 24)"
     HitDiceRoll! = "12d8 + 24"
@@ -1270,7 +1275,11 @@ Bandit (5eMonster) {
     Title! ~ "Bandit"
     Size = "Medium"
     CreatureType = "humanoid (any race)"
-    Alignment = "Neutral Chaotic Good Neutral Evil"
+    Alignment @ [
+      * Neutral
+      * Chaotic Good
+      * Neutral Evil
+    ]
     Armor = "12 (leather armor)"
     HP = "11 (2d8 + 2)"
     HitDiceRoll! = "2d8 + 2"
@@ -1305,7 +1314,11 @@ BanditCaptain (5eMonster) {
     Title! ~ "Bandit Captain"
     Size = "Medium"
     CreatureType = "humanoid (any race)"
-    Alignment = "Neutral Chaotic Good Neutral Evil"
+    Alignment @ [
+      * Neutral
+      * Chaotic Good
+      * Neutral Evil
+    ]
     Armor = "15 (studded leather armor)"
     HP = "65 (10d8 + 20)"
     HitDiceRoll! = "10d8 + 20"
