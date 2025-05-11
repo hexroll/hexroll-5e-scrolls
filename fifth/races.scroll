@@ -27,6 +27,21 @@ RaceHalfOrc {
   Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = ""
   BaseLanguages! = "Common, Orc"
+  Feature! @ [
+    * a strong, muscular physique
+    * a deep scar on the right arm
+    * a broken nose
+    * a big nose-ring
+    * a strong, angular jaw
+    * a greenish-gray skin
+    * sharp, tusk-like teeth
+    * prominent brows
+    * a heaby, muscular build
+    * scars across the arms
+    * tribal tattoos on the arms
+    * a wide, flat nose
+    * a broad, flat nose
+  ]
 }
 
 RaceDwarf {
@@ -43,6 +58,13 @@ RaceDwarf {
   Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = "Battleaxe, Handaxe, Light Hammer, Warhammer"
   BaseLanguages! = "Common, Dwarvish"
+  Feature! @ [
+    * big, bulbous nose
+    * short, fat fingers
+    * a golden tooth
+    * big red cheeks
+    * chubby cheeks
+  ]
 }
 
 RaceElf {
@@ -59,6 +81,16 @@ RaceElf {
   Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = ""
   BaseLanguages! = "Common, Elvish"
+  Feature! @ [
+    * long, pointy ears
+    * long, skinny fingers
+    * a sigil tattooed on the neck
+    * a nose ring
+    * silky light skin
+    * silky dark skin
+    * a delicate angular face
+    * a slender, graceful build
+  ]
 }
 
 RaceHalfling {
@@ -74,6 +106,17 @@ RaceHalfling {
   RacialTraits! = "Lucky, Brave, Halfling Nimbleness"
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Halfling"
+  Feature! @ [
+    * short, chunky fingers
+    * extremely large feet, even for a halfling
+    * round, bulbous nose
+    * chubby cheeks
+    * big red cheeks
+    * bushy eyebrows
+    * a patterned coat
+    * a vibrant coat
+    * oversized suspenders
+  ]
 }
 
 
@@ -162,6 +205,18 @@ RaceDragonborn {
   Actions! ~ "{{DraconicAncestry.Action}}"
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Draconic"
+  Feature! @ [
+    * a scaly, colorful skin
+    * pearly scales
+    * an elongated snout
+    * a muscular, powerful build
+    * a fierce reptilian forehead
+    * a horned crest
+    * a colorful scaly skin
+    * sharp and worn claws
+    * spiked frills along the head
+    * a pair of protruding horns
+  ]
 }
 
 RaceGnome {
@@ -178,6 +233,21 @@ RaceGnome {
   Senses! = "Darkvision 60 ft."
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Gnomish"
+  Feature! @ [
+      * bright, colorful clothing
+      * large, round glasses
+      * an intricately patterned vest
+      * a bushy beard
+      * an oversized goggles
+      * a pointy, decorated hat
+      * seemingly dexterous hands
+      * a whimsical earring made of gears
+      * oversized round glasses
+      * colorful, patchwork clothing
+      * a pointed, slightly upturned hat
+      * a button-like nose
+      * oversized round glasses
+  ]
 }
 
 RaceHalfElf {
@@ -208,6 +278,14 @@ RaceTiefling {
   RacialTraits! = "Darkvision, Hellish Resistance, Infernal Legacy"
   WeaponProficiencies! = "Battleaxe, Handaxe, LightHammer, Warhammer"
   BaseLanguages! = "Common, Infernal"
+  Feature! @ [
+    * curling red horns
+    * a crimson-toned skin
+    * an intricate face tattoo
+    * elongated ears
+    * a horned forehead
+    * a dark, textured skin
+  ]
 }
 
 

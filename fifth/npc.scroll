@@ -23,6 +23,14 @@ NPC5E(Character) {
     * Chaotic Evil
   ]
   Profession! = none
+
+  Appearance! @ [
+    * {{Gender.Feature}}, {{Feature1}} and {%if exists("AppearanceFeature")%}{{AppearanceFeature}}{% else if existsIn(Race,"Feature") %}{{Race.Feature}}{%else%}{{Feature2}}{%endif%}
+    * {{Feature1}}, {{Gender.Feature}} and {%if exists("AppearanceFeature")%}{{AppearanceFeature}}{% else if existsIn(Race,"Feature") %}{{Race.Feature}}{%else%}{{Feature2}}{%endif%}
+    * {{Gender.Feature}}, {{Feature1}} and {% if existsIn(Race,"Feature") %}{{Race.Feature}}{%else%}{{Feature2}}{%endif%}
+    * {{Feature1}}, {{Gender.Feature}} and {% if existsIn(Race,"Feature") %}{{Race.Feature}}{%else%}{{Feature2}}{%endif%}
+  ]
+
   $IndexRef @ IndexedEntity {
     Render = "Name"
     Details = <%A level {{Level}} {{Class}}{{maybe2(", the ", Profession)}} {{maybe2("from ",capitalize(SettlementName))}}%>
