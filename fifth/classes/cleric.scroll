@@ -50,6 +50,84 @@ Cleric(NPC5E) {
     {{ClericDomain.Stats}}
   %>
 
+  Spells ~ <%
+    {% set prepared_spells_budget = Level + round((BaseWisdom + Race.WisdomBonus - 10.5) / 2,0) %}
+
+    {% set cantrips = [] %}
+    {% set prepared_level_1_spells = [] %}
+    {% set prepared_level_2_spells = [] %}
+    {% set prepared_level_3_spells = [] %}
+    {% set prepared_level_4_spells = [] %}
+    {% set prepared_level_5_spells = [] %}
+    {% set prepared_level_6_spells = [] %}
+    {% set prepared_level_7_spells = [] %}
+    {% set prepared_level_8_spells = [] %}
+    {% set prepared_level_9_spells = [] %}
+
+    {% if Level9Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_9_spells = stable_shuffle_pick(uuid, "ClericSpellLevel9", min(Level9Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level9Slots %}
+    {% endif %}
+
+    {% if Level8Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_8_spells = stable_shuffle_pick(uuid, "ClericSpellLevel8", min(Level8Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level8Slots %}
+    {% endif %}
+
+    {% if Level7Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_7_spells = stable_shuffle_pick(uuid, "ClericSpellLevel7", min(Level7Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level7Slots %}
+    {% endif %}
+
+    {% if Level6Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_6_spells = stable_shuffle_pick(uuid, "ClericSpellLevel6", min(Level6Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level6Slots %}
+    {% endif %}
+
+    {% if Level5Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_5_spells = stable_shuffle_pick(uuid, "ClericSpellLevel5", min(Level5Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level5Slots %}
+    {% endif %}
+
+    {% if Level4Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_4_spells = stable_shuffle_pick(uuid, "ClericSpellLevel4", min(Level4Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level4Slots %}
+    {% endif %}
+
+    {% if Level3Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_3_spells = stable_shuffle_pick(uuid, "ClericSpellLevel3", min(Level3Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level3Slots %}
+    {% endif %}
+
+    {% if Level2Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_2_spells = stable_shuffle_pick(uuid, "ClericSpellLevel2", min(Level2Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level2Slots %}
+    {% endif %}
+
+    {% if Level1Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_1_spells = stable_shuffle_pick(uuid, "ClericSpellLevel1", min(Level1Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level1Slots %}
+    {% endif %}
+
+    {% if CantripsKnown > 0 %}
+        {% set cantrips = stable_shuffle_pick(uuid, "ClericCantrip", CantripsKnown) %}
+    {% endif %}
+
+    <ul>
+    {% if cantrips %} <li> Cantrips (at will): {{ join(cantrips,", ") }} </li> {%endif%}
+    {% if prepared_level_1_spells %} <li> 1st Level ({{Level1Slots}} slots): {{ join(prepared_level_1_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_2_spells %} <li> 2nd Level ({{Level2Slots}} slots): {{ join(prepared_level_2_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_3_spells %} <li> 3rd Level ({{Level3Slots}} slots): {{ join(prepared_level_3_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_4_spells %} <li> 4th Level ({{Level4Slots}} slots): {{ join(prepared_level_4_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_5_spells %} <li> 5th Level ({{Level5Slots}} slots): {{ join(prepared_level_5_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_6_spells %} <li> 6th Level ({{Level6Slots}} slots): {{ join(prepared_level_6_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_7_spells %} <li> 7th Level ({{Level7Slots}} slots): {{ join(prepared_level_7_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_8_spells %} <li> 8th Level ({{Level8Slots}} slots): {{ join(prepared_level_8_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_9_spells %} <li> 9th Level ({{Level9Slots}} slots): {{ join(prepared_level_9_spells,", ") }} </li> {%endif%}
+    </ul>
+
+  %>
+
   OtherClassActions ~ <%
     {% if Level >= 2 %}
     <li><strong>Turn Undead:</strong> Each undead failing a Wisdom saving throw within 30 ft. is turned for 1 minute or until taking damage.
@@ -241,10 +319,16 @@ ClericLevel1(Cleric) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
+    CantripsKnown = 3
+    Level1Slots = 2
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel1
     | Cleric
@@ -262,11 +346,16 @@ ClericLevel2(Cleric) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel2
-    Spell2 @ $ClericSpellLevel2
-    Spell3 @ $ClericSpellLevel2
+    CantripsKnown = 3
+    Level1Slots = 3
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel2
     | Cleric
@@ -284,14 +373,16 @@ ClericLevel3(Cleric) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 2
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel3
     | Cleric
@@ -309,17 +400,16 @@ ClericLevel4(Cleric) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel4
     | Cleric
@@ -337,19 +427,16 @@ ClericLevel5(Cleric) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 2
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel5
     | Cleric
@@ -367,20 +454,16 @@ ClericLevel6(Cleric) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
 
     ClericDomain @ ClericDomainLevel6
@@ -399,21 +482,16 @@ ClericLevel7(Cleric) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 1
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel7
     | Cleric
@@ -431,22 +509,16 @@ ClericLevel8(Cleric) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 2
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
 
     ClericDomain @ ClericDomainLevel8
@@ -466,24 +538,16 @@ ClericLevel9(Cleric) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 1
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel9
     | Cleric
@@ -501,26 +565,16 @@ ClericLevel10(Cleric) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Cantrip5 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
-    Spell15 @ $ClericSpellLevel5
+    CantripsKnown = 5
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel10
     | Cleric
@@ -538,27 +592,16 @@ ClericLevel11(Cleric) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Cantrip5 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
-    Spell15 @ $ClericSpellLevel5
-    Spell16 @ $ClericSpellLevel6
+    CantripsKnown = 5
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel11
     | Cleric
@@ -576,27 +619,16 @@ ClericLevel12(Cleric) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Cantrip5 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
-    Spell15 @ $ClericSpellLevel5
-    Spell16 @ $ClericSpellLevel6
+    CantripsKnown = 5
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel12
     | Cleric
@@ -614,28 +646,16 @@ ClericLevel13(Cleric) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Cantrip5 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
-    Spell15 @ $ClericSpellLevel5
-    Spell16 @ $ClericSpellLevel6
-    Spell17 @ $ClericSpellLevel7
+    CantripsKnown = 5
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel13
     | Cleric
@@ -653,28 +673,16 @@ ClericLevel14(Cleric) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $ClericCantrip
-    Cantrip2 @ $ClericCantrip
-    Cantrip3 @ $ClericCantrip
-    Cantrip4 @ $ClericCantrip
-    Cantrip5 @ $ClericCantrip
-    Spell1 @ $ClericSpellLevel1
-    Spell2 @ $ClericSpellLevel1
-    Spell3 @ $ClericSpellLevel1
-    Spell4 @ $ClericSpellLevel1
-    Spell5 @ $ClericSpellLevel2
-    Spell6 @ $ClericSpellLevel2
-    Spell7 @ $ClericSpellLevel2
-    Spell8 @ $ClericSpellLevel3
-    Spell9 @ $ClericSpellLevel3
-    Spell10 @ $ClericSpellLevel3
-    Spell11 @ $ClericSpellLevel4
-    Spell12 @ $ClericSpellLevel4
-    Spell13 @ $ClericSpellLevel4
-    Spell14 @ $ClericSpellLevel5
-    Spell15 @ $ClericSpellLevel5
-    Spell16 @ $ClericSpellLevel6
-    Spell17 @ $ClericSpellLevel7
+    CantripsKnown = 5
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel14
     | Cleric

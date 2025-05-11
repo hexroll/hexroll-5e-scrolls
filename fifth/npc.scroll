@@ -42,60 +42,8 @@ NPC5E(Character) {
     Icon = "user"
   }
 
-  Spells = ""
-  Cantrips = ""
 
   CalculatedHitPoints! = <%{{max(HitPoints+round((BaseConstitution + Race.ConstitutionBonus - 10.5)/2,0)*Level, 1)}} %>
-  <entity-did-roll%
-    -- We use some lua magic to setup the spells stats text
-    local spells = {self.Spell1, self.Spell2, self.Spell3, self.Spell4,
-      self.Spell5, self.Spell6, self.Spell7, self.Spell8, self.Spell9,
-      self.Spell10, self.Spell11, self.Spell12, self.Spell13, self.Spell14,
-      self.Spell15, self.Spell16, self.Spell17, self.Spell18, self.Spell19,
-      self.Spell20, self.Spell21, self.Spell22, self.Spell23, self.Spell24,
-      self.Spell25
-    }
-    local spell_count = {}
-    for i=1, #spells do
-      local spell = spells[i]
-      if spell ~= nil then
-        spell_count[spell] = (spell_count[spell] or 0) + 1
-      end
-    end
-    local spells_text = ''
-    for  k,v in pairs(spell_count) do
-     spells_text = spells_text .. '&#10022; ' .. v .. ' &times; ' ..  k
-    end
-    if spells_text ~= '' then
-      spells_text = '<strong>Spellcasting:</strong> ' .. spells_text
-    end
-    set(self, "Spells", spells_text)
-
-
-    local cantrips = {self.Cantrip1, self.Cantrip2, self.Cantrip3, self.Cantrip4,
-      self.Cantrip5, self.Cantrip6, self.Cantrip7, self.Cantrip8, self.Cantrip9,
-      self.Cantrip10, self.Cantrip11, self.Cantrip12, self.Cantrip13, self.Cantrip14,
-      self.Cantrip15, self.Cantrip16, self.Cantrip17, self.Cantrip18, self.Cantrip19,
-      self.Cantrip20, self.Cantrip21, self.Cantrip22, self.Cantrip23, self.Cantrip24,
-      self.Cantrip25
-    }
-    local cantrip_count = {}
-    for i=1, #cantrips do
-      local cantrip = cantrips[i]
-      if cantrip ~= nil then
-        cantrip_count[cantrip] = (cantrip_count[cantrip] or 0) + 1
-      end
-    end
-    local cantrips_text = ''
-    for  k,v in pairs(cantrip_count) do
-     cantrips_text = cantrips_text .. '&#10022; ' ..  k
-    end
-    if cantrips_text ~= '' then
-      cantrips_text = '<strong>Cantrips:</strong> ' .. cantrips_text
-    end
-    set(self, "Cantrips", cantrips_text)
-    -- There is no need to call save(self)
-  %entity-did-roll>
 
 
   Description! ~ <%
@@ -401,10 +349,10 @@ NPC5E(Character) {
                 <hr/>
                 <h6>Actions</h6>
                 <ul>
-                {% if Spells != "" %}
-                <li>{{Spells}}</li>
+                {% if exists("Spells") %}
+                <li><strong>Spellcasting:</strong> {{Spells}}</li>
                 {% endif %}
-                {% if Cantrips != "" %}
+                {% if exists("Cantrips") %}
                 <li>{{Cantrips}}</li>
                 {% endif %}
                 <li>{{Weapon.Stats}} {%if exists("WeaponActionExtension")%}{{WeaponActionExtension}}{%endif%}</li>
@@ -422,7 +370,6 @@ NPC5E(Character) {
   %>
 
 }
-
 
 TavernVisitor (NPC5E) { ^ [
     * DruidLevel1

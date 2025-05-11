@@ -59,6 +59,86 @@ Wizard(NPC5E) {
     * Transmutation
   ]
 
+
+  Spells ~ <%
+    {% set prepared_spells_budget = Level + round((BaseIntelligence + Race.IntelligenceBonus - 10.5) / 2,0) %}
+
+
+    {% set cantrips = [] %}
+    {% set prepared_level_1_spells = [] %}
+    {% set prepared_level_2_spells = [] %}
+    {% set prepared_level_3_spells = [] %}
+    {% set prepared_level_4_spells = [] %}
+    {% set prepared_level_5_spells = [] %}
+    {% set prepared_level_6_spells = [] %}
+    {% set prepared_level_7_spells = [] %}
+    {% set prepared_level_8_spells = [] %}
+    {% set prepared_level_9_spells = [] %}
+
+    {% if Level9Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_9_spells = stable_shuffle_pick(uuid, "WizardSpellLevel9", min(Level9Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level9Slots %}
+    {% endif %}
+
+    {% if Level8Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_8_spells = stable_shuffle_pick(uuid, "WizardSpellLevel8", min(Level8Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level8Slots %}
+    {% endif %}
+
+    {% if Level7Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_7_spells = stable_shuffle_pick(uuid, "WizardSpellLevel7", min(Level7Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level7Slots %}
+    {% endif %}
+
+    {% if Level6Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_6_spells = stable_shuffle_pick(uuid, "WizardSpellLevel6", min(Level6Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level6Slots %}
+    {% endif %}
+
+    {% if Level5Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_5_spells = stable_shuffle_pick(uuid, "WizardSpellLevel5", min(Level5Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level5Slots %}
+    {% endif %}
+
+    {% if Level4Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_4_spells = stable_shuffle_pick(uuid, "WizardSpellLevel4", min(Level4Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level4Slots %}
+    {% endif %}
+
+    {% if Level3Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_3_spells = stable_shuffle_pick(uuid, "WizardSpellLevel3", min(Level3Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level3Slots %}
+    {% endif %}
+
+    {% if Level2Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_2_spells = stable_shuffle_pick(uuid, "WizardSpellLevel2", min(Level2Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level2Slots %}
+    {% endif %}
+
+    {% if Level1Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_1_spells = stable_shuffle_pick(uuid, "WizardSpellLevel1", min(Level1Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level1Slots %}
+    {% endif %}
+
+    {% if CantripsKnown > 0 %}
+        {% set cantrips = stable_shuffle_pick(uuid, "WizardCantrip", CantripsKnown) %}
+    {% endif %}
+
+    <ul>
+    {% if cantrips %} <li> Cantrips (at will): {{ join(cantrips,", ") }} </li> {%endif%}
+    {% if prepared_level_1_spells %} <li> 1st Level ({{Level1Slots}} slots): {{ join(prepared_level_1_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_2_spells %} <li> 2nd Level ({{Level2Slots}} slots): {{ join(prepared_level_2_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_3_spells %} <li> 3rd Level ({{Level3Slots}} slots): {{ join(prepared_level_3_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_4_spells %} <li> 4th Level ({{Level4Slots}} slots): {{ join(prepared_level_4_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_5_spells %} <li> 5th Level ({{Level5Slots}} slots): {{ join(prepared_level_5_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_6_spells %} <li> 6th Level ({{Level6Slots}} slots): {{ join(prepared_level_6_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_7_spells %} <li> 7th Level ({{Level7Slots}} slots): {{ join(prepared_level_7_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_8_spells %} <li> 8th Level ({{Level8Slots}} slots): {{ join(prepared_level_8_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_9_spells %} <li> 9th Level ({{Level9Slots}} slots): {{ join(prepared_level_9_spells,", ") }} </li> {%endif%}
+    </ul>
+
+  %>
+
   ClassSpecificStats ~ <%
   <li> <strong>Wizard:</strong> Arcane Recovery
     {% if Level >= 2 %}, Arcane Tradition ({{ArcaneTradition}}) {% endif %}
@@ -67,6 +147,18 @@ Wizard(NPC5E) {
 
   OtherClassActions ~ <%
   %>
+
+  AppearanceFeature @ [
+    * long, skinny fingers
+    * a star tattooed on the forehead
+    * a nose ring
+    * a nose ring decorated with a skull
+    * a nose ring decorated with a star
+    * long black robe
+    * long crimson robe
+    * decorated book linked to a strap around the chest
+    * an oversized pointy hat made of dark leather
+    ]
 
   | NPC5E
 }
@@ -87,11 +179,16 @@ WizardLevel1(Wizard) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
+    CantripsKnown = 3
+    Level1Slots = 2
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -109,12 +206,16 @@ WizardLevel2(Wizard) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
+    CantripsKnown = 3
+    Level1Slots = 3
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -131,15 +232,16 @@ WizardLevel3(Wizard) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 2
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -156,17 +258,16 @@ WizardLevel4(Wizard) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -183,19 +284,16 @@ WizardLevel5(Wizard) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 2
+    Level3Slots = 2
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -212,20 +310,16 @@ WizardLevel6(Wizard) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 2
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -242,21 +336,16 @@ WizardLevel7(Wizard) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 1
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -273,22 +362,16 @@ WizardLevel8(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 2
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -305,24 +388,16 @@ WizardLevel9(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 1
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -339,26 +414,16 @@ WizardLevel10(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Cantrip5 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
-    Spell15 @ $WizardSpellLevel5
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -375,27 +440,16 @@ WizardLevel11(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Cantrip5 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
-    Spell15 @ $WizardSpellLevel5
-    Spell16 @ $WizardSpellLevel6
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -412,27 +466,16 @@ WizardLevel12(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Cantrip5 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
-    Spell15 @ $WizardSpellLevel5
-    Spell16 @ $WizardSpellLevel6
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -449,28 +492,16 @@ WizardLevel13(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Cantrip5 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
-    Spell15 @ $WizardSpellLevel5
-    Spell16 @ $WizardSpellLevel6
-    Spell17 @ $WizardSpellLevel7
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }
@@ -487,28 +518,16 @@ WizardLevel14(Wizard) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $WizardCantrip
-    Cantrip2 @ $WizardCantrip
-    Cantrip3 @ $WizardCantrip
-    Cantrip4 @ $WizardCantrip
-    Cantrip5 @ $WizardCantrip
-    Spell1 @ $WizardSpellLevel1
-    Spell2 @ $WizardSpellLevel1
-    Spell3 @ $WizardSpellLevel1
-    Spell4 @ $WizardSpellLevel1
-    Spell5 @ $WizardSpellLevel2
-    Spell6 @ $WizardSpellLevel2
-    Spell7 @ $WizardSpellLevel2
-    Spell8 @ $WizardSpellLevel3
-    Spell9 @ $WizardSpellLevel3
-    Spell10 @ $WizardSpellLevel3
-    Spell11 @ $WizardSpellLevel4
-    Spell12 @ $WizardSpellLevel4
-    Spell13 @ $WizardSpellLevel4
-    Spell14 @ $WizardSpellLevel5
-    Spell15 @ $WizardSpellLevel5
-    Spell16 @ $WizardSpellLevel6
-    Spell17 @ $WizardSpellLevel7
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     | Wizard
 }

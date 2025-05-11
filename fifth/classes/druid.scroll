@@ -46,6 +46,84 @@ Druid(NPC5E) {
     {{DruidCircle.Stats}}
   %>
 
+  Spells ~ <%
+    {% set prepared_spells_budget = Level + round((BaseWisdom + Race.WisdomBonus - 10.5) / 2,0) %}
+
+    {% set cantrips = [] %}
+    {% set prepared_level_1_spells = [] %}
+    {% set prepared_level_2_spells = [] %}
+    {% set prepared_level_3_spells = [] %}
+    {% set prepared_level_4_spells = [] %}
+    {% set prepared_level_5_spells = [] %}
+    {% set prepared_level_6_spells = [] %}
+    {% set prepared_level_7_spells = [] %}
+    {% set prepared_level_8_spells = [] %}
+    {% set prepared_level_9_spells = [] %}
+
+    {% if Level9Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_9_spells = stable_shuffle_pick(uuid, "DruidSpellLevel9", min(Level9Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level9Slots %}
+    {% endif %}
+
+    {% if Level8Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_8_spells = stable_shuffle_pick(uuid, "DruidSpellLevel8", min(Level8Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level8Slots %}
+    {% endif %}
+
+    {% if Level7Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_7_spells = stable_shuffle_pick(uuid, "DruidSpellLevel7", min(Level7Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level7Slots %}
+    {% endif %}
+
+    {% if Level6Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_6_spells = stable_shuffle_pick(uuid, "DruidSpellLevel6", min(Level6Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level6Slots %}
+    {% endif %}
+
+    {% if Level5Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_5_spells = stable_shuffle_pick(uuid, "DruidSpellLevel5", min(Level5Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level5Slots %}
+    {% endif %}
+
+    {% if Level4Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_4_spells = stable_shuffle_pick(uuid, "DruidSpellLevel4", min(Level4Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level4Slots %}
+    {% endif %}
+
+    {% if Level3Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_3_spells = stable_shuffle_pick(uuid, "DruidSpellLevel3", min(Level3Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level3Slots %}
+    {% endif %}
+
+    {% if Level2Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_2_spells = stable_shuffle_pick(uuid, "DruidSpellLevel2", min(Level2Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level2Slots %}
+    {% endif %}
+
+    {% if Level1Slots > 0 and prepared_spells_budget > 0 %}
+        {% set prepared_level_1_spells = stable_shuffle_pick(uuid, "DruidSpellLevel1", min(Level1Slots, prepared_spells_budget)) %}
+        {% set prepared_spells_budget = prepared_spells_budget - Level1Slots %}
+    {% endif %}
+
+    {% if CantripsKnown > 0 %}
+        {% set cantrips = stable_shuffle_pick(uuid, "DruidCantrip", CantripsKnown) %}
+    {% endif %}
+
+    <ul>
+    {% if cantrips %} <li> Cantrips (at will): {{ join(cantrips,", ") }} </li> {%endif%}
+    {% if prepared_level_1_spells %} <li> 1st Level ({{Level1Slots}} slots): {{ join(prepared_level_1_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_2_spells %} <li> 2nd Level ({{Level2Slots}} slots): {{ join(prepared_level_2_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_3_spells %} <li> 3rd Level ({{Level3Slots}} slots): {{ join(prepared_level_3_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_4_spells %} <li> 4th Level ({{Level4Slots}} slots): {{ join(prepared_level_4_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_5_spells %} <li> 5th Level ({{Level5Slots}} slots): {{ join(prepared_level_5_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_6_spells %} <li> 6th Level ({{Level6Slots}} slots): {{ join(prepared_level_6_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_7_spells %} <li> 7th Level ({{Level7Slots}} slots): {{ join(prepared_level_7_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_8_spells %} <li> 8th Level ({{Level8Slots}} slots): {{ join(prepared_level_8_spells,", ") }} </li> {%endif%}
+    {% if prepared_level_9_spells %} <li> 9th Level ({{Level9Slots}} slots): {{ join(prepared_level_9_spells,", ") }} </li> {%endif%}
+    </ul>
+
+  %>
+
   OtherClassActions ~ <%
     {% if exists("WildShape") %}
     <li><strong>Wild Shape:</strong> {{WildShape}}</li>
@@ -216,10 +294,16 @@ DruidLevel1(Druid) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
+    CantripsKnown = 2
+    Level1Slots = 2
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     DruidCircle @ DruidCircleLevel1
     | Druid
@@ -237,11 +321,16 @@ DruidLevel2(Druid) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel2
-    Spell2 @ $DruidSpellLevel2
-    Spell3 @ $DruidSpellLevel2
+    CantripsKnown = 2
+    Level1Slots = 3
+    Level2Slots = 0
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Baboon
@@ -301,14 +390,16 @@ DruidLevel3(Druid) {
     BaseWisdom @ 5d3+3
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
+    CantripsKnown = 2
+    Level1Slots = 4
+    Level2Slots = 2
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Baboon
@@ -368,16 +459,16 @@ DruidLevel4(Druid) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 0
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Ape
@@ -403,18 +494,16 @@ DruidLevel5(Druid) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 2
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Ape
@@ -439,19 +528,16 @@ DruidLevel6(Druid) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 0
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Ape
@@ -477,20 +563,16 @@ DruidLevel7(Druid) {
     BaseWisdom @ 5d3+4
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 1
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Ape
@@ -515,21 +597,16 @@ DruidLevel8(Druid) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 2
+    Level5Slots = 0
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -565,23 +642,16 @@ DruidLevel9(Druid) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
+    CantripsKnown = 3
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 1
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -615,25 +685,16 @@ DruidLevel10(Druid) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Cantrip4 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
-    Spell15 @ $DruidSpellLevel5
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 0
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -667,26 +728,16 @@ DruidLevel11(Druid) {
     BaseWisdom @ 5d3+5
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Cantrip4 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
-    Spell15 @ $DruidSpellLevel5
-    Spell16 @ $DruidSpellLevel6
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -720,26 +771,16 @@ DruidLevel12(Druid) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Cantrip4 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
-    Spell15 @ $DruidSpellLevel5
-    Spell16 @ $DruidSpellLevel6
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 0
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -773,27 +814,16 @@ DruidLevel13(Druid) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Cantrip4 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
-    Spell15 @ $DruidSpellLevel5
-    Spell16 @ $DruidSpellLevel6
-    Spell17 @ $DruidSpellLevel7
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
@@ -827,27 +857,16 @@ DruidLevel14(Druid) {
     BaseWisdom @ 5d3+6
     BaseCharisma @ 3d6
 
-    Cantrip1 @ $DruidCantrip
-    Cantrip2 @ $DruidCantrip
-    Cantrip3 @ $DruidCantrip
-    Cantrip4 @ $DruidCantrip
-    Spell1 @ $DruidSpellLevel1
-    Spell2 @ $DruidSpellLevel1
-    Spell3 @ $DruidSpellLevel1
-    Spell4 @ $DruidSpellLevel1
-    Spell5 @ $DruidSpellLevel2
-    Spell6 @ $DruidSpellLevel2
-    Spell7 @ $DruidSpellLevel2
-    Spell8 @ $DruidSpellLevel3
-    Spell9 @ $DruidSpellLevel3
-    Spell10 @ $DruidSpellLevel3
-    Spell11 @ $DruidSpellLevel4
-    Spell12 @ $DruidSpellLevel4
-    Spell13 @ $DruidSpellLevel4
-    Spell14 @ $DruidSpellLevel5
-    Spell15 @ $DruidSpellLevel5
-    Spell16 @ $DruidSpellLevel6
-    Spell17 @ $DruidSpellLevel7
+    CantripsKnown = 4
+    Level1Slots = 4
+    Level2Slots = 3
+    Level3Slots = 3
+    Level4Slots = 3
+    Level5Slots = 2
+    Level6Slots = 1
+    Level7Slots = 1
+    Level8Slots = 0
+    Level9Slots = 0
 
     WildShape @ [
         * Beast Shape - Brown Bear
