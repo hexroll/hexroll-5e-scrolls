@@ -7,97 +7,567 @@
 # released un the Open Game License, Version 1.0a (enclosed in the LICENSE
 # file), as described in Section 1(d) of the License.
 #
+
 TreasureType {
   Empty! = false
   PiecesFactor = 1
   RoomContext = none
   GoldValue! ~ <%
-    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
     {%set factor.value = 1%}
-    {%else%}
-    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
-    {%endif%}
     {%set gptotal.value = 0 %}
-    {%if cp1000.Roll <= cp1000.Odds%} {%set gptotal.value = gptotal.value + 10*cp1000.Amount * PiecesFactor / factor.value%}{%endif%}
-    {%if sp1000.Roll <= sp1000.Odds%} {%set gptotal.value = gptotal.value + 100*sp1000.Amount * PiecesFactor / factor.value%}{%endif%}
-    {%if ep1000.Roll <= ep1000.Odds%} {%set gptotal.value = gptotal.value + 500*ep1000.Amount * PiecesFactor / factor.value%}{%endif%}
-    {%if gp1000.Roll <= gp1000.Odds%} {%set gptotal.value = gptotal.value + 1000*gp1000.Amount * PiecesFactor / factor.value%}{%endif%}
-    {%if pp1000.Roll <= pp1000.Odds%} {%set gptotal.value = gptotal.value + 5000*pp1000.Amount * PiecesFactor / factor.value%}{%endif%}
+    {%if exists("CP100")%}{%set gptotal.value = gptotal.value + CP100%}{%endif%}
+    {%if exists("SP100")%}{%set gptotal.value = gptotal.value + 10 * SP100%}{%endif%}
+    {%if exists("SP1000")%}{%set gptotal.value = gptotal.value + 100 * SP1000%}{%endif%}
+    {%if exists("GP10")%}{%set gptotal.value = gptotal.value + 10 * GP10%}{%endif%}
+    {%if exists("GP100")%}{%set gptotal.value = gptotal.value + 100 * GP100%}{%endif%}
+    {%if exists("GP1000")%}{%set gptotal.value = gptotal.value + 1000 * GP1000%}{%endif%}
+    {%if exists("PP10")%}{%set gptotal.value = gptotal.value + 100 * PP10%}{%endif%}
+    {%if exists("PP100")%}{%set gptotal.value = gptotal.value + 1000 * PP100%}{%endif%}
+    {%if exists("PP1000")%}{%set gptotal.value = gptotal.value + 10000 * PP1000%}{%endif%}
     {{gptotal.value}}
   %>
 
-  GemsValue! ~ <%
-    {%if Gems.Roll <= Gems.Odds%}
-    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
-    {%set factor.value = 1%}
-    {%else%}
-    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
-    {%endif%}
-    {%set total.value = 0%}
-    {%for g in range(Gems.Amount)%}
-    {%if exists("GemRoll")%}
-    {%set gemroll = GemRoll %}
-    {%else%}
-    {%set gemroll = stable_dice("1d20", uuid, 0) %}
-    {%endif%}
-    {%if gemroll >=1 and gemroll <=4%}{%set total.value = total.value + 10%}{%endif%}
-    {%if gemroll >=5 and gemroll <=9%}{%set total.value = total.value + 50%}{%endif%}
-    {%if gemroll >=10 and gemroll <=15%}{%set total.value = total.value + 100%}{%endif%}
-    {%if gemroll >=16 and gemroll <=19%}{%set total.value = total.value + 500%}{%endif%}
-    {%if gemroll == 20 %}{%set total.value = total.value + 1000%}{%endif%}
-    {%endfor%}
-    {{total.value / factor.value}}
-    {%else%}0{%endif%}
-  %>
-
-  JewelleryValue! ~ <%
-    {%if Jewellery.Roll <= Jewellery.Odds%}
-    {%if (not RoomContext or not MaxNumberAppearingDungeonArea)%}
-    {%set factor.value = 1%}
-    {%else%}
-    {%set factor.value = MaxNumberAppearingDungeonArea/MaxNumberAppearingDungeonArea%}
-    {%endif%}
-    {%set total.value = 0 %}
-    {%for g in range(Jewellery.Amount)%}
-    {%if exists("JewelleryRoll")%}
-    {%set jroll = JewelleryRoll %}
-    {%else%}
-    {%set jroll = stable_dice("3d6", uuid, 1) %}
-    {%endif%}
-    {%set total.value = total.value + 100*jroll%}
-    {%endfor%}
-    {{total.value / factor.value}}
-    {%else%}0{%endif%}
-  %>
-
   Details! ~ <%
-    {%if cp1000.Roll <= cp1000.Odds or sp1000.Roll <= sp1000.Odds or ep1000.Roll <= ep1000.Odds or gp1000.Roll <= gp1000.Odds or pp1000.Roll <= pp1000.Odds%}
     <li>
-    {{bold(currency(float(GoldValue)))}}
+    {{bold(currency(float(GoldValue)))}} in coins
     </li>
-    {%endif%}
-    {%if Gems.Roll <= Gems.Odds%}
-    <li>
-    <strong>{{pluralize(Gems.Amount,"gem")}}</strong> worth {{ bold(currency(float(GemsValue)))}} in total
-    </li>
-    {%endif%}
-    {%if Jewellery.Roll <= Jewellery.Odds%}
-    <li>
-    <strong>{{pluralize(Jewellery.Amount,"jewellery item")}}</strong> worth {{ bold(currency(float(JewelleryValue)))}} in total
-    </li>
-    {%endif%}
-    {%if MagicItems.Amount > 0 and MagicItems.Roll <= (MagicItems.Odds / 1)%} <li>{{MagicItem1.Description}}</li> {%endif%}
-    {%if MagicItems.Amount > 1 and MagicItems.Roll <= (MagicItems.Odds / 2)%} <li>{{MagicItem2.Description}}</li> {%endif%}
-    {%if MagicItems.Amount > 2 and MagicItems.Roll <= (MagicItems.Odds / 3)%} <li>{{MagicItem3.Description}}</li> {%endif%}
-    {%if MagicItems.Amount > 3 and MagicItems.Roll <= (MagicItems.Odds / 4)%} <li>{{MagicItem4.Description}}</li> {%endif%}
-    {%if MagicItems.Amount > 4 and MagicItems.Roll <= (MagicItems.Odds / 5)%} <li>{{MagicItem5.Description}}</li> {%endif%}
-    {%if MagicItems.Amount > 5 and MagicItems.Roll <= (MagicItems.Odds / 6)%} <li>{{MagicItem6.Description}}</li> {%endif%}
+    {{Valuables.Details}}
+    {{MagicItems.Details}}
    %>
 }
 
-TreasureTypeIndividuals (TreasureType) {
+TreasureTypeBody (TreasureType) {
+  CP100 @ 3d4
+  SP100 @ 1d6-1
+  GP10  @ 1d4-1
+  MagicItems! @@ [
+    *(x40) Nothing
+    *(x20) Roll1D4MagicItemTableB
+    *(x10) Roll1D4MagicItemTableC
+  ]
+  Valuables! @@ [
+    *(x40) Nothing
+    *(x10) Roll2D6GemstonesWorth10GP
+    *(x5) Roll2D4ArtObjectsWorth25GP
+    *(x5) Roll2D6GemstonesWorth50GP
+  ]
   | TreasureType
-  PiecesFactor = 0.001
+}
+
+TreasureHoardC0(TreasureType) {
+  CP100 @ 3d4
+  SP100 @ 2d6
+  GP10  @ 2d4
+
+  MagicItems! @@ [
+    *(x40) Nothing
+    *(x14) Roll1D6MagicItemTableA
+    *(x10) Roll1D4MagicItemTableB
+    *(x10) Roll1D4MagicItemTableC
+    *(x6) Roll1D4MagicItemTableF
+    *(x1) RollOneMagicItemTableG
+  ]
+
+  Valuables! @@ [
+    *(x40) Nothing
+    *(x10) Roll2D6GemstonesWorth10GP
+    *(x10) Roll2D4ArtObjectsWorth25GP
+    *(x10) Roll2D6GemstonesWorth50GP
+  ]
+
+  | TreasureType
+}
+
+TreasureHoardC4(TreasureType) {
+  CP100 @ 6d6
+  SP100 @ 3d6
+  GP10  @ 2d6
+
+  MagicItems! @@ [
+    *(x36) Nothing
+    *(x24) Roll1D6MagicItemTableA
+    *(x15) Roll1D4MagicItemTableB
+    *(x15) Roll1D4MagicItemTableC
+    *(x12) Roll1D4MagicItemTableF
+    *(x3) RollOneMagicItemTableG
+  ]
+
+  Valuables! @@ [
+    *(x6) Nothing
+    *(x15) Roll2D6GemstonesWorth10GP
+    *(x30) Roll2D4ArtObjectsWorth25GP
+    *(x49) Roll2D6GemstonesWorth50GP
+  ]
+
+  | TreasureType
+}
+
+TreasureHoardC10(TreasureType) {
+  CP100  @ 2d6
+  SP1000 @ 2d6
+  GP100  @ 6d6
+  PP10   @ 3d6
+
+  MagicItems! @@ [
+    *(x44) Nothing
+    *(x20) Roll1D6MagicItemTableA
+    *(x16) Roll1D4MagicItemTableB
+    *(x10) Roll1D4MagicItemTableC
+    *(x4) RollOneMagicItemTableD
+    *(x8) Roll1D4MagicItemTableF
+    *(x2) Roll1D4MagicItemTableG
+    *(x2) Roll1D6MagicItemTableG
+    *(x2) RollOneMagicItemTableH
+  ]
+
+  Valuables! @@ [
+    *(x6) Nothing
+    *(x20) Roll2D4ArtObjectsWorth25GP
+    *(x16) Roll3D6GemstonesWorth50GP
+    *(x20) Roll3D6GemstonesWorth100GP
+    *(x20) Roll2D4ArtObjectsWorth250GP
+  ]
+
+  | TreasureType
+}
+
+TreasureHoardC16(TreasureType) {
+  GP1000  @ 4d6
+  PP100   @ 5d6
+
+  MagicItems! @@ [
+    *(x44) Nothing
+    *(x14) Roll1D10MagicItemTablesAandB
+    *(x21) Roll1D6MagicItemTableC
+    *(x16) Roll1D4MagicItemTableD
+    *(x8) RollOneMagicItemTableE
+    *(x12) Roll1D5MagicItemTablesFandG
+    *(x10) Roll1D4MagicItemTableH
+    *(x8) RollOneMagicItemTableI
+  ]
+
+  Valuables! @@ [
+    *(x3) Nothing
+    *(x22) Roll2D4ArtObjectsWorth250GP
+    *(x20) Roll2D4ArtObjectsWorth750GP
+    *(x19) Roll3D6GemstonesWorth500GP
+    *(x36) Roll3D6GemstonesWorth1000GP
+  ]
+
+  | TreasureType
+}
+
+TreasureHoardC17Plus(TreasureType) {
+  GP1000  @ 12d6
+  PP1000   @ 8d6
+
+  MagicItems! @@ [
+    *(x2) Nothing
+    *(x12) Roll1D8MagicItemTableC
+    *(x31) Roll1D6MagicItemTableD
+    *(x22) Roll1D6MagicItemTableE
+    *(x4) Roll1D4MagicItemTableG
+    *(x8) Roll1D4MagicItemTableH
+    *(x15) Roll1D4MagicItemTableI
+    *(x5) Roll1D5MagicItemTablesFandG
+  ]
+
+  Valuables! @@ [
+    *(x2) Nothing
+    *(x26) Roll3D6GemstonesWorth1000GP
+    *(x21) Roll1D10ArtObjectsWorth2500GP
+    *(x20) Roll1D4ArtObjectsWorth7500GP
+    *(x31) Roll1D8GemstonesWorth5000GP
+  ]
+
+  | TreasureType
+}
+
+
+MagicItemsInTreasure {
+  Details! ~ <% <li><strong>Magic Items:</strong> {{join(attribute_list(Items,"Title"),", ") }}</li> %>
+}
+
+Roll1D6MagicItemTableA(MagicItemsInTreasure) {
+  [1..6 Items!] @ MagicItemTableA
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableB(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableB
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableC(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableC
+  | MagicItemsInTreasure
+}
+Roll1D6MagicItemTableC(MagicItemsInTreasure) {
+  [1..6 Items!] @ MagicItemTableC
+  | MagicItemsInTreasure
+}
+Roll1D8MagicItemTableC(MagicItemsInTreasure) {
+  [1..8 Items!] @ MagicItemTableC
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableF(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableF
+  | MagicItemsInTreasure
+}
+RollOneMagicItemTableD(MagicItemsInTreasure) {
+  [0..1 Items!] @ MagicItemTableD
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableD(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableD
+  | MagicItemsInTreasure
+}
+Roll1D6MagicItemTableD(MagicItemsInTreasure) {
+  [1..6 Items!] @ MagicItemTableD
+  | MagicItemsInTreasure
+}
+RollOneMagicItemTableE(MagicItemsInTreasure) {
+  [0..1 Items!] @ MagicItemTableE
+  | MagicItemsInTreasure
+}
+Roll1D6MagicItemTableE(MagicItemsInTreasure) {
+  [1..6 Items!] @ MagicItemTableE
+  | MagicItemsInTreasure
+}
+RollOneMagicItemTableG(MagicItemsInTreasure) {
+  [0..1 Items!] @ MagicItemTableG
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableG(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableG
+  | MagicItemsInTreasure
+}
+Roll1D6MagicItemTableG(MagicItemsInTreasure) {
+  [1..6 Items!] @ MagicItemTableG
+  | MagicItemsInTreasure
+}
+RollOneMagicItemTableH(MagicItemsInTreasure) {
+  [0..1 Items!] @ MagicItemTableH
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableH(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableH
+  | MagicItemsInTreasure
+}
+RollOneMagicItemTableI(MagicItemsInTreasure) {
+  [0..1 Items!] @ MagicItemTableI
+  | MagicItemsInTreasure
+}
+Roll1D4MagicItemTableI(MagicItemsInTreasure) {
+  [1..4 Items!] @ MagicItemTableI
+  | MagicItemsInTreasure
+}
+
+Roll1D10MagicItemTablesAandB(MagicItemsInTreasure) {
+  [1..10 Items!] @@ [
+    *(x4) MagicItemTableA
+    *(x6) MagicItemTableB
+  ]
+  | MagicItemsInTreasure
+}
+
+Roll1D5MagicItemTablesFandG(MagicItemsInTreasure) {
+  [1..5 Items!] @@ [
+    *(x4) MagicItemTableF
+    *(x1) MagicItemTableG
+  ]
+  | MagicItemsInTreasure
+}
+
+
+ValuablesInTreasure {
+  Details! ~ <% <li><strong>{{Title}}:</strong> {{join(attribute_list(Items,"Object"),", ") }}</li> %>
+}
+
+# This is an approximation of the recommended dice rolling values
+Roll2D4ArtObjectsWorth25GP(ValuablesInTreasure) {
+  [2..8 Items!] @ ArtObjectWorth25GP
+  Title! ~ "{{currency(length(Items)*25)}} worth of artifacts (25gp each)"
+  | ValuablesInTreasure
+}
+
+Roll2D4ArtObjectsWorth250GP(ValuablesInTreasure) {
+  [2..8 Items!] @ ArtObjectWorth250GP
+  Title! ~ "{{currency(length(Items)*250)}} worth of artifacts (250gp each)"
+  | ValuablesInTreasure
+}
+
+Roll2D4ArtObjectsWorth750GP(ValuablesInTreasure) {
+  [2..8 Items!] @ ArtObjectWorth750GP
+  Title! ~ "{{currency(length(Items)*750)}} worth of artifacts (750gp each)"
+  | ValuablesInTreasure
+}
+
+Roll1D10ArtObjectsWorth2500GP(ValuablesInTreasure) {
+  [1..10 Items!] @ ArtObjectWorth2500GP
+  Title! ~ "{{currency(length(Items)*2500)}} worth of artifacts (2500gp each)"
+  | ValuablesInTreasure
+}
+Roll1D4ArtObjectsWorth7500GP(ValuablesInTreasure) {
+  [1..4 Items!] @ ArtObjectWorth7500GP
+  Title! ~ "{{currency(length(Items)*7500)}} worth of artifacts (7500gp each)"
+  | ValuablesInTreasure
+}
+
+
+Roll2D6GemstonesWorth10GP(ValuablesInTreasure) {
+  [2..12 Items!] @ GemstoneWorth10GP
+  Title! ~ "{{currency(length(Items)*10)}} worth of gemstones (10gp each)"
+  | ValuablesInTreasure
+}
+
+Roll2D6GemstonesWorth50GP(ValuablesInTreasure) {
+  [2..12 Items!] @ GemstoneWorth50GP
+  Title! ~ "{{currency(length(Items)*50)}} worth of gemstones (50gp each)"
+  | ValuablesInTreasure
+}
+
+Roll3D6GemstonesWorth50GP(ValuablesInTreasure) {
+  [3..18 Items!] @ GemstoneWorth50GP
+  Title! ~ "{{currency(length(Items)*50)}} worth of gemstones (50gp each)"
+  | ValuablesInTreasure
+}
+
+Roll3D6GemstonesWorth100GP(ValuablesInTreasure) {
+  [3..18 Items!] @ GemstoneWorth100GP
+  Title! ~ "{{currency(length(Items)*100)}} worth of gemstones (100gp each)"
+  | ValuablesInTreasure
+}
+
+Roll3D6GemstonesWorth500GP(ValuablesInTreasure) {
+  [3..18 Items!] @ GemstoneWorth500GP
+  Title! ~ "{{currency(length(Items)*500)}} worth of gemstones (500gp each)"
+  | ValuablesInTreasure
+}
+Roll3D6GemstonesWorth1000GP(ValuablesInTreasure) {
+  [3..18 Items!] @ GemstoneWorth1000GP
+  Title! ~ "{{currency(length(Items)*1000)}} worth of gemstones (1000gp each)"
+  | ValuablesInTreasure
+}
+Roll1D8GemstonesWorth5000GP(ValuablesInTreasure) {
+  [1..8 Items!] @ GemstoneWorth5000GP
+  Title! ~ "{{currency(length(Items)*5000)}} worth of gemstones (5000gp each)"
+  | ValuablesInTreasure
+}
+
+
+None {}
+
+Nothing {
+  Details! = ""
+  Title! = ""
+  [0..0 Items!] @ None
+}
+
+
+TreasureTypeCR0 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeCR1 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeCR2 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeCR3 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeCR4 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeCR5 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR6 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR7 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR8 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR9 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR10 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeCR11 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR12 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR13 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR14 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR15 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR16 {
+  ^ [
+    * TreasureHoardC16
+  ]
+}
+
+TreasureTypeCR17 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+
+TreasureTypeCR18 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR18 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR19 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR20 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR21 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR22 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR23 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR24 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR25 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR26 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR27 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR28 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR29 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+TreasureTypeCR30 {
+  ^ [
+    * TreasureHoardC17Plus
+  ]
+}
+
+
+
+
+
+TreasureTypeTier1 {
+  ^ [
+    * TreasureHoardC0
+  ]
+}
+
+TreasureTypeTier2 {
+  ^ [
+    * TreasureHoardC4
+  ]
+}
+
+TreasureTypeTier3 {
+  ^ [
+    * TreasureHoardC10
+  ]
+}
+
+TreasureTypeTier4 {
+  ^ [
+    * TreasureHoardC16
+  ]
 }
 
 RandomMagicItem { ^ [
@@ -109,1294 +579,4 @@ RandomMagicItem { ^ [
         *(x20) RandomMagicSword
         *(x5)  RandomMagicWeapon
     ]
-}
-
-TreasureEmpty {
-    Amount = 0
-}
-
-TreasureTypeNone {
-  Empty! = true
-  cp1000 @ TreasureEmpty
-  sp1000 @ TreasureEmpty
-  ep1000 @ TreasureEmpty
-  gp1000 @ TreasureEmpty
-  pp1000 @ TreasureEmpty
-}
-
-
-TreasureTypeTusks (TreasureTypeNone) {
-    Details = "Tusks"
-}
-
-TreasureTypeHorn (TreasureTypeNone) {
-    Details = "Horn"
-}
-
-
-TreasureTypeHoney (TreasureTypeNone) {
-    Details = "Honey"
-}
-
-TreasureInstance {
-    Roll! @ 1d100
-    Odds! = 0
-    Amount! = 0
-}
-
-TreasureTypeA (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d6
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d6
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 20
-        Amount @ 1d6
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 35
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 50
-        Amount @ 6d6
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 50
-        Amount @ 6d6
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 30
-        Amount = 3
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeB (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d6
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d3
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d6
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d6
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 10
-        Amount = 1
-    }
-    MagicItem1 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeC (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 20
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d6
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d3
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 10
-        Amount = 2
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeD (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 15
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 60
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 10
-        Amount = 3
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomPotion
-    | TreasureType
-    }
-
-
-TreasureTypeE (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d8
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d10
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d10
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 25
-        Amount = 3
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomPotion
-    | TreasureType
-}
-
-
-TreasureTypeF (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 2d10
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 20
-        Amount @ 1d8
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 45
-        Amount @ 1d12
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d3
-    }
-    Gems @ TreasureInstance {
-        Odds = 20
-        Amount @ 2d12
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d12
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 10
-        Amount = 3
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomPotion
-    | TreasureType
-}
-
-
-TreasureTypeG (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 4d10
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 25
-        Amount @ 3d6
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d10
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 35
-        Amount = 4
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomPotion
-    MagicItem4 @ RandomPotion
-    | TreasureType
-}
-
-
-
-TreasureTypeH (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 3d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d100
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 4d10
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 6d10
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 5d4
-    }
-    Gems @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d100
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 50
-        Amount @ 10d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 15
-        Amount = 4
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomPotion
-    MagicItem4 @ RandomPotion
-    | TreasureType
-}
-
-
-TreasureTypeI (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d8
-    }
-    Gems @ TreasureInstance {
-        Odds = 50
-        Amount @ 2d6
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 50
-        Amount @ 2d6
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 15
-        Amount = 1
-    }
-    MagicItem1 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeJ (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 25
-        Amount @ 1d4
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d3
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeK (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d6
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d2
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeL (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeM (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 40
-        Amount @ 2d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 5d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 55
-        Amount @ 5d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 45
-        Amount @ 2d6
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeN (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 40
-        Amount @ 2d4
-    }
-    MagicItem1 @ RandomPotion
-    MagicItem2 @ RandomPotion
-    MagicItem3 @ RandomPotion
-    MagicItem4 @ RandomPotion
-    MagicItem5 @ RandomPotion
-    MagicItem6 @ RandomPotion
-    MagicItem7 @ RandomPotion
-    MagicItem8 @ RandomPotion
-    | TreasureType
-}
-
-
-TreasureTypeO (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d4
-    }
-    # TODO: These should be scrolls
-MagicItem1 @ RandomPotion
-    MagicItem2 @ RandomPotion
-    MagicItem3 @ RandomPotion
-    MagicItem3 @ RandomPotion
-    | TreasureType
-}
-
-
-TreasureTypeP (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 100
-        Amount @ 3d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeQ (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 100
-        Amount @ 3d6
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeR (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 100
-        Amount @ 2d6
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeS (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 100
-        Amount @ 2d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeT (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 100
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 0
-        Amount = 0
-    }
-    | TreasureType
-}
-
-
-TreasureTypeU (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d100
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d100
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d100
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d100
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 2
-        Amount = 1
-    }
-    MagicItem1 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeV (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d12
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d100
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d100
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d100
-    }
-    Gems @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 5
-        Amount = 1
-    }
-    MagicItem1 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeCR0 {
-  ^ [
-      * TreasureTypeP
-      * TreasureTypeQ
-  ]
-}
-
-TreasureTypeCR1 {
-  ^ [
-      * TreasureTypeL
-      * TreasureTypeJ
-  ]
-}
-
-TreasureTypeCR2 {
-  ^ [
-      * TreasureTypeK
-      * TreasureTypeI
-      * TreasureTypeU
-  ]
-}
-
-TreasureTypeCR3 {
-  ^ [
-      * TreasureTypeR
-      * TreasureTypeM
-      * TreasureTypeS
-      * TreasureTypeT
-  ]
-}
-
-TreasureTypeCR4 {
-  ^ [
-      * TreasureTypeV
-      * TreasureTypeN
-      * TreasureTypeO
-  ]
-}
-
-TreasureTypeCR5 {
-  ^ [
-      *(x3) TreasureTypeC
-      *(x1) TreasureTypeB
-  ]
-}
-
-TreasureTypeCR6 {
-  ^ [
-      *(x3) TreasureTypeB
-      *(x1) TreasureTypeF
-  ]
-}
-
-TreasureTypeCR7 {
-  ^ [
-      *(x2) TreasureTypeB
-      *(x4) TreasureTypeF
-      *(x1) TreasureTypeE
-  ]
-}
-
-TreasureTypeCR8 {
-  ^ [
-      *(x3) TreasureTypeF
-      *(x1) TreasureTypeE
-  ]
-}
-
-TreasureTypeCR9 {
-  ^ [
-      *(x2) TreasureTypeE
-      *(x1) TreasureTypeD
-  ]
-}
-
-TreasureTypeCR10 {
-  ^ [
-      *(x2) TreasureTypeE
-      *(x2) TreasureTypeD
-      *(x1) TreasureTypeA
-  ]
-}
-
-TreasureTypeCR11 {
-  ^ [
-      *(x2) TreasureTypeE
-      *(x3) TreasureTypeD
-      *(x1) TreasureTypeA
-  ]
-}
-
-TreasureTypeCR12 {
-  ^ [
-      *(x2) TreasureTypeD
-      *(x2) TreasureTypeA
-      *(x1) TreasureTypeG
-  ]
-}
-
-TreasureTypeCR13 {
-  ^ [
-      *(x3) TreasureTypeA
-      *(x2) TreasureTypeG
-  ]
-}
-
-TreasureTypeCR14 {
-  ^ [
-      *(x2) TreasureTypeA
-      *(x3) TreasureTypeG
-  ]
-}
-
-TreasureTypeCR15 {
-  ^ [
-      *(x3) TreasureTypeA
-      *(x2) TreasureTypeG
-      *(x1) TreasureTypeH
-  ]
-}
-
-TreasureTypeCR16 {
-  ^ [
-      *(x2) TreasureTypeG
-      *(x1) TreasureTypeH
-  ]
-}
-
-TreasureTypeCR17 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-
-TreasureTypeCR18 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR18 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR19 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR20 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR21 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR22 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR23 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR24 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR25 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR26 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR27 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR28 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR29 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-TreasureTypeCR30 {
-  ^ [
-      *(x1) TreasureTypeH
-  ]
-}
-
-TreasureTypeBody (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d4
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 10
-        Amount @ 1d4
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 5
-        Amount = 1
-    }
-    MagicItem1 @ RandomMagicItemsOnBody
-    | TreasureType
-}
-
-
-TreasureTypeTier1 (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 90
-        Amount @ 1d6
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d4
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 00
-        Amount @ 1d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 5
-        Amount = 2
-    }
-    MagicItem1 @ RandomPotion
-    MagicItem2 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeTier2 (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 70
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d4
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d4
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 0
-        Amount @ 1d6
-    }
-    Gems @ TreasureInstance {
-        Odds = 05
-        Amount @ 1d4
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 05
-        Amount @ 1d4
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 10
-        Amount = 3
-    }
-    MagicItem1 @ RandomPotion
-    MagicItem2 @ RandomRing
-    MagicItem3 @ RandomMagicItem
-    | TreasureType
-    }
-
-
-TreasureTypeTier3 (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 60
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 70
-        Amount @ 1d8
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d6
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d4
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 5
-        Amount @ 1d4
-    }
-    Gems @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 30
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 25
-        Amount = 4
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomMagicItem
-    MagicItem4 @ RandomMagicItem
-    | TreasureType
-}
-
-
-TreasureTypeTier4 (TreasureType) {
-    cp1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d8
-    }
-    sp1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d8
-    }
-    ep1000 @ TreasureInstance {
-        Odds = 80
-        Amount @ 1d6
-    }
-    gp1000 @ TreasureInstance {
-        Odds = 70
-        Amount @ 1d6
-    }
-    pp1000 @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d4
-    }
-    Gems @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d8
-    }
-    Jewellery @ TreasureInstance {
-        Odds = 50
-        Amount @ 1d8
-    }
-    MagicItems @ TreasureInstance {
-        Odds = 35
-        Amount = 4
-    }
-    MagicItem1 @ RandomMagicItem
-    MagicItem2 @ RandomMagicItem
-    MagicItem3 @ RandomMagicItem
-    MagicItem4 @ RandomMagicItem
-    | TreasureType
 }

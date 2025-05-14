@@ -1,0 +1,2349 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024 Ithai Levi ithai@pendicepaper.com
+#
+# This document contains Open Game Content, subject to the Open Game License,
+# released un the Open Game License, Version 1.0a (enclosed in the LICENSE
+# file), as described in Section 1(d) of the License.
+#
+RandomPotion {
+  ^ [
+    *(x1) PotionOfAnimalFriendship
+    *(x1) PotionOfClairvoyance
+    *(x1) PotionOfCloudGiantStrength
+    *(x1) PotionOfDiminution
+    *(x1) PotionOfFireBreath
+    *(x1) PotionOfFireGiantStrength
+    *(x1) PotionOfFlying
+    *(x1) PotionOfFrostGiantStrength
+    *(x1) PotionOfGaseousForm
+    *(x1) PotionOfGreaterHealing
+    *(x1) PotionOfGrowth
+    *(x1) PotionOfHeroism
+    *(x1) PotionOfHillGiantStrength
+    *(x1) PotionOfInvisibility
+    *(x1) PotionOfInvulnerability
+    *(x1) PotionOfLongevity
+    *(x1) PotionOfMindReading
+    *(x1) PotionOfPoison
+    *(x1) PotionOfResistance
+    *(x1) PotionOfSpeed
+    *(x1) PotionOfStoneGiantStrength
+    *(x1) PotionOfSuperiorHealing
+    *(x1) PotionOfSupremeHealing
+    *(x1) PotionOfVitality
+    *(x1) PotionOfWaterBreathing
+  ]
+}
+
+RandomMagicArmor {
+  ^ [
+    *(x1) ShieldPlus1
+    *(x1) ShieldPlus2
+    *(x1) ShieldPlus3
+    *(x1) ArmorOfInvulnerability
+    *(x1) ArmorOfResistanceBreastplate
+    *(x1) ArmorOfResistanceChainMail
+    *(x1) ArmorOfResistanceChainShirt
+    *(x1) ArmorOfResistanceHalfPlate
+    *(x1) ArmorOfResistanceLeather
+    *(x1) ArmorOfResistanceScaleMail
+    *(x1) ArmorOfResistanceSplint
+    *(x1) ArmorOfResistanceStuddedLeather
+    *(x1) ArmorOfVulnerability
+    *(x1) ArmorPlus1Breastplate
+    *(x1) ArmorPlus1ChainMail
+    *(x1) ArmorPlus1ChainShirt
+    *(x1) ArmorPlus1HalfPlate
+    *(x1) ArmorPlus1Leather
+    *(x1) ArmorPlus1Plate
+    *(x1) ArmorPlus1ScaleMail
+    *(x1) ArmorPlus1Splint
+    *(x1) ArmorPlus1StuddedLeather
+    *(x1) ArmorPlus2Breastplate
+    *(x1) ArmorPlus2ChainMail
+    *(x1) ArmorPlus2ChainShirt
+    *(x1) ArmorPlus2Leather
+    *(x1) ArmorPlus2ScaleMail
+    *(x1) ArmorPlus2Splint
+    *(x1) ArmorPlus2StuddedLeather
+    *(x1) ArmorPlus3ChainMail
+    *(x1) ArmorPlus3ChainShirt
+    *(x1) ArmorPlus3Leather
+  ]
+}
+
+RandomRing {
+  ^ [
+    *(x1) RingOfAirElementalCommand
+    *(x1) RingOfAnimalInfluence
+    *(x1) RingOfDjinniSummoning
+    *(x1) RingOfEarthElementalCommand
+    *(x1) RingOfEvasion
+    *(x1) RingOfFeatherFalling
+    *(x1) RingOfFireElementalCommand
+    *(x1) RingOfFreeAction
+    *(x1) RingOfInvisibility
+    *(x1) RingOfJumping
+    *(x1) RingOfMindShielding
+    *(x1) RingOfProtection
+    *(x1) RingOfRegeneration
+    *(x1) RingOfResistance
+    *(x1) RingOfShootingStars
+    *(x1) RingOfSpellStoring
+    *(x1) RingOfSpellTurning
+    *(x1) RingOfSwimming
+    *(x1) RingOfTelekinesis
+    *(x1) RingOfTheRam
+    *(x1) RingOfThreeWishes
+    *(x1) RingOfWarmth
+    *(x1) RingOfWaterElementalCommand
+    *(x1) RingOfWaterWalking
+    *(x1) RingOfXRayVision
+  ]
+}
+
+RandomRodStaffWand {
+  ^ [
+    *(x1) RodOfAbsorption
+    *(x1) RodOfAlertness
+    *(x1) RodOfLordlyMight
+    *(x1) RodOfResurrection
+    *(x1) RodOfRulership
+    *(x1) RodOfSecurity
+    *(x1) RodOfThePactKeeperPlus1
+    *(x1) RodOfThePactKeeperPlus2
+    *(x1) RodOfThePactKeeperPlus3
+    *(x1) StaffOfCharming
+    *(x1) StaffOfFire
+    *(x1) StaffOfFrost
+    *(x1) StaffOfHealing
+    *(x1) StaffOfPower
+    *(x1) StaffOfStriking
+    *(x1) StaffOfSwarmingInsects
+    *(x1) StaffOfTheAdder
+    *(x1) StaffOfThePython
+    *(x1) StaffOfTheWoodlands
+    *(x1) StaffOfThunderAndLightning
+    *(x1) StaffOfWithering
+    *(x1) WandOfBinding
+    *(x1) WandOfEnemyDetection
+    *(x1) WandOfFear
+    *(x1) WandOfFireballs
+    *(x1) WandOfLightningBolts
+    *(x1) WandOfMagicDetection
+    *(x1) WandOfMagicMissiles
+    *(x1) WandOfParalysis
+    *(x1) WandOfPolymorph
+    *(x1) WandOfSecrets
+    *(x1) WandOfTheWarMagePlus1
+    *(x1) WandOfTheWarMagePlus2
+    *(x1) WandOfTheWarMagePlus3
+    *(x1) WandOfWeb
+    *(x1) WandOfWonder
+  ]
+}
+
+RandomMagicSword {
+  ^ [
+    *(x1) SwordOfAnswering
+    *(x1) SwordOfLifeStealing
+    *(x1) SwordOfSharpness
+    *(x1) SwordOfVengeance
+    *(x1) SwordOfWounding
+  ]
+}
+
+RandomMagicWeapon {
+  ^ [
+    *(x1) AmmunitionPlus1
+    *(x1) AmmunitionPlus2
+    *(x1) AmmunitionPlus3
+    *(x1) WeaponPlus1
+    *(x1) WeaponPlus2
+    *(x1) WeaponPlus3
+  ]
+}
+
+
+
+RandomMagicWeapon {
+  ^ [
+    *(x9) SpellScroll2ndLevel
+    *(x8) SpellScroll3rdLevel
+    *(x7) SpellScroll4thLevel
+    *(x6) SpellScroll5thLevel
+    *(x5) SpellScroll6thLevel
+    *(x3) SpellScroll7thLevel
+    *(x2) SpellScroll8thLevel
+    *(x1) SpellScroll9thLevel
+  ]
+}
+
+RandomMagicItem {
+  Item @ [
+    *(x1) AdamantineArmorBreastplate
+    *(x1) AdamantineArmorChainMail
+    *(x1) AdamantineArmorChainShirt
+    *(x1) AdamantineArmorHalfPlate
+    *(x1) AdamantineArmorPlate
+    *(x1) AdamantineArmorScaleMail
+    *(x1) AdamantineArmorSplint
+    *(x1) AlchemyJug
+    *(x1) AmuletOfHealth
+    *(x1) AmuletOfProofAgainstDetectionAndLocation
+    *(x1) AmuletOfThePlanes
+    *(x1) AnimatedShield
+    *(x1) ApparatusOfKwalish
+    *(x1) ArrowCatchingShield
+    *(x1) ArrowOfSlaying
+    *(x1) BagOfBeans
+    *(x1) BagOfDevouring
+    *(x1) BagOfDevouring
+    *(x1) BagOfHolding
+    *(x1) BagOfTricksGray
+    *(x1) BagOfTricksRust
+    *(x1) BagOfTricksTan
+    *(x1) BeadOfForce
+    *(x1) BeltOfCloudGiantStrength
+    *(x1) BeltOfDwarvenkind
+    *(x1) BeltOfFireGiantStrength
+    *(x1) BeltOfFrostOrStoneGiantStrength
+    *(x1) BeltOfHillGiantStrength
+    *(x1) BeltOfStormGiantStrength
+    *(x1) BerserkerAxe
+    *(x1) BootsOfElvenkind
+    *(x1) BootsOfLevitation
+    *(x1) BootsOfSpeed
+    *(x1) BootsOfStridingAndSpringing
+    *(x1) BootsOfTheWinterlands
+    *(x1) BowlOfCommandingWaterElementals
+    *(x1) BracersOfArchery
+    *(x1) BracersOfDefense
+    *(x1) BrazierOfCommandingFireElementals
+    *(x1) BroochOfShielding
+    *(x1) BroomOfFlying
+    *(x1) CandleOfInvocation
+    *(x1) CapOfWaterBreathing
+    *(x1) CapeOfTheMountebank
+    *(x1) CarpetOfFlying
+    *(x1) CenserOfControllingAirElementals
+    *(x1) ChimeOfOpening
+    *(x1) CircletOfBlasting
+    *(x1) CloakOfArachnida
+    *(x1) CloakOfDisplacement
+    *(x1) CloakOfElvenkind
+    *(x1) CloakOfInvisibility
+    *(x1) CloakOfProtection
+    *(x1) CloakOfTheBat
+    *(x1) CloakOfTheMantaRay
+    *(x1) CrystalBallLegendaryVersion
+    *(x1) CrystalBallVeryRareVersion
+    *(x1) CubeOfForce
+    *(x1) CubicGate
+    *(x1) DaernsInstantFortress
+    *(x1) DaggerOfVenom
+    *(x1) DancingSword
+    *(x1) DecanterOfEndlessWater
+    *(x1) DeckOfIllusions
+    *(x1) DeckOfManyThings
+    *(x1) Defender
+    *(x1) DemonArmor
+    *(x1) DimensionalShackles
+    *(x1) DragonScaleMail
+    *(x1) DragonSlayer
+    *(x1) Driftglobe
+    *(x1) DustOfDisappearance
+    *(x1) DustOfDryness
+    *(x1) DustOfSneezingAndChoking
+    *(x1) DwarvenPlate
+    *(x1) DwarvenThrower
+    *(x1) EfreetiBottle
+    *(x1) EfreetiChain
+    *(x1) ElementalGem
+    *(x1) ElixirOfHealth
+    *(x1) ElvenChain
+    *(x1) EversmokingBottle
+    *(x1) EyesOfCharming
+    *(x1) EyesOfMinuteSeeing
+    *(x1) EyesOfTheEagle
+    *(x1) FigurineOfWondrousPower
+    *(x1) FigurineOfWondrousPowerObsidianSteed
+    *(x1) FigurineOfWondrousPowerSilverRaven
+    *(x1) FlameTongue
+    *(x1) FoldingBoat
+    *(x1) FrostBrand
+    *(x1) GauntletsOfOgrePower
+    *(x1) GemOfBrightness
+    *(x1) GemOfSeeing
+    *(x1) GiantSlayer
+    *(x1) GlamouredStuddedLeather
+    *(x1) GlovesOfMissileSnaring
+    *(x1) GlovesOfSwimmingAndClimbing
+    *(x1) GlovesOfThievery
+    *(x1) GogglesOfNight
+    *(x1) HammerOfThunderbolts
+    *(x1) HatOfDisguise
+    *(x1) HeadbandOfIntellect
+    *(x1) HelmOfBrilliance
+    *(x1) HelmOfComprehendingLanguages
+    *(x1) HelmOfTelepathy
+    *(x1) HelmOfTeleportation
+    *(x1) HewardsHandyHaversack
+    *(x1) HolyAvenger
+    *(x1) HornOfBlasting
+    *(x1) HornOfValhallaBronze
+    *(x1) HornOfValhallaIron
+    *(x1) HornOfValhallaSilverOrBrass
+    *(x1) HorseshoesOfAZephyr
+    *(x1) HorseshoesOfAZephyr
+    *(x1) HorseshoesOfSpeed
+    *(x1) ImmovableRod
+    *(x1) InstrumentOfTheBardsAnstruthharp
+    *(x1) InstrumentOfTheBardsCanaithMandolin
+    *(x1) InstrumentOfTheBardsCliLyre
+    *(x1) InstrumentOfTheBardsDossLute
+    *(x1) InstrumentOfTheBardsFochlucanBandore
+    *(x1) InstrumentOfTheBardsMacFuimidhCittern
+    *(x1) InstrumentOfTheBardsOllamhHarp
+    *(x1) IounStoneAbsorption
+    *(x1) IounStoneAgility
+    *(x1) IounStoneAwareness
+    *(x1) IounStoneFortitude
+    *(x1) IounStoneGreaterAbsorption
+    *(x1) IounStoneInsight
+    *(x1) IounStoneIntellect
+    *(x1) IounStoneLeadership
+    *(x1) IounStoneMastery
+    *(x1) IounStoneProtection
+    *(x1) IounStoneRegeneration
+    *(x1) IounStoneReserve
+    *(x1) IounStoneStrength
+    *(x1) IounStoneSustenance
+    *(x1) IronBandsOfBilarro
+    *(x1) IronFlask
+    *(x1) JavelinOfLightning
+    *(x1) KeoghtomsOintment
+    *(x1) LanternOfRevealing
+    *(x1) LuckBlade
+    *(x1) MaceOfDisruption
+    *(x1) MaceOfSmiting
+    *(x1) MaceOfTerror
+    *(x1) MagicArmor
+    *(x1) MantleOfSpellResistance
+    *(x1) ManualOfBodilyHealth
+    *(x1) ManualOfGainfulExercise
+    *(x1) ManualOfGolems
+    *(x1) ManualOfQuicknessOfAction
+    *(x1) MarinersArmor
+    *(x1) MedallionOfThoughts
+    *(x1) MirrorOfLifeTrapping
+    *(x1) MithralArmor
+    *(x1) NecklaceOfAdaptation
+    *(x1) NecklaceOfFireballs
+    *(x1) NecklaceOfPrayerBeads
+    *(x1) NineLivesStealer
+    *(x1) NolzursMarvelousPigments
+    *(x1) NolzursMarvelousPigments
+    *(x1) Oathbow
+    *(x1) OilOfEtherealness
+    *(x1) OilOfSharpness
+    *(x1) OilOfSharpness
+    *(x1) OilOfSlipperiness
+    *(x1) PearlOfPower
+    *(x1) PeriaptOfHealth
+    *(x1) PeriaptOfProofAgainstPoison
+    *(x1) PeriaptOfWoundClosure
+    *(x1) PhilterOfLove
+    *(x1) PipesOfHaunting
+    *(x1) PipesOfTheSewers
+    *(x1) PlateArmorOfEtherealness
+    *(x1) PlateArmorOfResistance
+    *(x1) PortableHole
+    *(x1) PortableHole
+    *(x1) QuaalsFeatherToken
+    *(x1) QuiverOfEhlonna
+    *(x1) RobeOfEyes
+    *(x1) RobeOfScintillatingColors
+    *(x1) RobeOfStars
+    *(x1) RobeOfTheArchmagi
+    *(x1) RobeOfUsefulItems
+    *(x1) RopeOfClimbing
+    *(x1) RopeOfEntanglement
+    *(x1) SaddleOfTheCavalier
+    *(x1) ScarabOfProtection
+    *(x1) ScimitarOfSpeed
+    *(x1) ScrollOfProtection
+    *(x1) SendingStones
+    *(x1) SentinelShield
+    *(x1) ShieldOfMissileAttraction
+    *(x1) SlippersOfSpiderClimbing
+    *(x1) SovereignGlue
+    *(x1) SpellguardShield
+    *(x1) SphereOfAnnihilation
+    *(x1) StoneOfControllingEarthElementals
+    *(x1) StoneOfGoodLuck
+    *(x1) SunBlade
+    *(x1) TalismanOfPureGood
+    *(x1) TalismanOfTheSphere
+    *(x1) TalismanOfUltimateEvil
+    *(x1) TentacleRod
+    *(x1) TomeOfClearThought
+    *(x1) TomeOfLeadershipAndInfluence
+    *(x1) TomeOfTheStilledTongue
+    *(x1) TomeOfUnderstanding
+    *(x1) TridentOfFishCommand
+    *(x1) UniversalSolvent
+    *(x1) ViciousWeapon
+    *(x1) VorpalSword
+    *(x1) WeaponOfWarning
+    *(x1) WellOfManyWorlds
+    *(x1) WindFan
+    *(x1) WingedBoots
+    *(x1) WingsOfFlying
+  ]
+}
+
+RandomMagicItemsOnBody {
+  Item @ [
+    *(x15) Armour +1
+    *(x11) Armour +1, Shield +1
+    *(x3) Armour +1, Shield +2
+    *(x1) Armour +1, Shield +3
+    *(x4) Armour +2
+    *(x3) Armour +2, Shield +1
+    *(x2) Armour +2, Shield +2
+    *(x1) Armour +2, Shield +3
+    *(x3) Armour +3
+    *(x1) Armour +3, Shield +1
+    *(x1) Armour +3, Shield +2
+    *(x1) Armour +3, Shield +3
+    *(x3) Cursed Armour -1
+    *(x2) Cursed Armour -2
+    *(x1) Cursed Armour -2 with Shield +1
+    *(x2) Cursed Armour, AC 9 (10)
+    *(x6) Cursed Shield -2
+    *(x3) Cursed Shield, AC 9 (10)
+    *(x20) Shield +1
+    *(x10) Shield +2
+    *(x5) Shield +3
+    *(x3) Potion of Clairaudience
+    *(x4) Potion of Clairvoyance
+    *(x3) Potion of Control Animal
+    *(x3) Potion of Control Dragon
+    *(x3) Potion of Control Giant
+    *(x3) Potion of Control Human
+    *(x3) Potion of Control Plant
+    *(x3) Potion of Control Undead
+    *(x6) Potion of Delusion
+    *(x3) Potion of Diminution
+    *(x4) Potion of ESP
+    *(x4) Potion of Fire Resistance
+    *(x4) Potion of Flying
+    *(x4) Potion of Gaseous Form
+    *(x4) Potion of Giant Strength
+    *(x4) Potion of Growth
+    *(x4) Potion of Healing
+    *(x5) Potion of Heroism
+    *(x4) Potion of Invisibility
+    *(x4) Potion of Invulnerability
+    *(x4) Potion of Levitation
+    *(x4) Potion of Longevity
+    *(x2) Potion of Poison
+    *(x3) Potion of Polymorph Self
+    *(x8) Potion of Speed
+    *(x3) Potion of Treasure Finding
+]
+  Description! = "{{Item}}"
+}
+
+
+MagicItemTableA {
+  ^ [
+  *(x20) PotionOfSupremeHealing
+  *(x10) PotionOfInvisibility
+  *(x10) PotionOfSpeed
+  *(x10) SpellScroll6thLevel
+  *(x7) SpellScroll7thLevel
+  *(x5) AmmunitionPlus3
+  *(x5) OilOfSharpness
+  *(x5) PotionOfFlying
+  *(x5) PotionOfCloudGiantStrength
+  *(x5) PotionOfLongevity
+  *(x5) PotionOfVitality
+  *(x5) SpellScroll8thLevel
+  *(x3) HorseshoesOfAZephyr
+  *(x3) NolzursMarvelousPigments
+  *(x1) BagOfDevouring
+  *(x1) PortableHole
+]}
+
+MagicItemTableB {
+  ^ [
+  *(x15) PotionOfGreaterHealing
+  *(x7) PotionOfFireBreath
+  *(x7) PotionOfResistance
+  *(x5) AmmunitionPlus1
+  *(x5) PotionOfAnimalFriendship
+  *(x5) PotionOfHillGiantStrength
+  *(x5) PotionOfGrowth
+  *(x5) PotionOfWaterBreathing
+  *(x5) SpellScroll2ndLevel
+  *(x5) SpellScroll3rdLevel
+  *(x3) BagOfHolding
+  *(x3) KeoghtomsOintment
+  *(x3) OilOfSlipperiness
+  *(x2) DustOfDisappearance
+  *(x2) DustOfDryness
+  *(x2) DustOfSneezingAndChoking
+  *(x2) ElementalGem
+  *(x2) PhilterOfLove
+  *(x1) AlchemyJug
+  *(x1) CapOfWaterBreathing
+  *(x1) CloakOfTheMantaRay
+  *(x1) Driftglobe
+  *(x1) GogglesOfNight
+  *(x1) HelmOfComprehendingLanguages
+  *(x1) ImmovableRod
+  *(x1) LanternOfRevealing
+  *(x1) MarinersArmor
+  *(x1) MithralArmor
+  *(x1) PotionOfPoison
+  *(x1) RingOfSwimming
+  *(x1) RobeOfUsefulItems
+  *(x1) RopeOfClimbing
+  *(x1) SaddleOfTheCavalier
+  *(x1) WandOfMagicDetection
+  *(x1) WandOfSecrets
+]}
+
+MagicItemTableC {
+  ^ [
+  *(x15) PotionOfSuperiorHealing
+  *(x7) SpellScroll4thLevel
+  *(x5) AmmunitionPlus2
+  *(x5) PotionOfClairvoyance
+  *(x5) PotionOfDiminution
+  *(x5) PotionOfGaseousForm
+  *(x5) PotionOfFrostGiantStrength
+  *(x5) PotionOfStoneGiantStrength
+  *(x5) PotionOfHeroism
+  *(x5) PotionOfInvulnerability
+  *(x5) PotionOfMindReading
+  *(x5) SpellScroll5thLevel
+  *(x3) ElixirOfHealth
+  *(x3) OilOfEtherealness
+  *(x3) PotionOfFireGiantStrength
+  *(x3) QuaalsFeatherToken
+  *(x3) ScrollOfProtection
+  *(x2) BagOfBeans
+  *(x2) BeadOfForce
+  *(x1) ChimeOfOpening
+  *(x1) DecanterOfEndlessWater
+  *(x1) EyesOfMinuteSeeing
+  *(x1) FoldingBoat
+  *(x1) HewardsHandyHaversack
+  *(x1) HorseshoesOfSpeed
+  *(x1) NecklaceOfFireballs
+  *(x1) PeriaptOfHealth
+  *(x1) SendingStones
+]}
+
+MagicItemTableD {
+  ^ [
+  *(x20) PotionOfSupremeHealing
+  *(x10) PotionOfInvisibility
+  *(x10) PotionOfSpeed
+  *(x10) SpellScroll6thLevel
+  *(x7) SpellScroll7thLevel
+  *(x5) AmmunitionPlus3
+  *(x5) OilOfSharpness
+  *(x5) PotionOfFlying
+  *(x5) PotionOfCloudGiantStrength
+  *(x5) PotionOfLongevity
+  *(x5) PotionOfVitality
+  *(x5) SpellScroll8thLevel
+  *(x3) HorseshoesOfAZephyr
+  *(x3) NolzursMarvelousPigments
+  *(x1) BagOfDevouring
+  *(x1) PortableHole
+]}
+
+MagicItemTableE {
+  ^ [
+  *(x30) SpellScroll8thLevel
+  *(x25) PotionOfStormGiantStrength
+  *(x15) PotionOfSupremeHealing
+  *(x15) SpellScroll9thLevel
+  *(x8) UniversalSolvent
+  *(x5) ArrowOfSlaying
+  *(x2) SovereignGlue
+]}
+MagicItemTableF {
+  ^ [
+  *(x15) WeaponPlus1
+  *(x3) ShieldPlus1
+  *(x3) SentinelShield
+  *(x2) AmuletOfProofAgainstDetectionAndLocation
+  *(x2) BootsOfElvenkind
+  *(x2) BootsOfStridingAndSpringing
+  *(x3) BracersOfArchery
+  *(x2) BroochOfShielding
+  *(x2) BroomOfFlying
+  *(x2) CloakOfElvenkind
+  *(x2) CloakOfProtection
+  *(x2) GauntletsOfOgrePower
+  *(x2) HatOfDisguise
+  *(x2) JavelinOfLightning
+  *(x2) PearlOfPower
+  *(x2) RodOfThePactKeeperPlus1
+  *(x2) SlippersOfSpiderClimbing
+  *(x2) StaffOfTheAdder
+  *(x2) StaffOfThePython
+  *(x2) SwordOfVengeance
+  *(x2) TridentOfFishCommand
+  *(x2) WandOfMagicMissiles
+  *(x2) WandOfTheWarMagePlus1
+  *(x2) WandOfWeb
+  *(x2) WeaponOfWarning
+  *(x1) AdamantineArmorChainMail
+  *(x1) AdamantineArmorChainShirt
+  *(x1) AdamantineArmorScaleMail
+  *(x1) BagOfTricksGray
+  *(x1) BagOfTricksRust
+  *(x1) BagOfTricksTan
+  *(x1) BootsOfTheWinterlands
+  *(x1) CircletOfBlasting
+  *(x1) DeckOfIllusions
+  *(x1) EversmokingBottle
+  *(x1) EyesOfCharming
+  *(x1) EyesOfTheEagle
+  *(x1) FigurineOfWondrousPowerSilverRaven
+  *(x1) GemOfBrightness
+  *(x1) GlovesOfMissileSnaring
+  *(x1) GlovesOfSwimmingAndClimbing
+  *(x1) GlovesOfThievery
+  *(x1) HeadbandOfIntellect
+  *(x1) HelmOfTelepathy
+  *(x1) InstrumentOfTheBardsDossLute
+  *(x1) InstrumentOfTheBardsFochlucanBandore
+  *(x1) InstrumentOfTheBardsMacFuimidhCittern
+  *(x1) MedallionOfThoughts
+  *(x1) NecklaceOfAdaptation
+  *(x1) PeriaptOfWoundClosure
+  *(x1) PipesOfHaunting
+  *(x1) PipesOfTheSewers
+  *(x1) RingOfJumping
+  *(x1) RingOfMindShielding
+  *(x1) RingOfWarmth
+  *(x1) RingOfWaterWalking
+  *(x1) QuiverOfEhlonna
+  *(x1) StoneOfGoodLuck
+  *(x1) WindFan
+  *(x1) WingedBoots
+]}
+
+MagicItemTableG {
+  ^ [
+  *(x11) WeaponPlus2
+  *(x3) FigurineOfWondrousPower
+  *(x1) AdamantineArmorBreastplate
+  *(x1) AdamantineArmorSplint
+  *(x1) AmuletOfHealth
+  *(x1) ArmorOfVulnerability
+  *(x1) ArrowCatchingShield
+  *(x1) BeltOfDwarvenkind
+  *(x1) BeltOfHillGiantStrength
+  *(x1) BerserkerAxe
+  *(x1) BootsOfLevitation
+  *(x1) BootsOfSpeed
+  *(x1) BowlOfCommandingWaterElementals
+  *(x1) BracersOfDefense
+  *(x1) BrazierOfCommandingFireElementals
+  *(x1) CapeOfTheMountebank
+  *(x1) CenserOfControllingAirElementals
+  *(x1) ArmorPlus1ChainMail
+  *(x1) ArmorOfResistanceChainMail
+  *(x1) ArmorOfResistanceChainShirt
+  *(x1) ArmorPlus1ChainShirt
+  *(x1) CloakOfDisplacement
+  *(x1) CloakOfTheBat
+  *(x1) CubeOfForce
+  *(x1) DaernsInstantFortress
+  *(x1) DaggerOfVenom
+  *(x1) DimensionalShackles
+  *(x1) DragonSlayer
+  *(x1) ElvenChain
+  *(x1) FlameTongue
+  *(x1) GemOfSeeing
+  *(x1) GiantSlayer
+  *(x1) GlamouredStuddedLeather
+  *(x1) HelmOfTeleportation
+  *(x1) HornOfBlasting
+  *(x1) HornOfValhallaSilverOrBrass
+  *(x1) InstrumentOfTheBardsCanaithMandolin
+  *(x1) InstrumentOfTheBardsCliLyre
+  *(x1) IounStoneAwareness
+  *(x1) IounStoneProtection
+  *(x1) IounStoneReserve
+  *(x1) IounStoneSustenance
+  *(x1) IronBandsOfBilarro
+  *(x1) ArmorPlus1Leather
+  *(x1) ArmorOfResistanceLeather
+  *(x1) MaceOfDisruption
+  *(x1) MaceOfSmiting
+  *(x1) MaceOfTerror
+  *(x1) MantleOfSpellResistance
+  *(x1) NecklaceOfPrayerBeads
+  *(x1) PeriaptOfProofAgainstPoison
+  *(x1) RingOfAnimalInfluence
+  *(x1) RingOfEvasion
+  *(x1) RingOfFeatherFalling
+  *(x1) RingOfFreeAction
+  *(x1) RingOfProtection
+  *(x1) RingOfResistance
+  *(x1) RingOfSpellStoring
+  *(x1) RingOfTheRam
+  *(x1) RingOfXRayVision
+  *(x1) RobeOfEyes
+  *(x1) RodOfRulership
+  *(x1) RodOfThePactKeeperPlus2
+  *(x1) RopeOfEntanglement
+  *(x1) ArmorPlus1ScaleMail
+  *(x1) ArmorOfResistanceScaleMail
+  *(x1) ShieldPlus2
+  *(x1) ShieldOfMissileAttraction
+  *(x1) StaffOfCharming
+  *(x1) StaffOfHealing
+  *(x1) StaffOfSwarmingInsects
+  *(x1) StaffOfTheWoodlands
+  *(x1) StaffOfWithering
+  *(x1) StoneOfControllingEarthElementals
+  *(x1) SunBlade
+  *(x1) SwordOfLifeStealing
+  *(x1) SwordOfWounding
+  *(x1) TentacleRod
+  *(x1) ViciousWeapon
+  *(x1) WandOfBinding
+  *(x1) WandOfEnemyDetection
+  *(x1) WandOfFear
+  *(x1) WandOfFireballs
+  *(x1) WandOfLightningBolts
+  *(x1) WandOfParalysis
+  *(x1) WandOfTheWarMagePlus2
+  *(x1) WandOfWonder
+  *(x1) WingsOfFlying
+]}
+
+MagicItemTableH {
+  ^ [
+  *(x10) WeaponPlus3
+  *(x2) AmuletOfThePlanes
+  *(x2) CarpetOfFlying
+  *(x2) CrystalBallVeryRareVersion
+  *(x2) RingOfRegeneration
+  *(x2) RingOfShootingStars
+  *(x2) RingOfTelekinesis
+  *(x2) RobeOfScintillatingColors
+  *(x2) RobeOfStars
+  *(x2) RodOfAbsorption
+  *(x2) RodOfAlertness
+  *(x2) RodOfSecurity
+  *(x2) RodOfThePactKeeperPlus3
+  *(x2) ScimitarOfSpeed
+  *(x2) ShieldPlus3
+  *(x2) StaffOfFire
+  *(x2) StaffOfFrost
+  *(x2) StaffOfPower
+  *(x2) StaffOfStriking
+  *(x2) StaffOfThunderAndLightning
+  *(x2) SwordOfSharpness
+  *(x2) WandOfPolymorph
+  *(x2) WandOfTheWarMagePlus3
+  *(x1) AdamantineArmorHalfPlate
+  *(x1) AdamantineArmorPlate
+  *(x1) AnimatedShield
+  *(x1) BeltOfFireGiantStrength
+  *(x1) BeltOfFrostOrStoneGiantStrength
+  *(x1) ArmorPlus1Breastplate
+  *(x1) ArmorOfResistanceBreastplate
+  *(x1) CandleOfInvocation
+  *(x1) ArmorPlus2ChainMail
+  *(x1) ArmorPlus2ChainShirt
+  *(x1) CloakOfArachnida
+  *(x1) DancingSword
+  *(x1) DemonArmor
+  *(x1) DragonScaleMail
+  *(x1) DwarvenPlate
+  *(x1) DwarvenThrower
+  *(x1) EfreetiBottle
+  *(x1) FigurineOfWondrousPowerObsidianSteed
+  *(x1) FrostBrand
+  *(x1) HelmOfBrilliance
+  *(x1) HornOfValhallaBronze
+  *(x1) InstrumentOfTheBardsAnstruthharp
+  *(x1) IounStoneAbsorption
+  *(x1) IounStoneAgility
+  *(x1) IounStoneFortitude
+  *(x1) IounStoneInsight
+  *(x1) IounStoneIntellect
+  *(x1) IounStoneLeadership
+  *(x1) IounStoneStrength
+  *(x1) ArmorPlus2Leather
+  *(x1) ManualOfBodilyHealth
+  *(x1) ManualOfGainfulExercise
+  *(x1) ManualOfGolems
+  *(x1) ManualOfQuicknessOfAction
+  *(x1) MirrorOfLifeTrapping
+  *(x1) NineLivesStealer
+  *(x1) Oathbow
+  *(x1) ArmorPlus2ScaleMail
+  *(x1) SpellguardShield
+  *(x1) ArmorPlus1Splint
+  *(x1) ArmorOfResistanceSplint
+  *(x1) ArmorPlus1StuddedLeather
+  *(x1) ArmorOfResistanceStuddedLeather
+  *(x1) TomeOfClearThought
+  *(x1) TomeOfLeadershipAndInfluence
+  *(x1) TomeOfUnderstanding
+]}
+
+MagicItemTableI {
+  ^ [
+  *(x5) Defender
+  *(x5) HammerOfThunderbolts
+  *(x5) LuckBlade
+  *(x5) SwordOfAnswering
+  *(x3) HolyAvenger
+  *(x3) RingOfDjinniSummoning
+  *(x3) RingOfInvisibility
+  *(x3) RingOfSpellTurning
+  *(x3) RodOfLordlyMight
+  *(x3) VorpalSword
+  *(x2) BeltOfCloudGiantStrength
+  *(x2) ArmorPlus2Breastplate
+  *(x2) ArmorPlus3ChainMail
+  *(x2) ArmorPlus3ChainShirt
+  *(x2) CloakOfInvisibility
+  *(x2) CrystalBallLegendaryVersion
+  *(x2) ArmorPlus1HalfPlate
+  *(x2) IronFlask
+  *(x2) ArmorPlus3Leather
+  *(x2) ArmorPlus1Plate
+  *(x2) RobeOfTheArchmagi
+  *(x2) RodOfResurrection
+  *(x2) ArmorPlus1ScaleMail
+  *(x2) ScarabOfProtection
+  *(x2) ArmorPlus2Splint
+  *(x2) ArmorPlus2StuddedLeather
+  *(x2) WellOfManyWorlds
+  *(x1) MagicArmor
+  *(x1) ApparatusOfKwalish
+  *(x1) ArmorOfInvulnerability
+  *(x1) BeltOfStormGiantStrength
+  *(x1) CubicGate
+  *(x1) DeckOfManyThings
+  *(x1) EfreetiChain
+  *(x1) ArmorOfResistanceHalfPlate
+  *(x1) HornOfValhallaIron
+  *(x1) InstrumentOfTheBardsOllamhHarp
+  *(x1) IounStoneGreaterAbsorption
+  *(x1) IounStoneMastery
+  *(x1) IounStoneRegeneration
+  *(x1) PlateArmorOfEtherealness
+  *(x1) PlateArmorOfResistance
+  *(x1) RingOfAirElementalCommand
+  *(x1) RingOfEarthElementalCommand
+  *(x1) RingOfFireElementalCommand
+  *(x1) RingOfThreeWishes
+  *(x1) RingOfWaterElementalCommand
+  *(x1) SphereOfAnnihilation
+  *(x1) TalismanOfPureGood
+  *(x1) TalismanOfTheSphere
+  *(x1) TalismanOfUltimateEvil
+  *(x1) TomeOfTheStilledTongue
+]}
+
+AdamantineArmorBreastplate {
+    Title! ~ "Adamantine armor (breastplate)"
+}
+AdamantineArmorChainMail {
+    Title! ~ "Adamantine armor (chain mail)"
+}
+AdamantineArmorChainShirt {
+    Title! ~ "Adamantine armor (chain shirt)"
+}
+AdamantineArmorHalfPlate {
+    Title! ~ "Adamantine armor (half plate)"
+}
+AdamantineArmorPlate {
+    Title! ~ "Adamantine armor (plate)"
+}
+AdamantineArmorScaleMail {
+    Title! ~ "Adamantine armor (scale mail)"
+}
+AdamantineArmorSplint {
+    Title! ~ "Adamantine armor (splint)"
+}
+AlchemyJug {
+    Title! ~ "Alchemy jug"
+}
+AmmunitionPlus1 {
+    Type @ [
+      * Blowgun darts
+      * Crossbow bolts
+      * Arrows
+      * Slingshot rocks
+    ]
+    Title! ~ "{{Type}}, +1"
+}
+AmmunitionPlus2 {
+    Type @ [
+      * Blowgun darts
+      * Crossbow bolts
+      * Arrows
+      * Slingshot rocks
+    ]
+    Title! ~ "{{Type}}, +2"
+}
+AmmunitionPlus3 {
+    Type @ [
+      * Blowgun darts
+      * Crossbow bolts
+      * Arrows
+      * Slingshot rocks
+    ]
+    Title! ~ "{{Type}}, +3"
+}
+AmuletOfHealth {
+    Title! ~ "Amulet of health"
+}
+AmuletOfProofAgainstDetectionAndLocation {
+    Title! ~ "Amulet of proof against detection and location"
+}
+AmuletOfThePlanes {
+    Title! ~ "Amulet of the planes"
+}
+AnimatedShield {
+    Title! ~ "Animated shield"
+}
+ApparatusOfKwalish {
+    Title! ~ "Apparatus of Kwalish"
+}
+ArmorOfInvulnerability {
+    Title! ~ "Armor of invulnerability"
+}
+ArmorOfResistanceBreastplate {
+    Title! ~ "Armor of resistance (breastplate)"
+}
+ArmorOfResistanceChainMail {
+    Title! ~ "Armor of resistance (chain mail)"
+}
+ArmorOfResistanceChainShirt {
+    Title! ~ "Armor of resistance (chain shirt)"
+}
+ArmorOfResistanceHalfPlate {
+    Title! ~ "Armor of resistance (half plate)"
+}
+ArmorOfResistanceLeather {
+    Title! ~ "Armor of resistance (leather)"
+}
+ArmorOfResistanceScaleMail {
+    Title! ~ "Armor of resistance (scale mail)"
+}
+ArmorOfResistanceSplint {
+    Title! ~ "Armor of resistance (splint)"
+}
+ArmorOfResistanceStuddedLeather {
+    Title! ~ "Armor of resistance (studded leather)"
+}
+ArmorOfVulnerability {
+    Title! ~ "Armor of vulnerability"
+}
+ArmorPlus1Breastplate {
+    Title! ~ "Armor, + 1 breastplate"
+}
+ArmorPlus1HalfPlate {
+    Title! ~ "Armor, + 1 half plate"
+}
+ArmorPlus1Leather {
+    Title! ~ "Armor, + 1 leather"
+}
+ArmorPlus1Splint {
+    Title! ~ "Armor, + 1 splint"
+}
+ArmorPlus1StuddedLeather {
+    Title! ~ "Armor, + 1 studded leather"
+}
+ArmorPlus1ChainMail {
+    Title! ~ "Armor, +1 chain mail"
+}
+ArmorPlus1Plate {
+    Title! ~ "Armor, +1 plate"
+}
+ArmorPlus1ScaleMail {
+    Title! ~ "Armor, +1 scale mail"
+}
+ArmorPlus2Breastplate {
+    Title! ~ "Armor, +2 breastplate"
+}
+ArmorPlus2ChainMail {
+    Title! ~ "Armor, +2 chain mail"
+}
+ArmorPlus2ChainShirt {
+    Title! ~ "Armor, +2 chain shirt"
+}
+ArmorPlus2HalfPlate {
+    Title! ~ "Armor, +2 half plate"
+}
+ArmorPlus2Leather {
+    Title! ~ "Armor, +2 leather"
+}
+ArmorPlus2Plate {
+    Title! ~ "Armor, +2 plate"
+}
+ArmorPlus2ScaleMail {
+    Title! ~ "Armor, +2 scale mail"
+}
+ArmorPlus2Splint {
+    Title! ~ "Armor, +2 splint"
+}
+ArmorPlus2StuddedLeather {
+    Title! ~ "Armor, +2 studded leather"
+}
+ArmorPlus3Breastplate {
+    Title! ~ "Armor, +3 breastplate"
+}
+ArmorPlus3ChainMail {
+    Title! ~ "Armor, +3 chain mail"
+}
+ArmorPlus3ChainShirt {
+    Title! ~ "Armor, +3 chain shirt"
+}
+ArmorPlus3HalfPlate {
+    Title! ~ "Armor, +3 half plate"
+}
+ArmorPlus3Leather {
+    Title! ~ "Armor, +3 leather"
+}
+ArmorPlus3Plate {
+    Title! ~ "Armor, +3 plate"
+}
+ArmorPlus3Splint {
+    Title! ~ "Armor, +3 splint"
+}
+ArmorPlus3StuddedLeather {
+    Title! ~ "Armor, +3 studded leather"
+}
+ArmorPlus1ChainShirt {
+    Title! ~ "Armor,+ 1 chain shirt"
+}
+ArrowOfSlaying {
+    Title! ~ "Arrow of slaying"
+}
+ArrowCatchingShield {
+    Title! ~ "Arrow-catching shield"
+}
+BagOfBeans {
+    Title! ~ "Bag of beans"
+}
+BagOfDevouring {
+    Title! ~ "Bag of devouring"
+}
+BagOfHolding {
+    Title! ~ "Bag of holding"
+}
+BagOfHolding {
+    Title! ~ "Bag of holding"
+}
+BagOfTricksGray {
+    Title! ~ "Bag of tricks (gray)"
+}
+BagOfTricksRust {
+    Title! ~ "Bag of tricks (rust)"
+}
+BagOfTricksTan {
+    Title! ~ "Bag of tricks (tan)"
+}
+BeadOfForce {
+    Title! ~ "Bead of force"
+}
+BeltOfCloudGiantStrength {
+    Title! ~ "Belt of cloud giant strength"
+}
+BeltOfDwarvenkind {
+    Title! ~ "Belt of dwarvenkind"
+}
+BeltOfFireGiantStrength {
+    Title! ~ "Belt of fire giant strength"
+}
+BeltOfFrostOrStoneGiantStrength {
+    Title! ~ "Belt of frost (or stone) giant strength"
+}
+BeltOfHillGiantStrength {
+    Title! ~ "Belt of hill giant strength"
+}
+BeltOfStormGiantStrength {
+    Title! ~ "Belt of storm giant strength"
+}
+BerserkerAxe {
+    Title! ~ "Berserker axe"
+}
+BootsOfElvenkind {
+    Title! ~ "Boots of elvenkind"
+}
+BootsOfLevitation {
+    Title! ~ "Boots of levitation"
+}
+BootsOfSpeed {
+    Title! ~ "Boots of speed"
+}
+BootsOfStridingAndSpringing {
+    Title! ~ "Boots of striding and springing"
+}
+BootsOfTheWinterlands {
+    Title! ~ "Boots of the winterlands"
+}
+BowlOfCommandingWaterElementals {
+    Title! ~ "Bowl of commanding water elementals"
+}
+BracersOfArchery {
+    Title! ~ "Bracers of archery"
+}
+BracersOfDefense {
+    Title! ~ "Bracers of defense"
+}
+BrazierOfCommandingFireElementals {
+    Title! ~ "Brazier of commanding fire elementals"
+}
+BroochOfShielding {
+    Title! ~ "Brooch of shielding"
+}
+BroomOfFlying {
+    Title! ~ "Broom of flying"
+}
+CandleOfInvocation {
+    Title! ~ "Candle of invocation"
+}
+CapOfWaterBreathing {
+    Title! ~ "Cap of water breathing"
+}
+CapeOfTheMountebank {
+    Title! ~ "Cape of the mountebank"
+}
+CarpetOfFlying {
+    Title! ~ "Carpet of flying"
+}
+CenserOfControllingAirElementals {
+    Title! ~ "Censer of controlling air elementals"
+}
+ChimeOfOpening {
+    Title! ~ "Chime of opening"
+}
+CircletOfBlasting {
+    Title! ~ "Circlet of blasting"
+}
+GlamouredStuddedLeather {
+    Title! ~ "Glamoured studded leather"
+}
+CloakOfArachnida {
+    Title! ~ "Cloak of arachnida"
+}
+CloakOfDisplacement {
+    Title! ~ "Cloak of displacement"
+}
+CloakOfElvenkind {
+    Title! ~ "Cloak of elvenkind"
+}
+CloakOfInvisibility {
+    Title! ~ "Cloak of invisibility"
+}
+CloakOfProtection {
+    Title! ~ "Cloak of protection"
+}
+CloakOfTheBat {
+    Title! ~ "Cloak of the bat"
+}
+CloakOfTheMantaRay {
+    Title! ~ "Cloak of the manta ray"
+}
+CrystalBallLegendaryVersion {
+    Title! ~ "Crystal ball (legendary version)"
+}
+CrystalBallVeryRareVersion {
+    Title! ~ "Crystal ball (very rare version)"
+}
+CubeOfForce {
+    Title! ~ "Cube of force"
+}
+CubicGate {
+    Title! ~ "Cubic gate"
+}
+DaernsInstantFortress {
+    Title! ~ "Daern's instant fortress"
+}
+DaggerOfVenom {
+    Title! ~ "Dagger of venom"
+}
+DancingSword {
+    Title! ~ "Dancing sword"
+}
+DecanterOfEndlessWater {
+    Title! ~ "Decanter of endless water"
+}
+DeckOfIllusions {
+    Title! ~ "Deck of illusions"
+}
+DeckOfManyThings {
+    Title! ~ "Deck of many things"
+}
+Defender {
+    Title! ~ "Defender"
+}
+DemonArmor {
+    Title! ~ "Demon armor"
+}
+DimensionalShackles {
+    Title! ~ "Dimensional shackles"
+}
+DragonScaleMail {
+    Title! ~ "Dragon scale mail"
+}
+DragonSlayer {
+    Title! ~ "Dragon slayer"
+}
+Driftglobe {
+    Title! ~ "Driftglobe"
+}
+DustOfDisappearance {
+    Title! ~ "Dust of disappearance"
+}
+DustOfDryness {
+    Title! ~ "Dust of dryness"
+}
+DustOfSneezingAndChoking {
+    Title! ~ "Dust of sneezing and choking"
+}
+DwarvenPlate {
+    Title! ~ "Dwarven plate"
+}
+DwarvenThrower {
+    Title! ~ "Dwarven thrower"
+}
+EfreetiBottle {
+    Title! ~ "Efreeti bottle"
+}
+EfreetiChain {
+    Title! ~ "Efreeti chain"
+}
+ElementalGem {
+    Title! ~ "Elemental gem"
+}
+ElixirOfHealth {
+    Title! ~ "Elixir of health"
+}
+ElvenChain {
+    Title! ~ "Elven chain"
+}
+EversmokingBottle {
+    Title! ~ "Eversmoking bottle"
+}
+EyesOfCharming {
+    Title! ~ "Eyes of charming"
+}
+EyesOfMinuteSeeing {
+    Title! ~ "Eyes of minute seeing"
+}
+EyesOfTheEagle {
+    Title! ~ "Eyes of the eagle"
+}
+FigurineOfWondrousPower {
+    Image @ [
+      *(x1) Bronze griffon
+      *(x1) Ebony fly
+      *(x1) Golden lions
+      *(x1) Ivory goats
+      *(x1) Marble elephant
+      *(x2) Onyx dog
+      *(x1) Serpentine owl
+    ]
+    Title! ~ "Figurine of wondrous power ({{Image}})"
+}
+FigurineOfWondrousPowerObsidianSteed {
+    Title! ~ "Figurine of wondrous power (obsidian steed)"
+}
+FigurineOfWondrousPowerRollD8 {
+    Title! ~ "Figurine of wondrous power (roll d8)"
+}
+FigurineOfWondrousPowerSilverRaven {
+    Title! ~ "Figurine of wondrous power (silver raven)"
+}
+FlameTongue {
+    Title! ~ "Flame tongue"
+}
+FoldingBoat {
+    Title! ~ "Folding boat"
+}
+FrostBrand {
+    Title! ~ "Frost brand"
+}
+GauntletsOfOgrePower {
+    Title! ~ "Gauntlets of ogre power"
+}
+GemOfBrightness {
+    Title! ~ "Gem of brightness"
+}
+GemOfSeeing {
+    Title! ~ "Gem of seeing"
+}
+GiantSlayer {
+    Title! ~ "Giant slayer"
+}
+GlovesOfMissileSnaring {
+    Title! ~ "Gloves of missile snaring"
+}
+GlovesOfSwimmingAndClimbing {
+    Title! ~ "Gloves of swimming and climbing"
+}
+GlovesOfThievery {
+    Title! ~ "Gloves of thievery"
+}
+GogglesOfNight {
+    Title! ~ "Goggles of night"
+}
+HammerOfThunderbolts {
+    Title! ~ "Hammer of thunderbolts"
+}
+HatOfDisguise {
+    Title! ~ "Hat of disguise"
+}
+HeadbandOfIntellect {
+    Title! ~ "Headband of intellect"
+}
+HelmOfBrilliance {
+    Title! ~ "Helm of brilliance"
+}
+HelmOfComprehendingLanguages {
+    Title! ~ "Helm of comprehending languages"
+}
+HelmOfTelepathy {
+    Title! ~ "Helm of telepathy"
+}
+HelmOfTeleportation {
+    Title! ~ "Helm of teleportation"
+}
+HewardsHandyHaversack {
+    Title! ~ "Heward's handy haversack"
+}
+HolyAvenger {
+    Title! ~ "Holy avenger"
+}
+HornOfValhallaSilverOrBrass {
+    Title! ~ "Horn of Valhalla (silver or brass)"
+}
+HornOfBlasting {
+    Title! ~ "Horn of blasting"
+}
+HornOfValhallaBronze {
+    Title! ~ "Horn ofValhalla (bronze)"
+}
+HornOfValhallaIron {
+    Title! ~ "Horn ofValhalla (iron)"
+}
+HorseshoesOfAZephyr {
+    Title! ~ "Horseshoes of a zephyr"
+}
+HorseshoesOfSpeed {
+    Title! ~ "Horseshoes of speed"
+}
+ImmovableRod {
+    Title! ~ "Immovable rod"
+}
+InstrumentOfTheBardsAnstruthharp {
+    Title! ~ "Instrument of the bards (Anstruthharp)"
+}
+InstrumentOfTheBardsCanaithMandolin {
+    Title! ~ "Instrument of the bards (Canaithmandolin)"
+}
+InstrumentOfTheBardsDossLute {
+    Title! ~ "Instrument of the bards (Doss lute)"
+}
+InstrumentOfTheBardsFochlucanBandore {
+    Title! ~ "Instrument of the bards (Fochlucan bandore)"
+}
+InstrumentOfTheBardsMacFuimidhCittern {
+    Title! ~ "Instrument of the bards (Mac-Fuimidh cittern)"
+}
+InstrumentOfTheBardsOllamhHarp {
+    Title! ~ "Instrument of the bards (OIIamh harp)"
+}
+InstrumentOfTheBardsCliLyre {
+    Title! ~ "Instrument ofthe bards (Cii lyre)"
+}
+IounStoneAbsorption {
+    Title! ~ "Ioun stone (absorption)"
+}
+IounStoneAgility {
+    Title! ~ "Ioun stone (agility)"
+}
+IounStoneAwareness {
+    Title! ~ "Ioun stone (awareness)"
+}
+IounStoneFortitude {
+    Title! ~ "Ioun stone (fortitude)"
+}
+IounStoneGreaterAbsorption {
+    Title! ~ "Ioun stone (greater absorption)"
+}
+IounStoneInsight {
+    Title! ~ "Ioun stone (insight)"
+}
+IounStoneIntellect {
+    Title! ~ "Ioun stone (intellect)"
+}
+IounStoneLeadership {
+    Title! ~ "Ioun stone (leadership)"
+}
+IounStoneMastery {
+    Title! ~ "Ioun stone (mastery)"
+}
+IounStoneProtection {
+    Title! ~ "Ioun stone (protection)"
+}
+IounStoneRegeneration {
+    Title! ~ "Ioun stone (regeneration)"
+}
+IounStoneReserve {
+    Title! ~ "Ioun stone (reserve)"
+}
+IounStoneStrength {
+    Title! ~ "Ioun stone (strength)"
+}
+IounStoneSustenance {
+    Title! ~ "Ioun stone (sustenance)"
+}
+IronBandsOfBilarro {
+    Title! ~ "Iron bands of Bilarro"
+}
+IronFlask {
+    Title! ~ "Iron flask"
+}
+JavelinOfLightning {
+    Title! ~ "Javelin of lightning"
+}
+KeoghtomsOintment {
+    Title! ~ "Keoghtom's ointment"
+}
+LanternOfRevealing {
+    Title! ~ "Lantern of revealing"
+}
+LuckBlade {
+    Title! ~ "Luck Blade"
+}
+MaceOfDisruption {
+    Title! ~ "Mace of disruption"
+}
+MaceOfSmiting {
+    Title! ~ "Mace of smiting"
+}
+MaceOfTerror {
+    Title! ~ "Mace of terror"
+}
+MagicArmor {
+    Type @ [
+        *(x2) +2 half plate
+     	*(x2) +2 plate
+     	*(x2) +3 studded leather
+     	*(x2) +3 breastplate
+     	*(x2) +3 splint
+     	*(x1) +3 half plate
+     	*(x1) +3 plate
+    ]
+    Title! ~ "Magic armor ({{Type}})"
+}
+MantleOfSpellResistance {
+    Title! ~ "Mantle of spell resistance"
+}
+ManualOfBodilyHealth {
+    Title! ~ "Manual of bodily health"
+}
+ManualOfGainfulExercise {
+    Title! ~ "Manual of gainful exercise"
+}
+ManualOfGolems {
+    Title! ~ "Manual of golems"
+}
+ManualOfQuicknessOfAction {
+    Title! ~ "Manual of quickness of action"
+}
+MarinersArmor {
+    Title! ~ "Mariner's armor"
+}
+MedallionOfThoughts {
+    Title! ~ "Medallion of thoughts"
+}
+MirrorOfLifeTrapping {
+    Title! ~ "Mirror of life trapping"
+}
+MithralArmor {
+    Title! ~ "Mithral armor"
+}
+NecklaceOfAdaptation {
+    Title! ~ "Necklace of adaptation"
+}
+NecklaceOfFireballs {
+    Title! ~ "Necklace of fireballs"
+}
+NecklaceOfPrayerBeads {
+    Title! ~ "Necklace of prayer beads"
+}
+NineLivesStealer {
+    Title! ~ "Nine lives stealer"
+}
+NolzursMarvelousPigments {
+    Title! ~ "Nolzur's marvelous pigments"
+}
+Oathbow {
+    Title! ~ "Oathbow"
+}
+OilOfEtherealness {
+    Title! ~ "Oil of etherealness"
+}
+OilOfSharpness {
+    Title! ~ "Oil of sharpness"
+}
+OilOfSlipperiness {
+    Title! ~ "Oil of slipperiness"
+}
+PearlOfPower {
+    Title! ~ "Pearl of power"
+}
+PeriaptOfHealth {
+    Title! ~ "Periapt of health"
+}
+PeriaptOfProofAgainstPoison {
+    Title! ~ "Periapt of proof against poison"
+}
+PeriaptOfWoundClosure {
+    Title! ~ "Periapt of wound closure"
+}
+PhilterOfLove {
+    Title! ~ "Philter of love"
+}
+PipesOfHaunting {
+    Title! ~ "Pipes of haunting"
+}
+PipesOfTheSewers {
+    Title! ~ "Pipes of the sewers"
+}
+PlateArmorOfEtherealness {
+    Title! ~ "Plate armor of etherealness"
+}
+PlateArmorOfResistance {
+    Title! ~ "Plate armor of resistance"
+}
+PortableHole {
+    Title! ~ "Portable hole"
+}
+PotionOfSupremeHealing {
+    Title! ~ "Potion of supreme healing"
+}
+PotionOfAnimalFriendship {
+    Title! ~ "Potion of animal friendship"
+}
+PotionOfClairvoyance {
+    Title! ~ "Potion of clairvoyance"
+}
+PotionOfClimbing {
+    Title! ~ "Potion of climbing"
+}
+PotionOfCloudGiantStrength {
+    Title! ~ "Potion of cloud giant strength"
+}
+PotionOfDiminution {
+    Title! ~ "Potion of diminution"
+}
+PotionOfFireBreath {
+    Title! ~ "Potion of fire breath"
+}
+PotionOfFireGiantStrength {
+    Title! ~ "Potion of fire giant strength"
+}
+PotionOfFlying {
+    Title! ~ "Potion of flying"
+}
+PotionOfFrostGiantStrength {
+    Title! ~ "Potion of frost giant strength"
+}
+PotionOfGaseousForm {
+    Title! ~ "Potion of gaseous form"
+}
+PotionOfGreaterHealing {
+    Title! ~ "Potion of greater healing"
+}
+PotionOfGrowth {
+    Title! ~ "Potion of growth"
+}
+PotionOfHealing {
+    Title! ~ "Potion of healing"
+}
+PotionOfHeroism {
+    Title! ~ "Potion of heroism"
+}
+PotionOfHillGiantStrength {
+    Title! ~ "Potion of hill giant strength"
+}
+PotionOfInvisibility {
+    Title! ~ "Potion of invisibility"
+}
+PotionOfInvulnerability {
+    Title! ~ "Potion of invulnerability"
+}
+PotionOfLongevity {
+    Title! ~ "Potion of longevity"
+}
+PotionOfMindReading {
+    Title! ~ "Potion of mind reading"
+}
+PotionOfPoison {
+    Title! ~ "Potion of poison"
+}
+PotionOfResistance {
+    Title! ~ "Potion of resistance"
+}
+PotionOfSpeed {
+    Title! ~ "Potion of speed"
+}
+PotionOfStoneGiantStrength {
+    Title! ~ "Potion of stone giant strength"
+}
+PotionOfStormGiantStrength {
+    Title! ~ "Potion of storm giant strength"
+}
+PotionOfSuperiorHealing {
+    Title! ~ "Potion of superior healing"
+}
+PotionOfSupremeHealing {
+    Title! ~ "Potion of supreme healing"
+}
+PotionOfVitality {
+    Title! ~ "Potion of vitality"
+}
+PotionOfWaterBreathing {
+    Title! ~ "Potion of water breathing"
+}
+QuaalsFeatherToken {
+    Title! ~ "Quaal's feather token"
+}
+QuiverOfEhlonna {
+    Title! ~ "Quiver of Ehlonna"
+}
+RingOfXRayVision {
+    Title! ~ "Ring of X-ray vision"
+}
+RingOfAirElementalCommand {
+    Title! ~ "Ring of air elemental command"
+}
+RingOfAnimalInfluence {
+    Title! ~ "Ring of animal influence"
+}
+RingOfDjinniSummoning {
+    Title! ~ "Ring of djinni summoning"
+}
+RingOfEarthElementalCommand {
+    Title! ~ "Ring of earthelemental command"
+}
+RingOfEvasion {
+    Title! ~ "Ring of evasion"
+}
+RingOfFeatherFalling {
+    Title! ~ "Ring of feather falling"
+}
+RingOfFireElementalCommand {
+    Title! ~ "Ring of fire elemental command"
+}
+RingOfFreeAction {
+    Title! ~ "Ring of free action"
+}
+RingOfInvisibility {
+    Title! ~ "Ring of invisibility"
+}
+RingOfJumping {
+    Title! ~ "Ring of jumping"
+}
+RingOfMindShielding {
+    Title! ~ "Ring of mind shielding"
+}
+RingOfProtection {
+    Title! ~ "Ring of protection"
+}
+RingOfRegeneration {
+    Title! ~ "Ring of regeneration"
+}
+RingOfResistance {
+    Title! ~ "Ring of resistance"
+}
+RingOfShootingStars {
+    Title! ~ "Ring of shooting stars"
+}
+RingOfSpellStoring {
+    Title! ~ "Ring of spell storing"
+}
+RingOfSpellTurning {
+    Title! ~ "Ring of spell turning"
+}
+RingOfSwimming {
+    Title! ~ "Ring of swimming"
+}
+RingOfTelekinesis {
+    Title! ~ "Ring of telekinesis"
+}
+RingOfTheRam {
+    Title! ~ "Ring of the ram"
+}
+RingOfThreeWishes {
+    Title! ~ "Ring of three wishes"
+}
+RingOfWarmth {
+    Title! ~ "Ring of warmth"
+}
+RingOfWaterElementalCommand {
+    Title! ~ "Ring of water elemental command"
+}
+RingOfWaterWalking {
+    Title! ~ "Ring of water walking"
+}
+RobeOfEyes {
+    Title! ~ "Robe of eyes"
+}
+RobeOfScintillatingColors {
+    Title! ~ "Robe of scintillating colors"
+}
+RobeOfStars {
+    Title! ~ "Robe of stars"
+}
+RobeOfTheArchmagi {
+    Title! ~ "Robe of the archmagi"
+}
+RobeOfUsefulItems {
+    Title! ~ "Robe of useful items"
+}
+RodOfAbsorption {
+    Title! ~ "Rod of absorption"
+}
+RodOfAlertness {
+    Title! ~ "Rod of alertness"
+}
+RodOfLordlyMight {
+    Title! ~ "Rod of lordly might"
+}
+RodOfResurrection {
+    Title! ~ "Rod of resurrection"
+}
+RodOfRulership {
+    Title! ~ "Rod of rulership"
+}
+RodOfSecurity {
+    Title! ~ "Rod of security"
+}
+RodOfThePactKeeperPlus1 {
+    Title! ~ "Rod of the pact keeper, + 1"
+}
+RodOfThePactKeeperPlus2 {
+    Title! ~ "Rod of the pact keeper, +2"
+}
+RodOfThePactKeeperPlus3 {
+    Title! ~ "Rod of the pact keeper, +3"
+}
+RopeOfClimbing {
+    Title! ~ "Rope of climbing"
+}
+RopeOfEntanglement {
+    Title! ~ "Rope of entanglement"
+}
+SaddleOfTheCavalier {
+    Title! ~ "Saddle of the cavalier"
+}
+ScarabOfProtection {
+    Title! ~ "Scarab of protection"
+}
+ScimitarOfSpeed {
+    Title! ~ "Scimitar of speed"
+}
+ScrollOfProtection {
+    Title! ~ "Scroll of protection"
+}
+SendingStones {
+    Title! ~ "Sending Stones"
+}
+SentinelShield {
+    Title! ~ "Sentinel shield"
+}
+ShieldOfMissileAttraction {
+    Title! ~ "Shield of missile attraction"
+}
+ShieldPlus2 {
+    Title! ~ "Shield, +2"
+}
+ShieldPlus3 {
+    Title! ~ "Shield, +3"
+}
+ShieldPlus1 {
+    Title! ~ "Shield,+ 1"
+}
+SlippersOfSpiderClimbing {
+    Title! ~ "Slippers of spider climbing"
+}
+SovereignGlue {
+    Title! ~ "Sovereign glue"
+}
+SpellguardShield {
+    Title! ~ "Spellguard shield"
+}
+SphereOfAnnihilation {
+    Title! ~ "Sphere of annihilation"
+}
+StaffOfCharming {
+    Title! ~ "Staff of charming"
+}
+StaffOfFire {
+    Title! ~ "Staff of fire"
+}
+StaffOfFrost {
+    Title! ~ "Staff of frost"
+}
+StaffOfHealing {
+    Title! ~ "Staff of healing"
+}
+StaffOfPower {
+    Title! ~ "Staff of power"
+}
+StaffOfStriking {
+    Title! ~ "Staff of striking"
+}
+StaffOfSwarmingInsects {
+    Title! ~ "Staff of swarming insects"
+}
+StaffOfTheAdder {
+    Title! ~ "Staff of the adder"
+}
+StaffOfThePython {
+    Title! ~ "Staff of the python"
+}
+StaffOfTheWoodlands {
+    Title! ~ "Staff of the woodlands"
+}
+StaffOfThunderAndLightning {
+    Title! ~ "Staff of thunder and lightning"
+}
+StaffOfWithering {
+    Title! ~ "Staff of withering"
+}
+StoneOfControllingEarthElementals {
+    Title! ~ "Stone of controlling earthelementals"
+}
+StoneOfGoodLuck {
+    Title! ~ "Stone of good luck"
+}
+SunBlade {
+    Title! ~ "Sun blade"
+}
+SwordOfAnswering {
+    Title! ~ "Sword of answering"
+}
+SwordOfLifeStealing {
+    Title! ~ "Sword of life stealing"
+}
+SwordOfSharpness {
+    Title! ~ "Sword of sharpnes"
+}
+SwordOfVengeance {
+    Title! ~ "Sword of vengeance"
+}
+SwordOfWounding {
+    Title! ~ "Sword of wounding"
+}
+TalismanOfPureGood {
+    Title! ~ "Talisman of pure good"
+}
+TalismanOfTheSphere {
+    Title! ~ "Talisman of the sphere"
+}
+TalismanOfUltimateEvil {
+    Title! ~ "Talisman of ultimate evil"
+}
+TentacleRod {
+    Title! ~ "Tentacle rod"
+}
+TomeOfClearThought {
+    Title! ~ "Tome of clear thought"
+}
+TomeOfLeadershipAndInfluence {
+    Title! ~ "Tome of leadership and influence"
+}
+TomeOfTheStilledTongue {
+    Title! ~ "Tome of the stilled tongue"
+}
+TomeOfUnderstanding {
+    Title! ~ "Tome of understanding"
+}
+TridentOfFishCommand {
+    Title! ~ "Trident of fish command"
+}
+UniversalSolvent {
+    Title! ~ "Universal solvent"
+}
+ViciousWeapon {
+    Title! ~ "Vicious weapon"
+}
+VorpalSword {
+    Title! ~ "Vorpal sword"
+}
+WandOfBinding {
+    Title! ~ "Wand of binding"
+}
+WandOfEnemyDetection {
+    Title! ~ "Wand of enemy detection"
+}
+WandOfFear {
+    Title! ~ "Wand of fear"
+}
+WandOfFireballs {
+    Title! ~ "Wand of fireballs"
+}
+WandOfLightningBolts {
+    Title! ~ "Wand of lightning bolts"
+}
+WandOfMagicDetection {
+    Title! ~ "Wand of magic detection"
+}
+WandOfMagicMissiles {
+    Title! ~ "Wand of magic missiles"
+}
+WandOfParalysis {
+    Title! ~ "Wand of paralysis"
+}
+WandOfPolymorph {
+    Title! ~ "Wand of polymorph"
+}
+WandOfSecrets {
+    Title! ~ "Wand of secrets"
+}
+WandOfTheWarMagePlus1 {
+    Title! ~ "Wand of the war mage, + 1"
+}
+WandOfTheWarMagePlus3 {
+    Title! ~ "Wand of the war mage, + 3"
+}
+WandOfTheWarMagePlus2 {
+    Title! ~ "Wand of the war mage, +2"
+}
+WandOfWeb {
+    Title! ~ "Wand of web"
+}
+WandOfWonder {
+    Title! ~ "Wand of wonder"
+}
+WeaponOfWarning {
+    Title! ~ "Weapon of warning"
+}
+
+WeaponPlus1 {
+    Weapon @ [
+      * Scimitar
+      * Club
+      * Dagger
+      * Greatclub
+      * Handaxe
+      * Javelin
+      * Light Hammer
+      * Mace
+      * Quarterstaff
+      * Sickle
+      * Spear
+      * Light Crossbow
+      * Dart
+      * Shortbow
+      * Sling
+      * Battleaxe
+      * Flail
+      * Glaive
+      * Longsword
+      * Pike
+      * Rapier
+      * Shortsword
+      * Trident
+      * Warpick
+      * Whip
+      * Net
+    ]
+    Title! ~ "{{Weapon}}, +1"
+}
+WeaponPlus2 {
+    Weapon @ [
+      * Scimitar
+      * Club
+      * Dagger
+      * Greatclub
+      * Handaxe
+      * Javelin
+      * Light Hammer
+      * Mace
+      * Quarterstaff
+      * Sickle
+      * Spear
+      * Light Crossbow
+      * Dart
+      * Shortbow
+      * Sling
+      * Battleaxe
+      * Flail
+      * Glaive
+      * Longsword
+      * Pike
+      * Rapier
+      * Shortsword
+      * Trident
+      * Warpick
+      * Whip
+      * Net
+    ]
+    Title! ~ "{{Weapon}}, +2"
+}
+WeaponPlus3 {
+    Weapon @ [
+      * Scimitar
+      * Club
+      * Dagger
+      * Greatclub
+      * Handaxe
+      * Javelin
+      * Light Hammer
+      * Mace
+      * Quarterstaff
+      * Sickle
+      * Spear
+      * Light Crossbow
+      * Dart
+      * Shortbow
+      * Sling
+      * Battleaxe
+      * Flail
+      * Glaive
+      * Longsword
+      * Pike
+      * Rapier
+      * Shortsword
+      * Trident
+      * Warpick
+      * Whip
+      * Net
+    ]
+    Title! ~ "{{Weapon}}, +3"
+}
+
+WellOfManyWorlds {
+    Title! ~ "Well of many worlds"
+}
+WindFan {
+    Title! ~ "Wind fan"
+}
+WingedBoots {
+    Title! ~ "Winged boots"
+}
+WingsOfFlying {
+    Title! ~ "Wings of flying"
+}
+
+SpellScrollCantrip {
+  Spell @ [
+    * Dancing Lights (Bard, Wizard)
+    * Light (Bard, Cleric, Wizard)
+    * Mage Hand (Bard, Sorcerer, Warlock, Wizard)
+    * Mending (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Message (Bard, Sorcerer)
+    * Minor Illusion (Bard, Sorcerer, Warlock, Wizard)
+    * Prestidigitation (Bard, Sorcerer, Warlock, Wizard)
+    * True Strike (Bard, Sorcerer)
+    * Vicious Mockery (Bard)
+    * Guidance (Cleric, Druid)
+    * Resistance (Cleric, Druid)
+    * Sacred Flame (Cleric)
+    * Spare the Dying (Cleric)
+    * Thaumaturgy (Cleric)
+    * Poison Spray (Druid, Sorcerer, Warlock)
+    * Shillelagh (Druid)
+    * Acid Splash (Sorcerer, Wizard)
+    * Chill Touch (Sorcerer, Warlock)
+    * Fire Bolt (Sorcerer, Wizard)
+    * Ray of Frost (Sorcerer, Wizard)
+  ]
+  Title! ~ "Cantrip Scroll: {{Spell}}"
+}
+
+SpellScroll1stLevel {
+  Spell @ [
+    * Animal Friendship (Bard, Druid, Ranger)
+    * Bane (Bard, Cleric)
+    * Bless (Cleric, Paladin)
+    * Burning Hands (Sorcerer, Wizard)
+    * Charm Person (Bard, Druid, Sorcerer, Warlock)
+    * Command (Paladin, Cleric)
+    * Comprehend Languages (Bard, Sorcerer, Wizard)
+    * Cure Wounds (Bard, Cleric, Druid, Paladin)
+    * Detect Evil and Good (Cleric, Paladin)
+    * Detect Magic (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Detect Poison and Disease (Cleric, Druid, Paladin, Ranger)
+    * Disguise Self (Bard, Sorcerer, Wizard)
+    * Divine Favor (Paladin)
+    * Expeditious Retreat (Sorcerer)
+    * Faerie Fire (Bard, Druid)
+    * Feather Fall (Bard, Sorcerer)
+    * Fog Cloud (Druid, Sorcerer, Wizard)
+    * Goodberry (Druid)
+    * Healing Word (Bard, Cleric, Druid)
+    * Heroism (Bard, Paladin)
+    * Hideous Laughter (Bard, Wizard)
+    * Identify (Bard, Wizard)
+    * Illusory Script (Bard, Wizard)
+    * Jump (Bard, Druid, Sorcerer, Wizard)
+    * Longstrider (Bard, Druid, Ranger)
+    * Mage Armor (Sorcerer, Wizard)
+    * Magic Missile (Sorcerer, Wizard)
+    * Protection from Evil and Good (Cleric, Paladin, Warlock)
+    * Purify Food and Drink (Cleric, Druid, Paladin)
+    * Shield (Sorcerer, Wizard)
+    * Silent Image (Bard, Sorcerer, Wizard)
+    * Sleep (Bard, Sorcerer)
+    * Thunderwave (Bard, Druid, Sorcerer, Wizard)
+    * Unseen Servant (Bard, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll2ndLevel {
+  Spell @ [
+    * Aid (Cleric, Paladin)
+    * Alter Self (Sorcerer, Wizard)
+    * Animal Messenger (Bard, Druid, Ranger)
+    * Barkskin (Druid)
+    * Blindness/Deafness (Bard, Cleric, Sorcerer, Wizard)
+    * Calm Emotions (Bard, Cleric, Druid)
+    * Darkness (Sorcerer, Warlock)
+    * Detect Thoughts (Bard, Cleric, Sorcerer, Wizard)
+    * Enhance Ability (Bard, Cleric, Druid, Sorcerer)
+    * Enthrall (Bard, Warlock)
+    * Find Steed (Paladin)
+    * Find Traps (Cleric, Druid, Ranger)
+    * Flame Blade (Druid)
+    * Flaming Sphere (Sorcerer, Wizard)
+    * Gaseous Form (Sorcerer, Wizard)
+    * Gust of Wind (Druid, Sorcerer, Wizard)
+    * Heat Metal (Bard, Druid)
+    * Hold Person (Bard, Cleric, Druid, Sorcerer, Warlock)
+    * Invisibility (Bard, Sorcerer, Wizard, Warlock)
+    * Knock (Bard, Sorcerer, Wizard)
+    * Lesser Restoration (Bard, Cleric, Druid, Paladin)
+    * Locate Animals or Plants (Druid)
+    * Locate Object (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Magic Mouth (Bard, Wizard)
+    * Mirror Image (Sorcerer, Wizard)
+    * Misty Step (Sorcerer, Warlock)
+    * Prayer of Healing (Cleric)
+    * Protection from Poison (Cleric, Druid, Paladin)
+    * Ray of Enfeeblement (Warlock)
+    * Silence (Bard, Cleric, Druid, Sorcerer, Warlock)
+    * Spiritual Weapon (Cleric)
+    * Spike Growth (Druid)
+    * Suggestion (Bard, Sorcerer, Warlock)
+    * Zone of Truth (Bard, Cleric, Druid, Paladin)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll3rdLevel {
+  Spell @ [
+    * Animate Dead (Cleric, Wizard)
+    * Bestow Curse (Bard, Cleric, Sorcerer, Wizard)
+    * Blink (Sorcerer, Wizard)
+    * Call Lightning (Druid)
+    * Clairvoyance (Bard, Cleric, Sorcerer, Wizard)
+    * Counterspell (Sorcerer, Wizard)
+    * Create Food and Water (Cleric, Paladin, Wizard)
+    * Daylight (Cleric, Druid, Sorcerer, Wizard)
+    * Dispel Magic (Bard, Cleric, Sorcerer, Wizard)
+    * Fear (Bard, Sorcerer, Wizard)
+    * Fireball (Sorcerer, Wizard)
+    * Fly (Sorcerer, Wizard)
+    * Gaseous Form (Sorcerer, Wizard)
+    * Glyph of Warding (Bard, Cleric, Sorcerer, Wizard)
+    * Haste (Sorcerer, Wizard)
+    * Healing Word (Bard, Cleric, Druid)
+    * Hypnotic Pattern (Bard, Sorcerer, Wizard)
+    * Lightning Bolt (Sorcerer, Wizard)
+    * Major Image (Bard, Sorcerer, Wizard)
+    * Meld into Stone (Druid, Wizard)
+    * Nondetection (Bard, Wizard)
+    * Plant Growth (Druid)
+    * Protection from Energy (Cleric, Druid, Sorcerer, Wizard)
+    * Remove Curse (Bard, Cleric, Sorcerer, Wizard)
+    * Revivify (Cleric, Paladin)
+    * Sending (Bard, Cleric, Sorcerer, Wizard)
+    * Sleet Storm (Druid, Sorcerer, Wizard)
+    * Slow (Sorcerer, Wizard)
+    * Stinking Cloud (Bard, Druid, Sorcerer, Wizard)
+    * Tongues (Bard, Cleric, Sorcerer, Wizard)
+    * Water Breathing (Druid, Sorcerer, Wizard)
+    * Water Walk (Cleric, Druid, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll4thLevel {
+  Spell @ [
+    * Arcane Eye (Wizard)
+    * Banishment (Cleric, Sorcerer, Wizard)
+    * Blight (Druid, Sorcerer, Wizard)
+    * Confusion (Bard, Cleric, Sorcerer, Wizard)
+    * Conjure Minor Elementals (Druid, Wizard)
+    * Control Water (Druid, Wizard)
+    * Death Ward (Cleric)
+    * Dimension Door (Bard, Cleric, Sorcerer, Wizard)
+    * Dominate Beast (Druid, Sorcerer, Wizard)
+    * Freedom of Movement (Bard, Cleric, Druid, Paladin)
+    * Giant Insect (Druid)
+    * Greater Invisibility (Sorcerer, Wizard)
+    * Hallucinatory Terrain (Bard, Cleric, Druid, Wizard)
+    * Ice Storm (Druid, Sorcerer, Wizard)
+    * Locate Creature (Bard, Cleric, Druid, Paladin, Wizard)
+    * Polymorph (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Private Sanctum (Wizard)
+    * Resilient Sphere (Wizard)
+    * Stone Shape (Bard, Cleric, Druid, Wizard)
+    * Stoneskin (Druid, Sorcerer, Wizard)
+    * Wall of Fire (Druid, Sorcerer, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll5thLevel {
+  Spell @ [
+    * Animate Objects (Bard, Sorcerer, Wizard)
+    * Antilife Shell (Druid)
+    * Arcane Hand (Wizard)
+    * Cloudkill (Sorcerer, Wizard)
+    * Commune (Cleric)
+    * Commune with Nature (Druid)
+    * Contact Other Plane (Sorcerer, Warlock, Wizard)
+    * Contagion (Cleric, Druid, Warlock)
+    * Dispel Evil and Good (Cleric, Paladin, Warlock)
+    * Dream (Bard, Sorcerer, Warlock)
+    * Geas (Bard, Cleric, Druid, Paladin, Sorcerer, Wizard)
+    * Greater Restoration (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Hold Monster (Bard, Cleric, Sorcerer, Wizard, Warlock)
+    * Insect Plague (Cleric, Druid, Sorcerer, Wizard)
+    * Legend Lore (Bard, Cleric, Sorcerer, Wizard)
+    * Mass Cure Wounds (Bard, Cleric, Druid, Sorcerer)
+    * Mislead (Bard, Wizard)
+    * Modify Memory (Bard, Sorcerer, Wizard)
+    * Planar Binding (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Raise Dead (Cleric, Druid, Paladin)
+    * Scrying (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Seeming (Bard, Sorcerer, Wizard)
+    * Telekinesis (Sorcerer, Wizard)
+    * Teleportation Circle (Bard, Wizard)
+    * Tree Stride (Druid)
+    * Wall of Stone (Druid, Sorcerer, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll6thLevel {
+  Spell @ [
+    * Blade Barrier (Cleric)
+    * Chain Lightning (Sorcerer, Wizard)
+    * Circle of Death (Sorcerer, Warlock, Wizard)
+    * Conjure Fey (Druid, Warlock)
+    * Create Undead (Cleric, Warlock, Wizard)
+    * Disintegrate (Sorcerer, Wizard)
+    * Eyebite (Bard, Sorcerer, Warlock)
+    * Find the Path (Bard, Cleric, Druid)
+    * Flesh to Stone (Sorcerer, Warlock, Wizard)
+    * Globe of Invulnerability (Wizard)
+    * Guards and Wards (Wizard)
+    * Harm (Cleric)
+    * Heal (Cleric)
+    * Heroes' Feast (Cleric, Druid)
+    * Irresistible Dance (Bard, Cleric, Sorcerer, Wizard)
+    * Magic Jar (Wizard)
+    * Mass Suggestion (Bard, Cleric, Sorcerer, Wizard)
+    * Move Earth (Druid, Sorcerer, Wizard)
+    * Programmed Illusion (Wizard)
+    * Sunbeam (Druid, Sorcerer, Wizard)
+    * True Seeing (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Wall of Ice (Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll7thLevel {
+  Spell @ [
+    * Arcane Sword (Bard, Wizard)
+    * Conjure Celestial (Cleric)
+    * Delayed Blast Fireball (Sorcerer, Wizard)
+    * Etherealness (Bard, Cleric, Sorcerer, Wizard)
+    * Finger of Death (Sorcerer, Wizard)
+    * Fire Storm (Druid, Sorcerer, Wizard)
+    * Forcecage (Bard, Wizard)
+    * Magnificent Mansion (Bard, Wizard)
+    * Mirage Arcane (Bard, Druid, Wizard)
+    * Plane Shift (Cleric, Druid, Sorcerer, Wizard)
+    * Prismatic Spray (Sorcerer, Wizard)
+    * Regenerate (Cleric, Druid, Bard)
+    * Resurrection (Cleric, Druid, Bard)
+    * Reverse Gravity (Druid, Sorcerer, Wizard)
+    * Sequester (Wizard)
+    * Simulacrum (Wizard)
+    * Symbol (Cleric, Wizard)
+    * Teleport (Bard, Cleric, Sorcerer, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll8thLevel {
+  Spell @ [
+    * Antimagic Field (Cleric, Wizard)
+    * Animal Shapes (Druid)
+    * Antipathy/Sympathy (Druid, Wizard)
+    * Control Weather (Cleric, Druid, Wizard)
+    * Earthquake (Cleric, Druid, Sorcerer, Wizard)
+    * Feeblemind (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Glibness (Bard, Warlock, Wizard)
+    * Incendiary Cloud (Sorcerer, Wizard)
+    * Maze (Wizard)
+    * Mind Blank (Wizard)
+    * Power Word Stun (Sorcerer, Warlock, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+
+SpellScroll9thLevel {
+  Spell @ [
+    * Astral Projection (Cleric, Sorcerer, Warlock, Wizard)
+    * Foresight (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * Gate (Cleric, Sorcerer, Wizard)
+    * Imprisonment (Warlock, Wizard)
+    * Meteor Swarm (Sorcerer, Wizard)
+    * Power Word Kill (Sorcerer, Warlock, Wizard)
+    * Prismatic Wall (Wizard)
+    * Shapechange (Druid, Wizard)
+    * Time Stop (Wizard)
+    * True Polymorph (Bard, Cleric, Druid, Sorcerer, Wizard)
+    * True Resurrection (Cleric, Druid)
+    * Weird (Wizard)
+    * Wish (Sorcerer, Wizard)
+  ]
+  Title! ~ "Spell Scroll: {{Spell}}"
+}
+

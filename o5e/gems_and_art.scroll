@@ -1,0 +1,176 @@
+ArtObjectWorth25GP {
+  Object! @ $ArtObjectWorth25GPList
+}
+
+ArtObjectWorth250GP {
+  Object! @ $ArtObjectWorth250GPList
+}
+
+ArtObjectWorth750GP {
+  Object! @ $ArtObjectWorth750GPList
+}
+
+ArtObjectWorth2500GP {
+  Object! @ $ArtObjectWorth2500GPList
+}
+
+ArtObjectWorth7500GP {
+  Object! @ $ArtObjectWorth7500GPList
+}
+
+GemstoneWorth10GP {
+  Object! @ $GemstoneWorth10GPList
+}
+
+GemstoneWorth50GP {
+  Object! @ $GemstoneWorth50GPList
+}
+
+GemstoneWorth100GP {
+  Object! @ $GemstoneWorth100GPList
+}
+
+GemstoneWorth500GP {
+  Object! @ $GemstoneWorth500GPList
+}
+
+GemstoneWorth1000GP {
+  Object! @ $GemstoneWorth1000GPList
+}
+
+GemstoneWorth5000GP {
+  Object! @ $GemstoneWorth5000GPList
+}
+
+ArtObjectWorth25GPList = [
+   * Silver ewer
+   * Carved bone statuette
+   * Small gold bracelet
+   * Cloth-of-gold vestments
+   * Black velvet mask stitched with silver thread
+   * Copper chalice with silver filigree
+   * Pair of engraved bone dice
+   * Small mirror set in a painted wooden frame
+   * Embroidered silk handkerchief
+   * Gold locket with a painted portrait inside
+]
+
+ArtObjectWorth250GPList = [
+  * Gold ring set with bloodstones
+  * Carved ivory statuette
+  * Large gold bracelet
+  * Silver necklace with a gemstone pendant
+  * Bronze crown
+  * Silk robe with gold embroidery
+  * Large well-made tapestry
+  * Brass mug with jade in lay
+  * Box of turquoise animal figurines
+  * Gold bird cage with electrum filigree
+]
+
+ArtObjectWorth750GPList = [
+  * Silver chalice set with moonstones
+  * Silver-plated steel longsword with jet set in hilt
+  * Carved harp of exotic wood with ivory inlay and zircon gems
+  * Small gold idol
+  * Gold dragon comb set with red garnets as eyes
+  * Bottle stopper cork embossed with gold leaf and set with amethysts
+  * Ceremonial electrum dagger with a black pearl in the pommel
+  * Silver and gold brooch
+  * Obsidian statuette with gold fittings and inlay
+  * Painted gold war mask
+]
+
+ArtObjectWorth2500GPList = [
+  * Fine gold chain set with a fire opal
+  * Old masterpiece painting
+  * Embroidered silk and velvet mantle set with numerous moonstones
+  * Platinum bracelet set with a sapphire
+  * Embroidered glove set with jewel chips
+  * Jeweled anklet
+  * Gold music box
+  * Gold circlet set with four aquamarines
+  * Eye patch with a mock eye set in blue sapphire and moonstone
+  * A necklace string of small pink pearls
+]
+
+ArtObjectWorth7500GPList = [
+  * Jeweled gold crown
+  * Jeweled platinum ring
+  * Small gold statuette set with rubies
+  * Gold cup set with emeralds
+  * Gold jewelry box with platinum filigree
+  * Painted gold child's sarcophagus
+  * Jade game board with solid gold playing pieces
+  * Bejeweled ivory drinking horn with gold filigree
+]
+
+GemstoneWorth10GPList = [
+  * <span title="opaque mottled deep blue">Azurite</span>
+  * <span title="translucent striped brown, blue, white, or red">Banded agate</span>
+  * <span title="transparent pale blue">Blue quartz</span>
+  * <span title="translucent circles of gray, white, brown, blue, or green">Eye agate</span>
+  * <span title="opaque gray-black">Hematite</span>
+  * <span title="opaque light and dark blue with yellow flecks">Lapis lazuli</span>
+  * <span title="opaque striated light and dark green">Malachite</span>
+  * <span title="translucent pink or yellow-white with mossy gray or green markings">Moss agate</span>
+  * <span title="opaque black">Obsidian</span>
+  * <span title="opaque light pink">Rhodochrosite</span>
+  * <span title="translucent brown with golden center">Tiger eye</span>
+  * <span title="opaque light blue-green">Turquoise</span>
+]
+
+GemstoneWorth50GPList = [
+  * <span title="opaque dark gray with red flecks">Bloodstone</span>
+  * <span title="opaque orange to red-brown">Carnelian</span>
+  * <span title="opaque white">Chalcedony</span>
+  * <span title="translucent green">Chrysoprase</span>
+  * <span title="transparent pale yellow-brown">Citrine</span>
+  * <span title="opaque blue, black, or brown">jasper</span>
+  * <span title="translucent white with pale blue glow">Moonstone</span>
+  * <span title="opaque bands of black and white, or pure black or white">Onyx</span>
+  * <span title="transparent white, smoky gray, or yellow">Quartz</span>
+  * <span title="opaque bands of red and white">Sardonyx</span>
+  * <span title="translucent rosy stone with white star-shaped center">Star rose quartz</span>
+  * <span title="transparent pale blue-green">Zircon</span>
+]
+
+GemstoneWorth100GPList = [
+  * <span title="transparent watery gold to rich gold">Amber</span>
+  * <span title="transparent deep purple">Amethyst</span>
+  * <span title="transparent yellow-green to pale green">Chrysoberyl</span>
+  * <span title="opaque crimson">Coral</span>
+  * <span title="transparent red, brown-green, or violet">Garnet</span>
+  * <span title="translucent light green, deep green, or white">jade</span>
+  * <span title="opaque deep black">jet</span>
+  * <span title="opaque lustrous white, yellow, or pink">Pearl</span>
+  * <span title="transparent red, red-brown, or deep green">Spinel</span>
+  * <span title="transparent pale green, blue, brown, or red">Tourmaline</span>
+]
+
+GemstoneWorth500GPList = [
+  * <span title="transparent dark green">Alexandrite</span>
+  * <span title="transparent pale blue-green">Aquamarine</span>
+  * <span title="opaque pure black">Black pearl</span>
+  * <span title="transparent deep blue">Blue spinel</span>
+  * <span title="transparent rich olive green">Peridot</span>
+  * <span title="transparent golden yellow">Topaz</span>
+]
+
+GemstoneWorth1000GPList = [
+  * <span title="translucent dark green with black mottling and golden flecks">Black opal</span>
+  * <span title="transparent blue-white to medium blue">Blue sapphire</span>
+  * <span title="transparent deep bright green">Emerald</span>
+  * <span title="translucent fiery red">Fire opal</span>
+  * <span title="translucent pale blue with green and golden mottling">Opal</span>
+  * <span title="translucent ruby with white star-shaped center">Star ruby</span>
+  * <span title="translucent blue sapphire with white star-shaped center">Star sapphire</span>
+  * <span title="transparent fiery yellow or yellow-green">Yellow sapphire</span>
+]
+
+GemstoneWorth5000GPList = [
+  * <span title="translucent lustrous black with glowing highlights">Black sapphire</span>
+  * <span title="transparent blue-white, canary, pink, brown, or blue">Diamond</span>
+  * <span title="transparent fiery orange">Jacinth</span>
+  * <span title="transparent clear red to deep crimson">Ruby</span>
+]
