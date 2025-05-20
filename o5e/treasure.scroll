@@ -183,81 +183,114 @@ TreasureHoardC17Plus(TreasureType) {
   | TreasureType
 }
 
+TreasureHoardEpic(TreasureType) {
+  GP1000  @ 12d6
+  PP1000   @ 8d6
+
+  MagicItems! @@ [
+    *(x1) Roll1D4MagicItemTableI
+  ]
+
+  Valuables! @@ [
+    *(x1) Roll1D8GemstonesWorth5000GP
+  ]
+
+  | TreasureType
+}
+
 
 MagicItemsInTreasure {
-  Details! ~ <% <li><strong>Magic Items:</strong> {{join(attribute_list(Items,"Title"),", ") }}</li> %>
+  Details! ~ <% <li><strong>Magic Items:</strong> {{unique_join(attribute_list(Items,"Title")) }}</li> %>
 }
 
 Roll1D6MagicItemTableA(MagicItemsInTreasure) {
   [1..6 Items!] @ MagicItemTableA
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableB(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableB
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableC(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableC
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D6MagicItemTableC(MagicItemsInTreasure) {
   [1..6 Items!] @ MagicItemTableC
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D8MagicItemTableC(MagicItemsInTreasure) {
   [1..8 Items!] @ MagicItemTableC
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableF(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableF
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 RollOneMagicItemTableD(MagicItemsInTreasure) {
-  [0..1 Items!] @ MagicItemTableD
+  [1..2 Items!] @ MagicItemTableD
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableD(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableD
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D6MagicItemTableD(MagicItemsInTreasure) {
   [1..6 Items!] @ MagicItemTableD
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 RollOneMagicItemTableE(MagicItemsInTreasure) {
-  [0..1 Items!] @ MagicItemTableE
+  [1..2 Items!] @ MagicItemTableE
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D6MagicItemTableE(MagicItemsInTreasure) {
   [1..6 Items!] @ MagicItemTableE
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 RollOneMagicItemTableG(MagicItemsInTreasure) {
-  [0..1 Items!] @ MagicItemTableG
+  [1..2 Items!] @ MagicItemTableG
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableG(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableG
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D6MagicItemTableG(MagicItemsInTreasure) {
   [1..6 Items!] @ MagicItemTableG
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 RollOneMagicItemTableH(MagicItemsInTreasure) {
-  [0..1 Items!] @ MagicItemTableH
+  [1..2 Items!] @ MagicItemTableH
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableH(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableH
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 RollOneMagicItemTableI(MagicItemsInTreasure) {
-  [0..1 Items!] @ MagicItemTableI
+  [1..2 Items!] @ MagicItemTableI
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 Roll1D4MagicItemTableI(MagicItemsInTreasure) {
   [1..4 Items!] @ MagicItemTableI
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 
@@ -266,6 +299,7 @@ Roll1D10MagicItemTablesAandB(MagicItemsInTreasure) {
     *(x4) MagicItemTableA
     *(x6) MagicItemTableB
   ]
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 
@@ -274,82 +308,94 @@ Roll1D5MagicItemTablesFandG(MagicItemsInTreasure) {
     *(x4) MagicItemTableF
     *(x1) MagicItemTableG
   ]
+  Count! ~ "{{length(Items)}}"
   | MagicItemsInTreasure
 }
 
 
 ValuablesInTreasure {
-  Details! ~ <% <li><strong>{{Title}}:</strong> {{join(attribute_list(Items,"Object"),", ") }}</li> %>
+  Details! ~ <% <li><strong>{{Title}}:</strong> {{unique_join(attribute_list(Items,"Object")) }}</li> %>
 }
 
 # This is an approximation of the recommended dice rolling values
 Roll2D4ArtObjectsWorth25GP(ValuablesInTreasure) {
   [2..8 Items!] @ ArtObjectWorth25GP
   Title! ~ "{{currency(length(Items)*25)}} worth of artifacts (25gp each)"
+  Value! ~ "{{length(Items)*25}}"
   | ValuablesInTreasure
 }
 
 Roll2D4ArtObjectsWorth250GP(ValuablesInTreasure) {
   [2..8 Items!] @ ArtObjectWorth250GP
   Title! ~ "{{currency(length(Items)*250)}} worth of artifacts (250gp each)"
+  Value! ~ "{{length(Items)*250}}"
   | ValuablesInTreasure
 }
 
 Roll2D4ArtObjectsWorth750GP(ValuablesInTreasure) {
   [2..8 Items!] @ ArtObjectWorth750GP
   Title! ~ "{{currency(length(Items)*750)}} worth of artifacts (750gp each)"
+  Value! ~ "{{length(Items)*750}}"
   | ValuablesInTreasure
 }
 
 Roll1D10ArtObjectsWorth2500GP(ValuablesInTreasure) {
   [1..10 Items!] @ ArtObjectWorth2500GP
   Title! ~ "{{currency(length(Items)*2500)}} worth of artifacts (2500gp each)"
+  Value! ~ "{{length(Items)*2500}}"
   | ValuablesInTreasure
 }
 Roll1D4ArtObjectsWorth7500GP(ValuablesInTreasure) {
   [1..4 Items!] @ ArtObjectWorth7500GP
   Title! ~ "{{currency(length(Items)*7500)}} worth of artifacts (7500gp each)"
+  Value! ~ "{{length(Items)*7500}}"
   | ValuablesInTreasure
 }
-
 
 Roll2D6GemstonesWorth10GP(ValuablesInTreasure) {
   [2..12 Items!] @ GemstoneWorth10GP
   Title! ~ "{{currency(length(Items)*10)}} worth of gemstones (10gp each)"
+  Value! ~ "{{length(Items)*10}}"
   | ValuablesInTreasure
 }
 
 Roll2D6GemstonesWorth50GP(ValuablesInTreasure) {
   [2..12 Items!] @ GemstoneWorth50GP
   Title! ~ "{{currency(length(Items)*50)}} worth of gemstones (50gp each)"
+  Value! ~ "{{length(Items)*50}}"
   | ValuablesInTreasure
 }
 
 Roll3D6GemstonesWorth50GP(ValuablesInTreasure) {
   [3..18 Items!] @ GemstoneWorth50GP
   Title! ~ "{{currency(length(Items)*50)}} worth of gemstones (50gp each)"
+  Value! ~ "{{length(Items)*50}}"
   | ValuablesInTreasure
 }
 
 Roll3D6GemstonesWorth100GP(ValuablesInTreasure) {
   [3..18 Items!] @ GemstoneWorth100GP
   Title! ~ "{{currency(length(Items)*100)}} worth of gemstones (100gp each)"
+  Value! ~ "{{length(Items)*100}}"
   | ValuablesInTreasure
 }
 
 Roll3D6GemstonesWorth500GP(ValuablesInTreasure) {
   [3..18 Items!] @ GemstoneWorth500GP
   Title! ~ "{{currency(length(Items)*500)}} worth of gemstones (500gp each)"
+  Value! ~ "{{length(Items)*500}}"
   | ValuablesInTreasure
 }
 Roll3D6GemstonesWorth1000GP(ValuablesInTreasure) {
   [3..18 Items!] @ GemstoneWorth1000GP
   Title! ~ "{{currency(length(Items)*1000)}} worth of gemstones (1000gp each)"
+  Value! ~ "{{length(Items)*1000}}"
   | ValuablesInTreasure
 }
 Roll1D8GemstonesWorth5000GP(ValuablesInTreasure) {
   [1..8 Items!] @ GemstoneWorth5000GP
   Title! ~ "{{currency(length(Items)*5000)}} worth of gemstones (5000gp each)"
+  Value! ~ "{{length(Items)*5000}}"
   | ValuablesInTreasure
 }
 
@@ -359,6 +405,8 @@ None {}
 Nothing {
   Details! = ""
   Title! = ""
+  Value = "0"
+  Count! = "0"
   [0..0 Items!] @ None
 }
 
@@ -493,54 +541,60 @@ TreasureTypeCR20 {
 }
 TreasureTypeCR21 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR22 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR23 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR24 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR25 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR26 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR27 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR28 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR29 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
 TreasureTypeCR30 {
   ^ [
-    * TreasureHoardC17Plus
+    * TreasureHoardEpic
   ]
 }
+TreasureTypeEpic {
+  ^ [
+    * TreasureHoardEpic
+  ]
+}
+
 
 
 
