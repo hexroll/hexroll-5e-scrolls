@@ -865,6 +865,21 @@ MagicItemTableI {
   *(x1) TomeOfTheStilledTongue
 ]}
 
+LegendaryItem {
+  HexLink = :Hex.uuid
+  HexRegion = :Hex.Region
+  Link! ~ <%
+    {% if exists("HexRegion") %}
+    <li>
+   {{begin_spoiler()}}
+    The <strong>{{Title}}</strong> is somewhere
+    </strong> in <a href="{{sandbox()}}/hex/{{HexLink}}"><strong>{{HexRegion}} </a> </strong>
+   {{end_spoiler()}}
+    </li>
+    {% endif %}
+  %>
+}
+
 AdamantineArmorBreastplate {
     Title! ~ "Adamantine armor (breastplate)"
 }
@@ -891,30 +906,30 @@ AlchemyJug {
 }
 AmmunitionPlus1 {
     Type @ [
-      * Blowgun darts
+      * Blowgun needles
       * Crossbow bolts
       * Arrows
-      * Slingshot rocks
+      * Sling bullets
     ]
-    Title! ~ "{{Type}}, +1"
+    Title! ~ "{{Type}} (+1)"
 }
 AmmunitionPlus2 {
     Type @ [
-      * Blowgun darts
+      * Blowgun needles
       * Crossbow bolts
       * Arrows
-      * Slingshot rocks
+      * Sling bullets
     ]
-    Title! ~ "{{Type}}, +2"
+    Title! ~ "{{Type}} (+2)"
 }
 AmmunitionPlus3 {
     Type @ [
-      * Blowgun darts
+      * Blowgun needles
       * Crossbow bolts
       * Arrows
-      * Slingshot rocks
+      * Sling bullets
     ]
-    Title! ~ "{{Type}}, +3"
+    Title! ~ "{{Type}} (+3)"
 }
 AmuletOfHealth {
     Title! ~ "Amulet of health"
@@ -928,11 +943,13 @@ AmuletOfThePlanes {
 AnimatedShield {
     Title! ~ "Animated shield"
 }
-ApparatusOfKwalish {
+ApparatusOfKwalish(LegendaryItem) {
     Title! ~ "Apparatus of Kwalish"
+    | LegendaryItem
 }
-ArmorOfInvulnerability {
+ArmorOfInvulnerability(LegendaryItem) {
     Title! ~ "Armor of invulnerability"
+    | LegendaryItem
 }
 ArmorOfResistanceBreastplate {
     Title! ~ "Armor of resistance (breastplate)"
@@ -962,82 +979,90 @@ ArmorOfVulnerability {
     Title! ~ "Armor of vulnerability"
 }
 ArmorPlus1Breastplate {
-    Title! ~ "Armor, + 1 breastplate"
+    Title! ~ "Armor (+1) breastplate"
 }
 ArmorPlus1HalfPlate {
-    Title! ~ "Armor, + 1 half plate"
+    Title! ~ "Armor (+1) half plate"
 }
 ArmorPlus1Leather {
-    Title! ~ "Armor, + 1 leather"
+    Title! ~ "Armor (+1) leather"
 }
 ArmorPlus1Splint {
-    Title! ~ "Armor, + 1 splint"
+    Title! ~ "Armor (+1) splint"
 }
 ArmorPlus1StuddedLeather {
-    Title! ~ "Armor, + 1 studded leather"
+    Title! ~ "Armor (+1) studded leather"
 }
 ArmorPlus1ChainMail {
-    Title! ~ "Armor, +1 chain mail"
+    Title! ~ "Armor (+1) chain mail"
 }
 ArmorPlus1Plate {
-    Title! ~ "Armor, +1 plate"
+    Title! ~ "Armor (+1) plate"
 }
 ArmorPlus1ScaleMail {
-    Title! ~ "Armor, +1 scale mail"
+    Title! ~ "Armor (+1) scale mail"
 }
 ArmorPlus2Breastplate {
-    Title! ~ "Armor, +2 breastplate"
+    Title! ~ "Armor (+2) breastplate"
 }
 ArmorPlus2ChainMail {
-    Title! ~ "Armor, +2 chain mail"
+    Title! ~ "Armor (+2) chain mail"
 }
 ArmorPlus2ChainShirt {
-    Title! ~ "Armor, +2 chain shirt"
+    Title! ~ "Armor (+2) chain shirt"
 }
 ArmorPlus2HalfPlate {
-    Title! ~ "Armor, +2 half plate"
+    Title! ~ "Armor (+2) half plate"
 }
 ArmorPlus2Leather {
-    Title! ~ "Armor, +2 leather"
+    Title! ~ "Armor (+2) leather"
 }
 ArmorPlus2Plate {
-    Title! ~ "Armor, +2 plate"
+    Title! ~ "Armor (+2) plate"
 }
 ArmorPlus2ScaleMail {
-    Title! ~ "Armor, +2 scale mail"
+    Title! ~ "Armor (+2) scale mail"
 }
 ArmorPlus2Splint {
-    Title! ~ "Armor, +2 splint"
+    Title! ~ "Armor (+2) splint"
 }
 ArmorPlus2StuddedLeather {
-    Title! ~ "Armor, +2 studded leather"
+    Title! ~ "Armor (+2) studded leather"
 }
-ArmorPlus3Breastplate {
-    Title! ~ "Armor, +3 breastplate"
+ArmorPlus3Breastplate(LegendaryItem) {
+    Title! ~ "Armor (+3) breastplate"
+    | LegendaryItem
 }
-ArmorPlus3ChainMail {
-    Title! ~ "Armor, +3 chain mail"
+ArmorPlus3ChainMail(LegendaryItem) {
+    Title! ~ "Armor (+3) chain mail"
+    | LegendaryItem
 }
-ArmorPlus3ChainShirt {
-    Title! ~ "Armor, +3 chain shirt"
+ArmorPlus3ChainShirt(LegendaryItem) {
+    Title! ~ "Armor (+3) chain shirt"
+    | LegendaryItem
 }
-ArmorPlus3HalfPlate {
-    Title! ~ "Armor, +3 half plate"
+ArmorPlus3HalfPlate(LegendaryItem) {
+    Title! ~ "Armor (+3) half plate"
+    | LegendaryItem
 }
-ArmorPlus3Leather {
-    Title! ~ "Armor, +3 leather"
+ArmorPlus3Leather(LegendaryItem) {
+    Title! ~ "Armor (+3) leather"
+    | LegendaryItem
 }
-ArmorPlus3Plate {
-    Title! ~ "Armor, +3 plate"
+ArmorPlus3Plate(LegendaryItem) {
+    Title! ~ "Armor (+3) plate"
+    | LegendaryItem
 }
-ArmorPlus3Splint {
-    Title! ~ "Armor, +3 splint"
+ArmorPlus3Splint(LegendaryItem) {
+    Title! ~ "Armor (+3) splint"
+    | LegendaryItem
 }
-ArmorPlus3StuddedLeather {
-    Title! ~ "Armor, +3 studded leather"
+ArmorPlus3StuddedLeather(LegendaryItem) {
+    Title! ~ "Armor (+3) studded leather"
+    | LegendaryItem
 }
 ArmorPlus1ChainShirt {
-    Title! ~ "Armor,+ 1 chain shirt"
+    Title! ~ "Armor (+1) chain shirt"
 }
 ArrowOfSlaying {
     Title! ~ "Arrow of slaying"
@@ -1069,8 +1094,9 @@ BagOfTricksTan {
 BeadOfForce {
     Title! ~ "Bead of force"
 }
-BeltOfCloudGiantStrength {
+BeltOfCloudGiantStrength(LegendaryItem) {
     Title! ~ "Belt of cloud giant strength"
+    | LegendaryItem
 }
 BeltOfDwarvenkind {
     Title! ~ "Belt of dwarvenkind"
@@ -1084,8 +1110,9 @@ BeltOfFrostOrStoneGiantStrength {
 BeltOfHillGiantStrength {
     Title! ~ "Belt of hill giant strength"
 }
-BeltOfStormGiantStrength {
+BeltOfStormGiantStrength(LegendaryItem) {
     Title! ~ "Belt of storm giant strength"
+    | LegendaryItem
 }
 BerserkerAxe {
     Title! ~ "Berserker axe"
@@ -1156,8 +1183,9 @@ CloakOfDisplacement {
 CloakOfElvenkind {
     Title! ~ "Cloak of elvenkind"
 }
-CloakOfInvisibility {
+CloakOfInvisibility(LegendaryItem) {
     Title! ~ "Cloak of invisibility"
+    | LegendaryItem
 }
 CloakOfProtection {
     Title! ~ "Cloak of protection"
@@ -1168,8 +1196,9 @@ CloakOfTheBat {
 CloakOfTheMantaRay {
     Title! ~ "Cloak of the manta ray"
 }
-CrystalBallLegendaryVersion {
+CrystalBallLegendaryVersion(LegendaryItem) {
     Title! ~ "Crystal ball (legendary version)"
+    | LegendaryItem
 }
 CrystalBallVeryRareVersion {
     Title! ~ "Crystal ball (very rare version)"
@@ -1177,8 +1206,9 @@ CrystalBallVeryRareVersion {
 CubeOfForce {
     Title! ~ "Cube of force"
 }
-CubicGate {
+CubicGate(LegendaryItem) {
     Title! ~ "Cubic gate"
+    | LegendaryItem
 }
 DaernsInstantFortress {
     Title! ~ "Daern's instant fortress"
@@ -1195,11 +1225,13 @@ DecanterOfEndlessWater {
 DeckOfIllusions {
     Title! ~ "Deck of illusions"
 }
-DeckOfManyThings {
+DeckOfManyThings(LegendaryItem) {
     Title! ~ "Deck of many things"
+    | LegendaryItem
 }
-Defender {
+Defender(LegendaryItem) {
     Title! ~ "Defender"
+    | LegendaryItem
 }
 DemonArmor {
     Title! ~ "Demon armor"
@@ -1234,8 +1266,9 @@ DwarvenThrower {
 EfreetiBottle {
     Title! ~ "Efreeti bottle"
 }
-EfreetiChain {
+EfreetiChain(LegendaryItem) {
     Title! ~ "Efreeti chain"
+    | LegendaryItem
 }
 ElementalGem {
     Title! ~ "Elemental gem"
@@ -1273,9 +1306,6 @@ FigurineOfWondrousPower {
 FigurineOfWondrousPowerObsidianSteed {
     Title! ~ "Figurine of wondrous power (obsidian steed)"
 }
-FigurineOfWondrousPowerRollD8 {
-    Title! ~ "Figurine of wondrous power (roll d8)"
-}
 FigurineOfWondrousPowerSilverRaven {
     Title! ~ "Figurine of wondrous power (silver raven)"
 }
@@ -1312,8 +1342,9 @@ GlovesOfThievery {
 GogglesOfNight {
     Title! ~ "Goggles of night"
 }
-HammerOfThunderbolts {
+HammerOfThunderbolts(LegendaryItem) {
     Title! ~ "Hammer of thunderbolts"
+    | LegendaryItem
 }
 HatOfDisguise {
     Title! ~ "Hat of disguise"
@@ -1336,8 +1367,9 @@ HelmOfTeleportation {
 HewardsHandyHaversack {
     Title! ~ "Heward's handy haversack"
 }
-HolyAvenger {
+HolyAvenger(LegendaryItem) {
     Title! ~ "Holy avenger"
+    | LegendaryItem
 }
 HornOfValhallaSilverOrBrass {
     Title! ~ "Horn of Valhalla (silver or brass)"
@@ -1348,8 +1380,9 @@ HornOfBlasting {
 HornOfValhallaBronze {
     Title! ~ "Horn ofValhalla (bronze)"
 }
-HornOfValhallaIron {
+HornOfValhallaIron(LegendaryItem) {
     Title! ~ "Horn ofValhalla (iron)"
+    | LegendaryItem
 }
 HorseshoesOfAZephyr {
     Title! ~ "Horseshoes of a zephyr"
@@ -1375,8 +1408,9 @@ InstrumentOfTheBardsFochlucanBandore {
 InstrumentOfTheBardsMacFuimidhCittern {
     Title! ~ "Instrument of the bards (Mac-Fuimidh cittern)"
 }
-InstrumentOfTheBardsOllamhHarp {
+InstrumentOfTheBardsOllamhHarp(LegendaryItem) {
     Title! ~ "Instrument of the bards (OIIamh harp)"
+    | LegendaryItem
 }
 InstrumentOfTheBardsCliLyre {
     Title! ~ "Instrument ofthe bards (Cii lyre)"
@@ -1393,8 +1427,9 @@ IounStoneAwareness {
 IounStoneFortitude {
     Title! ~ "Ioun stone (fortitude)"
 }
-IounStoneGreaterAbsorption {
+IounStoneGreaterAbsorption(LegendaryItem) {
     Title! ~ "Ioun stone (greater absorption)"
+    | LegendaryItem
 }
 IounStoneInsight {
     Title! ~ "Ioun stone (insight)"
@@ -1405,14 +1440,16 @@ IounStoneIntellect {
 IounStoneLeadership {
     Title! ~ "Ioun stone (leadership)"
 }
-IounStoneMastery {
+IounStoneMastery(LegendaryItem) {
     Title! ~ "Ioun stone (mastery)"
+    | LegendaryItem
 }
 IounStoneProtection {
     Title! ~ "Ioun stone (protection)"
 }
-IounStoneRegeneration {
+IounStoneRegeneration(LegendaryItem) {
     Title! ~ "Ioun stone (regeneration)"
+    | LegendaryItem
 }
 IounStoneReserve {
     Title! ~ "Ioun stone (reserve)"
@@ -1426,8 +1463,9 @@ IounStoneSustenance {
 IronBandsOfBilarro {
     Title! ~ "Iron bands of Bilarro"
 }
-IronFlask {
+IronFlask(LegendaryItem) {
     Title! ~ "Iron flask"
+    | LegendaryItem
 }
 JavelinOfLightning {
     Title! ~ "Javelin of lightning"
@@ -1438,8 +1476,9 @@ KeoghtomsOintment {
 LanternOfRevealing {
     Title! ~ "Lantern of revealing"
 }
-LuckBlade {
+LuckBlade(LegendaryItem) {
     Title! ~ "Luck Blade"
+    | LegendaryItem
 }
 MaceOfDisruption {
     Title! ~ "Mace of disruption"
@@ -1537,8 +1576,9 @@ PipesOfHaunting {
 PipesOfTheSewers {
     Title! ~ "Pipes of the sewers"
 }
-PlateArmorOfEtherealness {
+PlateArmorOfEtherealness(LegendaryItem) {
     Title! ~ "Plate armor of etherealness"
+    | LegendaryItem
 }
 PlateArmorOfResistance {
     Title! ~ "Plate armor of resistance"
@@ -1618,8 +1658,9 @@ PotionOfSpeed {
 PotionOfStoneGiantStrength {
     Title! ~ "Potion of stone giant strength"
 }
-PotionOfStormGiantStrength {
+PotionOfStormGiantStrength(LegendaryItem) {
     Title! ~ "Potion of storm giant strength"
+    | LegendaryItem
 }
 PotionOfSuperiorHealing {
     Title! ~ "Potion of superior healing"
@@ -1642,17 +1683,20 @@ QuiverOfEhlonna {
 RingOfXRayVision {
     Title! ~ "Ring of X-ray vision"
 }
-RingOfAirElementalCommand {
+RingOfAirElementalCommand(LegendaryItem) {
     Title! ~ "Ring of air elemental command"
+    | LegendaryItem
 }
 RingOfAnimalInfluence {
     Title! ~ "Ring of animal influence"
 }
-RingOfDjinniSummoning {
+RingOfDjinniSummoning(LegendaryItem) {
     Title! ~ "Ring of djinni summoning"
+    | LegendaryItem
 }
-RingOfEarthElementalCommand {
+RingOfEarthElementalCommand(LegendaryItem) {
     Title! ~ "Ring of earthelemental command"
+    | LegendaryItem
 }
 RingOfEvasion {
     Title! ~ "Ring of evasion"
@@ -1660,14 +1704,16 @@ RingOfEvasion {
 RingOfFeatherFalling {
     Title! ~ "Ring of feather falling"
 }
-RingOfFireElementalCommand {
+RingOfFireElementalCommand(LegendaryItem) {
     Title! ~ "Ring of fire elemental command"
+    | LegendaryItem
 }
 RingOfFreeAction {
     Title! ~ "Ring of free action"
 }
-RingOfInvisibility {
+RingOfInvisibility(LegendaryItem) {
     Title! ~ "Ring of invisibility"
+    | LegendaryItem
 }
 RingOfJumping {
     Title! ~ "Ring of jumping"
@@ -1690,8 +1736,9 @@ RingOfShootingStars {
 RingOfSpellStoring {
     Title! ~ "Ring of spell storing"
 }
-RingOfSpellTurning {
+RingOfSpellTurning(LegendaryItem) {
     Title! ~ "Ring of spell turning"
+    | LegendaryItem
 }
 RingOfSwimming {
     Title! ~ "Ring of swimming"
@@ -1702,8 +1749,9 @@ RingOfTelekinesis {
 RingOfTheRam {
     Title! ~ "Ring of the ram"
 }
-RingOfThreeWishes {
+RingOfThreeWishes(LegendaryItem) {
     Title! ~ "Ring of three wishes"
+    | LegendaryItem
 }
 RingOfWarmth {
     Title! ~ "Ring of warmth"
@@ -1723,8 +1771,9 @@ RobeOfScintillatingColors {
 RobeOfStars {
     Title! ~ "Robe of stars"
 }
-RobeOfTheArchmagi {
+RobeOfTheArchmagi(LegendaryItem) {
     Title! ~ "Robe of the archmagi"
+    | LegendaryItem
 }
 RobeOfUsefulItems {
     Title! ~ "Robe of useful items"
@@ -1735,11 +1784,12 @@ RodOfAbsorption {
 RodOfAlertness {
     Title! ~ "Rod of alertness"
 }
-RodOfLordlyMight {
+RodOfLordlyMight(LegendaryItem) {
     Title! ~ "Rod of lordly might"
 }
-RodOfResurrection {
+RodOfResurrection(LegendaryItem) {
     Title! ~ "Rod of resurrection"
+    | LegendaryItem
 }
 RodOfRulership {
     Title! ~ "Rod of rulership"
@@ -1748,13 +1798,13 @@ RodOfSecurity {
     Title! ~ "Rod of security"
 }
 RodOfThePactKeeperPlus1 {
-    Title! ~ "Rod of the pact keeper, + 1"
+    Title! ~ "Rod of the pact keeper (+1)"
 }
 RodOfThePactKeeperPlus2 {
-    Title! ~ "Rod of the pact keeper, +2"
+    Title! ~ "Rod of the pact keeper (+2)"
 }
 RodOfThePactKeeperPlus3 {
-    Title! ~ "Rod of the pact keeper, +3"
+    Title! ~ "Rod of the pact keeper (+3)"
 }
 RopeOfClimbing {
     Title! ~ "Rope of climbing"
@@ -1765,8 +1815,9 @@ RopeOfEntanglement {
 SaddleOfTheCavalier {
     Title! ~ "Saddle of the cavalier"
 }
-ScarabOfProtection {
+ScarabOfProtection(LegendaryItem) {
     Title! ~ "Scarab of protection"
+    | LegendaryItem
 }
 ScimitarOfSpeed {
     Title! ~ "Scimitar of speed"
@@ -1784,25 +1835,27 @@ ShieldOfMissileAttraction {
     Title! ~ "Shield of missile attraction"
 }
 ShieldPlus2 {
-    Title! ~ "Shield, +2"
+    Title! ~ "Shield (+2)"
 }
 ShieldPlus3 {
-    Title! ~ "Shield, +3"
+    Title! ~ "Shield (+3)"
 }
 ShieldPlus1 {
-    Title! ~ "Shield,+ 1"
+    Title! ~ "Shield (+1)"
 }
 SlippersOfSpiderClimbing {
     Title! ~ "Slippers of spider climbing"
 }
-SovereignGlue {
+SovereignGlue(LegendaryItem) {
     Title! ~ "Sovereign glue"
+    | LegendaryItem
 }
 SpellguardShield {
     Title! ~ "Spellguard shield"
 }
-SphereOfAnnihilation {
+SphereOfAnnihilation(LegendaryItem) {
     Title! ~ "Sphere of annihilation"
+    | LegendaryItem
 }
 StaffOfCharming {
     Title! ~ "Staff of charming"
@@ -1849,8 +1902,9 @@ StoneOfGoodLuck {
 SunBlade {
     Title! ~ "Sun blade"
 }
-SwordOfAnswering {
+SwordOfAnswering(LegendaryItem) {
     Title! ~ "Sword of answering"
+    | LegendaryItem
 }
 SwordOfLifeStealing {
     Title! ~ "Sword of life stealing"
@@ -1864,26 +1918,31 @@ SwordOfVengeance {
 SwordOfWounding {
     Title! ~ "Sword of wounding"
 }
-TalismanOfPureGood {
+TalismanOfPureGood(LegendaryItem) {
     Title! ~ "Talisman of pure good"
+    | LegendaryItem
 }
-TalismanOfTheSphere {
+TalismanOfTheSphere(LegendaryItem) {
     Title! ~ "Talisman of the sphere"
+    | LegendaryItem
 }
-TalismanOfUltimateEvil {
+TalismanOfUltimateEvil(LegendaryItem) {
     Title! ~ "Talisman of ultimate evil"
+    | LegendaryItem
 }
 TentacleRod {
     Title! ~ "Tentacle rod"
 }
-TomeOfClearThought {
+TomeOfClearThought(LegendaryItem) {
     Title! ~ "Tome of clear thought"
+    | LegendaryItem
 }
 TomeOfLeadershipAndInfluence {
     Title! ~ "Tome of leadership and influence"
 }
-TomeOfTheStilledTongue {
+TomeOfTheStilledTongue(LegendaryItem) {
     Title! ~ "Tome of the stilled tongue"
+    | LegendaryItem
 }
 TomeOfUnderstanding {
     Title! ~ "Tome of understanding"
@@ -1891,14 +1950,16 @@ TomeOfUnderstanding {
 TridentOfFishCommand {
     Title! ~ "Trident of fish command"
 }
-UniversalSolvent {
+UniversalSolvent(LegendaryItem) {
     Title! ~ "Universal solvent"
+    | LegendaryItem
 }
 ViciousWeapon {
     Title! ~ "Vicious weapon"
 }
-VorpalSword {
+VorpalSword(LegendaryItem) {
     Title! ~ "Vorpal sword"
+    | LegendaryItem
 }
 WandOfBinding {
     Title! ~ "Wand of binding"
@@ -1931,13 +1992,13 @@ WandOfSecrets {
     Title! ~ "Wand of secrets"
 }
 WandOfTheWarMagePlus1 {
-    Title! ~ "Wand of the war mage, + 1"
+    Title! ~ "Wand of the war mage (+1)"
 }
 WandOfTheWarMagePlus3 {
-    Title! ~ "Wand of the war mage, + 3"
+    Title! ~ "Wand of the war mage (+3)"
 }
 WandOfTheWarMagePlus2 {
-    Title! ~ "Wand of the war mage, +2"
+    Title! ~ "Wand of the war mage (+2)"
 }
 WandOfWeb {
     Title! ~ "Wand of web"
@@ -1978,7 +2039,7 @@ WeaponPlus1 {
       * Whip
       * Net
     ]
-    Title! ~ "{{Weapon}}, +1"
+    Title! ~ "{{Weapon}} (+1)"
 }
 WeaponPlus2 {
     Weapon @ [
@@ -2009,7 +2070,7 @@ WeaponPlus2 {
       * Whip
       * Net
     ]
-    Title! ~ "{{Weapon}}, +2"
+    Title! ~ "{{Weapon}} (+2)"
 }
 WeaponPlus3 {
     Weapon @ [
@@ -2040,7 +2101,7 @@ WeaponPlus3 {
       * Whip
       * Net
     ]
-    Title! ~ "{{Weapon}}, +3"
+    Title! ~ "{{Weapon}} (+3)"
 }
 
 WellOfManyWorlds {
@@ -2058,292 +2119,293 @@ WingsOfFlying {
 
 SpellScrollCantrip {
   Spell @ [
-    * Dancing Lights (Bard, Wizard)
-    * Light (Bard, Cleric, Wizard)
-    * Mage Hand (Bard, Sorcerer, Warlock, Wizard)
-    * Mending (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Message (Bard, Sorcerer)
-    * Minor Illusion (Bard, Sorcerer, Warlock, Wizard)
-    * Prestidigitation (Bard, Sorcerer, Warlock, Wizard)
-    * True Strike (Bard, Sorcerer)
-    * Vicious Mockery (Bard)
-    * Guidance (Cleric, Druid)
-    * Resistance (Cleric, Druid)
-    * Sacred Flame (Cleric)
-    * Spare the Dying (Cleric)
-    * Thaumaturgy (Cleric)
-    * Poison Spray (Druid, Sorcerer, Warlock)
-    * Shillelagh (Druid)
-    * Acid Splash (Sorcerer, Wizard)
-    * Chill Touch (Sorcerer, Warlock)
-    * Fire Bolt (Sorcerer, Wizard)
-    * Ray of Frost (Sorcerer, Wizard)
+    * Dancing Lights <small>(Bard, Wizard)</small>
+    * Light <small>(Bard, Cleric, Wizard)</small>
+    * Mage Hand <small>(Bard, Sorcerer, Warlock, Wizard)</small>
+    * Mending <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Message <small>(Bard, Sorcerer)</small>
+    * Minor Illusion <small>(Bard, Sorcerer, Warlock, Wizard)</small>
+    * Prestidigitation <small>(Bard, Sorcerer, Warlock, Wizard)</small>
+    * True Strike <small>(Bard, Sorcerer)</small>
+    * Vicious Mockery <small>(Bard)</small>
+    * Guidance <small>(Cleric, Druid)</small>
+    * Resistance <small>(Cleric, Druid)</small>
+    * Sacred Flame <small>(Cleric)</small>
+    * Spare the Dying <small>(Cleric)</small>
+    * Thaumaturgy <small>(Cleric)</small>
+    * Poison Spray <small>(Druid, Sorcerer, Warlock)</small>
+    * Shillelagh <small>(Druid)</small>
+    * Acid Splash <small>(Sorcerer, Wizard)</small>
+    * Chill Touch <small>(Sorcerer, Warlock)</small>
+    * Fire Bolt <small>(Sorcerer, Wizard)</small>
+    * Ray of Frost <small>(Sorcerer, Wizard)</small>
   ]
-  Title! ~ "Cantrip Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>cantrip</sup> of {{Spell}}"
 }
 
 SpellScroll1stLevel {
   Spell @ [
-    * Animal Friendship (Bard, Druid, Ranger)
-    * Bane (Bard, Cleric)
-    * Bless (Cleric, Paladin)
-    * Burning Hands (Sorcerer, Wizard)
-    * Charm Person (Bard, Druid, Sorcerer, Warlock)
-    * Command (Paladin, Cleric)
-    * Comprehend Languages (Bard, Sorcerer, Wizard)
-    * Cure Wounds (Bard, Cleric, Druid, Paladin)
-    * Detect Evil and Good (Cleric, Paladin)
-    * Detect Magic (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Detect Poison and Disease (Cleric, Druid, Paladin, Ranger)
-    * Disguise Self (Bard, Sorcerer, Wizard)
-    * Divine Favor (Paladin)
-    * Expeditious Retreat (Sorcerer)
-    * Faerie Fire (Bard, Druid)
-    * Feather Fall (Bard, Sorcerer)
-    * Fog Cloud (Druid, Sorcerer, Wizard)
-    * Goodberry (Druid)
-    * Healing Word (Bard, Cleric, Druid)
-    * Heroism (Bard, Paladin)
-    * Hideous Laughter (Bard, Wizard)
-    * Identify (Bard, Wizard)
-    * Illusory Script (Bard, Wizard)
-    * Jump (Bard, Druid, Sorcerer, Wizard)
-    * Longstrider (Bard, Druid, Ranger)
-    * Mage Armor (Sorcerer, Wizard)
-    * Magic Missile (Sorcerer, Wizard)
-    * Protection from Evil and Good (Cleric, Paladin, Warlock)
-    * Purify Food and Drink (Cleric, Druid, Paladin)
-    * Shield (Sorcerer, Wizard)
-    * Silent Image (Bard, Sorcerer, Wizard)
-    * Sleep (Bard, Sorcerer)
-    * Thunderwave (Bard, Druid, Sorcerer, Wizard)
-    * Unseen Servant (Bard, Wizard)
+    * Animal Friendship <small>(Bard, Druid, Ranger)</small>
+    * Bane <small>(Bard, Cleric)</small>
+    * Bless <small>(Cleric, Paladin)</small>
+    * Burning Hands <small>(Sorcerer, Wizard)</small>
+    * Charm Person <small>(Bard, Druid, Sorcerer, Warlock)</small>
+    * Command <small>(Paladin, Cleric)</small>
+    * Comprehend Languages <small>(Bard, Sorcerer, Wizard)</small>
+    * Cure Wounds <small>(Bard, Cleric, Druid, Paladin)</small>
+    * Detect Evil and Good <small>(Cleric, Paladin)</small>
+    * Detect Magic <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Detect Poison and Disease <small>(Cleric, Druid, Paladin, Ranger)</small>
+    * Disguise Self <small>(Bard, Sorcerer, Wizard)</small>
+    * Divine Favor <small>(Paladin)</small>
+    * Expeditious Retreat <small>(Sorcerer)</small>
+    * Faerie Fire <small>(Bard, Druid)</small>
+    * Feather Fall <small>(Bard, Sorcerer)</small>
+    * Fog Cloud <small>(Druid, Sorcerer, Wizard)</small>
+    * Goodberry <small>(Druid)</small>
+    * Healing Word <small>(Bard, Cleric, Druid)</small>
+    * Heroism <small>(Bard, Paladin)</small>
+    * Hideous Laughter <small>(Bard, Wizard)</small>
+    * Identify <small>(Bard, Wizard)</small>
+    * Illusory Script <small>(Bard, Wizard)</small>
+    * Jump <small>(Bard, Druid, Sorcerer, Wizard)</small>
+    * Longstrider <small>(Bard, Druid, Ranger)</small>
+    * Mage Armor <small>(Sorcerer, Wizard)</small>
+    * Magic Missile <small>(Sorcerer, Wizard)</small>
+    * Protection from Evil and Good <small>(Cleric, Paladin, Warlock)</small>
+    * Purify Food and Drink <small>(Cleric, Druid, Paladin)</small>
+    * Shield <small>(Sorcerer, Wizard)</small>
+    * Silent Image <small>(Bard, Sorcerer, Wizard)</small>
+    * Sleep <small>(Bard, Sorcerer)</small>
+    * Thunderwave <small>(Bard, Druid, Sorcerer, Wizard)</small>
+    * Unseen Servant <small>(Bard, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>1st</sup> of {{Spell}}"
 }
 
 SpellScroll2ndLevel {
   Spell @ [
-    * Aid (Cleric, Paladin)
-    * Alter Self (Sorcerer, Wizard)
-    * Animal Messenger (Bard, Druid, Ranger)
-    * Barkskin (Druid)
-    * Blindness/Deafness (Bard, Cleric, Sorcerer, Wizard)
-    * Calm Emotions (Bard, Cleric, Druid)
-    * Darkness (Sorcerer, Warlock)
-    * Detect Thoughts (Bard, Cleric, Sorcerer, Wizard)
-    * Enhance Ability (Bard, Cleric, Druid, Sorcerer)
-    * Enthrall (Bard, Warlock)
-    * Find Steed (Paladin)
-    * Find Traps (Cleric, Druid, Ranger)
-    * Flame Blade (Druid)
-    * Flaming Sphere (Sorcerer, Wizard)
-    * Gaseous Form (Sorcerer, Wizard)
-    * Gust of Wind (Druid, Sorcerer, Wizard)
-    * Heat Metal (Bard, Druid)
-    * Hold Person (Bard, Cleric, Druid, Sorcerer, Warlock)
-    * Invisibility (Bard, Sorcerer, Wizard, Warlock)
-    * Knock (Bard, Sorcerer, Wizard)
-    * Lesser Restoration (Bard, Cleric, Druid, Paladin)
-    * Locate Animals or Plants (Druid)
-    * Locate Object (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Magic Mouth (Bard, Wizard)
-    * Mirror Image (Sorcerer, Wizard)
-    * Misty Step (Sorcerer, Warlock)
-    * Prayer of Healing (Cleric)
-    * Protection from Poison (Cleric, Druid, Paladin)
-    * Ray of Enfeeblement (Warlock)
-    * Silence (Bard, Cleric, Druid, Sorcerer, Warlock)
-    * Spiritual Weapon (Cleric)
-    * Spike Growth (Druid)
-    * Suggestion (Bard, Sorcerer, Warlock)
-    * Zone of Truth (Bard, Cleric, Druid, Paladin)
+    * Aid <small>(Cleric, Paladin)</small>
+    * Alter Self <small>(Sorcerer, Wizard)</small>
+    * Animal Messenger <small>(Bard, Druid, Ranger)</small>
+    * Barkskin <small>(Druid)</small>
+    * Blindness/Deafness <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Calm Emotions <small>(Bard, Cleric, Druid)</small>
+    * Darkness <small>(Sorcerer, Warlock)</small>
+    * Detect Thoughts <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Enhance Ability <small>(Bard, Cleric, Druid, Sorcerer)</small>
+    * Enthrall <small>(Bard, Warlock)</small>
+    * Find Steed <small>(Paladin)</small>
+    * Find Traps <small>(Cleric, Druid, Ranger)</small>
+    * Flame Blade <small>(Druid)</small>
+    * Flaming Sphere <small>(Sorcerer, Wizard)</small>
+    * Gaseous Form <small>(Sorcerer, Wizard)</small>
+    * Gust of Wind <small>(Druid, Sorcerer, Wizard)</small>
+    * Heat Metal <small>(Bard, Druid)</small>
+    * Hold Person <small>(Bard, Cleric, Druid, Sorcerer, Warlock)</small>
+    * Invisibility <small>(Bard, Sorcerer, Wizard, Warlock)</small>
+    * Knock <small>(Bard, Sorcerer, Wizard)</small>
+    * Lesser Restoration <small>(Bard, Cleric, Druid, Paladin)</small>
+    * Locate Animals or Plants <small>(Druid)</small>
+    * Locate Object <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Magic Mouth <small>(Bard, Wizard)</small>
+    * Mirror Image <small>(Sorcerer, Wizard)</small>
+    * Misty Step <small>(Sorcerer, Warlock)</small>
+    * Prayer of Healing <small>(Cleric)</small>
+    * Protection from Poison <small>(Cleric, Druid, Paladin)</small>
+    * Ray of Enfeeblement <small>(Warlock)</small>
+    * Silence <small>(Bard, Cleric, Druid, Sorcerer, Warlock)</small>
+    * Spiritual Weapon <small>(Cleric)</small>
+    * Spike Growth <small>(Druid)</small>
+    * Suggestion <small>(Bard, Sorcerer, Warlock)</small>
+    * Zone of Truth <small>(Bard, Cleric, Druid, Paladin)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>2nd</sup> of {{Spell}}"
 }
 
 SpellScroll3rdLevel {
   Spell @ [
-    * Animate Dead (Cleric, Wizard)
-    * Bestow Curse (Bard, Cleric, Sorcerer, Wizard)
-    * Blink (Sorcerer, Wizard)
-    * Call Lightning (Druid)
-    * Clairvoyance (Bard, Cleric, Sorcerer, Wizard)
-    * Counterspell (Sorcerer, Wizard)
-    * Create Food and Water (Cleric, Paladin, Wizard)
-    * Daylight (Cleric, Druid, Sorcerer, Wizard)
-    * Dispel Magic (Bard, Cleric, Sorcerer, Wizard)
-    * Fear (Bard, Sorcerer, Wizard)
-    * Fireball (Sorcerer, Wizard)
-    * Fly (Sorcerer, Wizard)
-    * Gaseous Form (Sorcerer, Wizard)
-    * Glyph of Warding (Bard, Cleric, Sorcerer, Wizard)
-    * Haste (Sorcerer, Wizard)
-    * Healing Word (Bard, Cleric, Druid)
-    * Hypnotic Pattern (Bard, Sorcerer, Wizard)
-    * Lightning Bolt (Sorcerer, Wizard)
-    * Major Image (Bard, Sorcerer, Wizard)
-    * Meld into Stone (Druid, Wizard)
-    * Nondetection (Bard, Wizard)
-    * Plant Growth (Druid)
-    * Protection from Energy (Cleric, Druid, Sorcerer, Wizard)
-    * Remove Curse (Bard, Cleric, Sorcerer, Wizard)
-    * Revivify (Cleric, Paladin)
-    * Sending (Bard, Cleric, Sorcerer, Wizard)
-    * Sleet Storm (Druid, Sorcerer, Wizard)
-    * Slow (Sorcerer, Wizard)
-    * Stinking Cloud (Bard, Druid, Sorcerer, Wizard)
-    * Tongues (Bard, Cleric, Sorcerer, Wizard)
-    * Water Breathing (Druid, Sorcerer, Wizard)
-    * Water Walk (Cleric, Druid, Wizard)
+    * Animate Dead <small>(Cleric, Wizard)</small>
+    * Bestow Curse <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Blink <small>(Sorcerer, Wizard)</small>
+    * Call Lightning <small>(Druid)</small>
+    * Clairvoyance <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Counterspell <small>(Sorcerer, Wizard)</small>
+    * Create Food and Water <small>(Cleric, Paladin, Wizard)</small>
+    * Daylight <small>(Cleric, Druid, Sorcerer, Wizard)</small>
+    * Dispel Magic <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Fear <small>(Bard, Sorcerer, Wizard)</small>
+    * Fireball <small>(Sorcerer, Wizard)</small>
+    * Fly <small>(Sorcerer, Wizard)</small>
+    * Gaseous Form <small>(Sorcerer, Wizard)</small>
+    * Glyph of Warding <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Haste <small>(Sorcerer, Wizard)</small>
+    * Healing Word <small>(Bard, Cleric, Druid)</small>
+    * Hypnotic Pattern <small>(Bard, Sorcerer, Wizard)</small>
+    * Lightning Bolt <small>(Sorcerer, Wizard)</small>
+    * Major Image <small>(Bard, Sorcerer, Wizard)</small>
+    * Meld into Stone <small>(Druid, Wizard)</small>
+    * Nondetection <small>(Bard, Wizard)</small>
+    * Plant Growth <small>(Druid)</small>
+    * Protection from Energy <small>(Cleric, Druid, Sorcerer, Wizard)</small>
+    * Remove Curse <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Revivify <small>(Cleric, Paladin)</small>
+    * Sending <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Sleet Storm <small>(Druid, Sorcerer, Wizard)</small>
+    * Slow <small>(Sorcerer, Wizard)</small>
+    * Stinking Cloud <small>(Bard, Druid, Sorcerer, Wizard)</small>
+    * Tongues <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Water Breathing <small>(Druid, Sorcerer, Wizard)</small>
+    * Water Walk <small>(Cleric, Druid, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>3rd</sup> of {{Spell}}"
 }
 
 SpellScroll4thLevel {
   Spell @ [
-    * Arcane Eye (Wizard)
-    * Banishment (Cleric, Sorcerer, Wizard)
-    * Blight (Druid, Sorcerer, Wizard)
-    * Confusion (Bard, Cleric, Sorcerer, Wizard)
-    * Conjure Minor Elementals (Druid, Wizard)
-    * Control Water (Druid, Wizard)
-    * Death Ward (Cleric)
-    * Dimension Door (Bard, Cleric, Sorcerer, Wizard)
-    * Dominate Beast (Druid, Sorcerer, Wizard)
-    * Freedom of Movement (Bard, Cleric, Druid, Paladin)
-    * Giant Insect (Druid)
-    * Greater Invisibility (Sorcerer, Wizard)
-    * Hallucinatory Terrain (Bard, Cleric, Druid, Wizard)
-    * Ice Storm (Druid, Sorcerer, Wizard)
-    * Locate Creature (Bard, Cleric, Druid, Paladin, Wizard)
-    * Polymorph (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Private Sanctum (Wizard)
-    * Resilient Sphere (Wizard)
-    * Stone Shape (Bard, Cleric, Druid, Wizard)
-    * Stoneskin (Druid, Sorcerer, Wizard)
-    * Wall of Fire (Druid, Sorcerer, Wizard)
+    * Arcane Eye <small>(Wizard)</small>
+    * Banishment <small>(Cleric, Sorcerer, Wizard)</small>
+    * Blight <small>(Druid, Sorcerer, Wizard)</small>
+    * Confusion <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Conjure Minor Elementals <small>(Druid, Wizard)</small>
+    * Control Water <small>(Druid, Wizard)</small>
+    * Death Ward <small>(Cleric)</small>
+    * Dimension Door <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Dominate Beast <small>(Druid, Sorcerer, Wizard)</small>
+    * Freedom of Movement <small>(Bard, Cleric, Druid, Paladin)</small>
+    * Giant Insect <small>(Druid)</small>
+    * Greater Invisibility <small>(Sorcerer, Wizard)</small>
+    * Hallucinatory Terrain <small>(Bard, Cleric, Druid, Wizard)</small>
+    * Ice Storm <small>(Druid, Sorcerer, Wizard)</small>
+    * Locate Creature <small>(Bard, Cleric, Druid, Paladin, Wizard)</small>
+    * Polymorph <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Private Sanctum <small>(Wizard)</small>
+    * Resilient Sphere <small>(Wizard)</small>
+    * Stone Shape <small>(Bard, Cleric, Druid, Wizard)</small>
+    * Stoneskin <small>(Druid, Sorcerer, Wizard)</small>
+    * Wall of Fire <small>(Druid, Sorcerer, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>4th</sup> of {{Spell}}"
 }
 
 SpellScroll5thLevel {
   Spell @ [
-    * Animate Objects (Bard, Sorcerer, Wizard)
-    * Antilife Shell (Druid)
-    * Arcane Hand (Wizard)
-    * Cloudkill (Sorcerer, Wizard)
-    * Commune (Cleric)
-    * Commune with Nature (Druid)
-    * Contact Other Plane (Sorcerer, Warlock, Wizard)
-    * Contagion (Cleric, Druid, Warlock)
-    * Dispel Evil and Good (Cleric, Paladin, Warlock)
-    * Dream (Bard, Sorcerer, Warlock)
-    * Geas (Bard, Cleric, Druid, Paladin, Sorcerer, Wizard)
-    * Greater Restoration (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Hold Monster (Bard, Cleric, Sorcerer, Wizard, Warlock)
-    * Insect Plague (Cleric, Druid, Sorcerer, Wizard)
-    * Legend Lore (Bard, Cleric, Sorcerer, Wizard)
-    * Mass Cure Wounds (Bard, Cleric, Druid, Sorcerer)
-    * Mislead (Bard, Wizard)
-    * Modify Memory (Bard, Sorcerer, Wizard)
-    * Planar Binding (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Raise Dead (Cleric, Druid, Paladin)
-    * Scrying (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Seeming (Bard, Sorcerer, Wizard)
-    * Telekinesis (Sorcerer, Wizard)
-    * Teleportation Circle (Bard, Wizard)
-    * Tree Stride (Druid)
-    * Wall of Stone (Druid, Sorcerer, Wizard)
+    * Animate Objects <small>(Bard, Sorcerer, Wizard)</small>
+    * Antilife Shell <small>(Druid)</small>
+    * Arcane Hand <small>(Wizard)</small>
+    * Cloudkill <small>(Sorcerer, Wizard)</small>
+    * Commune <small>(Cleric)</small>
+    * Commune with Nature <small>(Druid)</small>
+    * Contact Other Plane <small>(Sorcerer, Warlock, Wizard)</small>
+    * Contagion <small>(Cleric, Druid, Warlock)</small>
+    * Dispel Evil and Good <small>(Cleric, Paladin, Warlock)</small>
+    * Dream <small>(Bard, Sorcerer, Warlock)</small>
+    * Geas <small>(Bard, Cleric, Druid, Paladin, Sorcerer, Wizard)</small>
+    * Greater Restoration <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Hold Monster <small>(Bard, Cleric, Sorcerer, Wizard, Warlock)</small>
+    * Insect Plague <small>(Cleric, Druid, Sorcerer, Wizard)</small>
+    * Legend Lore <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Mass Cure Wounds <small>(Bard, Cleric, Druid, Sorcerer)</small>
+    * Mislead <small>(Bard, Wizard)</small>
+    * Modify Memory <small>(Bard, Sorcerer, Wizard)</small>
+    * Planar Binding <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Raise Dead <small>(Cleric, Druid, Paladin)</small>
+    * Scrying <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Seeming <small>(Bard, Sorcerer, Wizard)</small>
+    * Telekinesis <small>(Sorcerer, Wizard)</small>
+    * Teleportation Circle <small>(Bard, Wizard)</small>
+    * Tree Stride <small>(Druid)</small>
+    * Wall of Stone <small>(Druid, Sorcerer, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>5th</sup> of {{Spell}}"
 }
 
 SpellScroll6thLevel {
   Spell @ [
-    * Blade Barrier (Cleric)
-    * Chain Lightning (Sorcerer, Wizard)
-    * Circle of Death (Sorcerer, Warlock, Wizard)
-    * Conjure Fey (Druid, Warlock)
-    * Create Undead (Cleric, Warlock, Wizard)
-    * Disintegrate (Sorcerer, Wizard)
-    * Eyebite (Bard, Sorcerer, Warlock)
-    * Find the Path (Bard, Cleric, Druid)
-    * Flesh to Stone (Sorcerer, Warlock, Wizard)
-    * Globe of Invulnerability (Wizard)
-    * Guards and Wards (Wizard)
-    * Harm (Cleric)
-    * Heal (Cleric)
-    * Heroes' Feast (Cleric, Druid)
-    * Irresistible Dance (Bard, Cleric, Sorcerer, Wizard)
-    * Magic Jar (Wizard)
-    * Mass Suggestion (Bard, Cleric, Sorcerer, Wizard)
-    * Move Earth (Druid, Sorcerer, Wizard)
-    * Programmed Illusion (Wizard)
-    * Sunbeam (Druid, Sorcerer, Wizard)
-    * True Seeing (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Wall of Ice (Wizard)
+    * Blade Barrier <small>(Cleric)</small>
+    * Chain Lightning <small>(Sorcerer, Wizard)</small>
+    * Circle of Death <small>(Sorcerer, Warlock, Wizard)</small>
+    * Conjure Fey <small>(Druid, Warlock)</small>
+    * Create Undead <small>(Cleric, Warlock, Wizard)</small>
+    * Disintegrate <small>(Sorcerer, Wizard)</small>
+    * Eyebite <small>(Bard, Sorcerer, Warlock)</small>
+    * Find the Path <small>(Bard, Cleric, Druid)</small>
+    * Flesh to Stone <small>(Sorcerer, Warlock, Wizard)</small>
+    * Globe of Invulnerability <small>(Wizard)</small>
+    * Guards and Wards <small>(Wizard)</small>
+    * Harm <small>(Cleric)</small>
+    * Heal <small>(Cleric)</small>
+    * Heroes' Feast <small>(Cleric, Druid)</small>
+    * Irresistible Dance <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Magic Jar <small>(Wizard)</small>
+    * Mass Suggestion <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Move Earth <small>(Druid, Sorcerer, Wizard)</small>
+    * Programmed Illusion <small>(Wizard)</small>
+    * Sunbeam <small>(Druid, Sorcerer, Wizard)</small>
+    * True Seeing <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Wall of Ice <small>(Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>6th</sup> of {{Spell}}"
 }
 
 SpellScroll7thLevel {
   Spell @ [
-    * Arcane Sword (Bard, Wizard)
-    * Conjure Celestial (Cleric)
-    * Delayed Blast Fireball (Sorcerer, Wizard)
-    * Etherealness (Bard, Cleric, Sorcerer, Wizard)
-    * Finger of Death (Sorcerer, Wizard)
-    * Fire Storm (Druid, Sorcerer, Wizard)
-    * Forcecage (Bard, Wizard)
-    * Magnificent Mansion (Bard, Wizard)
-    * Mirage Arcane (Bard, Druid, Wizard)
-    * Plane Shift (Cleric, Druid, Sorcerer, Wizard)
-    * Prismatic Spray (Sorcerer, Wizard)
-    * Regenerate (Cleric, Druid, Bard)
-    * Resurrection (Cleric, Druid, Bard)
-    * Reverse Gravity (Druid, Sorcerer, Wizard)
-    * Sequester (Wizard)
-    * Simulacrum (Wizard)
-    * Symbol (Cleric, Wizard)
-    * Teleport (Bard, Cleric, Sorcerer, Wizard)
+    * Arcane Sword <small>(Bard, Wizard)</small>
+    * Conjure Celestial <small>(Cleric)</small>
+    * Delayed Blast Fireball <small>(Sorcerer, Wizard)</small>
+    * Etherealness <small>(Bard, Cleric, Sorcerer, Wizard)</small>
+    * Finger of Death <small>(Sorcerer, Wizard)</small>
+    * Fire Storm <small>(Druid, Sorcerer, Wizard)</small>
+    * Forcecage <small>(Bard, Wizard)</small>
+    * Magnificent Mansion <small>(Bard, Wizard)</small>
+    * Mirage Arcane <small>(Bard, Druid, Wizard)</small>
+    * Plane Shift <small>(Cleric, Druid, Sorcerer, Wizard)</small>
+    * Prismatic Spray <small>(Sorcerer, Wizard)</small>
+    * Regenerate <small>(Cleric, Druid, Bard)</small>
+    * Resurrection <small>(Cleric, Druid, Bard)</small>
+    * Reverse Gravity <small>(Druid, Sorcerer, Wizard)</small>
+    * Sequester <small>(Wizard)</small>
+    * Simulacrum <small>(Wizard)</small>
+    * Symbol <small>(Cleric, Wizard)</small>
+    * Teleport <small>(Bard, Cleric, Sorcerer, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>7th</sup> of {{Spell}}"
 }
 
 SpellScroll8thLevel {
   Spell @ [
-    * Antimagic Field (Cleric, Wizard)
-    * Animal Shapes (Druid)
-    * Antipathy/Sympathy (Druid, Wizard)
-    * Control Weather (Cleric, Druid, Wizard)
-    * Earthquake (Cleric, Druid, Sorcerer, Wizard)
-    * Feeblemind (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Glibness (Bard, Warlock, Wizard)
-    * Incendiary Cloud (Sorcerer, Wizard)
-    * Maze (Wizard)
-    * Mind Blank (Wizard)
-    * Power Word Stun (Sorcerer, Warlock, Wizard)
+    * Antimagic Field <small>(Cleric, Wizard)</small>
+    * Animal Shapes <small>(Druid)</small>
+    * Antipathy/Sympathy <small>(Druid, Wizard)</small>
+    * Control Weather <small>(Cleric, Druid, Wizard)</small>
+    * Earthquake <small>(Cleric, Druid, Sorcerer, Wizard)</small>
+    * Feeblemind <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Glibness <small>(Bard, Warlock, Wizard)</small>
+    * Incendiary Cloud <small>(Sorcerer, Wizard)</small>
+    * Maze <small>(Wizard)</small>
+    * Mind Blank <small>(Wizard)</small>
+    * Power Word Stun <small>(Sorcerer, Warlock, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>8th</sup> of {{Spell}}"
 }
 
-SpellScroll9thLevel {
+SpellScroll9thLevel(LegendaryItem) {
   Spell @ [
-    * Astral Projection (Cleric, Sorcerer, Warlock, Wizard)
-    * Foresight (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * Gate (Cleric, Sorcerer, Wizard)
-    * Imprisonment (Warlock, Wizard)
-    * Meteor Swarm (Sorcerer, Wizard)
-    * Power Word Kill (Sorcerer, Warlock, Wizard)
-    * Prismatic Wall (Wizard)
-    * Shapechange (Druid, Wizard)
-    * Time Stop (Wizard)
-    * True Polymorph (Bard, Cleric, Druid, Sorcerer, Wizard)
-    * True Resurrection (Cleric, Druid)
-    * Weird (Wizard)
-    * Wish (Sorcerer, Wizard)
+    * Astral Projection <small>(Cleric, Sorcerer, Warlock, Wizard)</small>
+    * Foresight <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * Gate <small>(Cleric, Sorcerer, Wizard)</small>
+    * Imprisonment <small>(Warlock, Wizard)</small>
+    * Meteor Swarm <small>(Sorcerer, Wizard)</small>
+    * Power Word Kill <small>(Sorcerer, Warlock, Wizard)</small>
+    * Prismatic Wall <small>(Wizard)</small>
+    * Shapechange <small>(Druid, Wizard)</small>
+    * Time Stop <small>(Wizard)</small>
+    * True Polymorph <small>(Bard, Cleric, Druid, Sorcerer, Wizard)</small>
+    * True Resurrection <small>(Cleric, Druid)</small>
+    * Weird <small>(Wizard)</small>
+    * Wish <small>(Sorcerer, Wizard)</small>
   ]
-  Title! ~ "Spell Scroll: {{Spell}}"
+  Title! ~ "Scroll<sup>9th</sup> of {{Spell}}"
+  | LegendaryItem
 }
 
