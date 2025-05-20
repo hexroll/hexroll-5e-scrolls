@@ -292,13 +292,9 @@ RaceTiefling {
 Race {
   ^ [
     * RaceHuman
-    * RaceHalfOrc
     * RaceDwarf
     * RaceElf
     * RaceHalfling
-    * RaceTiefling
-    * RaceDragonborn
     * RaceHalfElf
-    * RaceGnome
   ]
 }
