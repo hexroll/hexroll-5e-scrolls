@@ -19,8 +19,8 @@ NoTrap {
 
 
 PoisonTrapDamage = [
-  * Succeed a <strong>DC20</strong> Constitution saving throw or sustain 1d6 turns of uncontrolled spasms.
-  * Succeed a <strong>DC15</strong> Constitution saving throw or die in 4d3 turns.
+  * Succeed a <strong>DC20</strong> Constitution saving throw or sustain <strong>{{dice_roller("1d6","1d6")}}</strong> turns of uncontrolled spasms.
+  * Succeed a <strong>DC15</strong> Constitution saving throw or die in <strong>{{dice_roller("3d4","3d4")}}</strong> turns.
 ]
 
 ContainerNeedleTrap {
@@ -28,7 +28,7 @@ ContainerNeedleTrap {
   Damage @ $PoisonTrapDamage
   Description! ~ <%
       There's a <strong>poisoned needle</strong> {{ContainerType.TrapLocation}}.
-      If undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will prick the greedy victim.
+      If undetected using a <strong>DC17</strong> Wisdom (Perception, <small>passive or active</small>) check, it will prick the greedy victim.
       {{Damage}}
       %>
 }
@@ -46,7 +46,7 @@ ContainerVapourTrap {
   Description! ~ <%
       There's a small <strong>gas-filled</strong> {{Vessel}}
       {{ContainerType.TrapLocation}}.
-      If undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will pop open.
+      If undetected using a <strong>DC16</strong> Wisdom (Perception, <small>passive or active</small>) check, it will pop open.
       {{Damage}}
       %>
 }
@@ -60,8 +60,8 @@ ContainerTouchTrap {
   ]
     Description! ~ <%
         {{capitalize(articlize(Agent))}} was applied on the {{ContainerType.PluralizedName}}.
-        Touching it is a risk if undetected using a <strong>DC15</strong> Wisdom (Perception) check.
-        Succeed in a <strong>DC15</strong> Dexterity saving throw or sustain <strong>1d4 damage</strong>.
+        A successful <strong>DC18</strong> Wisdom (Perception, <small>passive or active</small>) check will help avoid touching it; otherwise
+        succeed in a <strong>DC15</strong> Dexterity saving throw or sustain <strong>{{dice_roller("1d4","1d4")}} damage</strong>.
         %>
 }
 
@@ -89,8 +89,8 @@ ContainerRubbleTrap {
   Description! ~ <%
       <strong>Loose</strong> {{Object.noun}} {{Object.aux}} locked above the {{ContainerType.PluralizedName}}, released when a
       <strong>switch</strong> {{ContainerType.TrapLocation}} is triggered.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will drop down.
-      Succeed in a <strong>DC15</strong> Dexterity saving throw or sustain <strong>1d8 damage</strong>.
+      When undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>), it will drop down.
+      Succeed in a <strong>DC15</strong> Dexterity saving throw or sustain <strong>{{dice_roller("1d8","1d8")}} damage</strong>.
       %>
 }
 
@@ -129,7 +129,7 @@ PitTrap {
 
   Description! @ [
     * <p>There's a <strong>deadly pit</strong> here, 6' deep, {{Cover}}.
-      If undetected using a <strong>DC15</strong> Wisdom (Perception) check, there's a chance of stepping into it.
+      If undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>) check, there's a chance of stepping into it.
       Succeed a <strong>DC20</strong> Dexterity saving throw or fall in.</p>
       <p> {%if Monster.NumberAppearingDungeonArea==1%}{{capitalize(articlize(Monster.Title))}}
       is {%else%}{{Monster.NumberAppearingDungeonArea}}
@@ -150,9 +150,9 @@ PitTrap {
       </p>
 
     * There's a <strong>deadly pit</strong> here, 6' deep, {{Cover}}.
-      If undetected using a <strong>DC15</strong> Wisdom (Perception) check, there's a chance of stepping into it.
+      If undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>) check, there's a chance of stepping into it.
       Succeed a <strong>DC20</strong> Dexterity saving throw or fall in and sustain
-      <strong>2d6 damage</strong> from the long rusty spikes at the
+      <strong>{{dice_roller("2d6","2d6")}} damage</strong> from the long rusty spikes at the
       bottom.
 
   ]
@@ -173,25 +173,25 @@ SwingingBladeTrap {
   Description! @ [
     * There's a razor-sharp 4' tall <Strong>swinging blade trap</strong> here, <Strong>hidden</strong>
       inside a thin long <Strong>wall slit</strong>.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
+      When undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
       Succeed a <strong>DC20</strong> Dexterity saving throw
-      or sustain <Strong>2d4 damage</strong>.
+      or sustain <Strong>{{dice_roller("2d4","2d4")}} damage</strong>.
 
     * There's a crushing <Strong>swinging boulder trap</strong> here, <Strong>hidden</strong> inside the
       <Strong>wall</strong>.
       When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
       Succeed a <strong>DC20</strong> Dexterity saving throw
-      or sustain <strong>2d4 damage</strong>.
+      or sustain <strong>{{dice_roller("2d4","2d4")}} damage</strong>.
 
     * There's a razor-sharp 5' tall <strong>swinging blade trap</strong> here, going back
       and forth <strong>periodically</strong>.
       Succeed a <strong>DC15</strong> Strengh (Athletics) or Dexterity (Acrobatics) to avoid getting hit
-      when passing it, or sustain <Strong>2d6 damage</strong>.
+      when passing it, or sustain <Strong>{{dice_roller("2d6","2d6")}} damage</strong>.
 
     * There's a crushing <strong>swinging boulder trap</strong> here, going back and forth
       <strong>periodically</strong>.
       Succeed a <strong>DC15</strong> Strengh (Athletics) or Dexterity (Acrobatics) to avoid getting hit
-      when passing it, or sustain <Strong>2d6 damage</strong>.
+      when passing it, or sustain <Strong>{{dice_roller("2d6","2d6")}} damage</strong>.
   ]
 
 
@@ -204,8 +204,8 @@ SpringedDeviceTrap {
   Description! ~ <%
       There's a <strong>spring-loaded spears trap</strong> here, hidden inside <strong>shafts in
       the floor</strong>.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
-      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>2d4 damage</strong>
+      When undetected using a <strong>DC17</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
+      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>{{dice_roller("2d4","2d4")}} damage</strong>
       from the violent thrust of the jumping spears.
       %>
 
@@ -220,12 +220,12 @@ ProjectilesTrap {
   Description! @ [
     * There's a <strong>poisonous darts trap</strong> here, hidden inside <strong>shafts in the
       wall</strong>.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
+      When undetected using a <strong>DC17</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
       {{Damage}}
 
     * There's a <strong>crossbow trap</strong> here, hidden inside a </strong>niche in the wall</strong>.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
-      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>2d4 damage</strong> from the fast and sharp
+      When undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
+      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>{{dice_roller("2d4","2d4")}} damage</strong> from the fast and sharp
       arrow.
 
   ]
@@ -241,13 +241,13 @@ VapourTrap {
   PoisonDamage @ $PoisonTrapDamage
   Description! @ [
     * There's a <strong>poisonous gas trap</strong> here.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}},
+      When undetected using a <strong>DC17</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}},
       causing the gas to come out of <strong>slits in the wall</strong>.
       {{PoisonDamage}}
     * There's an <strong>acidic vapour trap</strong> here.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}},
+      When undetected using a <strong>DC17</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}},
       causing a spray of acid to come out of a <strong>hole in the wall</strong>.
-      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>1d6 damage</strong> by acid.
+      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>{{dice_roller("1d6","1d6")}} damage</strong> by acid.
   ]
 
 }
@@ -282,8 +282,8 @@ DoorBladeTrap {
 
   Description! ~ <%
       There's a giant blade locked inside a cavity above the door.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
-      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>1d8 damage</strong>.
+      When undetected using a <strong>DC15</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
+      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>{{dice_roller("1d8","1d8")}} damage</strong>.
       %>
 
 
@@ -300,7 +300,7 @@ DoorMagicalTrap {
   ]
     Description! ~ <%
       This doorway is magically trapped.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger when crossing.
+      When undetected using a <strong>DC18</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger when crossing.
       Succeed a <strong>DC20</strong> Intelligence saving throw or {{Damage}}.
     %>
 
@@ -311,7 +311,7 @@ DoorPitTrap {
   Trigger @ $DoorTrapHandlingTriggers
   Description! ~ <%
       There's a concealed 10 foot deep pit next to the door.
-      When undetected using a <strong>DC15</strong> Wisdom (Perception) check, it will trigger if {{Trigger}}.
-      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>1d8 damage</strong>.
+      When undetected using a <strong>DC16</strong> Wisdom (Perception, <small>passive or active</small>) check, it will trigger if {{Trigger}}.
+      Succeed a <strong>DC20</strong> Dexterity saving throw or sustain <strong>{{dice_roller("1d8","1d8")}} damage</strong>.
     %>
 }
