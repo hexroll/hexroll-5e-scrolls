@@ -23,34 +23,10 @@ Shop(SettlementLocation) {
   }
 
   BaseName! ~ "{{Owner.Name.First}}'s {{maybe(Term)}}"
-  Name! ~ "{{BaseName}} (<em>{{Title}}</em>)"
+  Name! ~ "{{BaseName}}"
 
   InvertedName! ~ <%<a href="{{sandbox()}}/location/{{uuid}}"><strong>{{Title}}</strong></a> ({{BaseName}})%>
 
-  DistrictCostFactor? = :District.CostFactor
-
-  PriceFactor? @ [
-    * 0.8
-    * 0.9
-    * 1.0
-    * 1.1
-    * 1.2
-    * 1.4
-  ]
-
-
-  Inventory? ~ <%
-    {% if Items %}
-      <h5> Inventory </h5>
-      <table><tr><th>Item</th><th>Price</th </tr>
-      {% for i in unique(Items,"class")%}
-      <tr>
-        <td>{{i.Title}}</td> <td>{{currency(i.Cost * PriceFactor * DistrictCostFactor)}}</td>
-      </tr>
-      {% endfor %}
-      </table>
-    {% endif %}
-  %>
 
   Quest? @ ShopQuest
 
@@ -107,7 +83,7 @@ Shop(SettlementLocation) {
     </ul>
     </p>
     <p>
-    {{Inventory}}
+    {{Inventory.Inventory}}
     </p>
   %>
 
@@ -117,7 +93,7 @@ Shop(SettlementLocation) {
   <header%
     <div hidden id="doc-title">{{Title}} in {{capitalize(SettlementName)}}</div>
     <h4 id="title">
-    <span id="editable-title" data-attr="Name">{{Name}}</span>
+    <div id="editable-title-container"><span id="editable-title" data-attr="BaseName">{{BaseName}}</span> <span>(<em>{{Title}}</em>)</span></div>
     {{Breadcrumbs}}
     </h4>
   %header>
@@ -207,7 +183,9 @@ Service(SettlementLocation) {
     </ul>
     </p>
     <p>
+    {% if exists("Inventory") %}
     {{Inventory}}
+    {% endif %}
     </p>
   %>
   <metadata%
@@ -217,7 +195,7 @@ Service(SettlementLocation) {
   <header%
     <div hidden id="doc-title">{{Title}} in {{capitalize(SettlementName)}}</div>
     <h4 id="title">
-    <span id="editable-title" data-attr="Name">{{Name}}</span>
+    <div id="editable-title-container"><span id="editable-title" data-attr="BaseName">{{BaseName}}</span> <span>(<em>{{Title}}</em>)</span></div>
     {{Breadcrumbs}}
     </h4>
   %header>
@@ -231,12 +209,47 @@ Guild {
   GuildHead @ Folk
 }
 
+ShopInventory {
+  DistrictCostFactor = :District.CostFactor
+  PriceFactor @ [
+    * 0.8
+    * 0.9
+    * 1.0
+    * 1.1
+    * 1.2
+    * 1.4
+  ]
+  Inventory! ~ <%
+    {% if Items or exists("UniqueItems") %}
+      <h5> {{reroller_ex(uuid, class)}} Inventory </h5>
+      <table><tr><th>Item</th><th>Price</th </tr>
+      {% if exists("UniqueItems") %}
+      {% for i in UniqueItems %}
+      <tr>
+        <td>{{i.Title}}</td> <td>{{currency(i.Cost * PriceFactor * DistrictCostFactor)}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      {% for i in unique(Items,"class")%}
+      <tr>
+        <td>{{i.Title}}</td> <td>{{currency(i.Cost * PriceFactor * DistrictCostFactor)}}</td>
+      </tr>
+      {% endfor %}
+      </table>
+    {% endif %}
+  %>
+}
+
+MagicItemsInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
 
 MagicItems (Shop) {
   Title! = Magic Items
   OwnerTitle! = magic items expert
   Term! @ [
-  * staff
+    * staff
     * orb
     * dust
     * star
@@ -244,7 +257,6 @@ MagicItems (Shop) {
     * illusion
     * gremlin
   ]
-  Items? = null
   | Shop
 }
 
@@ -257,10 +269,15 @@ BakeryProducts {
    ]
 }
 
+BakeryInventory(ShopInventory) {
+  [2..3 Items] @ BakeryProducts
+  | ShopInventory
+}
+
 Bakery(Shop) {
   Title! = Bakery
   OwnerTitle! = bakerer
-  [2..3 Items?] @ BakeryProducts
+  Inventory? @ BakeryInventory
   Term! @ [
     * Loaf
     * Baguette
@@ -282,13 +299,19 @@ GeneralGoodsProducts {
     * Tools
     * Lighting
     * Wearables
+    * GeneralComponent
    ]
+}
+
+GeneralGoodsInventory(ShopInventory) {
+  [12..18 Items] @ GeneralGoodsProducts
+  | ShopInventory
 }
 
 GeneralGoods(Shop) {
   Title! = General Goods
   OwnerTitle! = merchant
-  [7..10 Items?] @ GeneralGoodsProducts
+  Inventory? @ GeneralGoodsInventory
   Term! @ [
     * Goods
     * Supply
@@ -308,10 +331,20 @@ BookstoreProducts {
    ]
 }
 
+BookstoreInventory(ShopInventory) {
+  [3..5 Items] @@ [
+    *(x1) BookstoreProducts
+  ]
+  [5..9 UniqueItems] @ Book {
+     Cost @ 10d6
+  }
+  | ShopInventory
+}
+
 Bookstore(Shop) {
   Title! = Bookstore
   OwnerTitle! = curator
-  [2..3 Items?] @ BookstoreProducts
+  Inventory? @ BookstoreInventory
   Term! @ [
     * Scrolls
     * Pages
@@ -320,10 +353,18 @@ Bookstore(Shop) {
   | Shop
 }
 
+GrocerInventory(ShopInventory) {
+  [14..19 Items] @@ [
+    *(x2) Food
+    *(x1) FoodComponent
+  ]
+  | ShopInventory
+}
+
 Grocer(Shop) {
   Title! = Grocer
   OwnerTitle! = merchant
-  [7..10 Items?]  @ Food
+  Inventory? @ GrocerInventory
   Term! @ [
     * Groceries
     * Tomato
@@ -411,10 +452,15 @@ PetSongBird(Pet) {
   Cost! = 2
 }
 
+PetShopInventory(ShopInventory) {
+  [3..5 Items] @ Pet
+  | ShopInventory
+}
+
 PetShop(Shop) {
   Title! = Pet Shop
   OwnerTitle! = merchant
-  [3..5 Items?] @ Pet
+  Inventory? @ PetShopInventory
   Term! @ [
     * Petshop
     * Sidekicks
@@ -423,7 +469,16 @@ PetShop(Shop) {
   | Shop
 }
 
+HerbalistInventory(ShopInventory) {
+  [12..15 Items] @@ [
+    * HerbalismAndAlchemy
+    * HerbalismComponent
+  ]
+  | ShopInventory
+}
+
 Herbalist(Shop) {
+  Inventory? @ HerbalistInventory
   Title! = Herbalist
   OwnerTitle! = herbalist
   Term! @ [
@@ -431,7 +486,6 @@ Herbalist(Shop) {
     * Weeds
     * Mushroom
   ]
-  Items? = null
   | Shop
 
   HexQuestMission @ [
@@ -441,16 +495,56 @@ Herbalist(Shop) {
   HexQuest! @ EscortQuest
 }
 
+PotionInventory(ShopInventory) {
+  [5..10 Items] @@ [
+    *(x15) PotionOfGreaterHealing
+    *(x15) PotionOfSuperiorHealing
+    *(x10) PotionOfSpeed
+    *(x20) PotionOfSupremeHealing
+    *(x10) PotionOfInvisibility
+    *(x10) PotionOfSpeed
+    *(x10) SpellScroll6thLevel
+    *(x5)  PotionOfClairvoyance
+    *(x5)  PotionOfDiminution
+    *(x5)  PotionOfFlying
+    *(x5)  PotionOfCloudGiantStrength
+    *(x5)  PotionOfLongevity
+    *(x5)  PotionOfVitality
+    *(x5)  PotionOfGaseousForm
+    *(x5)  PotionOfFrostGiantStrength
+    *(x5)  PotionOfStoneGiantStrength
+    *(x5)  PotionOfHeroism
+    *(x5)  PotionOfInvulnerability
+    *(x5)  PotionOfMindReading
+    *(x7)  SpellScroll7thLevel
+    *(x5)  OilOfSharpness
+    *(x5)  PotionOfFlying
+    *(x5)  PotionOfCloudGiantStrength
+    *(x5)  PotionOfLongevity
+    *(x5)  PotionOfVitality
+  ]
+  | ShopInventory
+}
+
 Potion(Shop) {
   Title! = Potions
   OwnerTitle! = alchemist
   Term! = null
 
-  Items? = null
   | Shop
 }
 
+ExoticGoodsInventory(ShopInventory) {
+  [15..25 Items] @@ [
+    * OddOrCraftedComponent
+    * OccultComponent
+    * MineralComponent
+  ]
+  | ShopInventory
+}
+
 ExoticGoods(Shop) {
+  Inventory? @ ExoticGoodsInventory
   Title! = Exotic Goods
   OwnerTitle! = exotica curator
   Term! @ [
@@ -460,12 +554,18 @@ ExoticGoods(Shop) {
     * Discoveries
     * Excavations
   ]
-  Items? = null
   | Shop
   HexQuestMission @ [
     * acquire exotic artifacts
   ]
   HexQuest! @ EscortQuest
+}
+
+JewelerInventory(ShopInventory) {
+  [10..15 Items] @@ [
+    * MineralComponent
+  ]
+  | ShopInventory
 }
 
 Jeweler(Shop) {
@@ -477,17 +577,27 @@ Jeweler(Shop) {
     * Sparkly Things
     * Sparkly Things and Such
   ]
-  Items? = null
+  Inventory? @ JewelerInventory
   | Shop
+}
+
+BunkhouseInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Bunkhouse(Shop) {
   Title! = Bunkhouse
   OwnerTitle! = host
   Term! = null
+  Inventory? @ BunkhouseInventory
 
-  Items? = null
   | Shop
+}
+
+CarpenterInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Carpenter(Shop) {
@@ -498,7 +608,7 @@ Carpenter(Shop) {
     * Woodcraft
     * Workshop
   ]
-  Items? = null
+  Inventory? @ CarpenterInventory
   | Shop
 }
 
@@ -508,13 +618,22 @@ Mount {
     * DraftHorse
     * RidingHorse
     * Mule
+    * Mastiff
+    * Elephant
+    * Pony
+    * Warhorse
    ]
+}
+
+StablesInventory(ShopInventory) {
+  [2..6 Items] @ Mount
+  | ShopInventory
 }
 
 Stables(Shop) {
   Title! = Stables
   OwnerTitle! = carer
-  [2..6 Items?] @ Mount
+  Inventory? @ StablesInventory
   Term! @ [
     * Mounts
     * Stallions
@@ -523,10 +642,15 @@ Stables(Shop) {
   | Shop
 }
 
+ArmorWeaponsInventory(ShopInventory) {
+  [12..19 Items] @ ArmorWeapon
+  | ShopInventory
+}
+
 ArmorWeapons(Shop) {
   Title! = "Armor & Weapons"
   OwnerTitle! = blacksmith
-  [5..10 Items?] @ ArmorWeapon
+  Inventory? @ ArmorWeaponsInventory
   Term! @ [
     * Blade
     * Shield & Sword
@@ -536,10 +660,15 @@ ArmorWeapons(Shop) {
   | Shop
 }
 
+HatterInventory(ShopInventory) {
+  [2..3 Items] @ Hats
+  | ShopInventory
+}
+
 Hatter(Shop) {
   Title! = Hatter
   OwnerTitle! = hatter
-  [2..3 Items?] @ Hats
+  Inventory? @ HatterInventory
   Term! @ [
     * Caps
     * Top Hat
@@ -547,10 +676,15 @@ Hatter(Shop) {
   | Shop
 }
 
+ButcheryInventory(ShopInventory) {
+  [6..10 Items] @ MeatAndFish
+  | ShopInventory
+}
+
 Butchery(Shop) {
   Title! = Butchery
   OwnerTitle! = butcher
-  [6..10 Items?] @ MeatAndFish
+  Inventory? @ ButcheryInventory
   Term! @ [
     * Beef & Pork
     * Prime Cut
@@ -563,16 +697,29 @@ Butchery(Shop) {
   HexQuest! @ EscortQuest
 }
 
+ClothingInventory(ShopInventory) {
+  [2..6 Items] @ Wearables
+  | ShopInventory
+}
+
 Clothing(Shop) {
   Title! = Clothing
   OwnerTitle! = tailor
-  [2..6 Items?] @ Wearables
+  Inventory? @ ClothingInventory
   Term! @ [
     * Fashion
     * Wearables
     * Boutique
   ]
   | Shop
+}
+
+BlacksmithInventory(ShopInventory) {
+  [10..12 Items] @@ [
+    *(x3) ArmorWeapon
+    *(x1) BlacksmithComponent
+  ]
+  | ShopInventory
 }
 
 Blacksmith(Shop) {
@@ -586,10 +733,13 @@ Blacksmith(Shop) {
     * Hammer
     * Fire
   ]
-
-  [2..6 Items?] @ ArmorWeapon
-
+  Inventory? @ BlacksmithInventory
   | Shop
+}
+
+BarberInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Barber(Shop) {
@@ -600,15 +750,20 @@ Barber(Shop) {
     * Razor
     * Salon
   ]
+  Inventory? @ BarberInventory
 
-  Items? = null
   | Shop
+}
+
+LiquorInventory(ShopInventory) {
+  [2..6 Items] @ Drinks
+  | ShopInventory
 }
 
 Liquor(Shop) {
   Title! = Liquor
   OwnerTitle! = merchant
-  [2..6 Items?] @ Drinks
+  Inventory? @ LiquorInventory
   Term! @ [
     * Liquor
     * Spirits
@@ -619,10 +774,15 @@ Liquor(Shop) {
   | Shop
 }
 
+CraftInventory(ShopInventory) {
+  [2..6 Items] @ Tools
+  | ShopInventory
+}
+
 Craft(Shop) {
   Title! = Craft
   OwnerTitle! = merchant
-  [2..6 Items?] @ Tools
+  Inventory? @ CraftInventory
   Term! @ [
     * Crafts
     * Handmades
@@ -633,10 +793,15 @@ Craft(Shop) {
   | Shop
 }
 
+MusicInventory(ShopInventory) {
+  [2..3 Items] @ MusicalInstruments
+  | ShopInventory
+}
+
 Music(Shop) {
   Title! = Music
   OwnerTitle! = musician
-  [2..3 Items?] @ MusicalInstruments
+  Inventory? @ MusicInventory
   Term! @ [
     * Instruments
     * Guitar & Flute
@@ -649,6 +814,11 @@ Music(Shop) {
   HexQuest! @ EscortQuest
 }
 
+SalonInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 Salon(Shop) {
   Title! = Salon
   OwnerTitle! = stylist
@@ -656,8 +826,13 @@ Salon(Shop) {
     * Salon
     * Styles
   ]
-  Items? = null
+  Inventory? @ SalonInventory
   | Shop
+}
+
+CartographerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Cartographer(Shop) {
@@ -668,8 +843,13 @@ Cartographer(Shop) {
     * Mapmakers
     * cartography
   ]
-  Items? = null
+  Inventory? @ CartographerInventory
   | Shop
+}
+
+SpiceInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Spice(Shop) {
@@ -679,8 +859,13 @@ Spice(Shop) {
     * Spices
     * Salt & Pepper
   ]
-  Items? = null
+  Inventory? @ SpiceInventory
   | Shop
+}
+
+BathhouseInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Bathhouse(Shop) {
@@ -690,8 +875,13 @@ Bathhouse(Shop) {
     * Baths
     * Steam & Bath
   ]
-  Items? = null
+  Inventory? @ BathhouseInventory
   | Shop
+}
+
+CasinoInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Casino(Shop) {
@@ -702,8 +892,13 @@ Casino(Shop) {
     * Casino
     * Dicerollers
   ]
-  Items? = null
+  Inventory? @ CasinoInventory
   | Shop
+}
+
+AnimalSuppliesInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 AnimalSupplies(Shop) {
@@ -712,18 +907,23 @@ AnimalSupplies(Shop) {
   Term! @ [
     * Barn & Yarn
   ]
-  Items? = null
+  Inventory? @ AnimalSuppliesInventory
   | Shop
+}
+
+OccultInventory(ShopInventory) {
+  [10..20 Items] @ OccultComponent
+  | ShopInventory
 }
 
 Occult(Shop) {
   Title! = Occult
+  Inventory? @ OccultInventory
   OwnerTitle! = curator
   Term! @ [
     * Ritual Goods
     * Witchcraft Materials
   ]
-  Items? = null
   | Shop
   HexQuestMission @ [
     * explore for mysterious artifacts
@@ -732,10 +932,15 @@ Occult(Shop) {
 }
 
 
+WineryInventory(ShopInventory) {
+  [2..3 Items] @ Drinks
+  | ShopInventory
+}
+
 Winery(Shop) {
   Title! = Winery
   OwnerTitle! = sommelier
-  [2..3 Items?] @ Drinks
+  Inventory? @ WineryInventory
   Term! @ [
     * Wines
     * Fine Wines
@@ -743,10 +948,15 @@ Winery(Shop) {
   | Shop
 }
 
+BreweryInventory(ShopInventory) {
+  [2..3 Items] @ Drinks
+  | ShopInventory
+}
+
 Brewery(Shop) {
   Title! = Brewery
   OwnerTitle! = brewer
-  [2..3 Items?] @ Drinks
+  Inventory? @ BreweryInventory
   Term! @ [
     * Good Stuff
     * Brews
@@ -754,10 +964,15 @@ Brewery(Shop) {
   | Shop
 }
 
+DistilleryInventory(ShopInventory) {
+  [2..3 Items] @ Drinks
+  | ShopInventory
+}
+
 Distillery(Shop) {
   Title! = Distillery
   OwnerTitle! = destiller
-  [2..3 Items?] @ Drinks
+  Inventory? @ DistilleryInventory
   Term! @ [
     * Good Stuff
     * Mixtures
@@ -769,6 +984,11 @@ Distillery(Shop) {
   | Shop
 }
 
+FlowerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 Flower(Shop) {
   Title! = Flower Shop
   OwnerTitle! = florist
@@ -778,8 +998,13 @@ Flower(Shop) {
     * Roses
     * Tulips
   ]
-  Items? = null
+  Inventory? @ FlowerInventory
   | Shop
+}
+
+CobblerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Cobbler(Shop) {
@@ -789,19 +1014,29 @@ Cobbler(Shop) {
     * Shoes
     * Shoemakers
   ]
-  Items? = null
+  Inventory? @ CobblerInventory
   | Shop
+}
+
+TinkererInventory(ShopInventory) {
+  [3..5 Items] @ Tools
+  | ShopInventory
 }
 
 Tinkerer(Shop) {
   Title! = Tinkerer
   OwnerTitle! = tinkerer
-  [3..5 Items?] @ Tools
+  Inventory? @ TinkererInventory
   Term! @ [
     * Devices
     * Fix-it-All
   ]
   | Shop
+}
+
+WeaverInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Weaver(Shop) {
@@ -811,8 +1046,13 @@ Weaver(Shop) {
     * Fabrics
     * Garments
   ]
-  Items? = null
+  Inventory? @ WeaverInventory
   | Shop
+}
+
+ScribeInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Scribe(Shop) {
@@ -822,8 +1062,13 @@ Scribe(Shop) {
     * Copywriters
     * Ink & Feather
   ]
-  Items? = null
+  Inventory? @ ScribeInventory
   | Shop
+}
+
+VeterinarianInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Veterinarian(Shop) {
@@ -834,12 +1079,23 @@ Veterinarian(Shop) {
     * Horse Healers
     * Sheep Whisperer
   ]
-  Items? = null
+  Inventory? @ VeterinarianInventory
   | Shop
 }
 
+DarkMarketInventory(ShopInventory) {
+  [18..25 Items] @@ [
+    *(x2) Gear
+    *(x2) DarkMarketTools
+    *(x2) OccultComponent
+    *(x1) GeneralComponent
+    *(x1) HerbalismComponent
+  ]
+  | ShopInventory
+}
+
 DarkMarket(Shop) {
-  [9..15 Items?] @ Gear
+  Inventory? @ DarkMarketInventory
   Title! = Dark Market
   OwnerTitle! = merchant
   Term! @ [
@@ -850,8 +1106,12 @@ DarkMarket(Shop) {
     * Knick & Knacks
     * All Legal Goods
   ]
-
   | Shop
+}
+
+BrothelInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Brothel(Shop) {
@@ -860,7 +1120,7 @@ Brothel(Shop) {
   Term! @ [
     * Companions
   ]
-  Items? = null
+  Inventory? @ BrothelInventory
   | Shop
 }
 
@@ -876,6 +1136,11 @@ Bank(Service) {
  | Service
 }
 
+GlassBlowerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 GlassBlower(Shop) {
   Title! = Glass Blower
   OwnerTitle! = glass blower
@@ -884,19 +1149,29 @@ GlassBlower(Shop) {
     * Tubes
     * Bottlemakers
   ]
-  Items? = null
+  Inventory? @ GlassBlowerInventory
   | Shop
+}
+
+LeatherworkerInventory(ShopInventory) {
+  [2..6 Items] @ LeatherMade
+  | ShopInventory
 }
 
 Leatherworker(Shop) {
   Title! = Leatherworker
   OwnerTitle! = leatherworker
-  [2..6 Items?] @ LeatherMade
   Term! @ [
     * Leathers
     * Bags and Such
   ]
+  Inventory? @ LeatherworkerInventory
   | Shop
+}
+
+PhysicianInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Physician(Shop) {
@@ -905,7 +1180,7 @@ Physician(Shop) {
   Term! @ [
     * Clinic
   ]
-  Items? = null
+  Inventory? @ PhysicianInventory
   | Shop
 }
 
@@ -976,6 +1251,11 @@ Library(Service) {
  | Service
 }
 
+LawyerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 Lawyer(Shop) {
   Title! = Lawyer
   OwnerTitle! = lawyer
@@ -983,8 +1263,13 @@ Lawyer(Shop) {
     * Will Makers
     * Soliciters
   ]
-  Items? = null
+  Inventory? @ LawyerInventory
   | Shop
+}
+
+TinWorkerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 TinWorker(Shop) {
@@ -997,20 +1282,34 @@ TinWorker(Shop) {
     * Bronze & Copper
     * Repairs
   ]
-  Items? = null
+  Inventory? @ TinWorkerInventory
   | Shop
+}
+
+IndoorMarketInventory(ShopInventory) {
+  [10..14 Items] @@ [
+    *(x4) Gear
+    *(x2) GeneralComponent
+    *(x1) FoodComponent
+  ]
+  | ShopInventory
 }
 
 IndoorMarket(Shop) {
   Title! = Indoor Market
   OwnerTitle! = merchant
-  [10..14 Items?] @ Gear
+  Inventory? @ IndoorMarketInventory
   Term! @ [
     * Fresh Food
     * Market
     * 1cp Shop
   ]
   | Shop
+}
+
+NightclubInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Nightclub(Shop) {
@@ -1021,22 +1320,32 @@ Nightclub(Shop) {
     * Lounge
     * Dancehall
   ]
-  Items? = null
+  Inventory? @ NightclubInventory
   | Shop
+}
+
+CityHallInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 CityHall(Shop) {
   Title! = CityHall
   OwnerTitle! = official
   Term! = null
-  Items? = null
+  Inventory? @ CityHallInventory
   | Shop
+}
+
+FishMarketInventory(ShopInventory) {
+  [2..4 Items] @ Fish
+  | ShopInventory
 }
 
 FishMarket(Shop) {
   Title! = Fish Market
   OwnerTitle! = fishmonger
-  [2..4 Items?] @ Fish
+  Inventory? @ FishMarketInventory
   Term! @ [
     * Fresh Fish
     * Sea Products
@@ -1045,10 +1354,15 @@ FishMarket(Shop) {
   | Shop
 }
 
+TailorInventory(ShopInventory) {
+  [2..6 Items] @ Wearables
+  | ShopInventory
+}
+
 Tailor(Shop) {
   Title! = Tailor
   OwnerTitle! = tailor
-  [2..6 Items?] @ Wearables
+  Inventory? @ TailorInventory
   Term! @ [
     * Fashion
     * Handmade Shirts and More
@@ -1071,6 +1385,11 @@ CityGuard(Service) {
  | Service
 }
 
+EventHallInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 EventHall(Shop) {
   Title! = Event Hall
   OwnerTitle! = party planner
@@ -1079,7 +1398,7 @@ EventHall(Shop) {
     * Feasts Hall
     * Events and Balls
   ]
-  Items? = null
+  Inventory? @ EventHallInventory
   | Shop
 }
 
@@ -1093,6 +1412,11 @@ Orphanage(Service) {
  | Service
 }
 
+EnchanterInventory(ShopInventory) {
+  [5..10 Items] @ OccultComponent
+  | ShopInventory
+}
+
 Enchanter(Shop) {
   Title! = Enchanter
   OwnerTitle! = enchanter
@@ -1100,8 +1424,13 @@ Enchanter(Shop) {
     * Enchanments
     * Blessings
   ]
-  Items? = null
+  Inventory? @ EnchanterInventory
   | Shop
+}
+
+PostOfficeInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 PostOffice(Shop) {
@@ -1111,16 +1440,26 @@ PostOffice(Shop) {
     * Post Station
     * Deliveries
   ]
-  Items? = null
+  Inventory? @ PostOfficeInventory
   | Shop
+}
+
+MillInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Mill(Shop) {
   Title! = Mill
   OwnerTitle! = miller
   Term! = null
-  Items? = null
+  Inventory? @ MillInventory
   | Shop
+}
+
+SmokehouseInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Smokehouse(Shop) {
@@ -1131,11 +1470,17 @@ Smokehouse(Shop) {
     * Smoked Fish And More
     * Smoked Meat And More
   ]
-  Items? = null
+  Inventory? @ SmokehouseInventory
   | Shop
 }
 
+GameShopInventory(ShopInventory) {
+  [2..4 Items] @ Games
+  | ShopInventory
+}
+
 GameShop(Shop) {
+  Inventory? @ GameShopInventory
   Title! = Game Shop
   OwnerTitle! = merchant
   Term! @ [
@@ -1145,7 +1490,6 @@ GameShop(Shop) {
     * Cards
     * Dice
   ]
-  Items? = null
   | Shop
 }
 
@@ -1162,11 +1506,16 @@ Theater(Service) {
  | Service
 }
 
+WitchInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 Witch(Shop) {
   Title! = Witch
   OwnerTitle! = witch
   Term! = null
-  Items? = null
+  Inventory? @ WitchInventory
   | Shop
 }
 
@@ -1177,6 +1526,11 @@ College(Service) {
  | Service
 }
 
+PrintingPressInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 PrintingPress(Shop) {
   Title! = Printing Press
   OwnerTitle! = typesetter
@@ -1185,7 +1539,7 @@ PrintingPress(Shop) {
     * Prints
     * Press
   ]
-  Items? = null
+  Inventory? @ PrintingPressInventory
   | Shop
 }
 
@@ -1194,6 +1548,11 @@ AnimalPound(Service) {
   OwnerTitle! = carer
   Term! = null
  | Service
+}
+
+EventPlannerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 EventPlanner(Shop) {
@@ -1206,7 +1565,7 @@ EventPlanner(Shop) {
     * Celebrations
     * Festivals
   ]
-  Items? = null
+  Inventory? @ EventPlannerInventory
   | Shop
 }
 
@@ -1222,6 +1581,11 @@ Mortician(Service) {
  | Service
 }
 
+TannerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 Tanner(Shop) {
   Title! = Tanner
   OwnerTitle! = tanner
@@ -1230,7 +1594,7 @@ Tanner(Shop) {
     * Hides and Leathers
     * Beast Skins
   ]
-  Items? = null
+  Inventory? @ TannerInventory
   | Shop
 }
 
@@ -1248,6 +1612,11 @@ Registry(Service) {
  | Service
 }
 
+TradePostInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 TradePost(Shop) {
   Title! = Trade Post
   OwnerTitle! = merchant
@@ -1257,8 +1626,13 @@ TradePost(Shop) {
     * Buying and Selling
     * Marketplace
   ]
-  Items? = null
+  Inventory? @ TradePostInventory
   | Shop
+}
+
+VehicleMakerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 VehicleMaker(Shop) {
@@ -1269,7 +1643,7 @@ VehicleMaker(Shop) {
     * Vehicles
     * Carts and Wagons
   ]
-  Items? = null
+  Inventory? @ VehicleMakerInventory
   | Shop
 }
 
@@ -1284,6 +1658,11 @@ Archive(Service) {
  | Service
 }
 
+FortuneTellerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
+}
+
 FortuneTeller(Shop) {
   Title! = Fortune Teller
   OwnerTitle! = fortune teller
@@ -1292,8 +1671,13 @@ FortuneTeller(Shop) {
     * Third Eye
     * Visions
   ]
-  Items? = null
+  Inventory? @ FortuneTellerInventory
   | Shop
+}
+
+MatchmakerInventory(ShopInventory) {
+  Items = null
+  | ShopInventory
 }
 
 Matchmaker(Shop) {
@@ -1304,7 +1688,7 @@ Matchmaker(Shop) {
     * House of Hearts
     * Matchmaking Services
   ]
-  Items? = null
+  Inventory? @ MatchmakerInventory
   | Shop
 }
 

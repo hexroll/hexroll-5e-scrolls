@@ -72,32 +72,86 @@ Gear(Equipment) { ^ [
     * Tools
     * Lighting
     * Wearables
+    * AdventureGear
     ]
+}
+
+AdventureGear {
+  ^ [
+    * ClimbersKit
+    * FishingTackle
+    * HealersKit
+    * Hourglass
+    * Lamp
+    * MessKit
+    * OilFlask
+    * RopeHempen
+    * RopeSilk
+    * Tent
+    * Tinderbox
+    * SixTorches
+  ]
 }
 
 Tools {
   ^ [
-    * StakesAndMallet
-    * Crowbar
-    * GrapplingHook
-    * SmallHammer
-    * IronSpikes
-    * ThieveTools
-    * Pole
-    * Rope
-    * Mirror
-    * SmallBell
+    * Abacus
+    * BallBearings
+    * Barrel
+    * BlockAndTackle
+    * Bucket
+    * BushcraftKnife
+    * Caltrops
     * Canvas
     * Chain
-    * FishingRod
-    * SewingNeedle
-    * MiningPickAxe
-    * BushcraftKnife
-    * SmokingPipe
-    * Inkvial
-    * Quill
+    * Crowbar
     * EmptyScroll
+    * FishingRod
+    * GrapplingHook
+    * HuntingTrap
+    * Inkvial
+    * IronSpikes
     * Lens
+    * Lock
+    * Manacles
+    * MiningPickAxe
+    * Mirror
+    * PickMiner
+    * Pole
+    * Quill
+    * RamPortable
+    * Rope
+    * SewingNeedle
+    * Shovel
+    * SmallBell
+    * SmallHammer
+    * SmokingPipe
+    * SpikesIron
+    * Spyglass
+    * StakesAndMallet
+    * ThieveTools
+    * Whetstone
+    * GlassblowersTools
+    * JewelersTools
+    * LeatherworkersTools
+    * CobblersTools
+    * CarpentersTools
+    * MasonsTools
+    * TinkersTools
+    * NavigatorsTools
+  ]
+}
+
+ScribingTools {
+  ^ [
+    * CalligraphersSupplies
+    * CartographersTools
+    * PaintersSupplies
+    * Book
+    * InkBottle
+    * InkPen
+    * Paper
+    * Parchment
   ]
 }
 
@@ -118,11 +172,59 @@ HolyItems(Gear) {
   ]
 }
 
+Games(Gear) {
+  ^ [
+    * DiceSet
+    * DragonchessSet
+    * PlayingCardSet
+    * ThreeDragonAnteSet
+  ]
+}
+
+SpecialistTools(Gear) {
+  ^ [
+   * AlchemistsSupplies
+   * NavigatorsTools
+   * HerbalismKit
+  ]
+}
+
+HerbalismAndAlchemy(Gear) {
+  ^ [
+   * HealersKit
+   * Bottle
+   * Vial
+   * Oil
+   * Salt
+   * AlchemistsSupplies
+   * HerbalismKit
+   * Garlic
+  ]
+}
+
+DarkMarketTools(Gear) {
+  ^ [
+   * ThievesTools
+   * DisguiseKit
+   * ForgeryKit
+   * PoisonersKit
+  ]
+}
+
 Storage(Gear) {
   ^[
     * SmallSack
     * LargeSack
     * Backpack
+    * Basket
+    * Bottle
+    * Chest
+    * ComponentPouch
+    * FlaskTankard
+    * Quiver
+    * Sack
+    * Vial
+    * Waterskin
   ]
 }
 
@@ -150,6 +252,7 @@ Food(Gear) {
     * Lobster
     * FreshGame
     * DriedMeat
+    * CooksUtensils
   ]
 }
 
@@ -192,6 +295,7 @@ Drinks {
     * CommonWine
     * CraftWine
     * RoyalWine
+    * BrewersSupplies
   ]
 }
 
@@ -249,6 +353,7 @@ Wearables(Gear) {
     * ClothingVeil
     * ClothingCap
     * ClothingLeatherHat
+    * WeaversTools
   ]
 }
 
@@ -275,29 +380,60 @@ LeatherMade(Gear) {
 
 ArmorWeapon {
     ^ [
-    * BattleAxe
     * Club
-    * CrossBow
     * Dagger
-    * HandAxe
+    * Greatclub
+    * Handaxe
     * Javelin
-    * Lance
-    * LongBow
+    * LightHammer
     * Mace
-    * Polearm
-    * ShortBow
-    * ShortSword
-    * SilverDagger
-    * Sling
+    * Quarterstaff
+    * Sickle
     * Spear
-    * Staff
-    * Sword
-    * TwoHandedSword
+    * CrossbowLight
+    * Dart
+    * Shortbow
+    * Sling
+    * Battleaxe
+    * Flail
+    * Glaive
+    * Greataxe
+    * Greatsword
+    * Halberd
+    * Lance
+    * Longsword
+    * Maul
+    * Morningstar
+    * Pike
+    * Rapier
+    * Scimitar
+    * Shortsword
+    * Trident
+    * WarPick
     * Warhammer
-    *(x4) ArmorShield
+    * Whip
+    * Blowgun
+    * CrossbowHand
+    * CrossbowHeavy
+    * Longbow
+    * Net
+    *(x10) AmmunitionArrows
+    *(x10) AmmunitionBlowgunNeedles
+    *(x10) AmmunitionCrossbowBolts
+    *(x10) AmmunitionSlingBullets
+    *(x4) ArmorPadded
     *(x3) ArmorLeather
+    *(x2) ArmorStuddedLeather
+    *(x4) ArmorHide
+    *(x3) ArmorChainShirt
+    *(x2) ArmorScaleMail
+    *(x2) ArmorBreastplate
+    *(x2) ArmorHalfPlate
+    *(x3) ArmorRingMail
     *(x2) ArmorChainmail
-    *(x1) ArmorPlatemail
+    *(x2) ArmorSplint
+    *(x2) ArmorPlate
+    *(x4) ArmorShield
     ]
 }
 

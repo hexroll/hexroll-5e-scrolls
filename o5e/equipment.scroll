@@ -1,0 +1,1523 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024 Ithai Levi ithai@pendicepaper.com
+#
+# This model contains Open Game Content, subject to the Open Game License,
+# released un the Open Game License, Version 1.0a (enclosed in the LICENSE
+# file), as described in Section 1(d) of the License.
+#
+Abacus {
+  Title!= "Abacus"
+  Cost! = 2
+}
+
+AcidVial {
+  Title!= "Acis (vial)"
+  Cost! = 25
+}
+
+AlchemistsFireFlask {
+  Title!= "Alchemist's fire (flask)"
+  Cost! = 50
+}
+
+Antitoxin {
+  Title!= "Antitoxin (vial)"
+  Cost! = 50
+}
+
+ArcaneFocusCrystal {
+  Title!= "Arcane focus (Crystal)"
+  Cost! = 10
+}
+
+ArcaneFocusOrb {
+  Title!= "Arcane focus (Orb)"
+  Cost! = 20
+}
+
+ArcaneFocusRod {
+  Title!= "Arcane focus (Rod)"
+  Cost! = 10
+}
+
+ArcaneFocusStaff {
+  Title!= "Arcane focus (Staff)"
+  Cost! = 5
+}
+
+ArcaneFocusWand {
+  Title!= "Arcane focus (Wand)"
+  Cost! = 10
+}
+
+BallBearings {
+  Title!= "Ball bearings (bag of 1,000)"
+  Cost! = 1
+}
+
+Barrel {
+  Title!= "Barrel"
+  Cost! = 2
+}
+
+Basket {
+  Title!= "Basket"
+  Cost! = 0.4
+}
+
+Bedroll {
+  Title!= "Bedroll"
+  Cost! = 1
+}
+
+Blanket {
+  Title!= "Blanket"
+  Cost! = 0.5
+}
+
+BlockAndTackle {
+  Title!= "Block and tackle"
+  Cost! = 1
+}
+
+BookNamePlain {
+  Prefix @ [
+    * Celestial
+    * Alchemist’s
+    * Dragon’s
+    * Oracle’s
+    * Prophet’s
+    * Eternal
+    * Forgotten
+    * Arcane
+    * Elemental
+    * Hero’s
+    * Lost
+    * Divine
+    * Forbidden
+    * Warlord’s
+    * Arcane
+  ]
+  Suffix @ [
+    * Path
+    * Grimoire
+    * Secret
+    * Digest
+    * Codex
+  ]
+  Title! ~ "The {{Prefix}} {{Suffix}}"
+}
+
+BookNameCollection {
+  Prefix @ [
+    * Prophecies
+    * Journeys
+    * Tales
+    * Legends
+    * Chronicles
+    * Whispers
+    * Fables
+    * Myths
+    * Adventures
+  ]
+  Suffix @ [
+    * from the Abyss
+    * from the Underdark
+    * of the Ancient One
+    * of the Dark Lord
+    * of the Cursed
+    * of the Lost Realms
+    * of the Forgotten
+    * of the Enchanted Forest
+    * of the Mystics
+  ]
+  Title! ~ "{{Prefix}} {{Suffix}}"
+}
+
+Book {
+  Name @@ [
+    * BookNamePlain
+    * BookNameCollection
+  ]
+  Title! ~ <Book ("{{Name.Title}}")>
+  Cost! = 25
+}
+
+Bottle {
+  Title!= "Bottle, glass"
+  Cost! = 2
+}
+
+Bucket {
+  Title!= "Bucket"
+  Cost! = 0.05
+}
+
+Caltrops {
+  Title!= "Caltrops (bag of 20)"
+  Cost! = 1
+}
+
+CaseCrossbowBolt {
+  Title!= "Case, crossbow bolt"
+  Cost! = 1
+}
+
+CaseMapScroll {
+  Title!= "Case, map or scroll"
+  Cost! = 1
+}
+
+Chalk {
+  Title!= "Chalk (1 piece)"
+  Cost! = 0.01
+}
+
+Chest {
+  Title!= "Chest"
+  Cost! = 5
+}
+
+ClimbersKit {
+  Title!= "Climber's kit"
+  Cost! = 25
+}
+
+ClothesCommon {
+  Title!= "Clothes, common"
+  Cost! = 5
+}
+
+ClothesCostume {
+  Title!= "Clothes, costume"
+  Cost! = 5
+}
+
+ClothesFine {
+  Title!= "Clothes, fine"
+  Cost! = 15
+}
+
+ClothesTravelers {
+  Title!= "Clothes, traveler's"
+  Cost! = 2
+}
+
+ClothesColdWeather {
+  Title!= "Clothes, Cold Weather"
+  Cost! = 10
+}
+
+ComponentPouch {
+  Title!= "Component pouch"
+  Cost! = 25
+}
+
+FishingTackle {
+  Title!= "Fishing tackle"
+  Cost! = 1
+}
+
+FlaskTankard {
+  Title!= "Flask or tankard"
+  Cost! = 0.02
+}
+
+HealersKit {
+  Title!= "Healer's kit"
+  Cost! = 5
+}
+
+Hourglass {
+  Title!= "Hourglass"
+  Cost! = 25
+}
+
+HuntingTrap {
+  Title!= "Hunting trap"
+  Cost! = 5
+}
+
+InkBottle {
+  Title!= "Ink (1 ounce bottle)"
+  Cost! = 10
+}
+
+InkPen {
+  Title!= "Ink pen"
+  Cost! = 0.02
+}
+
+Lamp {
+  Title!= "Lamp"
+  Cost! = 5
+}
+
+LanternBullseye {
+  Title!= "Lantern, bullseye"
+  Cost! = 10
+}
+
+LanternHooded {
+  Title!= "Lantern, hooded"
+  Cost! = 5
+}
+
+Lock {
+  Title!= "Lock"
+  Cost! = 10
+}
+
+Manacles {
+  Title!= "Manacles"
+  Cost! = 2
+}
+
+MessKit {
+  Title!= "Mess kit"
+  Cost! = 0.2
+}
+
+MirrorSteel {
+  Title!= "Mirror, steel"
+  Cost! = 5
+}
+
+OilFlask {
+  Title!= "Oil (flask)"
+  Cost! = 0.5
+}
+
+Paper {
+  Title!= "Paper (one sheet)"
+  Cost! = 0.2
+}
+
+Parchment {
+  Title!= "Parchment (one sheet)"
+  Cost! = 0.1
+}
+
+PickMiner {
+  Title!= "Pick, miner's"
+  Cost! = 2
+}
+
+PotionOfHealing {
+  Title!= "Potion of healing"
+  Cost! = 50
+}
+
+Quiver {
+  Title!= "Quiver"
+  Cost! = 1
+}
+
+RamPortable {
+  Title!= "Ram, portable"
+  Cost! = 4
+}
+
+Robes {
+  Title!= "Robes"
+  Cost! = 1
+}
+
+RopeHempen {
+  Title!= "Rope, hempen (50 feet)"
+  Cost! = 1
+}
+
+RopeSilk {
+  Title!= "Rope, silk (50 feet)"
+  Cost! = 10
+}
+
+Sack {
+  Title!= "Sack"
+  Cost! = 0.01
+}
+
+ScaleMerchant {
+  Title!= "Scale, merchant's"
+  Cost! = 5
+}
+
+Shovel {
+  Title!= "Shovel"
+  Cost! = 2
+}
+
+SignalWhistle {
+  Title!= "Signal whistle"
+  Cost! = 0.05
+}
+
+Soap {
+  Title!= "Soap"
+  Cost! = 0.02
+}
+
+Spellbook {
+  Title!= "Spellbook"
+  Cost! = 50
+}
+
+SpikesIron {
+  Title!= "Spikes, iron (10)"
+  Cost! = 1
+}
+
+Spyglass {
+  Title!= "Spyglass"
+  Cost! = 1000
+}
+
+Tent {
+  Title!= "Tent, two-person"
+  Cost! = 2
+}
+
+Tinderbox {
+  Title!= "Tinderbox"
+  Cost! = 0.5
+}
+
+Vial {
+  Title!= "Vial"
+  Cost! = 1
+}
+
+Waterskin {
+  Title!= "Waterskin"
+  Cost! = 0.2
+}
+
+Whetstone {
+  Title!= "Whetstone"
+  Cost! = 0.01
+}
+
+AlchemistsSupplies {
+  Title! = "Alchemist's supplies"
+  Cost! = 50
+}
+
+BrewersSupplies {
+  Title! = "Brewer's supplies"
+  Cost! = 20
+}
+
+CalligraphersSupplies {
+  Title! = "Calligrapher's supplies"
+  Cost! = 10
+}
+
+CarpentersTools {
+  Title! = "Carpenter's tools"
+  Cost! = 8
+}
+
+CartographersTools {
+  Title! = "Cartographer's tools"
+  Cost! = 15
+}
+
+CobblersTools {
+  Title! = "Cobbler's tools"
+  Cost! = 5
+}
+
+CooksUtensils {
+  Title! = "Cook's utensils"
+  Cost! = 1
+}
+
+GlassblowersTools {
+  Title! = "Glassblower's tools"
+  Cost! = 30
+}
+
+JewelersTools {
+  Title! = "Jeweler's tools"
+  Cost! = 25
+}
+
+LeatherworkersTools {
+  Title! = "Leatherworker's tools"
+  Cost! = 5
+}
+
+MasonsTools {
+  Title! = "Mason's tools"
+  Cost! = 10
+}
+
+PaintersSupplies {
+  Title! = "Painter's supplies"
+  Cost! = 10
+}
+
+PottersTools {
+  Title! = "Potter's tools"
+  Cost! = 10
+}
+
+SmithsTools {
+  Title! = "Smith's tools"
+  Cost! = 20
+}
+
+TinkersTools {
+  Title! = "Tinker's tools"
+  Cost! = 50
+}
+
+WeaversTools {
+  Title! = "Weaver's tools"
+  Cost! = 1
+}
+
+DiceSet {
+  Title! = "Dice set"
+  Cost! = 0.1
+}
+
+DragonchessSet {
+  Title! = "Dragonchess set"
+  Cost! = 1
+}
+
+PlayingCardSet {
+  Title! = "Playing card set"
+  Cost! = 0.5
+}
+
+ThreeDragonAnteSet {
+  Title! = "Three-Dragon Ante set"
+  Cost! = 0
+}
+
+HerbalismKit {
+  Title! = "Herbalism kit"
+  Cost! = 5
+}
+
+NavigatorsTools {
+  Title! = "Navigator's tools"
+  Cost! = 25
+}
+
+PoisonersKit {
+  Title! = "Poisoner's kit"
+  Cost! = 50
+}
+
+ThievesTools {
+  Title! = "Thieves' tools"
+  Cost! = 25
+}
+
+DisguiseKit {
+  Title! = "Disguise kit"
+  Cost! = 25
+}
+
+ForgeryKit {
+  Title! = "Forgery kit"
+  Cost! = 15
+}
+
+Canvas {
+  Title!= "Canvas (Sq. Yard)"
+  Cost! = 0.3
+}
+
+Chain {
+  Title!= "Chain (10 feet)"
+  Cost! = 5
+}
+
+FishingRod {
+  Title!= "Fishing Rod"
+  Cost! = 1
+}
+
+SewingNeedle {
+  Title!= "Sewing Needle"
+  Cost! = 0.3
+}
+
+MiningPickAxe {
+  Title!= "Mining Pick Axe"
+  Cost! = 5
+}
+
+BushcraftKnife {
+  Title!= "Bushcraft Knife"
+  Cost! = 12
+ }
+
+SmokingPipe {
+  Title!= "Smoking Pipe"
+  Cost! = 1
+}
+
+Inkvial {
+  Title!= "Ink Vial"
+  Cost! = 10
+}
+
+Quill {
+  Title!= "Quill"
+  Cost! = 0.5
+}
+
+EmptyScroll {
+  Title!= "Empty Scroll"
+  Cost! = 1
+ }
+
+Lens {
+  Title!= "Lens"
+  Cost! = 12
+}
+
+FreshFruits {
+  Title!= "Fresh Fruits (1 lb)"
+  Cost! = 0.9
+}
+
+DriedFruits {
+  Title!= "Dried Fruits (small bag)"
+  Cost! = 0.3
+}
+
+Salt {
+  Title!= "Salt (1 lb)"
+  Cost! = 2
+}
+
+Bread {
+  Title!= "Bread (1 loaf)"
+  Cost! = 0.05
+}
+
+Pie {
+  Title!= "Pie (slice)"
+  Cost! = 0.04
+}
+
+Cake {
+  Title!= "Cake (slice)"
+  Cost! = 0.1
+}
+
+Grain {
+  Title!= "Grain (1 lb)"
+  Cost! = 0.02
+}
+
+Flour {
+  Title!= "Flour (1 lb)"
+  Cost! = 0.4
+}
+
+Nuts {
+  Title!= "Nuts (small bag)"
+  Cost! = 0.1
+}
+
+Honey {
+  Title!= "Honey (jar)"
+  Cost! = 2
+}
+
+FreshFishSmall {
+  Title!= "Fresh Fish, Small"
+  Cost! = 0.4
+}
+
+FreshFishFillet {
+  Title!= "Fresh Fish Fillet"
+  Cost! = 0.8
+}
+
+PickledFish {
+  Title!= "Pickled Fish (jar)"
+  Cost! = 1
+}
+
+SmallShellFish {
+  Title!= "Small Shell Fish"
+  Cost! = 0.3
+}
+
+Lobster {
+  Title!= "Lobster"
+  Cost! = 1
+}
+
+FreshGame {
+  Cost! = 2
+  Type @ [
+    * Venison
+    * Rabbit
+    * Duck
+  ]
+  Title!= <%Fresh Game ({{Type}}, 1 lb)%>
+}
+
+FreshMeat {
+  Cost! = 1
+  Type @ [
+    * Pork
+    * Beef
+    * Chicken
+    * Lamb
+  ]
+  Title!= <%Fresh Meat ({{Type}}, 1 lb)%>
+}
+
+DriedMeat {
+  Title!= "Dried Meat (small pack)"
+  Cost! = 0.8
+}
+
+CommonBeer {
+  Title!= "Common Beer (Barrel)"
+  Cost! = 5
+}
+CraftBeer {
+  Title!= "Craft Beer (Barrel)"
+  Cost! = 12
+}
+
+Cider {
+  Title!= "Cider (Barrel)"
+  Cost! = 8
+}
+
+CommonWine {
+  Title!= "Common Wine (Barrel)"
+  Cost! = 15
+}
+
+CraftWine {
+  Title!= "Craft Wine (Barrel)"
+  Cost! = 35
+}
+
+RoyalWine {
+  Title!= "Royal Quality Wine (Barrel)"
+  Cost! = 150
+}
+
+Backpack {
+  Title!= "Backback"
+  Cost! = 2
+}
+
+Crowbar {
+  Title!= "Crowbar"
+  Cost! = 2
+}
+
+Garlic {
+  Title!= "Garlic"
+  Cost! = 5
+}
+
+GrapplingHook {
+  Title!= "Grappling hook"
+  Cost! = 2
+}
+
+SmallHammer {
+  Title!= "Hammer (small)"
+  Cost! = 2
+}
+
+HolySymbol {
+  Title!= "Holy symbol"
+  Cost! = 5
+}
+
+HolyWater {
+  Title!= "Holy water (flask)"
+  Cost! = 25
+}
+
+IronSpikes {
+  Title!= "Iron spikes (12)"
+  Cost! = 1
+}
+
+Lantern {
+  Title!= "Lantern"
+  Cost! = 10
+}
+
+Candles {
+  Title!= "10 Candles"
+  Cost! = 1
+}
+
+Mirror {
+  Title!= "Mirror (hand-sized, steel)"
+  Cost! = 5
+}
+
+Oil {
+  Title!= "Oil (flask)"
+  Cost! = 0.1
+}
+
+Pole {
+  Title!= "Pole (10’ long, wooden)"
+  Cost! = 1
+}
+
+IronRations {
+  Title!= "Rations (iron, 7 days)"
+  Cost! = 15
+}
+
+Rations {
+  Title!= "Rations (1 day)"
+  Cost! = 0.5
+}
+
+Rope {
+  Title!= "Rope (50’)"
+  Cost! = 1
+}
+
+SmallSack {
+  Title!= "Sack (small)"
+  Cost! = 0.01
+}
+
+LargeSack {
+  Title!= "Sack (large)"
+  Cost! = 0.1
+}
+
+StakesAndMallet {
+  Title!= "Stakes (3) and mallet"
+  Cost! = 3
+}
+
+ThieveTools {
+  Title!= "Thieves’ tools"
+  Cost! = 25
+}
+
+TinderBox {
+  Title!= "Tinder box (flint & steel)"
+  Cost! = 3
+}
+
+SixTorches {
+  Title!= "Torches (6)"
+  Cost! = 1
+}
+
+Waterskin {
+  Title!= "Waterskin"
+  Cost! = 0.2
+}
+
+Wine {
+  Title!= "Wine (2 pints)"
+  Cost! = 1
+}
+
+Wolfsbane {
+  Title! = "Wolfsbane (1 bunch)"
+  Cost! = 10
+}
+
+ClothingCommonOutfit {
+  Title! = "Common Outfit"
+  Cost! = 5
+}
+
+ClothingFineOutfit {
+  Title! = "Fine Outfit"
+  Cost! = 7
+}
+
+ClothingArtisanOutfit {
+  Title! = "Fine Outfit"
+  Cost! = 7
+}
+
+ClothingAdventurerOutfit {
+  Title! = "Adventurer's Outfit"
+  Cost! = 10
+}
+
+ClothingUniformOutfit {
+  Title! = "Uniform"
+  Cost! = 9
+}
+
+ClothingScholarOutfit {
+  Title! = "Scholar Robe"
+  Cost! = 6
+}
+
+ClothingNobleOutfit {
+  Title! = "Noble's Suit"
+  Cost! = 250
+}
+
+ClothingRoyalOutfit {
+  Title! = "Royal Suit"
+  Cost! = 430
+}
+
+ClothingBelt {
+  Title! = "Belt"
+  Cost! = 0.9
+}
+
+ClothingSash {
+  Title! = "Sash"
+  Cost! = 0.4
+}
+
+ClothingSuspenders {
+  Title! = "Suspenders"
+  Cost! = 0.5
+}
+
+ClothingGirdle {
+  Title! = "Girdle"
+  Cost! = 4
+}
+
+ClothingCape {
+  Title! = "Girdle"
+  Cost! = 4
+}
+
+ClothingPlainCloak {
+  Title! = "Plain Cloak"
+  Cost! = 0.7
+}
+
+ClothingWarmCloak {
+  Title! = "Warm Cloak"
+  Cost! = 0.9
+}
+
+ClothingForestCloak {
+  Title! = "Forest Cloak"
+  Cost! = 0.9
+}
+
+ClothingJacket {
+  Title! = "Jacket"
+  Cost! = 3
+}
+
+ClothingLeatherApron {
+  Title! = "Leather Apron"
+  Cost! = 2
+}
+
+ClothingLeatherCoat {
+  Title! = "Leather Coat"
+  Cost! = 5
+}
+
+ClothingBlouse {
+  Title! = "Blouse"
+  Cost! = 0.1
+}
+
+ClothingGown {
+  Title! = "Gown"
+  Cost! = 0.8
+}
+
+ClothingCommonDress {
+  Title! = "Common Dress"
+  Cost! = 0.14
+}
+
+ClothingFineDress {
+  Title! = "Fine Dress"
+  Cost! = 9
+}
+
+ClothingNobleDress {
+  Title! = "Noble Dress"
+  Cost! = 120
+}
+
+ClothingRoyalDress {
+  Title! = "Royal Dress"
+  Cost! = 450
+}
+
+ClothingKilt {
+  Title! = "Kilt"
+  Cost! = 4
+}
+
+ClothingLeggings {
+  Title! = "Leggings"
+  Cost! = 0.6
+}
+
+ClothingLeatherLeggings {
+  Title! = "Leather Leggings"
+  Cost! = 5
+}
+
+ClothingCommonRobe {
+  Title! = "Common Robe"
+  Cost! = 0.8
+}
+
+ClothingEmbrioderedRobe {
+  Title! = "Embriodered Robe"
+  Cost! = 25
+}
+
+ClothingTunic {
+  Title! = "Tunic"
+  Cost! = 0.9
+}
+
+ClothingCommonShirt {
+  Title! = "Common Shirt"
+  Cost! = 0.7
+}
+
+ClothingArtisanShirt {
+  Title! = "Artisan Shirt"
+  Cost! = 0.9
+}
+
+ClothingTrousers {
+  Title! = "Trousers"
+  Cost! = 2
+}
+
+ClothingSkirt {
+  Title! = "Skirt"
+  Cost! = 0.2
+}
+
+ClothingLeatherVest {
+  Title! = "Leather Vest"
+  Cost! = 0.15
+}
+
+ClothingFurVest {
+  Title! = "Fur Vest"
+  Cost! = 0.18
+}
+
+ClothingLeatherGloves {
+  Title! = "Leather Gloves"
+  Cost! = 0.7
+}
+
+ClothingWarmGloves {
+  Title! = "Warm Gloves"
+  Cost! = 0.9
+}
+
+CLothingMittens {
+  Title! = "Mittens"
+  Cost! = 0.3
+}
+
+ClothingHighBoots {
+  Title! = "High Boots"
+  Cost! = 3
+}
+
+ClothingAdventurerBoots {
+  Title! = "Adventurer Boots"
+  Cost! = 5
+}
+
+ClothingLowBoots {
+  Title! = "Low Boots"
+  Cost! = 2
+}
+
+ClothingRidingBoots {
+  Title! = "Riding Boots"
+  Cost! = 4
+}
+
+ClothingFineShoes {
+  Title! = "Common Shoes"
+  Cost! = 0.9
+}
+
+ClothingFineShoes {
+  Title! = "Fine Shoes"
+  Cost! = 3
+}
+
+ClothingRoyalShoes {
+  Title! = "Royal Shoes"
+  Cost! = 120
+}
+
+ClothingFurHat {
+  Title! = "Fur Hat"
+  Cost! = 1
+}
+
+ClothingVeil {
+  Title! = "Veil"
+  Cost! = 1
+}
+
+ClothingCap {
+  Title! = "Cap"
+  Cost! = 0.5
+}
+
+ClothingLeatherHat {
+  Title! = "Leather Hat"
+  Cost! = 0.9
+}
+
+MusicalInstruments {
+  ^ [
+    * SmallBell
+    * Flute
+    * Harp
+    * Lute
+    * HandDrum
+    * Bagpipes
+    * Dulcimer
+    * Lyre
+    * Horn
+    * PanFlute
+    * Shawm
+    * Viol
+  ]
+}
+
+Bagpipes {
+  Title!= "Bagpipes"
+  Cost! = 30
+}
+
+Dulcimer {
+  Title!= "Dulcimer"
+  Cost! = 25
+}
+
+Lyre {
+  Title!= "Lyre"
+  Cost! = 30
+}
+
+Horn {
+  Title!= "Horn"
+  Cost! = 3
+}
+
+PanFlute {
+  Title!= "Pan flute"
+  Cost! = 12
+}
+
+Shawm {
+  Title!= "Shawm"
+  Cost! = 2
+}
+
+Viol {
+  Title!= "Viol"
+  Cost! = 30
+}
+
+SmallBell {
+  Title!= "Small Bell"
+  Cost! = 1
+}
+
+Flute {
+  Title! = "Flute"
+  Cost! = 2
+}
+
+Harp {
+  Title! = "Harp"
+  Cost! = 25
+}
+
+Lute {
+  Title! = "Lute"
+  Cost! = 35
+}
+
+HandDrum {
+  Title! = "Hand Drum"
+  Cost! = 6
+}
+
+Club (ArmorWeapon){
+  Title! = Club
+  Damage! = 1d4
+  Cost! = 1
+}
+
+SilverDagger (ArmorWeapon){
+  Title! = "Silver Dagger"
+  Damage! = 1d4
+  Cost! = 2
+}
+
+
+Dagger (ArmorWeapon){
+  Title! = Dagger
+  Damage! = 1d4
+  Cost! = 2
+}
+
+Greatclub (ArmorWeapon){
+  Title! = Greatclub
+  Damage! = 1d8
+  Cost! = 2
+}
+
+Handaxe (ArmorWeapon){
+  Title! = Handaxe
+  Damage! = 1d6
+  Cost! = 5
+}
+
+Javelin (ArmorWeapon){
+  Title! = Javelin
+  Damage! = 1d6
+  Cost! = 0.5
+}
+
+LightHammer (ArmorWeapon){
+  Title! = "Light Hammer"
+  Damage! = 1d4
+  Cost! = 2
+}
+
+Mace (ArmorWeapon){
+  Title! = Mace
+  Damage! = 1d6
+  Cost! = 5
+}
+
+Quarterstaff (ArmorWeapon){
+  Title! = Quarterstaff
+  Damage! = 1d6
+  Cost! = 0.25
+}
+
+Sickle (ArmorWeapon){
+  Title! = Sickle
+  Damage! = 1d4
+  Cost! = 1
+}
+
+Spear (ArmorWeapon){
+  Title! = Spear
+  Damage! = 1d6
+  Cost! = 1
+}
+
+CrossbowLight (ArmorWeapon){
+  Title! = "Light Crossbow"
+  Damage! = 1d8
+  Cost! = 25
+}
+
+Dart (ArmorWeapon){
+  Title! = Dart
+  Damage! = 1d4
+  Cost! = 0.05
+}
+
+Shortbow (ArmorWeapon){
+  Title! = Shortbow
+  Damage! = 1d6
+  Cost! = 25
+}
+
+Sling (ArmorWeapon){
+  Title! = Sling
+  Damage! = 1d4
+  Cost! = 0.1
+}
+
+Battleaxe (ArmorWeapon){
+  Title! = Battleaxe
+  Damage! = 1d8
+  Cost! = 10
+}
+
+Flail (ArmorWeapon){
+  Title! = Flail
+  Damage! = 1d8
+  Cost! = 10
+}
+
+Glaive (ArmorWeapon){
+  Title! = Glaive
+  Damage! = 1d10 S
+  Cost! = 20
+}
+
+Greataxe (ArmorWeapon){
+  Title! = Greataxe
+  Damage! = 1d12
+  Cost! = 30
+}
+
+Greatsword (ArmorWeapon){
+  Title! = Greatsword
+  Damage! = 2d6
+  Cost! = 50
+}
+
+Halberd (ArmorWeapon){
+  Title! = Halberd
+  Damage! = 1d10
+  Cost! = 20
+}
+
+Lance (ArmorWeapon){
+  Title! = Lance
+  Damage! = 1d12
+  Cost! = 10
+}
+
+Longsword (ArmorWeapon){
+  Title! = Longsword
+  Damage! = 1d8
+  Cost! = 15
+}
+
+Maul (ArmorWeapon){
+  Title! = Maul
+  Damage! = 2d6
+  Cost! = 10
+}
+
+Morningstar (ArmorWeapon){
+  Title! = Morningstar
+  Damage! = 1d8
+  Cost! = 15
+}
+
+Pike (ArmorWeapon){
+  Title! = Pike
+  Damage! = 1d10
+  Cost! = 5
+}
+
+Rapier (ArmorWeapon){
+  Title! = Rapier
+  Damage! = 1d8
+  Cost! = 25
+}
+
+Scimitar (ArmorWeapon){
+  Title! = Scimitar
+  Damage! = 1d6
+  Cost! = 25
+}
+
+Sword (ArmorWeapon){
+  Title! = Shortsword
+  Damage! = 1d6
+  Cost! = 10
+}
+
+Shortsword (ArmorWeapon){
+  Title! = Shortsword
+  Damage! = 1d6
+  Cost! = 10
+}
+
+Trident (ArmorWeapon){
+  Title! = Trident
+  Damage! = 1d6
+  Cost! = 5
+}
+
+WarPick (ArmorWeapon){
+  Title! = War Pick
+  Damage! = 1d8
+  Cost! = 5
+}
+
+Warhammer (ArmorWeapon){
+  Title! = Warhammer
+  Damage! = 1d8
+  Cost! = 15
+}
+
+Whip (ArmorWeapon){
+  Title! = Whip
+  Damage! = 1d4
+  Cost! = 2
+}
+
+Blowgun (ArmorWeapon){
+  Title! = Blowgun
+  Damage! = 1
+  Cost! = 10
+}
+
+CrossbowHand (ArmorWeapon){
+  Title! = Hand Crossbow
+  Damage! = 1d6
+  Cost! = 75
+}
+
+CrossbowHeavy (ArmorWeapon){
+  Title! = Heavy Crossbow
+  Damage! = 1d10
+  Cost! = 50
+}
+
+Longbow (ArmorWeapon){
+  Title! = Longbow
+  Damage! = 1d8
+  Cost! = 50
+}
+
+Net (ArmorWeapon){
+  Title! = Net
+  Damage! = None
+  Cost! = 1
+}
+
+ArmorPadded(ArmorWeapon) {
+  Title! ~ "Padded Armor"
+  AC! = "11 + Dex mod"
+  Cost! = 5
+  Weight! = "8 lb."
+}
+
+ArmorLeather(ArmorWeapon) {
+  Title! ~ "Leather Armor"
+  AC! = "11 + Dex mod"
+  Cost! = 10
+  Weight! = "10 lb."
+}
+
+ArmorStuddedLeather(ArmorWeapon) {
+  Title! ~ "Studded Leather Armor"
+  AC! = "12 + Dex mod"
+  Cost! = 45
+  Weight! = "13 lb."
+}
+
+ArmorHide(ArmorWeapon) {
+  Title! ~ "Hide Armor"
+  AC! = "12 + Dex mod (Max 2)"
+  Cost! = 10
+  Weight! = "12 lb."
+}
+
+ArmorChainShirt(ArmorWeapon) {
+  Title! ~ "Chain Shirt Armor"
+  AC! = "13 + Dex mod (Max 2)"
+  Cost! = 50
+  Weight! = "20 lb."
+}
+
+ArmorScaleMail(ArmorWeapon) {
+  Title! ~ "Scale Mail Armor"
+  AC! = "14 + Dex mod (Max 2)"
+  Cost! = 50
+  Weight! = "45 lb."
+}
+
+ArmorBreastplate(ArmorWeapon) {
+  Title! ~ "Breastplate Armor"
+  AC! = "14 + Dex mod (Max 2)"
+  Cost! = 400
+  Weight! = "20 lb."
+}
+
+ArmorHalfPlate(ArmorWeapon) {
+  Title! ~ "Half Plate Armor"
+  AC! = "15 + Dex mod (Max 2)"
+  Cost! = 750
+  Weight! = "40 lb."
+}
+
+ArmorRingMail(ArmorWeapon) {
+  Title! ~ "Ring Mail Armor"
+  AC! = "14"
+  Cost! = 30
+  Weight! = "40 lb."
+}
+
+ArmorChainmail(ArmorWeapon) {
+  Title! ~ "Chain Mail Armor"
+  AC! = "16"
+  Cost! = 75
+  Weight! = "55 lb."
+}
+
+ArmorSplint(ArmorWeapon) {
+  Title! ~ "Splint Armor"
+  AC! = "17"
+  Cost! = 200
+  Weight! = "60 lb."
+}
+
+ArmorPlate(ArmorWeapon) {
+  Title! ~ "Plate Armor"
+  AC! = "18"
+  Cost! = 1500
+  Weight! = "65 lb."
+}
+
+ArmorShield(ArmorWeapon) {
+  Title! ~ "Shield"
+  AC! = "+2"
+  Cost! = 10
+  Weight! = "6 lb."
+}
+
+AmmunitionArrows {
+  Title! ~ "Arrows (20)"
+  Cost! = 1
+  Weight! = "1 lb."
+}
+
+AmmunitionBlowgunNeedles {
+  Title! ~ "Blowgun Needles (50)"
+  Cost! = 1
+  Weight! = "1 lb."
+}
+
+AmmunitionCrossbowBolts {
+  Title! ~ "Crossbow Bolts (20)"
+  Cost! = 1
+  Weight! = "1½  lb."
+}
+
+AmmunitionSlingBullets {
+  Title! ~ "Sling Bullets (20)"
+  Cost! = 0.4
+  Weight! = "1½  lb."
+}

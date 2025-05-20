@@ -1,0 +1,1414 @@
+AddersStomach {
+  Title! ~ "Adder's stomach"
+  Cost! = 8
+}
+
+Agate {
+  Title! ~ "Agate"
+  Cost! = 1000
+}
+
+AlumSoakedInVinegar {
+  Title! ~ "Alum soaked in vinegar"
+  Cost! = 0.05
+}
+
+AmberGlassOrCrystalRod {
+  Title! ~ "Amber, Glass, or Crystal Rod"
+  Cost! = 20
+}
+
+AshesOfMistletoeAndSpruce {
+  Title! ~ "Ashes of Mistletoe and Spruce"
+  Cost! = 0.5
+}
+
+Bitumen {
+  Title! ~ "Bitumen (a drop)"
+  Cost! = 0.5
+}
+
+BlackOnyxStone {
+  Title! ~ "Black Onyx Stone"
+  Cost! = 150
+}
+
+BlackPearlCrushedPowder {
+  Title! ~ "Black Pearl (as crushed powder)"
+  Cost! = 500
+}
+
+Bone {
+  Title! ~ "Bone"
+  Cost! = 0.02
+}
+
+BoneDust {
+  Title! ~ "Bone dust"
+  Cost! = 0.1
+}
+
+Brimstone {
+  Title! ~ "Brimstone"
+  Cost! = 0.1
+}
+
+Butter {
+  Title! ~ "Butter"
+  Cost! = 0.2
+}
+
+CaterpillarCocoon {
+  Title! ~ "Caterpillar Cocoon"
+  Cost! = 5
+}
+
+ChalksAndInksInfusedWithPreciousGems {
+  Title! ~ "Chalks and Inks infused with precious gems"
+  Cost! = 50
+}
+
+CharcoalIncenseAndHerbMixture {
+  Title! ~ "Charcoal, Incense, and Herb mixture"
+  Cost! = 10
+}
+
+ChrysolitePowder {
+  Title! ~ "Chrysolite powder"
+  Cost! = 50
+}
+
+Clay {
+  Title! ~ "Clay"
+  Cost! = 0.1
+}
+
+ClayModelOfAZiggurat {
+  Title! ~ "Clay Model of a Ziggurat"
+  Cost! = 5
+}
+
+ClayPotOfBrackishWater {
+  Title! ~ "Clay Pot of Brackish Water"
+  Cost! = 1
+}
+
+ClayPotOfGraveDirt {
+  Title! ~ "Clay Pot of Grave Dirt"
+  Cost! = 4
+}
+
+CloakMiniature {
+  Title! ~ "Cloak, miniature"
+  Cost! = 1
+}
+
+ClothWad {
+  Title! ~ "Cloth wad"
+  Cost! = 0.02
+}
+
+TinyWhiteStripOfCloth {
+  Title! ~ "Cloth, Tiny white strip"
+  Cost! = 0.02
+}
+
+Club {
+  Title! ~ "Club"
+  Cost! = 0.5
+}
+
+Coal {
+  Title! ~ "Coal"
+  Cost! = 1
+}
+
+ColoredSand {
+  Title! ~ "Colored Sand (red, yellow, and blue)"
+  Cost! = 10
+}
+
+CopperWire {
+  Title! ~ "Copper Wire"
+  Cost! = 0.1
+}
+
+Cork {
+  Title! ~ "Cork"
+  Cost! = 0.02
+}
+
+CornPowdered {
+  Title! ~ "Corn, powdered"
+  Cost! = 0.05
+}
+
+Cricket {
+  Title! ~ "Cricket"
+  Cost! = 0.05
+}
+
+CrystalBead {
+  Title! ~ "Crystal Bead"
+  Cost! = 0.5
+}
+
+CrystalHemisphere {
+  Title! ~ "Crystal Hemisphere"
+  Cost! = 120
+}
+
+CrystalOrGlassCone {
+  Title! ~ "Crystal or Glass Cone"
+  Cost! = 25
+}
+
+CrystalSphereSmall {
+  Title! ~ "Crystal Sphere, small"
+  Cost! = 20
+}
+
+CrystalVialOfPhosphorescentMaterial {
+  Title! ~ "Crystal Vial of phosphorescent material"
+  Cost! = 20
+}
+
+CuredLeather {
+  Title! ~ "Cured Leather"
+  Cost! = 0.1
+}
+
+Diamond {
+  Title! ~ "Diamond"
+  Cost! = 1000
+}
+
+DiamondAsDust {
+  Title! ~ "Diamond (as dust)"
+  Cost! = 25
+}
+
+DiamondAndOpalPowderedMix {
+  Title! ~ "Diamond and Opal, powdered mix"
+  Cost! = 1000
+}
+
+Diamonds {
+  Title! ~ "Diamonds"
+  Cost! = 300
+}
+
+Dirt {
+  Title! ~ "Dirt"
+  Cost! = 0
+}
+
+DistilledSpirits {
+  Title! ~ "Distilled Spirits"
+  Cost! = 0.05
+}
+
+DivinatoryTools {
+  Title! ~ "Divinatory Tools"
+  Cost! = 100
+}
+
+DriedCarrot {
+  Title! ~ "Dried Carrot"
+  Cost! = 0.05
+}
+
+Dust {
+  Title! ~ "Dust"
+  Cost! = 0
+}
+
+EarthWoodAndWaterMixture {
+  Title! ~ "Earth, Wood, and Water mixture"
+  Cost! = 0
+}
+
+Eggshell {
+  Title! ~ "Eggshell"
+  Cost! = 0.3
+}
+
+ExquisiteChest3x2x2MadeOfRareMaterials {
+  Title! ~ "Exquisite Chest, 3' x 2' x 2', made of rare materials"
+  Cost! = 5000
+}
+
+ExquisiteChestTinyReplica {
+  Title! ~ "Exquisite Chest, tiny replica"
+  Cost! = 50
+}
+
+EyelashInGumArabic {
+  Title! ~ "Eyelash in gum arabic"
+  Cost! = 5
+}
+
+FanTiny {
+  Title! ~ "Fan, tiny"
+  Cost! = 0.5
+}
+
+Feather {
+  Title! ~ "Feather"
+  Cost! = 0.1
+}
+
+FeatherFromAnyBird {
+  Title! ~ "Feather from any bird's wing"
+  Cost! = 0.1
+}
+
+FeatherOfHummingbird {
+  Title! ~ "Feather of hummingbird"
+  Cost! = 2
+}
+
+FeatherOfOwl {
+  Title! ~ "Feather of owl"
+  Cost! = 0.5
+}
+
+FeatherExotic {
+  Title! ~ "Feather, exotic"
+  Cost! = 3
+}
+
+FeatherWhite {
+  Title! ~ "Feather, white"
+  Cost! = 0.1
+}
+
+Feldspar {
+  Title! ~ "Feldspar"
+  Cost! = 0.1
+}
+
+Firefly {
+  Title! ~ "Firefly"
+  Cost! = 0.1
+}
+
+Flame {
+  Title! ~ "Flame"
+  Cost! = 0
+}
+
+Fleece {
+  Title! ~ "Fleece"
+  Cost! = 0.05
+}
+
+Flesh {
+  Title! ~ "Flesh"
+  Cost! = 0
+}
+
+FleshACubicInch {
+  Title! ~ "Flesh, a cubic inch"
+  Cost! = 0
+}
+
+Focus {
+  Title! ~ "Focus"
+  Cost! = 1000
+}
+
+FoodMorsel {
+  Title! ~ "Food morsel"
+  Cost! = 0.01
+}
+
+ForkedMetalRod {
+  Title! ~ "Forked Metal Rod"
+  Cost! = 250
+}
+
+ForkedTwig {
+  Title! ~ "Forked Twig"
+  Cost! = 0.1
+}
+
+Fur {
+  Title! ~ "Fur"
+  Cost! = 0.3
+}
+
+FurOfBat {
+  Title! ~ "Fur of Bat"
+  Cost! = 2
+}
+
+FurOfBloodhound {
+  Title! ~ "Fur of Bloodhound"
+  Cost! = 1
+}
+
+Gauze {
+  Title! ~ "Gauze"
+  Cost! = 0.1
+}
+
+GemOrOtherOrnamentalContainer {
+  Title! ~ "Gem or other ornamental container"
+  Cost! = 500
+}
+
+GemEncrustedBowl {
+  Title! ~ "Gem-Encrusted Bowl"
+  Cost! = 1000
+}
+
+GemAsPowder {
+  Title! ~ "Gem, as powder"
+  Cost! = 10
+}
+
+GemsAsPowder {
+  Title! ~ "Gems, as powder"
+  Cost! = 5000
+}
+
+GlassEye {
+  Title! ~ "Glass Eye"
+  Cost! = 100
+}
+
+GlassOrCrystalBead {
+  Title! ~ "Glass or Crystal Bead"
+  Cost! = 0.1
+}
+
+GlassSliver {
+  Title! ~ "Glass Sliver"
+  Cost! = 5
+}
+
+Glowworm {
+  Title! ~ "Glowworm"
+  Cost! = 1
+}
+
+GoldDust {
+  Title! ~ "Gold dust"
+  Cost! = 25
+}
+
+GoldenWire {
+  Title! ~ "Golden Wire"
+  Cost! = 2
+}
+
+Granite {
+  Title! ~ "Granite"
+  Cost! = 0.5
+}
+
+GrasshoppersHindLeg {
+  Title! ~ "Grasshopper's Hind Leg"
+  Cost! = 0.1
+}
+
+GraveyardDirt {
+  Title! ~ "Graveyard Dirt (just a pinch)"
+  Cost! = 3
+}
+
+GreenPlant {
+  Title! ~ "Green Plant"
+  Cost! = 0.1
+}
+
+Guano {
+  Title! ~ "Guano"
+  Cost! = 0.1
+}
+
+GumArabic {
+  Title! ~ "Gum Arabic"
+  Cost! = 0.5
+}
+
+GumArabicHemisphere {
+  Title! ~ "Gum Arabic Hemisphere"
+  Cost! = 1
+}
+
+HensHeart {
+  Title! ~ "Hen's Heart"
+  Cost! = 1
+}
+
+HerbsOilsAndIncenseMixture {
+  Title! ~ "Herbs, Oils, and Incense mixture"
+  Cost! = 1000
+}
+
+HollyBerry {
+  Title! ~ "Holly Berry"
+  Cost! = 0.1
+}
+
+HolySymbol {
+  Title! ~ "Holy Symbol"
+  Cost! = 0.1
+}
+
+HolyWater {
+  Title! ~ "Holy Water"
+  Cost! = 1
+}
+
+HolyUnholyWater {
+  Title! ~ "Holy/Unholy Water"
+  Cost! = 1
+}
+
+HoneyDrop {
+  Title! ~ "Honey drop"
+  Cost! = 0.1
+}
+
+Honeycomb {
+  Title! ~ "Honeycomb"
+  Cost! = 1
+}
+
+Incense {
+  Title! ~ "Incense"
+  Cost! = 100
+}
+
+Ink {
+  Title! ~ "Ink"
+  Cost! = 5
+}
+
+LeadBasedInk {
+  Title! ~ "Ink, Lead-based"
+  Cost! = 10
+}
+
+Iron {
+  Title! ~ "Iron"
+  Cost! = 0.02
+}
+
+IronBlade {
+  Title! ~ "Iron Blade"
+  Cost! = 2
+}
+
+IronFilingsOrPowder {
+  Title! ~ "Iron filings or powder"
+  Cost! = 0.02
+}
+
+IvoryPortalMiniature {
+  Title! ~ "Ivory Portal (miniature)"
+  Cost! = 5
+}
+
+IvoryStripsX4 {
+  Title! ~ "Ivory Strips x 4"
+  Cost! = 50
+}
+
+Jacinth {
+  Title! ~ "Jacinth"
+  Cost! = 1000
+}
+
+JadeCirclet {
+  Title! ~ "Jade Circlet"
+  Cost! = 1500
+}
+
+JadeDust {
+  Title! ~ "Jade Dust"
+  Cost! = 10
+}
+
+Jewel {
+  Title! ~ "Jewel"
+  Cost! = 1000
+}
+
+JeweledHorn {
+  Title! ~ "Jeweled Horn"
+  Cost! = 100
+}
+
+KernelsOfGrain {
+  Title! ~ "Kernels of Grain"
+  Cost! = 0.02
+}
+
+KnottedString {
+  Title! ~ "Knotted String"
+  Cost! = 0.01
+}
+
+ThinSheetOfLead {
+  Title! ~ "Lead, a thin sheet"
+  Cost! = 0.06
+}
+
+LeatherLoop {
+  Title! ~ "Leather Loop"
+  Cost! = 0.5
+}
+
+LeatherStrap {
+  Title! ~ "Leather strap"
+  Cost! = 0.5
+}
+
+LegumeSeed {
+  Title! ~ "Legume Seed"
+  Cost! = 0.1
+}
+
+LicoriceRootShaving {
+  Title! ~ "Licorice Root Shaving"
+  Cost! = 0.1
+}
+
+Lime {
+  Title! ~ "Lime"
+  Cost! = 0.1
+}
+
+Lodestone {
+  Title! ~ "Lodestone"
+  Cost! = 10
+}
+
+MagnifyingGlass {
+  Title! ~ "Magnifying Glass"
+  Cost! = 100
+}
+
+Makeup {
+  Title! ~ "Makeup"
+  Cost! = 1
+}
+
+MarkedSticksOrBones {
+  Title! ~ "Marked Sticks or Bones"
+  Cost! = 25
+}
+
+Mercury {
+  Title! ~ "Mercury"
+  Cost! = 5
+}
+
+MicaChip {
+  Title! ~ "Mica chip"
+  Cost! = 0.01
+}
+
+MistletoeSprig {
+  Title! ~ "Mistletoe sprig"
+  Cost! = 0.1
+}
+
+Molasses {
+  Title! ~ "Molasses (a drop)"
+  Cost! = 0.1
+}
+
+Moonseeds {
+  Title! ~ "Moonseeds"
+  Cost! = 20
+}
+
+NutShells {
+  Title! ~ "Nut Shells (3)"
+  Cost! = 0.01
+}
+
+OakBark {
+  Title! ~ "Oak bark"
+  Cost! = 0.01
+}
+
+Oil {
+  Title! ~ "Oil"
+  Cost! = 0.1
+}
+
+OilsAndUnguents {
+  Title! ~ "Oils and Unguents"
+  Cost! = 1000
+}
+
+OintmentForTheEyes {
+  Title! ~ "Ointment for the Eyes"
+  Cost! = 25
+}
+
+OpaqueGlass {
+  Title! ~ "Opaque Glass"
+  Cost! = 0.5
+}
+
+TwistedLoopOfParchment {
+  Title! ~ "Parchment, as a twisted loop"
+  Cost! = 0.05
+}
+
+ParchmentWithHolyWord {
+  Title! ~ "Parchment, with holy word written upon it"
+  Cost! = 1
+}
+
+Pearl {
+  Title! ~ "Pearl"
+  Cost! = 100
+}
+
+PetrifiedEyeOfNewt {
+  Title! ~ "Petrified Eye of Newt"
+  Cost! = 15
+}
+
+PhosphorescentMoss {
+  Title! ~ "Phosphorescent Moss"
+  Cost! = 1
+}
+
+Phosphorus {
+  Title! ~ "Phosphorus"
+  Cost! = 1
+}
+
+PickledOctopusTentacle {
+  Title! ~ "Pickled Octopus Tentacle"
+  Cost! = 8
+}
+
+PitchADrop {
+  Title! ~ "Pitch, a drop"
+  Cost! = 0.05
+}
+
+PlatinumRings {
+  Title! ~ "Platinum Rings, two"
+  Cost! = 50
+}
+
+PlatinumSwordMiniature {
+  Title! ~ "Platinum Sword, miniature, with grip and pommel of copper and zinc"
+  Cost! = 250
+}
+
+PolishedMarbleStone {
+  Title! ~ "Polished Marble Stone"
+  Cost! = 5
+}
+
+PorkRind {
+  Title! ~ "Pork Rind"
+  Cost! = 0.02
+}
+
+PrayerWheel {
+  Title! ~ "Prayer Wheel"
+  Cost! = 10
+}
+
+Quartz {
+  Title! ~ "Quartz"
+  Cost! = 0.1
+}
+
+QuillPluckedFromASleepingBird {
+  Title! ~ "Quill plucked from a sleeping bird"
+  Cost! = 50
+}
+
+Reed {
+  Title! ~ "Reed"
+  Cost! = 0.01
+}
+
+SacredRelicReliquary {
+  Title! ~ "Reliquary containing a Sacred Relic"
+  Cost! = 1000
+}
+
+RhubarbLeafPowdered {
+  Title! ~ "Rhubarb Leaf, powdered"
+  Cost! = 1
+}
+
+RosePetals {
+  Title! ~ "Rose petals"
+  Cost! = 0.1
+}
+
+RottenEgg {
+  Title! ~ "Rotten Egg"
+  Cost! = 0.01
+}
+
+RubyDust {
+  Title! ~ "Ruby (as dust)"
+  Cost! = 50
+}
+
+SacrificialOffering {
+  Title! ~ "Sacrificial Offering appropriate to deity"
+  Cost! = 25
+}
+
+Salt {
+  Title! ~ "Salt"
+  Cost! = 0.1
+}
+
+Sand {
+  Title! ~ "Sand"
+  Cost! = 0.05
+}
+
+Sapphire {
+  Title! ~ "Sapphire"
+  Cost! = 1000
+}
+
+SesameSeeds {
+  Title! ~ "Sesame Seeds"
+  Cost! = 1
+}
+
+Shamrock {
+  Title! ~ "Shamrock"
+  Cost! = 0.01
+}
+
+SilkSquare {
+  Title! ~ "Silk Square"
+  Cost! = 2
+}
+
+SilverAndIronPowderedMixture {
+  Title! ~ "Silver and Iron, powdered mixture"
+  Cost! = 5
+}
+
+SilverBarOrnatelyCarved {
+  Title! ~ "Silver Bar, ornately carved"
+  Cost! = 100
+}
+
+SilverMirrorSmall {
+  Title! ~ "Silver Mirror, small"
+  Cost! = 5
+}
+
+SilverPins {
+  Title! ~ "Silver Pins (3)"
+  Cost! = 1
+}
+
+SilverPowder {
+  Title! ~ "Silver powder"
+  Cost! = 5
+}
+
+SilverRingsAsALinkedPair {
+  Title! ~ "Silver Rings, as a linked pair"
+  Cost! = 1
+}
+
+SilverRod {
+  Title! ~ "Silver Rod"
+  Cost! = 10
+}
+
+SilverSpoonTiny {
+  Title! ~ "Silver Spoon, tiny"
+  Cost! = 5
+}
+
+SilverWhistle {
+  Title! ~ "Silver Whistle"
+  Cost! = 5
+}
+
+SkunkCabbageLeaves {
+  Title! ~ "Skunk Cabbage Leaves"
+  Cost! = 0.1
+}
+
+SnakeskinGlove {
+  Title! ~ "Snakeskin glove"
+  Cost! = 5
+}
+
+Snaketongue {
+  Title! ~ "Snaketongue"
+  Cost! = 0.01
+}
+
+Snow {
+  Title! ~ "Snow, enough to make a life-size copy of the target creature"
+  Cost! = 0
+}
+
+SoilMixtureInASmallBag {
+  Title! ~ "Soil mixture in a small bag"
+  Cost! = 0.05
+}
+
+Soot {
+  Title! ~ "Soot"
+  Cost! = 0.01
+}
+
+SpheresOfGlassCrystalOrMineral {
+  Title! ~ "Spheres of glass, crystal, or mineral"
+  Cost! = 2
+}
+
+Spiderweb {
+  Title! ~ "Spiderweb"
+  Cost! = 0.01
+}
+
+StatueOfTheCaster {
+  Title! ~ "Statue of the caster, carved from ivory and decorated with gems"
+  Cost! = 1500
+}
+
+StemOfAThornyPlant {
+  Title! ~ "Stem of a Thorny Plant"
+  Cost! = 0.05
+}
+
+Stone {
+  Title! ~ "Stone"
+  Cost! = 0.01
+}
+
+Straw {
+  Title! ~ "Straw"
+  Cost! = 0.01
+}
+
+String {
+  Title! ~ "String"
+  Cost! = 0.01
+}
+
+Sugar {
+  Title! ~ "Sugar"
+  Cost! = 0.3
+}
+
+Sulfur {
+  Title! ~ "Sulfur"
+  Cost! = 0.1
+}
+
+SumacLeaf {
+  Title! ~ "Sumac Leaf"
+  Cost! = 1
+}
+
+Sunstone {
+  Title! ~ "Sunstone"
+  Cost! = 20
+}
+
+SweetOilDrop {
+  Title! ~ "Sweet Oil, a drop"
+  Cost! = 1
+}
+
+TalcumPowder {
+  Title! ~ "Talcum powder"
+  Cost! = 0.5
+}
+
+Tallow {
+  Title! ~ "Tallow"
+  Cost! = 0.3
+}
+
+Tarts {
+  Title! ~ "Tarts"
+  Cost! = 0.15
+}
+
+TentacleOfGiantOctopusOrGiantSquid {
+  Title! ~ "Tentacle of giant octopus or giant squid"
+  Cost! = 0
+}
+
+Thorns {
+  Title! ~ "Thorns"
+  Cost! = 0.1
+}
+
+ThornsSeven {
+  Title! ~ "Thorns, seven"
+  Cost! = 0.1
+}
+
+Thread {
+  Title! ~ "Thread"
+  Cost! = 0.1
+}
+
+TinyPieceOfTargetMatter {
+  Title! ~ "Tiny Piece of Target Matter"
+  Cost! = 0
+}
+
+Twig {
+  Title! ~ "Twig"
+  Cost! = 0.05
+}
+
+TwigFromTreeStruckByLightning {
+  Title! ~ "Twig from a tree that has been struck by lightning"
+  Cost! = 25
+}
+
+UmberHulkBlood {
+  Title! ~ "Umber Hulk Blood"
+  Cost! = 80
+}
+
+VesselToContainAMediumSizedCreature {
+  Title! ~ "Vessel to contain a Medium-sized creature"
+  Cost! = 2000
+}
+
+Water {
+  Title! ~ "Water"
+  Cost! = 0
+}
+
+WireOfFineSilver {
+  Title! ~ "Wire of fine silver"
+  Cost! = 1
+}
+
+WispOfSmoke {
+  Title! ~ "Wisp of Smoke"
+  Cost! = 0
+}
+
+Wood {
+  Title! ~ "Wood"
+  Cost! = 0.1
+}
+
+Wychwood {
+  Title! ~ "Wychwood"
+  Cost! = 5
+}
+
+YewLeaf {
+  Title! ~ "Yew Leaf"
+  Cost! = 1
+}
+
+OccultComponent {
+  ^ [
+    * AddersStomach
+    * Agate
+    * AlumSoakedInVinegar
+    * AmberGlassOrCrystalRod
+    * BlackOnyxStone
+    * BlackPearlCrushedPowder
+    * Bone
+    * BoneDust
+    * Brimstone
+    * CaterpillarCocoon
+    * ChalksAndInksInfusedWithPreciousGems
+    * CharcoalIncenseAndHerbMixture
+    * ChrysolitePowder
+    * Clay
+    * Coal
+    * ColoredSand
+    * CrystalBead
+    * CrystalOrGlassCone
+    * CrystalSphereSmall
+    * CrystalVialOfPhosphorescentMaterial
+    * DiamondAsDust
+    * DiamondAndOpalPowderedMix
+    * Dirt
+    * DivinatoryTools
+    * EarthWoodAndWaterMixture
+    * Feather
+    * FeatherFromAnyBird
+    * FeatherOfHummingbird
+    * FeatherOfOwl
+    * FeatherExotic
+    * FeatherWhite
+    * Feldspar
+    * Firefly
+    * FurOfBat
+    * FurOfBloodhound
+    * GemOrOtherOrnamentalContainer
+    * GemEncrustedBowl
+    * GemAsPowder
+    * GemsAsPowder
+    * GlassEye
+    * GlassOrCrystalBead
+    * Glowworm
+    * GoldDust
+    * GraveyardDirt
+    * Guano
+    * GumArabic
+    * GumArabicHemisphere
+    * HensHeart
+    * HerbsOilsAndIncenseMixture
+    * HollyBerry
+    * HolySymbol
+    * HolyWater
+    * HolyUnholyWater
+    * Incense
+    * IvoryPortalMiniature
+    * IvoryStripsX4
+    * JadeCirclet
+    * JadeDust
+    * JeweledHorn
+    * Mercury
+    * MicaChip
+    * MistletoeSprig
+    * ParchmentWithHolyWord
+    * PetrifiedEyeOfNewt
+    * PickledOctopusTentacle
+    * PlatinumRings
+    * PolishedMarbleStone
+    * PrayerWheel
+    * SacredRelicReliquary
+    * RubyDust
+    * SnakeskinGlove
+    * Snaketongue
+    * Snow
+    * Soot
+    * SpheresOfGlassCrystalOrMineral
+    * Spiderweb
+    * WireOfFineSilver
+  ]
+}
+
+AlchemyComponent {
+  ^ [
+    * AddersStomach
+    * Agate
+    * AlumSoakedInVinegar
+    * AmberGlassOrCrystalRod
+    * Bitumen
+    * BlackPearlCrushedPowder
+    * BoneDust
+    * Brimstone
+    * ChalksAndInksInfusedWithPreciousGems
+    * CharcoalIncenseAndHerbMixture
+    * ChrysolitePowder
+    * Clay
+    * Coal
+    * ColoredSand
+    * CrystalBead
+    * CrystalVialOfPhosphorescentMaterial
+    * DiamondAsDust
+    * DiamondAndOpalPowderedMix
+    * DivinatoryTools
+    * Dust
+    * EarthWoodAndWaterMixture
+    * Feather
+    * FeatherFromAnyBird
+    * FeatherOfHummingbird
+    * FeatherOfOwl
+    * FeatherExotic
+    * FeatherWhite
+    * Feldspar
+    * Mercury
+    * MicaChip
+    * Moonseeds
+    * Pearl
+    * PetrifiedEyeOfNewt
+    * PitchADrop
+    * Quartz
+    * RubyDust
+    * Sapphire
+    * SilverPowder
+    * Soot
+    * Spiderweb
+    * Tallow
+  ]
+}
+
+HerbalismComponent {
+  ^ [
+    * AshesOfMistletoeAndSpruce
+    * Bone
+    * CaterpillarCocoon
+    * CharcoalIncenseAndHerbMixture
+    * Cricket
+    * Feather
+    * FeatherFromAnyBird
+    * Firefly
+    * Glowworm
+    * GreenPlant
+    * Guano
+    * HerbsOilsAndIncenseMixture
+    * MistletoeSprig
+    * Molasses
+    * Moonseeds
+    * OakBark
+    * Oil
+    * OilsAndUnguents
+    * OintmentForTheEyes
+    * PetrifiedEyeOfNewt
+    * PhosphorescentMoss
+    * Reed
+    * RhubarbLeafPowdered
+    * RosePetals
+    * RottenEgg
+    * Shamrock
+    * SkunkCabbageLeaves
+    * Snaketongue
+    * SoilMixtureInASmallBag
+    * Soot
+    * Spiderweb
+    * StemOfAThornyPlant
+    * Stone
+    * Straw
+    * SumacLeaf
+    * Thorns
+    * ThornsSeven
+    * Twig
+    * TwigFromTreeStruckByLightning
+    * Wood
+    * Wychwood
+    * YewLeaf
+  ]
+}
+
+MineralComponent {
+  ^ [
+    * Agate
+    * AlumSoakedInVinegar
+    * AmberGlassOrCrystalRod
+    * BlackOnyxStone
+    * Clay
+    * Coal
+    * ColoredSand
+    * Diamond
+    * DiamondAsDust
+    * DiamondAndOpalPowderedMix
+    * Diamonds
+    * Feldspar
+    * Mercury
+    * MicaChip
+    * Pearl
+    * PhosphorescentMoss
+    * Phosphorus
+    * Quartz
+    * RubyDust
+    * Sapphire
+  ]
+}
+
+BlacksmithComponent {
+  ^ [
+    * Brimstone
+    * Clay
+    * Club
+    * IronBlade
+    * IronFilingsOrPowder
+    * Mercury
+    * Phosphorus
+    * Sand
+    * SilverAndIronPowderedMixture
+    * SilverMirrorSmall
+    * SilverPins
+    * SilverPowder
+    * SilverRod
+    * Sulfur
+  ]
+}
+
+GeneralComponent {
+  ^ [
+    * Bitumen
+    * Brimstone
+    * Clay
+    * ClothWad
+    * TinyWhiteStripOfCloth
+    * Coal
+    * CopperWire
+    * Cork
+    * CuredLeather
+    * Fleece
+    * Fur
+    * Gauze
+    * Ink
+    * LeadBasedInk
+    * Iron
+    * KnottedString
+    * ThinSheetOfLead
+    * LeatherLoop
+    * LeatherStrap
+    * Lodestone
+    * MagnifyingGlass
+    * Makeup
+    * Mercury
+    * OpaqueGlass
+    * PitchADrop
+    * RosePetals
+    * Sand
+    * SilkSquare
+    * SilverSpoonTiny
+    * SilverWhistle
+    * String
+    * TalcumPowder
+    * Tallow
+    * Thread
+    * VesselToContainAMediumSizedCreature
+  ]
+}
+
+
+GeneralComponentOld {
+  ^ [
+    * Bitumen
+    * Brimstone
+    * Butter
+    * Clay
+    * ClothWad
+    * TinyWhiteStripOfCloth
+    * Coal
+    * CopperWire
+    * Cork
+    * CuredLeather
+    * DistilledSpirits
+    * DriedCarrot
+    * Eggshell
+    * Fleece
+    * Fur
+    * Gauze
+    * Ink
+    * LeadBasedInk
+    * Iron
+    * KnottedString
+    * ThinSheetOfLead
+    * LeatherLoop
+    * LeatherStrap
+    * LegumeSeed
+    * LicoriceRootShaving
+    * Lime
+    * Lodestone
+    * MagnifyingGlass
+    * Makeup
+    * Mercury
+    * OpaqueGlass
+    * PitchADrop
+    * RhubarbLeafPowdered
+    * RosePetals
+    * Salt
+    * Sand
+    * SesameSeeds
+    * SilkSquare
+    * SilverSpoonTiny
+    * SilverWhistle
+    * SkunkCabbageLeaves
+    * String
+    * Sugar
+    * TalcumPowder
+    * Tallow
+    * Thread
+    * VesselToContainAMediumSizedCreature
+  ]
+}
+
+FoodComponent {
+  ^ [
+    * Butter
+    * CornPowdered
+    * DistilledSpirits
+    * DriedCarrot
+    * Eggshell
+    * FoodMorsel
+    * HoneyDrop
+    * KernelsOfGrain
+    * LegumeSeed
+    * LicoriceRootShaving
+    * Lime
+    * Molasses
+    * NutShells
+    * Oil
+    * PorkRind
+    * RhubarbLeafPowdered
+    * RottenEgg
+    * Salt
+    * SesameSeeds
+    * SkunkCabbageLeaves
+    * Sugar
+    * SumacLeaf
+    * SweetOilDrop
+    * Tarts
+  ]
+}
+
+OddOrCraftedComponent {
+  ^ [
+    * BlackPearlCrushedPowder
+    * ClayPotOfBrackishWater
+    * ClayPotOfGraveDirt
+    * CloakMiniature
+    * CrystalBead
+    * CrystalOrGlassCone
+    * CrystalSphereSmall
+    * CrystalVialOfPhosphorescentMaterial
+    * DivinatoryTools
+    * ExquisiteChest3x2x2MadeOfRareMaterials
+    * ExquisiteChestTinyReplica
+    * FeatherExotic
+    * Flesh
+    * FleshACubicInch
+    * Focus
+    * IvoryPortalMiniature
+    * IvoryStripsX4
+    * JeweledHorn
+    * Makeup
+    * TwistedLoopOfParchment
+    * ParchmentWithHolyWord
+    * PetrifiedEyeOfNewt
+    * PickledOctopusTentacle
+    * PlatinumRings
+    * PlatinumSwordMiniature
+    * PolishedMarbleStone
+    * PrayerWheel
+    * QuillPluckedFromASleepingBird
+    * SacrificialOffering
+    * Sapphire
+    * SilkSquare
+    * SilverBarOrnatelyCarved
+    * SilverPowder
+    * SnakeskinGlove
+    * Snaketongue
+    * SpheresOfGlassCrystalOrMineral
+    * StatueOfTheCaster
+    * Tallow
+    * TentacleOfGiantOctopusOrGiantSquid
+    * TinyPieceOfTargetMatter
+    * TwigFromTreeStruckByLightning
+    * UmberHulkBlood
+    * VesselToContainAMediumSizedCreature
+    * WireOfFineSilver
+  ]
+}
