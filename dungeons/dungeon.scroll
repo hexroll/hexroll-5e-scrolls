@@ -74,8 +74,8 @@ Dungeon { ^ $dungeon_classes
 
   Treasure? ~ <%
     {% set gold_value = sum(attribute_list(DungeonTreasure, "GoldValue")) %}
-    {% set gems_value = sum(attribute_list(DungeonTreasure, "GemsValue")) %}
-    {% set jewellery_value = sum(attribute_list(DungeonTreasure, "JewelleryValue")) %}
+    {% set gems_and_art_value = sum(attribute_list(attribute_list(DungeonTreasure, "Valuables"),"Value")) %}
+    {% set magic_items = sum(attribute_list(attribute_list(DungeonTreasure, "MagicItems"),"Count")) %}
     <li> Possible treasure:
     <ul>
     {% if gold_value > 0 %}
@@ -83,14 +83,14 @@ Dungeon { ^ $dungeon_classes
     <strong>{{currency(gold_value)}}</strong> in coins.
     </li>
     {% endif %}
-    {% if gems_value > 0 %}
+    {% if gems_and_art_value > 0 %}
     <li>
-    <strong>{{currency(gems_value)}}</strong>  in gems.
+    <strong>{{currency(gems_and_art_value)}}</strong> in Gemstones and Artifacts.
     </li>
     {% endif %}
-    {% if jewellery_value > 0 %}
+    {% if magic_items > 0 %}
     <li>
-    <strong>{{currency(jewellery_value)}}</strong>  in jewellery.
+    <strong>{{round(magic_items,0)}}</strong> Magic Items.
     </li>
     {% endif %}
     </ul>
@@ -116,10 +116,12 @@ Dungeon { ^ $dungeon_classes
     {% endfor %}
   %>
 
+  MaxHD = :Realm.MaxHD
   WanderingMonstersTable? ~ <%
+    {% if exists("GeneratedMonsters") %}
     {% set monsters_count = 0 %}
     {%for m in unique(GeneratedMonsters, "Title") %}
-    {% if m.HitDice < global("wandering_monsters_max_hd", 4) %}
+    {% if m.HitDice <= MaxHD %}
     {% set monsters_count = monsters_count + 1 %}
     {% endif %}
     {%endfor%}
@@ -132,9 +134,9 @@ Dungeon { ^ $dungeon_classes
     {%set counter.value=1%}
     <div class='condensed'></div>
     <table>
-    <tr> <th> 1d{{monsters_count}} </th> <th> Encounter </th> <th> Stats </th> </tr>
+    <tr> <th> {{dice_roller("1d"+join(monsters_count,""),"1d"+join(monsters_count,""))}} </th> <th> Encounter </th> <th> Stats </th> </tr>
     {%for m in unique(GeneratedMonsters,"Title") %}
-    {% if m.HitDice < global("wandering_monsters_max_hd", 4) and counter.value <= monsters_count%}
+    {% if m.HitDice <= MaxHD and counter.value <= monsters_count%}
     <tr> <td> {{counter.value}} </td>
          <td> {{m.TitlePluralizedForDungeonArea}} </td>
          <td> {{m.Stats}} </td>
@@ -144,6 +146,7 @@ Dungeon { ^ $dungeon_classes
     {%endfor%}
     </table>
     {%endif%}
+    {%endif%}
   %>
 
   Extension @ DungeonExtension
@@ -151,6 +154,13 @@ Dungeon { ^ $dungeon_classes
     {{Extension.Prescript}}
     <h5> Conspectus </h5>
     <ul>
+    {% set max_cr = 0 %}
+    {% if GeneratedMonsters %}
+    {% for m in GeneratedMonsters %}
+    {% if m.HitDice > max_cr %} {% set max_cr = m.HitDice %} {% endif %}
+    {% endfor %}
+    <li> Hosts monsters up to <strong>CR{{max_cr}}</strong> </li>
+    {% endif %}
     {% if FactionLair and FactionLair.Faction %}
     <li>
     {{FactionLair.Faction}}
@@ -218,6 +228,7 @@ Dungeon { ^ $dungeon_classes
 DungeonWanderingMonsters {
   [10..10 monsters] % Monster
   Trap @ AreaTrap
+  MaxHD = :Realm.MaxHD
 
   RandomTable! ~ <%
     {% if Trap.Description %}
@@ -226,7 +237,7 @@ DungeonWanderingMonsters {
     {% endif %}
     {% set monsters_count = 0 %}
     {%for m in unique(monsters, "Title") %}
-    {% if m.HitDice < 4 %}
+    {% if m.HitDice <= MaxHD %}
     {% set monsters_count = monsters_count + 1 %}
     {% endif %}
     {%endfor%}
@@ -236,9 +247,9 @@ DungeonWanderingMonsters {
     {%set counter.value=1%}
     <div class='condensed'></div>
     <table>
-    <tr> <th> 1d{{monsters_count}} </th> <th> Encounter </th> <th> Stats </th> </tr>
+    <tr> <th> {{dice_roller("1d"+join(monsters_count,""),"1d"+join(monsters_count,""))}} </th> <th> Encounter </th> <th> Stats </th> </tr>
     {%for m in unique(monsters,"Title") %}
-    {% if m.HitDice < global("wandering_monsters_max_hd", 4) %}
+    {% if m.HitDice <= MaxHD %}
     <tr> <td> {{counter.value}} </td>
          <td> {{m.TitlePluralizedForDungeonArea}} </td>
          <td> {{m.Stats}} </td>
@@ -639,7 +650,11 @@ DungeonTreasureRumor (RealmRumor) {
 
 DungeonEncounter {
   Description! ~ <%
+    {%if existsIn(Monster,"BossName") %}
+    <strong>{{Monster.BossName.Full}} the {{Monster.Title}}</strong> is inside this area{%if existsIn(Monster,"Activity") and Monster.Activity%}, {{Monster.Activity.Dungeon}}{%endif%}.
+    {%else%}
     {%if Monster.NumberAppearingDungeonArea==1%}There’s {{articlize(Monster.Title)}}{%else%} There are {{Monster.NumberAppearingDungeonArea}} {{Monster.Title}}s {%endif%} inside{%if existsIn(Monster,"Activity") and Monster.Activity%}, {{Monster.Activity.Dungeon}}{%endif%}.
+    {%endif%}
     {%if Monster.Intelligent %}Roll or decide for reaction.
     {%else%}{%if Monster.NumberAppearingDungeonArea==1%}It {%else%} They {%endif%} will attack anyone stepping in. {%endif%}
     <p>
