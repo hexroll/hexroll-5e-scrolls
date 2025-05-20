@@ -1,0 +1,158 @@
+# Hexroll Scroll Model is open-source software released under the terms of the
+# GPL Affero Public License v3.
+#
+# Copyright (C) 2024 Ithai Levi ithai@pendicepaper.com
+#
+EntourageChiefCommander {
+  ^ [
+      * FighterLevel10
+      * FighterLevel11
+  ]
+}
+
+EntourageCleric {
+  ^ [
+    * ClericLevel10
+    * ClericLevel11
+  ]
+}
+
+EntourageSage {
+  ^ [
+      * WizardLevel10
+      * WizardLevel11
+  ]
+}
+
+EntourageConfidant {
+  ^ [
+      * RogueLevel10
+      * RogueLevel11
+  ]
+}
+
+NobleRuler {
+  ^ [
+    * FighterLevel12
+    * FighterLevel13
+  ]
+}
+
+BishopRuler {
+  ^ [
+    * ClericLevel12
+    * ClericLevel13
+  ]
+}
+
+MonarchRuler {
+  ^ [
+    * FighterLevel12
+    * FighterLevel13
+  ]
+}
+
+WarexpertRuler {
+  ^ [
+    * FighterLevel12
+    * FighterLevel13
+  ]
+}
+
+NecromancerRuler {
+  ^ [
+   * WizardLevel12
+   * WizardLevel13
+  ]
+}
+
+CultLeader {
+  ^ [
+    * WizardLevel6
+    * WizardLevel7
+    * WizardLevel8
+    * WizardLevel9
+    * ClericLevel6
+    * ClericLevel7
+    * ClericLevel8
+    * ClericLevel9
+  ]
+}
+
+MilitiaLeader {
+  ^ [
+    * FighterLevel6
+    * FighterLevel7
+    * FighterLevel8
+    * FighterLevel9
+    * FighterLevel10
+  ]
+}
+
+SyndicateLeader {
+  ^ [
+    * RogueLevel6
+    * RogueLevel7
+    * RogueLevel8
+    * RogueLevel9
+    * RogueLevel10
+  ]
+}
+
+ArenaJudge {
+  ^ [
+    * FighterLevel6
+    * FighterLevel7
+  ]
+}
+
+ArenaContestant {
+  ^ [
+    * FighterLevel3
+    * FighterLevel4
+    * FighterLevel5
+  ]
+}
+
+CastleResident {
+  ^ [
+    * FighterLevel4
+    * FighterLevel5
+    * FighterLevel6
+    * FighterLevel7
+    * FighterLevel8
+    * FighterLevel9
+    * FighterLevel10
+    * FighterLevel11
+  ]
+}
+
+MagicAcademyMedium {
+  ^ [
+    * WizardLevel1
+    * WizardLevel2
+  ]
+}
+
+MagicLaboratoryAssistant {
+  ^ [
+    * WizardLevel1
+    * WizardLevel2
+  ]
+}
+
+WizardTowerResident {
+  ^ [
+    * WizardLevel11
+    * WizardLevel12
+  ]
+}
+
+PirateShipCaptain {
+  ^ [
+    * FighterLevel5
+    * FighterLevel6
+    * RogueLevel5
+    * RogueLevel6
+  ]
+}

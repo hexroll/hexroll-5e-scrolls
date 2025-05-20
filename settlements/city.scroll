@@ -70,11 +70,8 @@ City(Settlement) {
         * FighterLevel11
         * ClericLevel10
         * ClericLevel11
-        * ElfLevel8
-        * ElfLevel9
-        * DwarfLevel9
-        * DwarfLevel10
-        *(x2) HalflingLevel7
+        * RogueLevel10
+        * RogueLevel11
   ]~{
     HostingEntity := &uuid
     URLExt = "/location/{{HostingEntity}}/npc/{{uuid}}"
