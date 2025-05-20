@@ -6424,7 +6424,7 @@ Lemure (5eMonster) {
 }
 
 
-Lich (5eMonster) {
+Lich (5eMonsterEvilUndeadBoss) {
     Title! ~ "Lich"
     Size = "Medium"
     CreatureType = "undead"
@@ -6455,7 +6455,7 @@ Lich (5eMonster) {
     HitDice = 21
     Traits ~ <% <ul> <li><strong>Legendary Resistance (3/Day):</strong> If the lich fails a saving throw, it can choose to succeed instead.</li><li><strong>Rejuvenation:</strong> If it has a phylactery, a destroyed lich gains a new body in {{dice_roller("1d10","1d10")}} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the phylactery.</li><li><strong>Turn Resistance:</strong> The lich has advantage on saving throws against any effect that turns undead.</li> </ul> %>
     Actions ~ <% <ul> <li><strong>Paralyzing Touch:</strong>  {{dice_roller("1d20+12","<strong>+12</strong>")}} to hit, reach 5 ft., one creature. Inflicts 10 ({{dice_roller("3d6","3d6")}}) cold damage. The target must succeed on a <strong>DC18</strong> Constitution saving throw or be <strong>paralyzed</strong> for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</li> </ul> %>
-    | 5eMonster
+    | 5eMonsterEvilUndeadBoss
 }
 
 
@@ -7089,7 +7089,7 @@ Mummy (5eMonster) {
 }
 
 
-MummyLord (5eMonster) {
+MummyLord (5eMonsterEvilUndeadBoss) {
     Title! ~ "Mummy Lord"
     Size = "Medium"
     CreatureType = "undead"
@@ -7120,7 +7120,7 @@ MummyLord (5eMonster) {
     HitDice = 15
     Traits ~ <% <ul> <li><strong>Magic Resistance:</strong> The mummy lord has advantage on saving throws against spells and other magical effects.</li><li><strong>Rejuvenation:</strong> A destroyed mummy lord gains a new body in 24 hours if its heart is intact, regaining all its hit points and becoming active again. The new body appears within 5 feet of the mummy lord's heart.</li> </ul> %>
     Actions ~ <% <ul> <li><strong>Multiattack:</strong> The mummy can use its Dreadful Glare and makes one attack with its rotting fist.</li><li><strong>Rotting Fist:</strong>  {{dice_roller("1d20+9","<strong>+9</strong>")}} to hit, reach 5 ft., one target. Inflicts 14 ({{dice_roller("3d6 + 4","3d6 + 4")}}) bludgeoning damage plus 21 ({{dice_roller("6d6","6d6")}}) necrotic damage. If the target is a creature, it must succeed on a <strong>DC16</strong> Constitution saving throw or be cursed with mummy rot. The cursed target can't regain hit points, and its hit point maximum decreases by 10 ({{dice_roller("3d6","3d6")}}) for every 24 hours that elapse. If the curse reduces the target's hit point maximum to 0, the target dies, and its body turns to dust. The curse lasts until removed by the TAG:spell spell or other magic.</li><li><strong>Dreadful Glare:</strong> The mummy lord targets one creature it can see within 60 feet of it. If the target can see the mummy lord, it must succeed on a <strong>DC16</strong> Wisdom saving throw against this magic or become <strong>frightened</strong> until the end of the mummy's next turn. If the target fails the saving throw by 5 or more, it is also <strong>paralyzed</strong> for the same duration. A target that succeeds on the saving throw is immune to the Dreadful Glare of all mummies and mummy lords for the next 24 hours.</li> </ul> %>
-    | 5eMonster
+    | 5eMonsterEvilUndeadBoss
 }
 
 

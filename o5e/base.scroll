@@ -102,3 +102,33 @@
     %>
   | Monster
 }
+
+5eMonsterEvilBoss (5eMonster) {
+  BossName! @ EvilName
+  DungeonName! = :Dungeon.Name
+  DungeonUUID! = :Dungeon.uuid
+  AreaUUID! = :AreaDescription.uuid
+  | 5eMonster
+}
+
+5eMonsterEvilUndeadBoss (5eMonsterEvilBoss ) {
+  BackgroundStory! @ [
+    * Tormented by the violent death of a beloved
+    * Filled with raging wrath for an eternal rival
+    * Greedy beyond the grasp of mortal satisfaction
+    * Vengeful and bitter for a long-forgotten betrayal
+    * Consumed by an everlasting hunger for forbidden knowledge
+    * Eternally cursed to roam the depths of darkness
+    * Hunting innocent mortal souls for ancient evil rituals
+    * Obsessed with reclaiming a long forgotten throne
+    * Relentlessly pursuing boundless immortal power
+    * Haunted by the echoes of their own dark secrets
+    * Feeding on mortal fear and pain
+    * Searching for helpless souls to feed their evil desires
+    * Yearning to reunion with their long-lost spirits of despair
+    * Bound to a cursed artifact, thirsting for release
+    * Searching for a pure soul to pay for their dark sins
+    * Searching for a way to unbound from their even more sinister master
+  ]
+  | 5eMonsterEvilBoss
+}
