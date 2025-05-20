@@ -23,8 +23,8 @@ Hex {
   RegionUUID = :Region.uuid
   Region! =  *Region.Name
 
-  coord_x = null
-  coord_y = null
+  coord_x = none
+  coord_y = none
   coords = <{{coord_x}},{{coord_y}}>
   Coords! = <{{coord_x}}{{coord_y}}>
   Version = 1
@@ -196,6 +196,15 @@ Hex {
     {% endif %}
     {{Extension.Postscript}}
   %>
+
+  $IndexRef @ IndexedEntity {
+    Link = &uuid
+    Value = "Hex {{coords(Link)}}"
+    Details = <%{{Header}}%>
+    Type = "hex"
+    Icon = "location-dot"
+  }
+
   <metadata%
   %metadata>
 

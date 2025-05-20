@@ -26,45 +26,45 @@ Character {
     TavernOfChoice = none
     TavernOfChoiceUUID = none
     TavernText! @ [
-          * {%if TavernOfChoice%}
+          * {%if exists("TavernOfChoice") and TavernOfChoice%}
             <li>
             {{Name.First}} is frequenting the
             <a href="{{sandbox()}}/location/{{TavernOfChoiceUUID}}">
-            {{TavernOfChoice.Full}}
+            {{TavernOfChoice}}
             </a>
             on {{Gender.PronounPossessive}} time off.
             </li>
             {%endif%}
-          * {%if TavernOfChoice%}
+          * {%if exists("TavernOfChoice") and TavernOfChoice%}
             <li>
             {{Name.First}} likes spending {{Gender.PronounPossessive}} time
             in the
             <a href="{{sandbox()}}/location/{{TavernOfChoiceUUID}}">
-            {{TavernOfChoice.Full}}</a>.
+            {{TavernOfChoice}}</a>.
             </li>
             {%endif%}
-          * {%if TavernOfChoice%}
+          * {%if exists("TavernOfChoice") and TavernOfChoice%}
             <li>
             {{Name.First}} enjoys dining with {{Gender.PronounPossessive}} friends
             in the
             <a href="{{sandbox()}}/location/{{TavernOfChoiceUUID}}">
-            {{TavernOfChoice.Full}}</a>.
+            {{TavernOfChoice}}</a>.
             </li>
             {%endif%}
-          * {%if TavernOfChoice%}
+          * {%if exists("TavernOfChoice") and TavernOfChoice%}
             <li>
             On {{Gender.PronounPossessive}} time off, {{Name.First}} will enjoy
             a drink or two in the
             <a href="{{sandbox()}}/location/{{TavernOfChoiceUUID}}">
-            {{TavernOfChoice.Full}}</a>.
+            {{TavernOfChoice}}</a>.
             </li>
             {%endif%}
-          * {%if TavernOfChoice%}
+          * {%if exists("TavernOfChoice") and TavernOfChoice%}
             <li>
             {{Name.First}} is usually eating {{Gender.PronounPossessive}} meals
             in the
             <a href="{{sandbox()}}/location/{{TavernOfChoiceUUID}}">
-            {{TavernOfChoice.Full}}</a>.
+            {{TavernOfChoice}}</a>.
             </li>
             {%endif%}
     ]

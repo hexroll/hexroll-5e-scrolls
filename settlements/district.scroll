@@ -19,18 +19,9 @@ DistrictTavern(Tavern) {
     *(x1) InnName
     *(x2) TavernName
   ]
-  LinkedName! ~ <%
-    <a href="{{sandbox}}/location/{{uuid}}">
-    <strong>{{Name.Type}}</strong> ({{Name.Full}})
-    </a>
-  %>
-  InvertedLinkedName! ~ <%
-    <a href="{{sandbox}}/location/{{uuid}}"><strong>{{Name.Full}}</strong></a>
-    ({{Name.Type}})
-  %>
   [2..5 patrons] ? Folk {
     TavernOfChoiceUUID = &uuid
-    TavernOfChoice = &Name
+    TavernOfChoice = *Title
   }
 
   SettlementName! = *Settlement.NamePart
@@ -40,6 +31,16 @@ DistrictTavern(Tavern) {
   TavernLocation! = "{{SettlementName}}"
 
   | Tavern
+
+  LinkedName! ~ <%
+    <a href="{{sandbox}}/location/{{uuid}}">
+    <strong>{{Name.Type}}</strong> ({{Title}})
+    </a>
+  %>
+  InvertedLinkedName! ~ <%
+    <a href="{{sandbox}}/location/{{uuid}}"><strong>{{Title}}</strong></a>
+    ({{Name.Type}})
+  %>
 
   RealmUUID? = :Realm.uuid
   RealmType? = :Realm.RealmType
@@ -99,7 +100,7 @@ District {
 
   Index! ~ <%
     <a href="{{sandbox()}}/location/{{Tavern.uuid}}">
-    <strong>{{Tavern.Name.Type}}</strong></a> ({{Tavern.Name.Full}}) &#9726;
+    <strong>{{Tavern.Name.Type}}</strong></a> ({{Tavern.Title}}) &#9726;
    {{join(attribute_list(shops,"InvertedName")," &#9726; ")}}
   %>
 

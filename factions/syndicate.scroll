@@ -79,7 +79,7 @@ Syndicate (Faction) {
     {% if exists("Tavern") %}
     <p>
     The {{lower(class)}}’s usual gathering venue is
-    <a href="{{Tavern.Link}}"><strong>{{Tavern.Name.Full}}</strong></a>
+    <a href="{{Tavern.Link}}"><strong>{{Tavern.Title}}</strong></a>
     {%if Tavern.SettlementName%}in <strong>{{title(Tavern.SettlementName)}}</strong>{%else%}
     {%endif%}
     </p>

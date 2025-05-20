@@ -105,9 +105,10 @@ Observatory {
       Findable = true
   }
   # This is an anti-pattern the fixates the wrong region in this case
-  ShardRegion = &Shard*Region.Name
+  # ShardRegion = &Shard*Region.Name
   # End anti-pattern
   Quest! ~ <%
+    {% if exists("Shard") %}
       hoping to research {{Shard.Name}}, thought to be found in
       {% if Shard.Region %}
       {{html_link( Shard.HexUUID,Shard.Region)}}.
@@ -119,6 +120,9 @@ Observatory {
       <ul><li>
           Finders reward is {{reroller(Reward)}} <strong>{{Reward.Description}}</strong>
       </li></ul>
+      {% else %}
+      looking for a mysterious shard, not found in these lands.
+      {% endif %}
   %>
 }
 
@@ -152,9 +156,10 @@ Laboratory {
     Findable = true
   }
   # This is an anti-pattern the fixates the wrong region in this case
-  ComponentRegion = &Component*Region.Name
+  # ComponentRegion = &Component*Region.Name
   Reward @ RandomPotion
   Quest! ~ <%
+      {% if exists("Component") %}
       looking for the <strong>{{Component.Name}}</strong>, a unique potion component, rumored to be
       found in
       {% if Component.Region %}
@@ -167,6 +172,9 @@ Laboratory {
       <ul><li>
           Reward is {{reroller(Reward)}}<strong>{{Reward.Description}}</strong>
       </li></ul>
+      {% else %}
+      looking for an exotic potion component, not found in these lands.
+      {% endif %}
   %>
 }
 

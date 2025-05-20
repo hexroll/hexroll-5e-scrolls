@@ -308,7 +308,7 @@ Tavern(Populated) {
   %>
 
   $IndexRef @ IndexedEntity {
-    Render = "Name"
+    Render = "Title"
     Details = "{{capitalize(TavernLocation)}}"
     Link = &uuid
     Type = "location"
@@ -324,7 +324,7 @@ Tavern(Populated) {
   <header%
     <div hidden id="doc-title"> {{Title}} from {{capitalize(SettlementName)}} in {{RealmName.Title}}</div>
     <h4 id="title">
-    <span id="editable-title" data-attr="Full" data-entity="{{Name.uuid}}">{{Name.Full}}</span>
+    <span id="editable-title" {%if exists("SettlementUUID") %}data-settlement="{{SettlementUUID}}"{%endif%}data-attr="Title">{{Title}}</span>
     {{Breadcrumbs}}
     </h4>
   %header>
