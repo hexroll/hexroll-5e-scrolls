@@ -51,6 +51,9 @@ Realm {
 
   Title! ` "The {{RealmType.Title}} of {{Name.Title}}"
 
+
+  MaxHD = $wandering_monsters_max_hd
+
   << Plant
   << Shard
 
@@ -66,6 +69,10 @@ Realm {
   << Hex
   << LostItemMagical
   << Castle
+
+  ItemsOfLegend << LegendaryItem
+  EvilBosses << 5eMonsterEvilBoss
+
   toc! << TocEntry
 
   [$minimum_number_of_regions..$maximum_number_of_regions regions] @ Region

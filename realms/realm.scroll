@@ -345,7 +345,50 @@ RuledRealm (Realm){
     {% endfor %}
     </ul>
 
+   {% if exists("EvilBosses") and EvilBosses %}
+   <h5> Archvillians </h5>
+   <ul>
+   {% for i in EvilBosses %}
+   <li>
+   {{begin_spoiler()}}
+   <a href="{{sandbox()}}/location/{{i.AreaUUID}}">
+   {{i.BossName.Full}} the {{i.Title}} </a> -
+   {{i.BackgroundStory}}
+   {{end_spoiler()}}
+   </li>
+   {% endfor %}
+   </ul>
+   {% endif %}
+
+   {% if exists("ItemsOfLegend") and ItemsOfLegend %}
+   <h5> Legendary Treasure </h5>
+   <ul>
+   {% for i in ItemsOfLegend %}
+   {{i.Link}}
+   {% endfor %}
+   </ul>
+   {% endif %}
+
+
   %>
+
+  <entity-will-reroll%
+    -- Check if the realm has any open coastlines, otherwise
+    -- prevent rerolling since we might not be able to remap
+    -- the realm
+    local has_a_coast = false
+    for k1,r in ipairs(self.regions) do
+        local region = load(r)
+        for k2,h in ipairs(region.Hexmap) do
+          local hex = load(h)
+          if hex["$coasts"] ~= nil then
+            has_a_coast = true
+          end
+        end
+    end
+    return has_a_coast
+  %entity-will-reroll>
+
   <entity-will-roll%
     set_global("GENERATING_REALM")
     if has_global("GENERATING_REALM") then
