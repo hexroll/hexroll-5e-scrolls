@@ -79,6 +79,9 @@
                 {% if Senses != "" %}
                 <li><strong>Senses: </strong> {{Senses}}</li>
                 {% endif %}
+                {% if Alignment != "Unaligned" %}
+                <li><strong>Alignment: </strong> {{Alignment}}</li>
+                {% endif %}
                 {% if Languages != "" %}
                 <li><strong>Languages: </strong> {{Languages}}</li>
                 {% endif %}
