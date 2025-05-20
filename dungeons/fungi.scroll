@@ -33,6 +33,6 @@ DungeonFungi {
       are growing from cracks in the ground. Anyone consuming them {{Effect}}
     * There are {{Quantity}} colourful bioluminescent mushrooms growing from
       cracks in the ground. Anyone consuming these will gain the same
-      effect as if they consumed {{articlize(PotionEffect.Description)}}
+      effect as if they consumed {{articlize(PotionEffect.Title)}}.
       ]
 }
