@@ -345,6 +345,7 @@ MonstersMagicalTier3 {
 
 MonstersMagicalTier4 {
   ^ [
+      *(x1) Androsphinx
       *(x1) Solar
     ]
 }
@@ -416,14 +417,48 @@ MonsterUndeadTier4 {
   ]
 }
 
+MonstersCaveHumanoidsTier1 {
+  ^ [
+     *(x1) Bandit
+     *(x1) Cultist
+     *(x1) Kobold
+     *(x1) Merfolk
+     *(x1) Goblin
+     *(x1) Grimlock
+     *(x1) Gnoll
+     *(x1) Hobgoblin
+     *(x1) Lizardfolk
+     *(x1) Orc
+     *(x1) Sahuagin
+     *(x1) Bugbear
+     *(x1) Duergar
+     *(x1) Wererat
+     *(x1) Werebear
+  ]
+}
+
+MonstersCaveCreaturesTier2 {
+  ^ [
+    * Grick
+    * Azer
+    * Basilisk
+    * Behir
+    * Cloaker
+    * Ettin
+    * Owlbear
+  ]
+}
+
 MonsterCavernsTier1 {
   ^ [
+    *(x3) MonstersCaveHumanoidsTier1
     *(x1) MonstersMonstrositiesTier1
   ]
 }
 
 MonsterCavernsTier2 {
   ^ [
+    *(x3) MonstersCaveCreaturesTier2
     *(x1) MonstersMonstrositiesTier2
   ]
 }
