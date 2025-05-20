@@ -3,12 +3,15 @@ Cleric(NPC5E) {
   Class! = "Cleric"
   ExtraLanguages = ""
 
+  WeaponBonus = 0
+
   Weapon @ ExWeapon {
     ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
     ProficiencyBonus = &ProficiencyBonus
     BaseStrength = &BaseStrength
     BaseDexterity = &BaseDexterity
     Race := *Race
+    WeaponBonus = &WeaponBonus
   }
 
   Armor @ $ClericArmors
@@ -332,6 +335,7 @@ ClericLevel1(Cleric) {
 
     ClericDomain @ ClericDomainLevel1
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel2(Cleric) {
@@ -359,6 +363,7 @@ ClericLevel2(Cleric) {
 
     ClericDomain @ ClericDomainLevel2
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel3(Cleric) {
@@ -386,6 +391,7 @@ ClericLevel3(Cleric) {
 
     ClericDomain @ ClericDomainLevel3
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel4(Cleric) {
@@ -413,6 +419,7 @@ ClericLevel4(Cleric) {
 
     ClericDomain @ ClericDomainLevel4
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel5(Cleric) {
@@ -440,6 +447,7 @@ ClericLevel5(Cleric) {
 
     ClericDomain @ ClericDomainLevel5
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel6(Cleric) {
@@ -468,6 +476,7 @@ ClericLevel6(Cleric) {
 
     ClericDomain @ ClericDomainLevel6
     | Cleric
+    WeaponBonus = 0
 }
 
 ClericLevel7(Cleric) {
@@ -495,6 +504,7 @@ ClericLevel7(Cleric) {
 
     ClericDomain @ ClericDomainLevel7
     | Cleric
+    WeaponBonus = 1
 }
 
 ClericLevel8(Cleric) {
@@ -523,6 +533,7 @@ ClericLevel8(Cleric) {
 
     ClericDomain @ ClericDomainLevel8
     | Cleric
+    WeaponBonus = 1
 }
 
 
@@ -551,6 +562,7 @@ ClericLevel9(Cleric) {
 
     ClericDomain @ ClericDomainLevel9
     | Cleric
+    WeaponBonus = 1
 }
 
 ClericLevel10(Cleric) {
@@ -578,6 +590,7 @@ ClericLevel10(Cleric) {
 
     ClericDomain @ ClericDomainLevel10
     | Cleric
+    WeaponBonus = 1
 }
 
 ClericLevel11(Cleric) {
@@ -605,6 +618,7 @@ ClericLevel11(Cleric) {
 
     ClericDomain @ ClericDomainLevel11
     | Cleric
+    WeaponBonus = 1
 }
 
 ClericLevel12(Cleric) {
@@ -632,6 +646,7 @@ ClericLevel12(Cleric) {
 
     ClericDomain @ ClericDomainLevel12
     | Cleric
+    WeaponBonus = 2
 }
 
 ClericLevel13(Cleric) {
@@ -659,6 +674,7 @@ ClericLevel13(Cleric) {
 
     ClericDomain @ ClericDomainLevel13
     | Cleric
+    WeaponBonus = 2
 }
 
 ClericLevel14(Cleric) {
@@ -686,6 +702,7 @@ ClericLevel14(Cleric) {
 
     ClericDomain @ ClericDomainLevel14
     | Cleric
+    WeaponBonus = 2
 }
 
 ClericDomainLifeSpellForLevel1 = [

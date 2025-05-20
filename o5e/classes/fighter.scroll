@@ -5,6 +5,8 @@ Fighter(NPC5E) {
 
   FightingStyle @ FightingStyle
 
+  WeaponBonus = 0
+
   Weapon @ ExWeapon {
     ClassWeaponProficiencies = "Club, Dagger, Greatclub, Handaxe, Javelin, Light Hammer, Mace, Quarterstaff, Sickle, Spear, Light Crossbow, Dart, Shortbow, Sling, Battleaxe, Flail, Glaive, Greataxe, Greatsword, Halberd, Lance, Longsword, Maul, Morningstar, Pike, Rapier, Scimitar, Shortsword, Trident, Warpick, Warhammer, Whip, Blowgun, Hand Crossbow, Heavy Crossbow, Longbow, Net"
     ProficiencyBonus = &ProficiencyBonus
@@ -12,6 +14,7 @@ Fighter(NPC5E) {
     BaseDexterity = &BaseDexterity
     RangedBonus = &FightingStyle.RangedWeaponBonus
     Race := *Race
+    WeaponBonus = &WeaponBonus
   }
 
   Armor @ $FighterArmors
@@ -222,6 +225,8 @@ FighterLevel6(Fighter) {
     BaseCharisma @ 3d6
 
     | Fighter
+
+     WeaponBonus = 1
 }
 
 FighterLevel7(Fighter) {
@@ -237,6 +242,8 @@ FighterLevel7(Fighter) {
     BaseCharisma @ 3d6
 
     | Fighter
+
+    WeaponBonus = 1
 }
 
 FighterLevel8(Fighter) {
@@ -252,6 +259,8 @@ FighterLevel8(Fighter) {
     BaseCharisma @ 3d6
 
     | Fighter
+
+    WeaponBonus = 1
 }
 
 FighterLevel9(Fighter) {
@@ -267,6 +276,8 @@ FighterLevel9(Fighter) {
     BaseCharisma @ 3d6
 
     | Fighter
+
+    WeaponBonus = 1
 }
 
 FighterLevel10(Fighter) {
@@ -282,6 +293,8 @@ FighterLevel10(Fighter) {
     BaseCharisma @ 3d6+2
 
     | Fighter
+
+    WeaponBonus = 1
 }
 
 FighterLevel11(Fighter) {
@@ -297,6 +310,8 @@ FighterLevel11(Fighter) {
     BaseCharisma @ 3d6+2
 
     | Fighter
+
+    WeaponBonus = 2
 }
 
 FighterLevel12(Fighter) {
@@ -312,6 +327,8 @@ FighterLevel12(Fighter) {
     BaseCharisma @ 3d6+2
 
     | Fighter
+
+    WeaponBonus = 2
 }
 
 FighterLevel13(Fighter) {
@@ -327,6 +344,8 @@ FighterLevel13(Fighter) {
     BaseCharisma @ 3d6+2
 
     | Fighter
+
+    WeaponBonus = 2
 }
 
 FighterLevel14(Fighter) {
@@ -342,4 +361,6 @@ FighterLevel14(Fighter) {
     BaseCharisma @ 3d6+3
 
     | Fighter
+
+    WeaponBonus = 2
 }

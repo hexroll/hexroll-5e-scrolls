@@ -3,12 +3,15 @@ Wizard(NPC5E) {
   Class! = "Wizard"
   ExtraLanguages = ""
 
+  WeaponBonus = 0
+
   Weapon @ ExWeapon {
     ClassWeaponProficiencies = "Dagger, Quarterstaff, Light Crossbow, Dart, Sling"
     ProficiencyBonus = &ProficiencyBonus
     BaseStrength = &BaseStrength
     BaseDexterity = &BaseDexterity
     Race := *Race
+    WeaponBonus = &WeaponBonus
   }
 
   Armor @ $WizardArmors
@@ -191,6 +194,8 @@ WizardLevel1(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 
@@ -218,6 +223,8 @@ WizardLevel2(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 WizardLevel3(Wizard) {
@@ -244,6 +251,8 @@ WizardLevel3(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 WizardLevel4(Wizard) {
@@ -270,6 +279,8 @@ WizardLevel4(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 WizardLevel5(Wizard) {
@@ -296,6 +307,8 @@ WizardLevel5(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 WizardLevel6(Wizard) {
@@ -322,6 +335,8 @@ WizardLevel6(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 0
 }
 
 WizardLevel7(Wizard) {
@@ -348,6 +363,8 @@ WizardLevel7(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 1
 }
 
 WizardLevel8(Wizard) {
@@ -374,6 +391,8 @@ WizardLevel8(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 1
 }
 
 WizardLevel9(Wizard) {
@@ -400,6 +419,8 @@ WizardLevel9(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 1
 }
 
 WizardLevel10(Wizard) {
@@ -426,6 +447,8 @@ WizardLevel10(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 1
 }
 
 WizardLevel11(Wizard) {
@@ -452,6 +475,8 @@ WizardLevel11(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 2
 }
 
 WizardLevel12(Wizard) {
@@ -478,6 +503,8 @@ WizardLevel12(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 2
 }
 
 WizardLevel13(Wizard) {
@@ -504,6 +531,8 @@ WizardLevel13(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 2
 }
 
 WizardLevel14(Wizard) {
@@ -530,6 +559,8 @@ WizardLevel14(Wizard) {
     Level9Slots = 0
 
     | Wizard
+
+    WeaponBonus = 2
 }
 
 WizardCantrip = [

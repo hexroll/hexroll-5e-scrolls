@@ -3,12 +3,15 @@ Rogue(NPC5E) {
   Class! = "Rogue"
   ExtraLanguages = "Thieves' Cant"
 
+  WeaponBonus = 0
+
   Weapon @ ExWeapon {
     ClassWeaponProficiencies = "Club, Dagger, Greatclub, Handaxe, Javelin, Light hammer, Mace, Quarterstaff, Sickle, Spear, Hand Crossbow, Longsword, Rapier, Shortsword"
     ProficiencyBonus = &ProficiencyBonus
     BaseStrength = &BaseStrength
     BaseDexterity = &BaseDexterity
     Race := *Race
+    WeaponBonus = &WeaponBonus
   }
 
   Armor @ $RogueArmors
@@ -102,6 +105,8 @@ RogueLevel1(Rogue) {
     Skill1ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 
@@ -122,6 +127,8 @@ RogueLevel2(Rogue) {
     Skill1ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 RogueLevel3(Rogue) {
@@ -141,6 +148,8 @@ RogueLevel3(Rogue) {
     Skill1ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 RogueLevel4(Rogue) {
@@ -160,6 +169,8 @@ RogueLevel4(Rogue) {
     Skill1ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 RogueLevel5(Rogue) {
@@ -179,6 +190,8 @@ RogueLevel5(Rogue) {
     Skill1ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 RogueLevel6(Rogue) {
@@ -199,6 +212,8 @@ RogueLevel6(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 0
 }
 
 RogueLevel7(Rogue) {
@@ -219,6 +234,8 @@ RogueLevel7(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 1
 }
 
 RogueLevel8(Rogue) {
@@ -239,6 +256,8 @@ RogueLevel8(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 1
 }
 
 RogueLevel9(Rogue) {
@@ -259,6 +278,8 @@ RogueLevel9(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 1
 }
 
 RogueLevel10(Rogue) {
@@ -279,6 +300,8 @@ RogueLevel10(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 1
 }
 
 RogueLevel11(Rogue) {
@@ -299,6 +322,8 @@ RogueLevel11(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 2
 }
 
 RogueLevel12(Rogue) {
@@ -319,6 +344,8 @@ RogueLevel12(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 2
 }
 
 RogueLevel13(Rogue) {
@@ -339,6 +366,8 @@ RogueLevel13(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 2
 }
 
 RogueLevel14(Rogue) {
@@ -359,4 +388,6 @@ RogueLevel14(Rogue) {
     Skill2ProficiencyMultiplier = 1
 
     | Rogue
+
+    WeaponBonus = 2
 }
