@@ -345,7 +345,7 @@ NPC5E(Character) {
                 {% endif %}
                 {% if exists("ClassSpecificStats") %} {{ClassSpecificStats}} {% endif %}
                 </ul>
-                {% if exists("Actions") or exists("Spells") or exists("Cantrips") %}
+                {% if exists("Actions") or exists("Spells") or exists("Cantrips") or exists("Weapon") %}
                 <hr/>
                 <h6>Actions</h6>
                 <ul>
