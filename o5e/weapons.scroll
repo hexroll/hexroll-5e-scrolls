@@ -36,8 +36,8 @@ MeleeWeapon(ExWeapon) {
   ProficiencyBonus = 0
   BaseStrength = 0
   MeleeBonus = 0
-  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName) %}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0) + WeaponProficiencyBonus + MeleeBonus + WeaponBonus}} %>
-  CalcedDamage ~ <%{{DamageRoll}}+{{round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0) + WeaponBonus}}%>
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName) %}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{signed_modifier(round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0) + WeaponProficiencyBonus + MeleeBonus + WeaponBonus)}} %>
+  CalcedDamage ~ <%{{DamageRoll}}{{signed_modifier(round((must_be_int(BaseStrength) + Race.StrengthBonus - 10.5) / 2,0) + WeaponBonus)}}%>
   | ExWeapon
 }
 
@@ -46,7 +46,7 @@ RangedWeapon(ExWeapon) {
   ProficiencyBonus = 0
   BaseDexterity = 0
   RangedBonus = 0
-  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName)%}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10.5) / 2,0) + WeaponProficiencyBonus + RangedBonus + WeaponBonus}} %>
+  ActualBonus ~ <%{% set WeaponProficiencyBonus = 0 %} {%if contains(Race.WeaponProficiencies, WeaponName) or contains(ClassWeaponProficiencies, WeaponName)%}{% set WeaponProficiencyBonus = ProficiencyBonus %}{%endif%}{{signed_modifier(round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10.5) / 2,0) + WeaponProficiencyBonus + RangedBonus + WeaponBonus)}} %>
   CalcedDamage ~ <%{{DamageRoll}}+{{round((must_be_int(BaseDexterity) + Race.DexterityBonus - 10.5) / 2,0) + WeaponBonus}}%>
   | ExWeapon
 }
