@@ -47,7 +47,7 @@ NPC5E(Character) {
 
 
   Description! ~ <%
-    <strong>{{Name.Full}}</strong>, a level {{Level}} {{Class}}.
+    <strong>{{Name.Full}}</strong>, a level {{Level}} {{Race.Title}} {{Class}}.
     {{DescriptionInscript}}
     {{capitalize(Gender.PronounSubject)}} {{Gender.Possession}} {{Appearance}}
     (<em>{{State}}</em>). {{InThePocket.Details}}
