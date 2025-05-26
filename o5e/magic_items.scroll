@@ -1786,6 +1786,7 @@ RodOfAlertness {
 }
 RodOfLordlyMight(LegendaryItem) {
     Title! ~ "Rod of lordly might"
+    | LegendaryItem
 }
 RodOfResurrection(LegendaryItem) {
     Title! ~ "Rod of resurrection"
