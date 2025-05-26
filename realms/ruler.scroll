@@ -17,7 +17,7 @@ CastleLocation {
   %>
 }
 
-Ruler { ^ [ * Noble
+Ruler { ^ [ * NoblePerson
             * Bishop
             * Monarch
             * Warexpert
