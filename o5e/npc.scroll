@@ -64,27 +64,27 @@ NPC5E(Character) {
 
     {% set SavingThrowsResult = "" %}
     {% if contains(ClassSavingThrows, "Strength") %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(StrengthModifier,""), "Strength +"+join(StrengthModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(StrengthModifier,""), "Strength "+signed_modifier(StrengthModifier)) %}
     {% endif %}
     {% if contains(ClassSavingThrows, "Dexterity") %}
     {% if SavingThrowsResult != "" %}{% set SavingThrowsResult = SavingThrowsResult + ", " %}{% endif %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(DexterityModifier,""), "Dexterity +"+join(DexterityModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(DexterityModifier,""), "Dexterity "+signed_modifier(DexterityModifier)) %}
     {% endif %}
     {% if contains(ClassSavingThrows, "Constitution") %}
     {% if SavingThrowsResult != "" %}{% set SavingThrowsResult = SavingThrowsResult + ", " %}{% endif %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(ConstitutionModifier,""), "Constitution +"+join(ConstitutionModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(ConstitutionModifier,""), "Constitution "+signed_modifier(ConstitutionModifier)) %}
     {% endif %}
     {% if contains(ClassSavingThrows, "Wisdom") %}
     {% if SavingThrowsResult != "" %}{% set SavingThrowsResult = SavingThrowsResult + ", " %}{% endif %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(WisdomModifier,""), "Wisdom +"+join(WisdomModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(WisdomModifier,""), "Wisdom "+signed_modifier(WisdomModifier)) %}
     {% endif %}
     {% if contains(ClassSavingThrows, "Intelligence") %}
     {% if SavingThrowsResult != "" %}{% set SavingThrowsResult = SavingThrowsResult + ", " %}{% endif %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(IntelligenceModifier,""), "Intelligence +"+join(IntelligenceModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(IntelligenceModifier,""), "Intelligence "+signed_modifier(IntelligenceModifier)) %}
     {% endif %}
     {% if contains(ClassSavingThrows, "Charisma") %}
     {% if SavingThrowsResult != "" %}{% set SavingThrowsResult = SavingThrowsResult + ", " %}{% endif %}
-    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(CharismaModifier,""), "Charisma +"+join(CharismaModifier,"")) %}
+    {% set SavingThrowsResult = SavingThrowsResult + dice_roller("1d20+"+join(CharismaModifier,""), "Charisma "+signed_modifier(CharismaModifier)) %}
     {% endif %}
 
     {{SavingThrowsResult}}
@@ -120,9 +120,9 @@ NPC5E(Character) {
       {% endif %}
 
       {% if exists("Skill1ProficiencyMultiplier") %}
-          {% set SkillsList = dice_roller("1d20+"+join(Skill1Modifier + ProficiencyBonus,"") ,Skill1 + " +" + join(Skill1Modifier + ProficiencyBonus,"")) %}
+          {% set SkillsList = dice_roller("1d20+"+join(Skill1Modifier + ProficiencyBonus,"") ,Skill1 + " " + signed_modifier(Skill1Modifier + ProficiencyBonus)) %}
       {% else %}
-          {% set SkillsList = dice_roller("1d20+"+join(Skill1Modifier,"") ,Skill1 + " +" + join(Skill1Modifier,"")) %}
+          {% set SkillsList = dice_roller("1d20+"+join(Skill1Modifier,"") ,Skill1 + " " + signed_modifier(Skill1Modifier)) %}
       {% endif %}
 
     {% endif %}
@@ -147,9 +147,9 @@ NPC5E(Character) {
       {% endif %}
 
       {% if exists("Skill2ProficiencyMultiplier") %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill2Modifier + ProficiencyBonus,"") ,Skill2 + " +" + join(Skill2Modifier + ProficiencyBonus,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill2Modifier + ProficiencyBonus,"") ,Skill2 + " " + signed_modifier(Skill2Modifier + ProficiencyBonus)) %}
       {% else %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill2Modifier,"") ,Skill2 + " +" + join(Skill2Modifier,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill2Modifier,"") ,Skill2 + " " + signed_modifier(Skill2Modifier)) %}
       {% endif %}
 
     {% endif %}
@@ -174,9 +174,9 @@ NPC5E(Character) {
       {% endif %}
 
       {% if exists("Skill3ProficiencyMultiplier") %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill3Modifier + ProficiencyBonus,"") ,Skill3 + " +" + join(Skill3Modifier + ProficiencyBonus,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill3Modifier + ProficiencyBonus,"") ,Skill3 + " " + signed_modifier(Skill3Modifier + ProficiencyBonus)) %}
       {% else %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill3Modifier,"") ,Skill3 + " +" + join(Skill3Modifier,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill3Modifier,"") ,Skill3 + " " + signed_modifier(Skill3Modifier)) %}
       {% endif %}
 
     {% endif %}
@@ -201,21 +201,21 @@ NPC5E(Character) {
       {% endif %}
 
       {% if exists("Skill4ProficiencyMultiplier") %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill4Modifier + ProficiencyBonus,"") ,Skill4 + " +" + join(Skill4Modifier + ProficiencyBonus,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill4Modifier + ProficiencyBonus,"") ,Skill4 + " " + signed_modifier(Skill4Modifier + ProficiencyBonus)) %}
       {% else %}
-          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill4Modifier,"") ,Skill4 + " +" + join(Skill4Modifier,"")) %}
+          {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(Skill4Modifier,"") ,Skill4 + " " + signed_modifier(Skill4Modifier)) %}
       {% endif %}
 
     {% endif %}
 
     {% if Race.class == "RaceElf" and not contains(SkillsList, "Perception") %}
       {% set SkillModifier = WisdomModifier %}
-      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(SkillModifier,""),"Perception" + " +" + join(SkillModifier,"")) %}
+      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(SkillModifier,""),"Perception" + " " + signed_modifier(SkillModifier)) %}
     {% endif %}
 
     {% if Race.class == "RaceHalfOrc" and not contains(SkillsList, "Intimidation") %}
       {% set SkillModifier = CharismaModifier %}
-      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(SkillModifier,""),"Intimidation" + " +" + join(SkillModifier,"")) %}
+      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(SkillModifier,""),"Intimidation" + " " + signed_modifier(SkillModifier)) %}
     {% endif %}
 
     {% if Race.class == "RaceHalfElf" %}
@@ -236,7 +236,7 @@ NPC5E(Character) {
       {% if contains("Deception, Intimidation, Performance, Persuasion", ExtraSkill1) %}
         {% set ExtraSkill1Modifier = CharismaModifier %}
       {% endif %}
-      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(ExtraSkill1Modifier,""),ExtraSkill1 + " +" + join(ExtraSkill1Modifier,"")) %}
+      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(ExtraSkill1Modifier,""),ExtraSkill1 + " " + signed_modifier(ExtraSkill1Modifier)) %}
 
       {% set ExtraSkill2Modifier = 0 %}
       {% if contains("Athletics", ExtraSkill2) %}
@@ -254,7 +254,7 @@ NPC5E(Character) {
       {% if contains("Deception, Intimidation, Performance, Persuasion", ExtraSkill2) %}
         {% set ExtraSkill2Modifier = CharismaModifier %}
       {% endif %}
-      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(ExtraSkill2Modifier,""),ExtraSkill2 + " +" + join(ExtraSkill2Modifier,"")) %}
+      {% set SkillsList = SkillsList + ", " + dice_roller("1d20+"+join(ExtraSkill2Modifier,""),ExtraSkill2 + " " + signed_modifier(ExtraSkill2Modifier)) %}
 
     {% endif %}
 
@@ -305,12 +305,12 @@ NPC5E(Character) {
             <table class="statblock-table">
                 <tr><th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th></tr>
                 <tr>
-                <td>{{Strength}} <small> {{StrengthModifier}} </small> </td>
-                <td>{{Dexterity}} <small> {{DexterityModifier}} </small> </td>
-                <td>{{Constitution}} <small> {{ConstitutionModifier}} </small> </td>
-                <td>{{Intelligence}} <small> {{IntelligenceModifier}} </small> </td>
-                <td>{{Wisdom}} <small> {{WisdomModifier}} </small> </td>
-                <td>{{Charisma}} <small> {{CharismaModifier}} </small> </td>
+                <td>{{Strength}} <small> {{signed_modifier(StrengthModifier)}} </small> </td>
+                <td>{{Dexterity}} <small> {{signed_modifier(DexterityModifier)}} </small> </td>
+                <td>{{Constitution}} <small> {{signed_modifier(ConstitutionModifier)}} </small> </td>
+                <td>{{Intelligence}} <small> {{signed_modifier(IntelligenceModifier)}} </small> </td>
+                <td>{{Wisdom}} <small> {{signed_modifier(WisdomModifier)}} </small> </td>
+                <td>{{Charisma}} <small> {{signed_modifier(CharismaModifier)}} </small> </td>
                 </tr>
             </table>
             <div>
@@ -355,7 +355,7 @@ NPC5E(Character) {
                 {% if exists("Cantrips") %}
                 <li>{{Cantrips}}</li>
                 {% endif %}
-                <li>{{Weapon.Stats}} {%if exists("WeaponActionExtension")%}{{WeaponActionExtension}}{%endif%}</li>
+                <li> {{Weapon.Stats}} {%if exists("WeaponActionExtension")%}{{WeaponActionExtension}}{%endif%}</li>
                 {% if existsIn(Race, "Actions") %}
                   {{Race.Actions}}
                 {% endif %}
