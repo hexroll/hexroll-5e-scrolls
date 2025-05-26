@@ -3,6 +3,8 @@ Druid(NPC5E) {
   Class! = "Druid"
   ExtraLanguages = "Druidic"
 
+  WeaponBonus = 0
+
   Weapon @ ExWeapon {
     ClassWeaponProficiencies = "Club, Dagger, Javelin, Mace, Quarterstaff, Scimitar, Sickle, Sling, Spear"
     ProficiencyBonus = &ProficiencyBonus
@@ -306,6 +308,7 @@ DruidLevel1(Druid) {
     Level9Slots = 0
 
     DruidCircle @ DruidCircleLevel1
+    MagicItem = null
     | Druid
 }
 
@@ -375,6 +378,7 @@ DruidLevel2(Druid) {
         * Beast Shape - Riding Horse
     ]
     DruidCircle @ DruidCircleLevel2
+    MagicItem = null
     | Druid
 }
 
@@ -444,6 +448,7 @@ DruidLevel3(Druid) {
         * Beast Shape - Riding Horse
     ]
     DruidCircle @ DruidCircleLevel3
+    MagicItem = null
     | Druid
 }
 
@@ -479,6 +484,7 @@ DruidLevel4(Druid) {
         * Beast Shape - Reef Shark
     ]
     DruidCircle @ DruidCircleLevel4
+    MagicItem = null
     | Druid
 }
 
@@ -514,6 +520,7 @@ DruidLevel5(Druid) {
         * Beast Shape - Reef Shark
     ]
     DruidCircle @ DruidCircleLevel5
+    MagicItem = null
     | Druid
 }
 
@@ -549,6 +556,7 @@ DruidLevel6(Druid) {
     ]
 
     DruidCircle @ DruidCircleLevel6
+    MagicItem = null
     | Druid
 }
 
@@ -583,6 +591,7 @@ DruidLevel7(Druid) {
         * Beast Shape - Reef Shark
     ]
     DruidCircle @ DruidCircleLevel7
+    MagicItem = null
     | Druid
 }
 
@@ -627,6 +636,7 @@ DruidLevel8(Druid) {
     ]
 
     DruidCircle @ DruidCircleLevel8
+    MagicItem = null
     | Druid
 }
 
@@ -671,6 +681,7 @@ DruidLevel9(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel9
+    MagicItem = null
     | Druid
 }
 
@@ -714,6 +725,7 @@ DruidLevel10(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel10
+    MagicItem = null
     | Druid
 }
 
@@ -757,6 +769,7 @@ DruidLevel11(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel11
+    MagicItem = null
     | Druid
 }
 
@@ -800,6 +813,7 @@ DruidLevel12(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel12
+    MagicItem = null
     | Druid
 }
 
@@ -843,6 +857,7 @@ DruidLevel13(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel13
+    MagicItem = null
     | Druid
 }
 
@@ -886,6 +901,7 @@ DruidLevel14(Druid) {
         * Beast Shape - Wolf
     ]
     DruidCircle @ DruidCircleLevel14
+    MagicItem = null
     | Druid
 }
 

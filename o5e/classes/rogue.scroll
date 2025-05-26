@@ -104,6 +104,7 @@ RogueLevel1(Rogue) {
     ThievesToolMultiplier = 2
     Skill1ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -126,6 +127,7 @@ RogueLevel2(Rogue) {
     ThievesToolMultiplier = 2
     Skill1ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -147,6 +149,7 @@ RogueLevel3(Rogue) {
     ThievesToolMultiplier = 2
     Skill1ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -168,6 +171,7 @@ RogueLevel4(Rogue) {
     ThievesToolMultiplier = 2
     Skill1ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -189,6 +193,7 @@ RogueLevel5(Rogue) {
     ThievesToolMultiplier = 2
     Skill1ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -211,6 +216,7 @@ RogueLevel6(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 0
@@ -233,6 +239,7 @@ RogueLevel7(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 1
@@ -255,6 +262,7 @@ RogueLevel8(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 1
@@ -277,6 +285,7 @@ RogueLevel9(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 1
@@ -299,6 +308,7 @@ RogueLevel10(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 1
@@ -321,6 +331,7 @@ RogueLevel11(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 2
@@ -343,6 +354,7 @@ RogueLevel12(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 2
@@ -365,6 +377,7 @@ RogueLevel13(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 2
@@ -387,6 +400,7 @@ RogueLevel14(Rogue) {
     Skill1ProficiencyMultiplier = 1
     Skill2ProficiencyMultiplier = 1
 
+    MagicItem = null
     | Rogue
 
     WeaponBonus = 2

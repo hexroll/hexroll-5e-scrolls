@@ -334,6 +334,7 @@ ClericLevel1(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel1
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -362,6 +363,7 @@ ClericLevel2(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel2
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -390,6 +392,7 @@ ClericLevel3(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel3
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -418,6 +421,7 @@ ClericLevel4(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel4
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -446,6 +450,7 @@ ClericLevel5(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel5
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -475,6 +480,7 @@ ClericLevel6(Cleric) {
 
 
     ClericDomain @ ClericDomainLevel6
+    MagicItem = null
     | Cleric
     WeaponBonus = 0
 }
@@ -503,6 +509,7 @@ ClericLevel7(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel7
+    MagicItem = null
     | Cleric
     WeaponBonus = 1
 }
@@ -532,6 +539,7 @@ ClericLevel8(Cleric) {
 
 
     ClericDomain @ ClericDomainLevel8
+    MagicItem = null
     | Cleric
     WeaponBonus = 1
 }
@@ -561,6 +569,7 @@ ClericLevel9(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel9
+    MagicItem = null
     | Cleric
     WeaponBonus = 1
 }
@@ -589,6 +598,7 @@ ClericLevel10(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel10
+    MagicItem = null
     | Cleric
     WeaponBonus = 1
 }
@@ -617,6 +627,7 @@ ClericLevel11(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel11
+    MagicItem = null
     | Cleric
     WeaponBonus = 1
 }
@@ -645,6 +656,7 @@ ClericLevel12(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel12
+    MagicItem = null
     | Cleric
     WeaponBonus = 2
 }
@@ -673,6 +685,7 @@ ClericLevel13(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel13
+    MagicItem = null
     | Cleric
     WeaponBonus = 2
 }
@@ -701,6 +714,7 @@ ClericLevel14(Cleric) {
     Level9Slots = 0
 
     ClericDomain @ ClericDomainLevel14
+    MagicItem = null
     | Cleric
     WeaponBonus = 2
 }
